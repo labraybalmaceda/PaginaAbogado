@@ -23,7 +23,7 @@ const Hero: React.FC = () => {
         >
             <div className="container mx-auto text-center z-10 max-w-5xl">
                 <span className="inline-block px-5 py-2 mb-8 text-[10px] sm:text-xs font-bold uppercase tracking-[0.3em] text-brand-gold bg-brand-gold/10 backdrop-blur-sm rounded-full border border-brand-gold/30">
-                    ABOGADOS EN PUERTO MONTT Y PUERTO VARAS
+                    ABOGADOS EN PUERTO VARAS Y PUERTO MONTT
                 </span>
 
                 <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-4 tracking-tighter uppercase text-white font-baskerville not-italic">

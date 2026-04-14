@@ -50,13 +50,13 @@ const Footer: React.FC = () => {
                             <div>
                                 <p className="text-sm">
                                     <span className="block text-brand-gold font-semibold mb-1">Email:</span>
-                                    <a href="mailto:labrabalmaceda.estudiojuridico@gmail.com" className="hover:text-brand-gold transition break-all">
-                                        labrabalmaceda.estudiojuridico@gmail.com
+                                    <a href="mailto:labraybalmaceda@gmail.com" className="hover:text-brand-gold transition break-all">
+                                        labraybalmaceda@gmail.com
                                     </a>
                                 </p>
                             </div>
                             <p className="text-xs italic opacity-80">
-                                Puerto Montt, Región de Los Lagos
+                                Puerto Varas y Puerto Montt, Región de Los Lagos
                             </p>
                             
                             {/* Redes Sociales */}
@@ -88,7 +88,7 @@ const Footer: React.FC = () => {
                         <div>
                             <h4 className="text-sm font-bold mb-4 text-white uppercase tracking-widest font-baskerville not-italic">Zonas de cobertura</h4>
                             <p className="text-sm leading-relaxed">
-                                Puerto Montt · Puerto Varas · Llanquihue <br />
+                                Puerto Varas · Puerto Montt · Llanquihue <br />
                                 <span className="text-xs opacity-70">y otras comunas de la Región de Los Lagos</span>
                             </p>
                         </div>

@@ -118,7 +118,7 @@ const ConsultationForm: React.FC = () => {
                             </div>
                              <div className="space-y-2">
                                 <label htmlFor="ciudad" className="block text-[11px] font-bold text-brand-black uppercase tracking-[0.2em]">Ciudad <span className="text-brand-gold">*</span></label>
-                                <input type="text" id="ciudad" name="ciudad" value={formData.ciudad} onChange={handleChange} required placeholder="Ej: Puerto Montt, Puerto Varas, Osorno..." className="w-full px-5 py-4 border-2 border-gray-100 rounded-xl focus:border-brand-gold focus:ring-0 transition bg-gray-50 text-brand-black font-semibold"/>
+                                <input type="text" id="ciudad" name="ciudad" value={formData.ciudad} onChange={handleChange} required placeholder="Ej: Puerto Varas, Puerto Montt, Osorno..." className="w-full px-5 py-4 border-2 border-gray-100 rounded-xl focus:border-brand-gold focus:ring-0 transition bg-gray-50 text-brand-black font-semibold"/>
                                 {errors.ciudad && <p className="text-red-500 text-[10px] font-bold uppercase mt-1">{errors.ciudad}</p>}
                             </div>
                         </div>
