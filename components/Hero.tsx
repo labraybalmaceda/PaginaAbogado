@@ -58,7 +58,7 @@ const Hero: React.FC = () => {
                 </div>
 
                 <p className="text-gray-400 text-xs sm:text-sm font-medium italic">
-                    Sin compromiso. Te indicamos si tu caso requiere <span className="text-gray-300 font-bold">mediación, demanda o negociación.</span>
+                    Te indicamos si tu caso requiere <span className="text-gray-300 font-bold">mediación, demanda o negociación.</span>
                 </p>
             </div>
             
