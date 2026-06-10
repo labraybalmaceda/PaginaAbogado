@@ -32,7 +32,7 @@ const Hero: React.FC = () => {
 
                 <h2 className="text-xl sm:text-3xl md:text-4xl font-light mb-8 text-gray-100 max-w-4xl mx-auto leading-tight">
                     Ordenamos tu caso y tu patrimonio: <br className="hidden sm:block" />
-                    <span className="font-bold text-brand-gold">familia, contratos, arriendos e insolvencia.</span>
+                    <span className="font-bold text-brand-gold">contratos, arriendos, insolvencia y familia.</span>
                 </h2>
 
                 <div className="text-base sm:text-lg md:text-xl mb-12 text-gray-400 max-w-3xl mx-auto space-y-2">
