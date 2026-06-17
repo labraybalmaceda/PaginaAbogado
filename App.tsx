@@ -13,9 +13,13 @@ import WhatsAppButton from './components/WhatsAppButton';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import Thanks from './components/Thanks';
 import CookieBanner from './components/CookieBanner';
+import CivilPage from './components/CivilPage';
+import FamiliaPage from './components/FamiliaPage';
+import ArriendosPage from './components/ArriendosPage';
+import InsolvenciaPage from './components/InsolvenciaPage';
 
 const App: React.FC = () => {
-    const [view, setView] = useState<'main' | 'privacy' | 'thanks'>('main');
+    const [view, setView] = useState<'main' | 'privacy' | 'thanks' | 'civil' | 'familia' | 'arriendos' | 'insolvencia'>('main');
 
     useEffect(() => {
         const handleLocationChange = () => {
@@ -24,6 +28,14 @@ const App: React.FC = () => {
                 setView('privacy');
             } else if (path === '/gracias') {
                 setView('thanks');
+            } else if (path === '/abogado-civil-puerto-montt') {
+                setView('civil');
+            } else if (path === '/abogado-familia-puerto-montt') {
+                setView('familia');
+            } else if (path === '/abogado-arriendo-puerto-montt') {
+                setView('arriendos');
+            } else if (path === '/abogado-insolvencia-puerto-montt') {
+                setView('insolvencia');
             } else {
                 setView('main');
             }
@@ -41,6 +53,22 @@ const App: React.FC = () => {
 
     if (view === 'thanks') {
         return <Thanks />;
+    }
+
+    if (view === 'civil') {
+        return <CivilPage />;
+    }
+
+    if (view === 'familia') {
+        return <FamiliaPage />;
+    }
+
+    if (view === 'arriendos') {
+        return <ArriendosPage />;
+    }
+
+    if (view === 'insolvencia') {
+        return <InsolvenciaPage />;
     }
 
     return (

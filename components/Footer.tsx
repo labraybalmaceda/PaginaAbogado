@@ -96,12 +96,12 @@ const Footer: React.FC = () => {
 
                     {/* Columna Especialidades */}
                     <div>
-                        <h4 className="text-sm font-bold mb-4 text-white uppercase tracking-widest font-baskerville not-italic">Áreas de práctica</h4>
+                        <h4 className="text-sm font-bold mb-4 text-white uppercase tracking-widest font-baskerville not-italic">Servicios</h4>
                         <ul className="space-y-3 text-sm">
-                            <li><a href="#practicas" className="hover:text-brand-gold transition" onClick={() => trackNavClick('Footer Area Familia')}>Familia</a></li>
-                            <li><a href="#practicas" className="hover:text-brand-gold transition" onClick={() => trackNavClick('Footer Area Civil')}>Civil</a></li>
-                            <li><a href="#practicas" className="hover:text-brand-gold transition" onClick={() => trackNavClick('Footer Area Arrendamientos')}>Arrendamientos</a></li>
-                            <li><a href="#practicas" className="hover:text-brand-gold transition" onClick={() => trackNavClick('Footer Area Insolvencia')}>Insolvencia y deudas</a></li>
+                            <li><a href="/abogado-civil-puerto-montt" className="hover:text-brand-gold transition" onClick={(e) => { e.preventDefault(); handleNavigate('/abogado-civil-puerto-montt'); trackNavClick('Footer Area Civil'); }}>Derecho Civil</a></li>
+                            <li><a href="/abogado-arriendo-puerto-montt" className="hover:text-brand-gold transition" onClick={(e) => { e.preventDefault(); handleNavigate('/abogado-arriendo-puerto-montt'); trackNavClick('Footer Area Arrendamientos'); }}>Arrendamientos</a></li>
+                            <li><a href="/abogado-familia-puerto-montt" className="hover:text-brand-gold transition" onClick={(e) => { e.preventDefault(); handleNavigate('/abogado-familia-puerto-montt'); trackNavClick('Footer Area Familia'); }}>Derecho de Familia</a></li>
+                            <li><a href="/abogado-insolvencia-puerto-montt" className="hover:text-brand-gold transition" onClick={(e) => { e.preventDefault(); handleNavigate('/abogado-insolvencia-puerto-montt'); trackNavClick('Footer Area Insolvencia'); }}>Insolvencia y Deudas</a></li>
                         </ul>
                     </div>
                 </div>
