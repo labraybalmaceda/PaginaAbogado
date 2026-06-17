@@ -5,11 +5,13 @@ import WhatsAppButton from './WhatsAppButton';
 
 const InsolvenciaPage: React.FC = () => {
     useEffect(() => {
-        document.title = "Ley de Insolvencia y Defensa de Deudores en Puerto Montt | Labra & Balmaceda";
+        document.title = "Abogado de Insolvencia y Deudas en Puerto Montt | Labra & Balmaceda";
         const metaDescription = document.querySelector('meta[name="description"]');
         if (metaDescription) {
             metaDescription.setAttribute('content', "Abogados especialistas en insolvencia y deudas en Puerto Montt. Renegociación, liquidación voluntaria y defensa ante cobranzas judiciales. Consulta online.");
         }
+        let canonical = document.querySelector('link[rel="canonical"]');
+        if (canonical) canonical.setAttribute('href', 'https://www.labraybalmaceda.cl/abogado-insolvencia-puerto-montt');
     }, []);
 
     const handleCTA = () => {

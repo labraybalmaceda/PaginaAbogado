@@ -5,11 +5,13 @@ import WhatsAppButton from './WhatsAppButton';
 
 const CivilPage: React.FC = () => {
     useEffect(() => {
-        document.title = "Derecho Civil y Litigios en Puerto Montt y Puerto Varas | Labra & Balmaceda";
+        document.title = "Abogado Civil en Puerto Montt y Puerto Varas | Labra & Balmaceda";
         const metaDescription = document.querySelector('meta[name="description"]');
         if (metaDescription) {
             metaDescription.setAttribute('content', "Abogados especialistas en Derecho Civil en Puerto Montt y Puerto Varas. Herencias, posesiones efectivas, precarios, juicios de arrendamiento e indemnizaciones. Consulta online.");
         }
+        let canonical = document.querySelector('link[rel="canonical"]');
+        if (canonical) canonical.setAttribute('href', 'https://www.labraybalmaceda.cl/abogado-civil-puerto-montt');
     }, []);
 
     const handleCTA = () => {

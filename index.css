@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@theme {
+  --font-baskerville: "Libre Baskerville", serif;
+  --color-brand-black: #111111;
+  --color-brand-gold: #C5A059;
+  --color-neutro-gris: #6B7280;
+  --color-whatsapp-verde: #25D366;
+  --animate-pulse-sutil: pulse-sutil 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-badge-pulse: badge-pulse 2s infinite;
+}
+
+@keyframes pulse-sutil {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .7;
+  }
+}
+
+@keyframes badge-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(197, 160, 89, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(197, 160, 89, 0);
+  }
+}

@@ -5,11 +5,13 @@ import WhatsAppButton from './WhatsAppButton';
 
 const FamiliaPage: React.FC = () => {
     useEffect(() => {
-        document.title = "Derecho de Familia en Puerto Montt y Puerto Varas | Labra & Balmaceda";
+        document.title = "Abogado de Familia en Puerto Montt y Puerto Varas | Labra & Balmaceda";
         const metaDescription = document.querySelector('meta[name="description"]');
         if (metaDescription) {
             metaDescription.setAttribute('content', "Abogados de familia en Puerto Montt y Puerto Varas. Pensiones de alimentos, divorcio, cuidado personal, relación directa y regular. Atención online. Consulta hoy.");
         }
+        let canonical = document.querySelector('link[rel="canonical"]');
+        if (canonical) canonical.setAttribute('href', 'https://www.labraybalmaceda.cl/abogado-familia-puerto-montt');
     }, []);
 
     const handleCTA = () => {

@@ -5,11 +5,13 @@ import WhatsAppButton from './WhatsAppButton';
 
 const ArriendosPage: React.FC = () => {
     useEffect(() => {
-        document.title = "Juicios de Arriendo en Puerto Montt y Puerto Varas | Labra & Balmaceda";
+        document.title = "Abogado de Arriendos en Puerto Montt y Puerto Varas | Labra & Balmaceda";
         const metaDescription = document.querySelector('meta[name="description"]');
         if (metaDescription) {
             metaDescription.setAttribute('content', "Abogados especialistas en arriendos en Puerto Montt y Puerto Varas. Cobramos arriendos impagos, tramitamos lanzamientos y defendemos a arrendatarios. Consulta online.");
         }
+        let canonical = document.querySelector('link[rel="canonical"]');
+        if (canonical) canonical.setAttribute('href', 'https://www.labraybalmaceda.cl/abogado-arriendo-puerto-montt');
     }, []);
 
     const handleCTA = () => {
