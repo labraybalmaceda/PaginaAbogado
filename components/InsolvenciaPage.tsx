@@ -10,8 +10,13 @@ const InsolvenciaPage: React.FC = () => {
         if (metaDescription) {
             metaDescription.setAttribute('content', "Abogados especialistas en insolvencia y deudas en Puerto Montt. Renegociación, liquidación voluntaria y defensa ante cobranzas judiciales. Consulta online.");
         }
-        let canonical = document.querySelector('link[rel="canonical"]');
+        const canonical = document.querySelector('link[rel="canonical"]');
         if (canonical) canonical.setAttribute('href', 'https://www.labraybalmaceda.cl/abogado-insolvencia-puerto-montt');
+
+        return () => {
+            const canonical = document.querySelector('link[rel="canonical"]');
+            if (canonical) canonical.setAttribute('href', 'https://www.labraybalmaceda.cl');
+        };
     }, []);
 
     const handleCTA = () => {

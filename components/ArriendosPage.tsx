@@ -10,8 +10,13 @@ const ArriendosPage: React.FC = () => {
         if (metaDescription) {
             metaDescription.setAttribute('content', "Abogados especialistas en arriendos en Puerto Montt y Puerto Varas. Cobramos arriendos impagos, tramitamos lanzamientos y defendemos a arrendatarios. Consulta online.");
         }
-        let canonical = document.querySelector('link[rel="canonical"]');
+        const canonical = document.querySelector('link[rel="canonical"]');
         if (canonical) canonical.setAttribute('href', 'https://www.labraybalmaceda.cl/abogado-arriendo-puerto-montt');
+
+        return () => {
+            const canonical = document.querySelector('link[rel="canonical"]');
+            if (canonical) canonical.setAttribute('href', 'https://www.labraybalmaceda.cl');
+        };
     }, []);
 
     const handleCTA = () => {

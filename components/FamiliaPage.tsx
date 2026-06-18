@@ -10,8 +10,13 @@ const FamiliaPage: React.FC = () => {
         if (metaDescription) {
             metaDescription.setAttribute('content', "Abogados de familia en Puerto Montt y Puerto Varas. Pensiones de alimentos, divorcio, cuidado personal, relación directa y regular. Atención online. Consulta hoy.");
         }
-        let canonical = document.querySelector('link[rel="canonical"]');
+        const canonical = document.querySelector('link[rel="canonical"]');
         if (canonical) canonical.setAttribute('href', 'https://www.labraybalmaceda.cl/abogado-familia-puerto-montt');
+
+        return () => {
+            const canonical = document.querySelector('link[rel="canonical"]');
+            if (canonical) canonical.setAttribute('href', 'https://www.labraybalmaceda.cl');
+        };
     }, []);
 
     const handleCTA = () => {
