@@ -3,6 +3,11 @@ import React, { useEffect } from 'react';
 const Thanks: React.FC = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
+        if (typeof (window as any).gtag === 'function') {
+            (window as any).gtag('event', 'conversion', {
+                'send_to': 'AW-18229137722/fD8QCK2phMEcELqiqvRD'
+            });
+        }
     }, []);
 
     const handleBack = (e: React.MouseEvent) => {
