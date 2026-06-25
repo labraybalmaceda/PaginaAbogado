@@ -5,7 +5,9 @@ const Thanks: React.FC = () => {
         window.scrollTo(0, 0);
         if (typeof (window as any).gtag === 'function') {
             (window as any).gtag('event', 'conversion', {
-                'send_to': 'AW-18229137722/fD8QCK2phMEcELqiqvRD'
+                'send_to': 'AW-18229137722/gRs4CNjg3sUcELqiqvRD',
+                'value': 1.0,
+                'currency': 'CLP'
             });
         }
     }, []);
