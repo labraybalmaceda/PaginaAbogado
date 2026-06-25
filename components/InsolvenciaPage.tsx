@@ -54,9 +54,8 @@ const InsolvenciaPage: React.FC = () => {
                         </h1>
                         
                         <div className="space-y-5 sm:space-y-6 text-[15px] sm:text-lg mb-10 sm:mb-12 leading-relaxed text-gray-700">
-                            <p>
-                                Cuando las deudas superan la capacidad de pago, la Ley N° 20.720 de Insolvencia y Reemprendimiento ofrece procedimientos concretos para personas y empresas. No para evadir las deudas, sino para ordenar la situación y, cuando es posible, continuar funcionando.
-                            </p>
+                            <p>Cuando las deudas superan la capacidad de pago, la Ley N° 20.720 de Insolvencia y Reemprendimiento ofrece procedimientos concretos para personas y empresas. No para evadir las deudas, sino para ordenar la situación y, cuando es posible, continuar funcionando.</p>
+                            <p>Lo primero es evaluar qué alternativa conviene más: renegociación, liquidación, o defender el caso judicial que ya está en curso. Cada situación es distinta, y la decisión correcta depende de cuántas deudas hay, con quiénes, y qué bienes están en riesgo.</p>
                         </div>
                         
                         <h2 className="text-xl sm:text-2xl font-bold font-baskerville mb-5 sm:mb-6 text-center sm:text-left">Materias que cubrimos</h2>

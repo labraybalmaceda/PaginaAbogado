@@ -54,9 +54,8 @@ const CivilPage: React.FC = () => {
                         </h1>
                         
                         <div className="space-y-5 sm:space-y-6 text-[15px] sm:text-lg mb-10 sm:mb-12 leading-relaxed text-gray-700">
-                            <p>
-                                Los conflictos civiles rara vez llegan solos: una herencia en disputa, o una deuda que alguien niega haber contraído. En Labra & Balmaceda representamos tanto a demandantes como a demandados.
-                            </p>
+                            <p>Los conflictos civiles rara vez llegan solos: una herencia que los hermanos no logran dividir, una deuda que alguien niega haber contraído, un familiar que ocupa una propiedad sin título. En Labra & Balmaceda representamos tanto a demandantes como a demandados.</p>
+                            <p>Antes de recomendar una demanda, evaluamos contigo si el caso justifica litigar: qué prueba tienes disponible, cuánto tiempo puede tomar el proceso, y si hay bienes del otro lado que permitan cobrar una sentencia. Un juicio que no se puede ejecutar no sirve de nada.</p>
                         </div>
                         
                         <h2 className="text-xl sm:text-2xl font-bold font-baskerville mb-5 sm:mb-6 text-center sm:text-left">Materias que cubrimos</h2>

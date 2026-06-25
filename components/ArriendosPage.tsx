@@ -54,9 +54,8 @@ const ArriendosPage: React.FC = () => {
                         </h1>
                         
                         <div className="space-y-5 sm:space-y-6 text-[15px] sm:text-lg mb-10 sm:mb-12 leading-relaxed text-gray-700">
-                            <p>
-                                Un arrendatario que deja de pagar o que simplemente no se va es uno de los problemas más frustrantes para un propietario: el inmueble está ocupado, las rentas no llegan, y el proceso judicial tarda. En Labra & Balmaceda llevamos estos casos desde la demanda hasta el lanzamiento.
-                            </p>
+                            <p>Un arrendatario que deja de pagar o que simplemente no se va es uno de los problemas más frustrantes para un propietario: el inmueble está ocupado, las rentas no llegan, y el proceso judicial tarda. En Labra & Balmaceda llevamos estos casos desde la demanda hasta el lanzamiento.</p>
+                            <p>El plazo depende del tipo de conflicto. Un caso de no pago bajo la Ley Devuélveme mi Casa puede resolverse en meses. Un juicio con más complejidad — daños al inmueble, vicios del contrato, ocupación sin título — toma más tiempo. Lo primero es saber exactamente en qué tipo de caso estás.</p>
                         </div>
                         
                         <h2 className="text-xl sm:text-2xl font-bold font-baskerville mb-5 sm:mb-6 text-center sm:text-left">Materias que cubrimos</h2>
