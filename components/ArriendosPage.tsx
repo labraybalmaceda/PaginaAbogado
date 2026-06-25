@@ -78,6 +78,24 @@ const ArriendosPage: React.FC = () => {
                             </p>
                         </div>
 
+                        <h2 className="text-xl sm:text-2xl font-bold font-baskerville mb-5 sm:mb-6 text-center sm:text-left">Preguntas frecuentes</h2>
+                        <div className="space-y-6 mb-10 sm:mb-12 text-sm sm:text-base text-gray-600 leading-relaxed font-medium">
+                            <div>
+                                <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-lg">¿Es rápido recuperar mi propiedad cuando el arrendatario no paga?</h3>
+                                <p>Cuando el problema es solo el no pago de las rentas, el proceso se rige por las modificaciones de la Ley Devuélveme mi casa, que estableció un procedimiento sumamente rápido para estos casos. Cuando el conflicto es por otras materias, como vicios del contrato o daños al inmueble, el proceso es distinto y suele tomar más tiempo. Para saber por qué vía va tu caso, contáctanos.</p>
+                            </div>
+
+                            <div>
+                                <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-lg">¿Puedo demandar si el contrato de arriendo es solo verbal?</h3>
+                                <p>La dificultad está en probar los términos acordados. Los pagos por transferencia, mensajes o testigos son elementos útiles para demostrar la existencia y las condiciones del contrato. Para evaluar en qué situación estás y con qué pruebas cuentas, agenda una consulta con nosotros.</p>
+                            </div>
+
+                            <div>
+                                <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-lg">¿Qué pasa si el arrendatario se niega a irse, aunque haya sentencia?</h3>
+                                <p>El tribunal puede ordenar el lanzamiento con auxilio de Carabineros. Para coordinar este proceso en tu caso, contáctanos.</p>
+                            </div>
+                        </div>
+
                         <div className="text-center pt-8 sm:pt-10 border-t border-gray-100">
                             <button onClick={handleCTA} className="w-full sm:w-auto px-6 py-4 sm:px-10 sm:py-5 text-[13px] sm:text-lg font-bold uppercase tracking-widest rounded-xl bg-brand-black text-white hover:bg-brand-gold transition-all duration-300 shadow-xl hover:shadow-2xl mx-auto block">
                                 Solicitar consulta

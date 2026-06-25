@@ -78,6 +78,29 @@ const FamiliaPage: React.FC = () => {
                             </p>
                         </div>
 
+                        <h2 className="text-xl sm:text-2xl font-bold font-baskerville mb-5 sm:mb-6 text-center sm:text-left">Preguntas frecuentes</h2>
+                        <div className="space-y-6 mb-10 sm:mb-12 text-sm sm:text-base text-gray-600 leading-relaxed font-medium">
+                            <div>
+                                <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-lg">¿Qué pasa si el papá o la mamá no paga la pensión de alimentos?</h3>
+                                <p>La ley tiene herramientas concretas para cobrar. El tribunal puede ordenar que se retenga el dinero directamente desde las cuentas bancarias del deudor y, si ahí no hay fondos, incluso desde sus ahorros en la AFP. A eso se suman medidas de presión como el arresto nocturno, la suspensión de la licencia de conducir y el arraigo nacional, que le impide salir del país. Si tienes una pensión que no te están pagando, contáctanos y vemos qué medida conviene activar primero.</p>
+                            </div>
+
+                            <div>
+                                <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-lg">¿Necesito la autorización del otro padre para salir del país con mi hijo?</h3>
+                                <p>Sí. Para que un niño salga de Chile se requiere el permiso del padre o madre que no viaja. Si esa persona no lo da de forma voluntaria, se puede pedir la autorización directamente al tribunal de familia. Este trámite toma tiempo, así que conviene iniciarlo con buena antelación a la fecha del vuelo. Si tienes un viaje programado, escríbenos con tiempo para gestionarlo.</p>
+                            </div>
+
+                            <div>
+                                <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-lg">¿Siempre hay que ir a mediación antes del juicio de alimentos?</h3>
+                                <p>Sí, en materia de alimentos, cuidado personal y relación directa y regular, la mediación previa es obligatoria.</p>
+                            </div>
+
+                            <div>
+                                <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-lg">¿Cada cuánto puedo pedir un aumento de la pensión de alimentos?</h3>
+                                <p>No hay un plazo fijo de espera. Lo que importa es que las circunstancias hayan cambiado: si tu hijo tiene nuevas necesidades, si tu situación económica se ha deteriorado, o si la del otro padre ha mejorado, vale la pena revisar el monto. Para evaluar si en tu caso corresponde pedir un aumento, agenda una consulta con nosotros.</p>
+                            </div>
+                        </div>
+
                         <div className="text-center pt-8 sm:pt-10 border-t border-gray-100">
                             <button onClick={handleCTA} className="w-full sm:w-auto px-6 py-4 sm:px-10 sm:py-5 text-[13px] sm:text-lg font-bold uppercase tracking-widest rounded-xl bg-brand-black text-white hover:bg-brand-gold transition-all duration-300 shadow-xl hover:shadow-2xl mx-auto block">
                                 Solicitar consulta

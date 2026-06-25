@@ -75,6 +75,24 @@ const InsolvenciaPage: React.FC = () => {
                             </p>
                         </div>
 
+                        <h2 className="text-xl sm:text-2xl font-bold font-baskerville mb-5 sm:mb-6 text-center sm:text-left">Preguntas frecuentes</h2>
+                        <div className="space-y-6 mb-10 sm:mb-12 text-sm sm:text-base text-gray-600 leading-relaxed font-medium">
+                            <div>
+                                <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-lg">¿La renegociación de deudas afecta mi historial crediticio?</h3>
+                                <p>Iniciar un procedimiento concursal queda registrado en el Boletín Concursal, que es público. Pero en la práctica, muchas personas que llegan a este punto ya figuran con deudas en mora por otras vías. Lo importante es ver, en tu caso concreto, qué alternativa te conviene más. Conversémoslo en una consulta.</p>
+                            </div>
+
+                            <div>
+                                <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-lg">¿Puedo conservar mi vivienda si inicio una liquidación?</h3>
+                                <p>Depende de cada situación. La protección de la vivienda no es automática: se evalúa caso a caso, considerando factores como su avalúo y la fecha de las deudas. Antes de tomar cualquier decisión, conviene analizar tu caso en detalle para saber qué riesgos existen. Escríbenos y lo revisamos.</p>
+                            </div>
+
+                            <div>
+                                <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-lg">¿Desde cuándo se frenan los embargos si inicio un procedimiento concursal?</h3>
+                                <p>Los embargos y cobros no se detienen por el solo hecho de presentar los antecedentes. La suspensión opera una vez que el procedimiento es formalmente admitido o declarado, según el caso. Para saber si tu situación califica y desde cuándo quedarías protegido, contáctanos.</p>
+                            </div>
+                        </div>
+
                         <div className="text-center pt-8 sm:pt-10 border-t border-gray-100">
                             <button onClick={handleCTA} className="w-full sm:w-auto px-6 py-4 sm:px-10 sm:py-5 text-[13px] sm:text-lg font-bold uppercase tracking-widest rounded-xl bg-brand-black text-white hover:bg-brand-gold transition-all duration-300 shadow-xl hover:shadow-2xl mx-auto block">
                                 Solicitar consulta
