@@ -47,29 +47,12 @@ const App: React.FC = () => {
         return () => window.removeEventListener('popstate', handleLocationChange);
     }, []);
 
-    if (view === 'privacy') {
-        return <PrivacyPolicy />;
-    }
-
-    if (view === 'thanks') {
-        return <Thanks />;
-    }
-
-    if (view === 'civil') {
-        return <CivilPage />;
-    }
-
-    if (view === 'familia') {
-        return <FamiliaPage />;
-    }
-
-    if (view === 'arriendos') {
-        return <ArriendosPage />;
-    }
-
-    if (view === 'insolvencia') {
-        return <InsolvenciaPage />;
-    }
+    if (view === 'privacy') return <><PrivacyPolicy /><CookieBanner /></>;
+    if (view === 'thanks') return <><Thanks /><CookieBanner /></>;
+    if (view === 'civil') return <><CivilPage /><CookieBanner /></>;
+    if (view === 'familia') return <><FamiliaPage /><CookieBanner /></>;
+    if (view === 'arriendos') return <><ArriendosPage /><CookieBanner /></>;
+    if (view === 'insolvencia') return <><InsolvenciaPage /><CookieBanner /></>;
 
     return (
         <>
