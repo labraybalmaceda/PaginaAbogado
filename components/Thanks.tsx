@@ -4,6 +4,10 @@ const Thanks: React.FC = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
         if (typeof (window as any).gtag === 'function') {
+            (window as any).gtag('consent', 'update', {
+                'ad_storage': 'granted',
+                'ad_user_data': 'granted',
+            });
             (window as any).gtag('event', 'conversion', {
                 'send_to': 'AW-18229137722/gRs4CNjg3sUcELqiqvRD',
                 'value': 1.0,
