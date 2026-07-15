@@ -38,6 +38,12 @@ const App: React.FC = () => {
                 setView('insolvencia');
             } else {
                 setView('main');
+                if (window.location.hash) {
+                    setTimeout(() => {
+                        const el = document.getElementById(window.location.hash.substring(1));
+                        if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    }, 100);
+                }
             }
         };
 
