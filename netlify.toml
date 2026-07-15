@@ -1,3 +1,15 @@
+# IMPORTANTE: el Prerendering NO se configura en este archivo.
+# El prerendering legacy de Netlify esta DEPRECADO (dejo de funcionar en planes
+# Free el 20-01-2026). Se usa la extension nueva "Prerender":
+#   1. Si el prerendering legacy esta activado, desactivarlo en
+#      Project configuration -> Build & deploy -> Post processing -> Prerendering.
+#   2. Instalar la extension para el equipo: https://app.netlify.com/extensions/prerender
+#   3. En el proyecto: Extensions -> Prerender -> Enable prerendering.
+#   4. Volver a deployar el sitio (requerido para activarla).
+# La extension necesita Node 20+; por eso existe el archivo .node-version del repo.
+# Con eso los bots (AdsBot-Google, Googlebot, etc.) reciben el HTML ya renderizado
+# y los usuarios siguen recibiendo la SPA normal.
+
 [build]
   command = "npm run build"
   publish = "dist"

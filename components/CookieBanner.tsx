@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 
 interface ConsentSettings {
@@ -59,34 +58,33 @@ const CookieBanner: React.FC = () => {
     if (!isVisible) return null;
 
     return (
-        <div className="fixed inset-x-0 bottom-0 z-[100] p-4 sm:p-6 bg-white border-t border-gray-200 shadow-[0_-10px_40px_rgba(0,0,0,0.1)] animate-fadeIn">
+        <div className="fixed inset-x-0 bottom-0 z-[100] p-3 sm:p-6 bg-white border-t border-gray-200 shadow-[0_-10px_40px_rgba(0,0,0,0.1)] animate-fadeIn">
             <div className="container mx-auto max-w-5xl">
-                <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-                    <div className="flex-1 text-center md:text-left">
-                        <h3 className="text-brand-black font-bold text-sm uppercase tracking-widest mb-2 flex items-center justify-center md:justify-start gap-2">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 md:gap-6">
+                    <div className="flex-1 text-left">
+                        <h3 className="hidden md:flex text-brand-black font-bold text-sm uppercase tracking-widest mb-2 items-center gap-2">
                             🍪 Privacidad y Cookies
                         </h3>
-                        <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-                            Utilizamos cookies para mejorar su experiencia y medir el éxito de nuestros servicios legales. 
-                            Las cookies de marketing permiten medir conversiones mediante cifrado seguro. 
-                            <button 
-                                onClick={handleNavigateToPrivacy} 
+                        <p className="text-[11px] sm:text-sm text-gray-600 leading-snug sm:leading-relaxed">
+                            🍪 Usamos cookies para mejorar su experiencia y medir nuestras campañas.
+                            <button
+                                onClick={handleNavigateToPrivacy}
                                 className="text-brand-gold font-bold ml-1 hover:underline transition-all"
                             >
                                 Ver política completa.
                             </button>
                         </p>
                     </div>
-                    <div className="flex flex-wrap justify-center gap-3 shrink-0">
-                        <button 
-                            onClick={handleRejectAll} 
-                            className="px-6 py-2.5 text-[10px] font-bold text-brand-black border border-brand-black rounded-lg hover:bg-brand-black hover:text-white transition-all uppercase tracking-widest"
+                    <div className="flex gap-2 sm:gap-3 shrink-0">
+                        <button
+                            onClick={handleRejectAll}
+                            className="flex-1 md:flex-none px-3 sm:px-6 py-2 sm:py-2.5 text-[10px] font-bold text-brand-black border border-brand-black rounded-lg hover:bg-brand-black hover:text-white transition-all uppercase tracking-widest whitespace-nowrap"
                         >
                             Solo necesarias
                         </button>
-                        <button 
-                            onClick={handleAcceptAll} 
-                            className="px-8 py-2.5 text-[10px] font-bold text-white bg-brand-gold rounded-lg hover:bg-brand-black transition-all uppercase tracking-widest shadow-lg transform hover:-translate-y-0.5"
+                        <button
+                            onClick={handleAcceptAll}
+                            className="flex-1 md:flex-none px-3 sm:px-8 py-2 sm:py-2.5 text-[10px] font-bold text-white bg-brand-gold rounded-lg hover:bg-brand-black transition-all uppercase tracking-widest shadow-lg transform hover:-translate-y-0.5 whitespace-nowrap"
                         >
                             Aceptar todo
                         </button>

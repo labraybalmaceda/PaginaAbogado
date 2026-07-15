@@ -1,24 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import WhatsAppButton from './WhatsAppButton';
+import Seo from './Seo';
+import ContactCTA from './ContactCTA';
 
 const FamiliaPage: React.FC = () => {
-    useEffect(() => {
-        document.title = "Abogado de Familia en Puerto Montt y Puerto Varas | Labra & Balmaceda";
-        const metaDescription = document.querySelector('meta[name="description"]');
-        if (metaDescription) {
-            metaDescription.setAttribute('content', "Abogados de familia en Puerto Montt y Puerto Varas. Pensiones de alimentos, divorcio, cuidado personal, relación directa y regular. Atención online. Consulta hoy.");
-        }
-        const canonical = document.querySelector('link[rel="canonical"]');
-        if (canonical) canonical.setAttribute('href', 'https://www.labraybalmaceda.cl/abogado-familia-puerto-montt');
-
-        return () => {
-            const canonical = document.querySelector('link[rel="canonical"]');
-            if (canonical) canonical.setAttribute('href', 'https://www.labraybalmaceda.cl');
-        };
-    }, []);
-
     const handleCTA = () => {
         window.history.pushState({}, '', '/');
         window.dispatchEvent(new PopStateEvent('popstate'));
@@ -32,7 +19,7 @@ const FamiliaPage: React.FC = () => {
       "@type": "LegalService",
       "name": "Labra & Balmaceda Abogados - Derecho de Familia",
       "description": "Abogados de familia en Puerto Montt y Puerto Varas.",
-      "url": "https://www.labraybalmaceda.cl/abogado-familia-puerto-montt",
+      "url": "https://labraybalmaceda.cl/abogado-familia-puerto-montt",
       "areaServed": ["Puerto Montt", "Puerto Varas", "Región de Los Lagos"],
       "serviceType": "Derecho de Familia",
       "telephone": "+56977646224",
@@ -41,6 +28,11 @@ const FamiliaPage: React.FC = () => {
 
     return (
         <div className="bg-white min-h-screen text-brand-black">
+            <Seo
+                title="Abogado de Familia en Puerto Montt y Puerto Varas | Labra & Balmaceda"
+                description="Abogados de familia en Puerto Montt y Puerto Varas. Pensiones de alimentos, divorcio, cuidado personal, relación directa y regular. Atención online. Consulta hoy."
+                path="/abogado-familia-puerto-montt"
+            />
             <Header />
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
             
@@ -52,7 +44,9 @@ const FamiliaPage: React.FC = () => {
                         <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 font-baskerville uppercase tracking-tight not-italic leading-tight text-center sm:text-left">
                             Defensa y orientación estratégica en <span className="text-brand-gold block sm:inline mt-1 sm:mt-0">Derecho de Familia</span>
                         </h1>
-                        
+
+                        <ContactCTA source="Landing Familia" />
+
                         <div className="space-y-5 sm:space-y-6 text-[15px] sm:text-lg mb-10 sm:mb-12 leading-relaxed text-gray-700">
                             <p>
                                 Los juicios de familia son distintos a cualquier otro: las decisiones del tribunal afectan directamente la vida cotidiana de personas que van a seguir relacionándose entre sí, especialmente cuando hay hijos.

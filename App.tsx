@@ -5,7 +5,6 @@ import StatsBar from './components/StatsBar';
 import PracticeAreas from './components/PracticeAreas';
 import Testimonials from './components/Testimonials';
 import WhyChooseUs from './components/WhyChooseUs';
-import FeeCalculator from './components/FeeCalculator';
 import FAQ from './components/FAQ';
 import ConsultationForm from './components/ConsultationForm';
 import Footer from './components/Footer';
@@ -13,6 +12,7 @@ import WhatsAppButton from './components/WhatsAppButton';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import Thanks from './components/Thanks';
 import CookieBanner from './components/CookieBanner';
+import Seo from './components/Seo';
 import CivilPage from './components/CivilPage';
 import FamiliaPage from './components/FamiliaPage';
 import ArriendosPage from './components/ArriendosPage';
@@ -47,8 +47,22 @@ const App: React.FC = () => {
         return () => window.removeEventListener('popstate', handleLocationChange);
     }, []);
 
-    if (view === 'privacy') return <><PrivacyPolicy /><CookieBanner /></>;
-    if (view === 'thanks') return <><Thanks /><CookieBanner /></>;
+    if (view === 'privacy') return <>
+        <Seo
+            title="Política de Privacidad | Labra & Balmaceda Abogados"
+            description="Política de privacidad y tratamiento de datos personales de Labra & Balmaceda Abogados."
+            path="/privacidad"
+        />
+        <PrivacyPolicy /><CookieBanner />
+    </>;
+    if (view === 'thanks') return <>
+        <Seo
+            title="Gracias por tu consulta | Labra & Balmaceda Abogados"
+            description="Recibimos tu consulta. Te contactaremos a la brevedad para agendar tu primera reunión."
+            path="/gracias"
+        />
+        <Thanks /><CookieBanner />
+    </>;
     if (view === 'civil') return <><CivilPage /><CookieBanner /></>;
     if (view === 'familia') return <><FamiliaPage /><CookieBanner /></>;
     if (view === 'arriendos') return <><ArriendosPage /><CookieBanner /></>;
@@ -56,6 +70,11 @@ const App: React.FC = () => {
 
     return (
         <>
+            <Seo
+                title="Abogados en Puerto Varas y Puerto Montt | LABRA & BALMACEDA ABOGADOS"
+                description="¿Buscas abogados en Puerto Montt o Puerto Varas? LABRA & BALMACEDA: Especialistas en Derecho Civil, Arriendos, Insolvencia y Familia en la Región de Los Lagos. Primera consulta sin costo."
+                path="/"
+            />
             <Header />
             <main>
                 <Hero />
@@ -63,7 +82,6 @@ const App: React.FC = () => {
                 <PracticeAreas />
                 <Testimonials />
                 <WhyChooseUs />
-                <FeeCalculator />
                 <FAQ />
                 <ConsultationForm />
             </main>

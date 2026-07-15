@@ -1,24 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import WhatsAppButton from './WhatsAppButton';
+import Seo from './Seo';
+import ContactCTA from './ContactCTA';
 
 const ArriendosPage: React.FC = () => {
-    useEffect(() => {
-        document.title = "Abogado de Arriendos en Puerto Montt y Puerto Varas | Labra & Balmaceda";
-        const metaDescription = document.querySelector('meta[name="description"]');
-        if (metaDescription) {
-            metaDescription.setAttribute('content', "Abogados especialistas en arriendos en Puerto Montt y Puerto Varas. Cobramos arriendos impagos, tramitamos lanzamientos y defendemos a arrendatarios. Consulta online.");
-        }
-        const canonical = document.querySelector('link[rel="canonical"]');
-        if (canonical) canonical.setAttribute('href', 'https://www.labraybalmaceda.cl/abogado-arriendo-puerto-montt');
-
-        return () => {
-            const canonical = document.querySelector('link[rel="canonical"]');
-            if (canonical) canonical.setAttribute('href', 'https://www.labraybalmaceda.cl');
-        };
-    }, []);
-
     const handleCTA = () => {
         window.history.pushState({}, '', '/');
         window.dispatchEvent(new PopStateEvent('popstate'));
@@ -32,7 +19,7 @@ const ArriendosPage: React.FC = () => {
       "@type": "LegalService",
       "name": "Labra & Balmaceda Abogados - Derecho de Arriendos",
       "description": "Abogados especialistas en arriendos en Puerto Montt y Puerto Varas.",
-      "url": "https://www.labraybalmaceda.cl/abogado-arriendo-puerto-montt",
+      "url": "https://labraybalmaceda.cl/abogado-arriendo-puerto-montt",
       "areaServed": ["Puerto Montt", "Puerto Varas", "Región de Los Lagos"],
       "serviceType": "Derecho de Arriendos",
       "telephone": "+56977646224",
@@ -41,6 +28,11 @@ const ArriendosPage: React.FC = () => {
 
     return (
         <div className="bg-white min-h-screen text-brand-black">
+            <Seo
+                title="Abogado de Arriendos en Puerto Montt y Puerto Varas | Labra & Balmaceda"
+                description="Abogados especialistas en arriendos en Puerto Montt y Puerto Varas. Cobramos arriendos impagos, tramitamos lanzamientos y defendemos a arrendatarios. Consulta online."
+                path="/abogado-arriendo-puerto-montt"
+            />
             <Header />
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
             
@@ -52,7 +44,9 @@ const ArriendosPage: React.FC = () => {
                         <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 font-baskerville uppercase tracking-tight not-italic leading-tight text-center sm:text-left">
                             Asesoría en contratos de <span className="text-brand-gold block sm:inline mt-1 sm:mt-0">arrendamiento</span> y juicios de término
                         </h1>
-                        
+
+                        <ContactCTA source="Landing Arriendos" />
+
                         <div className="space-y-5 sm:space-y-6 text-[15px] sm:text-lg mb-10 sm:mb-12 leading-relaxed text-gray-700">
                             <p>Un arrendatario que deja de pagar o que simplemente no se va es uno de los problemas más frustrantes para un propietario: el inmueble está ocupado, las rentas no llegan, y el proceso judicial tarda. En Labra & Balmaceda llevamos estos casos desde la demanda hasta el lanzamiento.</p>
                             <p>El plazo depende del tipo de conflicto. Un caso de no pago bajo la Ley Devuélveme mi Casa puede resolverse en meses. Un juicio con más complejidad — daños al inmueble, vicios del contrato, ocupación sin título — toma más tiempo. Lo primero es saber exactamente en qué tipo de caso estás.</p>

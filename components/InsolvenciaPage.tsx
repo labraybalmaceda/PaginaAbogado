@@ -1,24 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import WhatsAppButton from './WhatsAppButton';
+import Seo from './Seo';
+import ContactCTA from './ContactCTA';
 
 const InsolvenciaPage: React.FC = () => {
-    useEffect(() => {
-        document.title = "Abogado de Insolvencia y Deudas en Puerto Montt | Labra & Balmaceda";
-        const metaDescription = document.querySelector('meta[name="description"]');
-        if (metaDescription) {
-            metaDescription.setAttribute('content', "Abogados especialistas en insolvencia y deudas en Puerto Montt. Renegociación, liquidación voluntaria y defensa ante cobranzas judiciales. Consulta online.");
-        }
-        const canonical = document.querySelector('link[rel="canonical"]');
-        if (canonical) canonical.setAttribute('href', 'https://www.labraybalmaceda.cl/abogado-insolvencia-puerto-montt');
-
-        return () => {
-            const canonical = document.querySelector('link[rel="canonical"]');
-            if (canonical) canonical.setAttribute('href', 'https://www.labraybalmaceda.cl');
-        };
-    }, []);
-
     const handleCTA = () => {
         window.history.pushState({}, '', '/');
         window.dispatchEvent(new PopStateEvent('popstate'));
@@ -32,7 +19,7 @@ const InsolvenciaPage: React.FC = () => {
       "@type": "LegalService",
       "name": "Labra & Balmaceda Abogados - Derecho de Insolvencia",
       "description": "Abogados especialistas en insolvencia y deudas en Puerto Montt.",
-      "url": "https://www.labraybalmaceda.cl/abogado-insolvencia-puerto-montt",
+      "url": "https://labraybalmaceda.cl/abogado-insolvencia-puerto-montt",
       "areaServed": ["Puerto Montt", "Puerto Varas", "Región de Los Lagos"],
       "serviceType": "Derecho de Insolvencia",
       "telephone": "+56977646224",
@@ -41,6 +28,11 @@ const InsolvenciaPage: React.FC = () => {
 
     return (
         <div className="bg-white min-h-screen text-brand-black">
+            <Seo
+                title="Abogado de Insolvencia y Deudas en Puerto Montt | Labra & Balmaceda"
+                description="Abogados especialistas en insolvencia y deudas en Puerto Montt. Renegociación, liquidación voluntaria y defensa ante cobranzas judiciales. Consulta online."
+                path="/abogado-insolvencia-puerto-montt"
+            />
             <Header />
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
             
@@ -52,7 +44,9 @@ const InsolvenciaPage: React.FC = () => {
                         <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 font-baskerville uppercase tracking-tight not-italic leading-tight text-center sm:text-left">
                             Protección legal frente a cobranzas e <span className="text-brand-gold block sm:inline mt-1 sm:mt-0">insolvencia</span>
                         </h1>
-                        
+
+                        <ContactCTA source="Landing Insolvencia" />
+
                         <div className="space-y-5 sm:space-y-6 text-[15px] sm:text-lg mb-10 sm:mb-12 leading-relaxed text-gray-700">
                             <p>Cuando las deudas superan la capacidad de pago, la Ley N° 20.720 de Insolvencia y Reemprendimiento ofrece procedimientos concretos para personas y empresas. No para evadir las deudas, sino para ordenar la situación y, cuando es posible, continuar funcionando.</p>
                             <p>Lo primero es evaluar qué alternativa conviene más: renegociación, liquidación, o defender el caso judicial que ya está en curso. Cada situación es distinta, y la decisión correcta depende de cuántas deudas hay, con quiénes, y qué bienes están en riesgo.</p>
