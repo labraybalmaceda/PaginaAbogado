@@ -73,16 +73,19 @@ const Header: React.FC = () => {
                         </div>
                     </div>
                     {navLinks.map(link => (
-                        <a key={link.href} href={`/${link.href}`} className="text-brand-black hover:text-brand-gold transition" onClick={(e) => { 
-                            e.preventDefault(); 
-                            window.history.pushState({}, '', '/'); 
-                            window.dispatchEvent(new PopStateEvent('popstate')); 
-                            setTimeout(() => document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' }), 100); 
-                            trackNavClick(link.label); 
+                        <a key={link.href} href={`/${link.href}`} className="text-brand-black hover:text-brand-gold transition" onClick={(e) => {
+                            e.preventDefault();
+                            window.history.pushState({}, '', '/');
+                            window.dispatchEvent(new PopStateEvent('popstate'));
+                            setTimeout(() => document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' }), 100);
+                            trackNavClick(link.label);
                         }}>
                             {link.label}
                         </a>
                     ))}
+                    <a href="/blog" onClick={(e) => { e.preventDefault(); navigateTo('/blog', 'Blog'); window.scrollTo(0, 0); }} className="text-brand-black hover:text-brand-gold transition">
+                        Blog
+                    </a>
                     <button onClick={(e) => { e.preventDefault(); window.history.pushState({}, '', '/'); window.dispatchEvent(new PopStateEvent('popstate')); setTimeout(() => document.getElementById('consulta')?.scrollIntoView({ behavior: 'smooth' }), 100); trackCTAClick('Header CTA'); }} className="text-white bg-brand-black hover:bg-brand-gold px-5 py-2.5 rounded-lg transition duration-300 shadow-md hover:shadow-lg uppercase tracking-wider text-xs cursor-pointer">
                         Agendar Consulta
                     </button>
@@ -110,6 +113,9 @@ const Header: React.FC = () => {
                                 {link.label}
                             </a>
                         ))}
+                        <a href="/blog" className="px-4 py-2 text-brand-black hover:bg-gray-50 rounded-lg transition text-sm" onClick={(e) => { e.preventDefault(); navigateTo('/blog', 'Blog Mobile'); window.scrollTo(0, 0); }}>
+                            Blog
+                        </a>
                         <div className="pt-2 border-t border-gray-200 mt-2 flex flex-col gap-2">
                             <a href="tel:+56977646224" className="flex items-center gap-2 px-4 py-3 text-brand-black font-semibold hover:bg-gray-50 rounded-lg transition" onClick={trackPhoneClick}>
                                 📞 +56 9 7764 6224

@@ -4,6 +4,7 @@ import Footer from './Footer';
 import WhatsAppButton from './WhatsAppButton';
 import Seo from './Seo';
 import ContactCTA from './ContactCTA';
+import RelatedPosts from './RelatedPosts';
 
 const FamiliaPage: React.FC = () => {
     const handleCTA = () => {
@@ -94,6 +95,8 @@ const FamiliaPage: React.FC = () => {
                                 <p>No hay un plazo fijo de espera. Lo que importa es que las circunstancias hayan cambiado: si tu hijo tiene nuevas necesidades, si tu situación económica se ha deteriorado, o si la del otro padre ha mejorado, vale la pena revisar el monto. Para evaluar si en tu caso corresponde pedir un aumento, agenda una consulta con nosotros.</p>
                             </div>
                         </div>
+
+                        <RelatedPosts service="familia" />
 
                         <div className="text-center pt-8 sm:pt-10 border-t border-gray-100">
                             <button onClick={handleCTA} className="w-full sm:w-auto px-6 py-4 sm:px-10 sm:py-5 text-[13px] sm:text-lg font-bold uppercase tracking-widest rounded-xl bg-brand-black text-white hover:bg-brand-gold transition-all duration-300 shadow-xl hover:shadow-2xl mx-auto block">

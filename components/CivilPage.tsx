@@ -4,6 +4,7 @@ import Footer from './Footer';
 import WhatsAppButton from './WhatsAppButton';
 import Seo from './Seo';
 import ContactCTA from './ContactCTA';
+import RelatedPosts from './RelatedPosts';
 
 const CivilPage: React.FC = () => {
     const handleCTA = () => {
@@ -93,6 +94,8 @@ const CivilPage: React.FC = () => {
                                 <p>La ley no obliga a nadie a quedarse para siempre como dueño compartido de una herencia. Cualquier heredero puede pedir que se divida, y cuando no hay acuerdo, esa división la resuelve un juez partidor. Lo mismo ocurre tras un divorcio, cuando los ex cónyuges no logran ponerse de acuerdo sobre cómo repartir los bienes y quién se queda con qué. Ambos casos los tramitamos.</p>
                             </div>
                         </div>
+
+                        <RelatedPosts service="civil" />
 
                         <div className="text-center pt-8 sm:pt-10 border-t border-gray-100">
                             <button onClick={handleCTA} className="w-full sm:w-auto px-6 py-4 sm:px-10 sm:py-5 text-[13px] sm:text-lg font-bold uppercase tracking-widest rounded-xl bg-brand-black text-white hover:bg-brand-gold transition-all duration-300 shadow-xl hover:shadow-2xl mx-auto block">

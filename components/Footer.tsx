@@ -102,6 +102,7 @@ const Footer: React.FC = () => {
                             <li><a href="/abogado-arriendo-puerto-montt" className="hover:text-brand-gold transition" onClick={(e) => { e.preventDefault(); handleNavigate('/abogado-arriendo-puerto-montt'); trackNavClick('Footer Area Arrendamientos'); }}>Arrendamientos</a></li>
                             <li><a href="/abogado-familia-puerto-montt" className="hover:text-brand-gold transition" onClick={(e) => { e.preventDefault(); handleNavigate('/abogado-familia-puerto-montt'); trackNavClick('Footer Area Familia'); }}>Derecho de Familia</a></li>
                             <li><a href="/abogado-insolvencia-puerto-montt" className="hover:text-brand-gold transition" onClick={(e) => { e.preventDefault(); handleNavigate('/abogado-insolvencia-puerto-montt'); trackNavClick('Footer Area Insolvencia'); }}>Insolvencia y Deudas</a></li>
+                            <li className="pt-3 mt-3 border-t border-gray-800"><a href="/blog" className="hover:text-brand-gold transition" onClick={(e) => { e.preventDefault(); handleNavigate('/blog'); trackNavClick('Footer Blog'); }}>Blog legal</a></li>
                         </ul>
                     </div>
                 </div>

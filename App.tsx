@@ -17,33 +17,64 @@ import CivilPage from './components/CivilPage';
 import FamiliaPage from './components/FamiliaPage';
 import ArriendosPage from './components/ArriendosPage';
 import InsolvenciaPage from './components/InsolvenciaPage';
+import BlogIndex from './components/BlogIndex';
+import BlogPost from './components/BlogPost';
+import { getPost } from './content/blog';
+
+type Route =
+    | { name: 'main' }
+    | { name: 'privacy' }
+    | { name: 'thanks' }
+    | { name: 'civil' }
+    | { name: 'familia' }
+    | { name: 'arriendos' }
+    | { name: 'insolvencia' }
+    | { name: 'blog' }
+    | { name: 'post'; slug: string };
+
+const BLOG_PREFIX = '/blog/';
+
+const resolveRoute = (pathname: string): Route => {
+    // Normaliza la barra final: /blog y /blog/ son la misma página.
+    const path = pathname.replace(/\/+$/, '') || '/';
+
+    switch (path) {
+        case '/privacidad': return { name: 'privacy' };
+        case '/gracias': return { name: 'thanks' };
+        case '/abogado-civil-puerto-montt': return { name: 'civil' };
+        case '/abogado-familia-puerto-montt': return { name: 'familia' };
+        case '/abogado-arriendo-puerto-montt': return { name: 'arriendos' };
+        case '/abogado-insolvencia-puerto-montt': return { name: 'insolvencia' };
+        case '/blog': return { name: 'blog' };
+    }
+
+    if (path.startsWith(BLOG_PREFIX)) {
+        const slug = path.slice(BLOG_PREFIX.length);
+        // Slug inexistente o borrador: se corrige la URL al índice del blog en
+        // lugar de dejar una dirección que responde con contenido equivocado.
+        return getPost(slug) ? { name: 'post', slug } : { name: 'blog' };
+    }
+
+    return { name: 'main' };
+};
 
 const App: React.FC = () => {
-    const [view, setView] = useState<'main' | 'privacy' | 'thanks' | 'civil' | 'familia' | 'arriendos' | 'insolvencia'>('main');
+    const [route, setRoute] = useState<Route>(() => resolveRoute(window.location.pathname));
 
     useEffect(() => {
         const handleLocationChange = () => {
-            const path = window.location.pathname;
-            if (path === '/privacidad') {
-                setView('privacy');
-            } else if (path === '/gracias') {
-                setView('thanks');
-            } else if (path === '/abogado-civil-puerto-montt') {
-                setView('civil');
-            } else if (path === '/abogado-familia-puerto-montt') {
-                setView('familia');
-            } else if (path === '/abogado-arriendo-puerto-montt') {
-                setView('arriendos');
-            } else if (path === '/abogado-insolvencia-puerto-montt') {
-                setView('insolvencia');
-            } else {
-                setView('main');
-                if (window.location.hash) {
-                    setTimeout(() => {
-                        const el = document.getElementById(window.location.hash.substring(1));
-                        if (el) el.scrollIntoView({ behavior: 'smooth' });
-                    }, 100);
-                }
+            const next = resolveRoute(window.location.pathname);
+            setRoute(next);
+
+            if (next.name === 'blog' && window.location.pathname.startsWith(BLOG_PREFIX)) {
+                window.history.replaceState({}, '', '/blog');
+            }
+
+            if (next.name === 'main' && window.location.hash) {
+                setTimeout(() => {
+                    const el = document.getElementById(window.location.hash.substring(1));
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
             }
         };
 
@@ -53,7 +84,7 @@ const App: React.FC = () => {
         return () => window.removeEventListener('popstate', handleLocationChange);
     }, []);
 
-    if (view === 'privacy') return <>
+    if (route.name === 'privacy') return <>
         <Seo
             title="Política de Privacidad | Labra & Balmaceda Abogados"
             description="Política de privacidad y tratamiento de datos personales de Labra & Balmaceda Abogados."
@@ -61,7 +92,7 @@ const App: React.FC = () => {
         />
         <PrivacyPolicy /><CookieBanner />
     </>;
-    if (view === 'thanks') return <>
+    if (route.name === 'thanks') return <>
         <Seo
             title="Gracias por tu consulta | Labra & Balmaceda Abogados"
             description="Recibimos tu consulta. Te contactaremos a la brevedad para agendar tu primera reunión."
@@ -69,10 +100,15 @@ const App: React.FC = () => {
         />
         <Thanks /><CookieBanner />
     </>;
-    if (view === 'civil') return <><CivilPage /><CookieBanner /></>;
-    if (view === 'familia') return <><FamiliaPage /><CookieBanner /></>;
-    if (view === 'arriendos') return <><ArriendosPage /><CookieBanner /></>;
-    if (view === 'insolvencia') return <><InsolvenciaPage /><CookieBanner /></>;
+    if (route.name === 'civil') return <><CivilPage /><CookieBanner /></>;
+    if (route.name === 'familia') return <><FamiliaPage /><CookieBanner /></>;
+    if (route.name === 'arriendos') return <><ArriendosPage /><CookieBanner /></>;
+    if (route.name === 'insolvencia') return <><InsolvenciaPage /><CookieBanner /></>;
+    if (route.name === 'blog') return <><BlogIndex /><CookieBanner /></>;
+    if (route.name === 'post') {
+        const post = getPost(route.slug);
+        if (post) return <><BlogPost post={post} /><CookieBanner /></>;
+    }
 
     return (
         <>
