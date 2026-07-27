@@ -17,7 +17,7 @@ const post: Post = {
         },
         {
             type: 'p',
-            text: 'La pregunta natural es qué hacer ahora. La ley no te deja atado a un contrato que la otra parte decidió no respetar, y te da herramientas concretas para reaccionar. Lo que importa es elegir bien cuál usar y en qué orden, porque una decisión apresurada puede costarte la indemnización que te correspondía.',
+            text: 'La pregunta natural es qué hacer ahora. La ley no te deja atado a un contrato que la otra parte decidió no respetar, y te da herramientas concretas para reaccionar. Lo que importa es elegir bien cuál usar y en qué orden, porque una decisión apresurada puede costarte la indemnización que te correspondía. En el estudio asesoramos a personas y empresas de Puerto Varas, Puerto Montt y toda la Región de Los Lagos frente a contratos que la otra parte no cumplió.',
         },
         {
             type: 'p',
@@ -101,7 +101,7 @@ const post: Post = {
         },
         {
             type: 'p',
-            text: 'Asesoramos las dos rutas. Evaluamos el caso con franqueza y te decimos lo que conviene: si tienes un caso fuerte para litigar y exigir todo lo que te corresponde, o si te sirve más una salida negociada bien estructurada. La estrategia se define según tus intereses, no según lo que dure más.',
+            text: 'Asesoramos las dos rutas a clientes de Puerto Montt, Puerto Varas y el resto de la Región de Los Lagos. Evaluamos el caso con franqueza y te decimos lo que conviene: si tienes un caso fuerte para litigar y exigir todo lo que te corresponde, o si te sirve más una salida negociada bien estructurada. La estrategia se define según tus intereses, no según lo que dure más.',
         },
     ],
     faq: [

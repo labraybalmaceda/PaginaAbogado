@@ -21,7 +21,7 @@ const post: Post = {
         },
         {
             type: 'p',
-            text: 'La diferencia entre uno y otro suele ser la misma: haber contado con un abogado de Familia desde el principio, y no cuando el problema ya está encima. En este artículo te explicamos, en simple, qué tipos de divorcio existen en Chile, cuánto tiempo de separados necesitas, qué pasa con los bienes y qué es la compensación económica.',
+            text: 'La diferencia entre uno y otro suele ser la misma: haber contado con un abogado de Familia desde el principio, y no cuando el problema ya está encima. En este artículo te explicamos, en simple, qué tipos de divorcio existen en Chile, cuánto tiempo de separados necesitas, qué pasa con los bienes y qué es la compensación económica. Acompañamos a personas de Puerto Varas, Puerto Montt y el resto de la Región de Los Lagos en todo el proceso.',
         },
         { type: 'h2', text: 'Los tipos de divorcio' },
         {
@@ -96,6 +96,10 @@ const post: Post = {
         {
             type: 'p',
             text: 'Un error muy frecuente: creer que el divorcio "reparte los bienes". No es así. El divorcio pone término al matrimonio; la división de los bienes es la liquidación del régimen patrimonial, que es un trámite separado.',
+        },
+        {
+            type: 'p',
+            text: 'Cada divorcio tiene detalles que cambian la estrategia: la fecha del matrimonio, la prueba del cese, los hijos, los bienes. En el estudio orientamos a personas de Puerto Varas, Puerto Montt y toda la Región de Los Lagos para elegir la vía correcta y llegar bien preparados, con atención presencial u online.',
         }
     ],
     faq: [

@@ -17,7 +17,7 @@ const post: Post = {
         },
         {
             type: 'p',
-            text: 'Esa situación tiene nombre, se llama comunidad hereditaria, y la ley la mira con desconfianza. Justamente por eso entrega una salida que no depende de que todos estén de acuerdo.',
+            text: 'Esa situación tiene nombre, se llama comunidad hereditaria, y la ley la mira con desconfianza. Justamente por eso entrega una salida que no depende de que todos estén de acuerdo. En el estudio asesoramos a herederos de Puerto Varas, Puerto Montt y toda la Región de Los Lagos para desbloquear estas herencias y repartir los bienes.',
         },
         { type: 'h2', text: 'Primero: la posesión efectiva' },
         {
@@ -64,7 +64,7 @@ const post: Post = {
         { type: 'h2', text: 'Qué revisar antes de empezar' },
         {
             type: 'p',
-            text: 'Casi siempre conviene intentar un acuerdo antes, porque una partición por escritura pública es más rápida y económica que un arbitraje.',
+            text: 'Casi siempre conviene intentar un acuerdo antes, porque una partición por escritura pública es más rápida y económica que un arbitraje. Pero se negocia mucho mejor cuando la otra parte sabe que existe la acción de partición y que no puede bloquearla. Si heredaste un bien en Puerto Varas, Puerto Montt o cualquier comuna de la Región de Los Lagos y no logran ponerse de acuerdo, conviene revisar tu caso antes de que el tiempo lo haga más caro.',
         },
     ],
     faq: [

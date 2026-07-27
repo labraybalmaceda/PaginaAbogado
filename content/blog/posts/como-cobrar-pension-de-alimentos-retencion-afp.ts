@@ -7,7 +7,7 @@ const post: Post = {
     description:
         'Herramientas legales para cobrar una pensión de alimentos adeudada en Chile: Registro Nacional de Deudores, retención bancaria y de impuestos, fondos de AFP, arresto y arraigo.',
     excerpt:
-        'Tener una pensión fijada por el tribunal y recibirla todos los meses son dos cosas distintas. Estas son las herramientas que efectivamente hacen que la plata llegue.',
+        'Tener una pensión fijada por el tribunal y recibirla todos los meses son dos cosas distintas. Estas son las herramientas que efectivamente hacen que el dinero llegue.',
     date: '2026-07-20',
     service: 'familia',
     blocks: [
@@ -21,7 +21,7 @@ const post: Post = {
         },
         {
             type: 'p',
-            text: 'Si te sientes identificado, esto es lo primero que necesitas saber: la deuda de pensión de alimentos no se borra ni se perdona sola, y la ley da herramientas concretas para cobrarla. No estás obligado a seguir absorbiendo tú solo lo que le corresponde pagar a la otra parte. Se tramita ante el Tribunal de Familia, y nos hacemos cargo de todo el proceso por ti.',
+            text: 'Si te sientes identificado, esto es lo primero que necesitas saber: la deuda de pensión de alimentos no se borra ni se perdona sola, y la ley da herramientas concretas para cobrarla. No estás obligado a seguir absorbiendo tú solo lo que le corresponde pagar a la otra parte. Se tramita ante el Tribunal de Familia, y en el estudio nos hacemos cargo de todo el proceso por ti, para clientes de Puerto Varas, Puerto Montt y toda la Región de Los Lagos.',
         },
         { type: 'h2', text: 'Paso previo: la deuda se calcula y queda registrada' },
         {
@@ -87,7 +87,7 @@ const post: Post = {
         },
         {
             type: 'p',
-            text: 'Tramitamos el cobro de tu pensión de alimentos ante el Tribunal de Familia, de principio a fin. Perseguimos sus cuentas, su devolución de impuestos, sus fondos de la AFP y, si hace falta, solicitamos el arresto y el arraigo.',
+            text: 'Tramitamos el cobro de tu pensión de alimentos ante el Tribunal de Familia, de principio a fin, para clientes de Puerto Montt, Puerto Varas y el resto de la Región de Los Lagos. Perseguimos sus cuentas, su devolución de impuestos, sus fondos de la AFP y, si hace falta, solicitamos el arresto y el arraigo.',
         },
     ],
     faq: [
@@ -97,14 +97,14 @@ const post: Post = {
                 'En general sí. Según el artículo 19 bis de la Ley 14.908, el plazo de prescripción solo comienza a correr cuando el alimentario cumple veintiún años, y desde ahí son tres años para la acción ejecutiva más dos como ordinaria. Deudas antiguas suelen seguir siendo cobrables.',
         },
         {
-            question: '¿Puedo sacar plata de la AFP del deudor?',
+            question: '¿Puedo sacar dinero de la AFP del deudor?',
             answer:
-                'Es posible, pero no es el primer paso. La ley lo trata como procedimiento extraordinario: hay que haber intentado antes el cobro en cuentas bancarias y que estas sean inexistentes o insuficientes, y deben adeudarse al menos tres mensualidades. El porcentaje que se puede retirar va del 50% al 90% de los fondos, según cuánto le falte al deudor para jubilar.',
+                'Es posible, pero no es el primer paso. La ley lo trata como procedimiento extraordinario: hay que haber intentado antes el cobro en cuentas bancarias y que estas sean inexistentes o insuficientes, y deben adeudarse mensualidades.',
         },
         {
             question: '¿Puedo impedir que salga del país?',
             answer:
-                'Sí. El juez debe dictar orden de arraigo cada vez que decreta un arresto, y también puede decretarla como medida cautelar si hay motivo fundado para pensar que el alimentante se ausentará. La inscripción en el Registro Nacional de Deudores además bloquea la obtención y la renovación del pasaporte.',
+                'Sí. El juez debe dictar orden de arraigo cada vez que decreta un arresto, y también puede decretarla como medida cautelar si hay motivo fundado para pensar que el alimentante se ausentará.',
         },
         {
             question: 'Dice que está sin trabajo, ¿igual tiene que pagar?',
