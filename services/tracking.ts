@@ -41,11 +41,6 @@ export const trackCalculatorCTA = () => {
 };
 
 export const trackFormSubmission = (formData: object) => {
-  if (typeof window !== 'undefined' && (window as any).gtag) {
-    (window as any).gtag('event', 'conversion', {
-      'send_to': 'AW-18229137722/fD8QCK2phMEcELqiqvRD',
-    });
-  }
   console.log('Form Data:', formData);
 };
 
