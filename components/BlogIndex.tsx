@@ -60,10 +60,10 @@ const BlogIndex: React.FC = () => {
             <main className="py-12 sm:py-20 overflow-hidden mt-6 sm:mt-0">
                 <div className="container mx-auto px-4 sm:px-6 max-w-3xl">
                     <header className="mb-10 sm:mb-14">
-                        <h1 className="text-2xl sm:text-4xl font-bold mb-4 font-baskerville uppercase tracking-tight not-italic leading-tight">
+                        <h1 className="text-2xl sm:text-4xl font-bold mb-4 font-baskerville uppercase tracking-tight not-italic leading-tight text-white">
                             Artículos <span className="text-brand-gold"></span>
                         </h1>
-                        <p className="text-[15px] sm:text-lg text-gray-700 leading-relaxed">
+                        <p className="text-[15px] sm:text-lg text-white/85 leading-relaxed">
                             Explicamos los problemas que más nos consultan y tramitamos en la Región de Los Lagos: Incumplimientos contractuales e indemnizaciones, arriendos que no se pagan, divorcios, herencias que nadie logra repartir.
                         </p>
                     </header>
