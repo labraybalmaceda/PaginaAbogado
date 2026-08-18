@@ -88,6 +88,18 @@
       <input type="checkbox" name="consentimiento" />
     </form>
 
+    <!-- desactivar DevTools del f12  -->
+    <script>
+      (function () {
+        document.addEventListener('contextmenu', function (e) { e.preventDefault(); });
+        document.addEventListener('keydown', function (e) {
+          var k = e.keyCode || e.which;
+          if (k === 123) { e.preventDefault(); return false; }                                   // F12
+          if (e.ctrlKey && e.shiftKey && (k === 73 || k === 74 || k === 67)) { e.preventDefault(); return false; } // Ctrl+Shift+I / J / C
+          if (e.ctrlKey && k === 85) { e.preventDefault(); return false; }                        // Ctrl+U (ver codigo fuente)
+        });
+      })();
+    </script>
     <script type="module" src="/index.tsx"></script>
 </body>
 </html>

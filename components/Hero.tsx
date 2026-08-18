@@ -2,7 +2,7 @@ import React from 'react';
 import { trackCTAClick, trackWhatsAppClick } from '../services/tracking';
 
 const Hero: React.FC = () => {
-    const heroImageUrl = 'https://res.cloudinary.com/dt36zhzde/image/upload/f_auto,q_auto/foto2_kxfpfv';
+    const heroImageUrl = '/fotohero.jpg';
 
     const handleScrollClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
         event.preventDefault();
@@ -19,7 +19,7 @@ const Hero: React.FC = () => {
         <section 
             id="hero" 
             className="bg-cover bg-center bg-scroll md:bg-fixed relative min-h-[85vh] flex items-center justify-center text-white px-4 sm:px-6 py-20"
-            style={{ backgroundImage: `linear-gradient(to bottom, rgba(17, 17, 17, 0.8), rgba(17, 17, 17, 0.9)), url('${heroImageUrl}')` }}
+            style={{ backgroundImage: `linear-gradient(to bottom, rgba(17, 17, 17, 0.7), rgba(17, 17, 17, 0.8)), url('${heroImageUrl}')` }}
         >
             <div className="container mx-auto text-center z-10 max-w-5xl">
                 <span className="inline-block px-5 py-2 mb-8 text-[10px] sm:text-xs font-bold uppercase tracking-[0.3em] text-brand-gold bg-brand-gold/10 backdrop-blur-sm rounded-full border border-brand-gold/30">

@@ -111,7 +111,7 @@ const BlogPost: React.FC<{ post: Post }> = ({ post }) => {
     }, [post, url]);
 
     return (
-        <div className="bg-white min-h-screen text-brand-black">
+        <div className="min-h-screen text-brand-black bg-cover bg-center bg-fixed" style={{ backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/fondo-articulo-blog.jpg')" }}>
             <Seo
                 title={post.metaTitle || `${post.title} | Labra & Balmaceda`}
                 description={post.description}
@@ -127,7 +127,7 @@ const BlogPost: React.FC<{ post: Post }> = ({ post }) => {
 
             <main className="py-12 sm:py-20 overflow-hidden mt-6 sm:mt-0">
                 <div className="container mx-auto px-4 sm:px-6 max-w-3xl">
-                    <nav aria-label="Migas de pan" className="mb-6 text-xs sm:text-sm text-gray-500">
+                    <nav aria-label="Migas de pan" className="mb-6 text-xs sm:text-sm text-white font-bold">
                         <a
                             href="/"
                             onClick={(e) => { e.preventDefault(); navigateTo('/'); }}

@@ -80,10 +80,9 @@ const ConsultationForm: React.FC = () => {
     ];
 
     return (
-        <section id="consulta" className="py-20 sm:py-28 bg-white overflow-hidden">
+        <section id="consulta" className="py-20 sm:py-28 bg-cover bg-center overflow-hidden" style={{ backgroundImage: "linear-gradient(to bottom, rgb(249, 250, 251) 0%, rgba(17, 17, 17, 0.85) 12%, rgba(17, 17, 17, 0.9) 100%), url('/foto2.jpg')" }}>
             <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
                 <div className="bg-white p-6 sm:p-12 rounded-3xl shadow-2xl border border-gray-100 relative group">
-                    <div className="absolute top-0 left-0 w-full h-1.5 bg-brand-gold"></div>
                     
                     <div className="text-center mb-10">
                         <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-brand-black font-baskerville uppercase tracking-tight not-italic">

@@ -47,7 +47,7 @@ const BlogIndex: React.FC = () => {
     return (
         <div 
             className="min-h-screen text-brand-black bg-cover bg-center bg-fixed"
-            style={{ backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://res.cloudinary.com/dt36zhzde/image/upload/v1762559543/foto1_dcizpx.jpg')" }}
+            style={{ backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/fondo-articulo-blog.jpg')" }}
         >
             <Seo
                 title="Blog legal | Labra & Balmaceda Abogados"

@@ -6,19 +6,27 @@ interface CaseTypeCardProps {
     title: string;
     situation: string;
     approach: string;
-    delivery: string;
+    articleText: string;
+    articleHref: string;
     tag: string;
     icon: React.ReactNode;
 }
 
-const CaseTypeCard: React.FC<CaseTypeCardProps> = ({ title, situation, approach, delivery, tag, icon }) => (
+// Navegación interna, mismo patrón que el resto del sitio (SPA sin router).
+const navigateToArticle = (href: string) => {
+    window.history.pushState({}, '', href);
+    window.dispatchEvent(new PopStateEvent('popstate'));
+    window.scrollTo(0, 0);
+};
+
+const CaseTypeCard: React.FC<CaseTypeCardProps> = ({ title, situation, approach, articleText, articleHref, tag, icon }) => (
     <div className="flex-none w-[280px] sm:w-[350px] scroll-snap-align-start group">
         <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 h-full flex flex-col border-t-4 border-t-transparent hover:border-t-brand-gold">
             <div className="text-brand-gold mb-6 group-hover:scale-110 transition-transform duration-300">
                 {icon}
             </div>
             <h4 className="text-lg font-bold text-brand-black mb-4 font-baskerville uppercase tracking-tight">{title}</h4>
-            
+
             <div className="space-y-5 mb-8 flex-grow">
                 <div>
                     <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 block mb-1">Situación habitual</span>
@@ -28,10 +36,14 @@ const CaseTypeCard: React.FC<CaseTypeCardProps> = ({ title, situation, approach,
                     <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 block mb-1">Cómo lo abordamos</span>
                     <p className="text-sm text-gray-600 leading-relaxed font-medium italic">{approach}</p>
                 </div>
-                <div className="bg-brand-gold/5 p-4 rounded-xl border-l-2 border-brand-gold">
-                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-gold block mb-1">Lo que obtienes (Entrega)</span>
-                    <p className="text-sm text-brand-black font-semibold leading-relaxed">{delivery}</p>
-                </div>
+                <a
+                    href={articleHref}
+                    onClick={(e) => { e.preventDefault(); navigateToArticle(articleHref); trackCTAClick(`Caso ${tag} - Articulo`); }}
+                    className="bg-brand-gold/5 p-4 rounded-xl border-l-2 border-brand-gold block hover:bg-brand-gold/10 transition-colors cursor-pointer"
+                >
+                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-gold block mb-1">Artículo destacado</span>
+                    <p className="text-sm text-brand-black font-semibold leading-relaxed">{articleText} →</p>
+                </a>
             </div>
 
             <div className="mt-auto pt-4 border-t border-gray-50 flex justify-between items-center">
@@ -48,34 +60,38 @@ const Testimonials: React.FC = () => {
 
     const cases = [
         {
+            title: 'Incumplimiento Contractual',
+            situation: 'Contrataste un servicio que no se ejecutó, o la otra parte no cumplió lo pactado.',
+            approach: 'Revisamos qué pruebas tienes, intentamos resolverlo antes de tribunales y, si no, demandamos.',
+            articleText: 'Revisa qué hacer ante un incumplimiento de contrato',
+            articleHref: '/blog/incumplimiento-de-contrato',
+            tag: 'Civil',
+            icon: <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        },
+        {
             title: 'Divorcio y Alimentos',
-            situation: 'Ruptura con desacuerdos en pensión y régimen comunicacional.',
-            approach: 'Orden de antecedentes + estrategia de negociación o juicio según riesgo.',
-            delivery: 'Plan de acción, checklist de documentos y próximos pasos (mediación/audiencia).',
+            situation: 'Una separación en la que no logran ponerse de acuerdo en la pensión o en las visitas de los hijos.',
+            approach: 'Ordenamos tus antecedentes y vemos si conviene negociar o ir a juicio, según lo que tengas en juego.',
+            articleText: 'Revisa cómo funciona el divorcio en Chile',
+            articleHref: '/blog/divorcio-unilateral-o-de-comun-acuerdo',
             tag: 'Familia',
             icon: <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
         },
         {
             title: 'No Pago de Rentas',
-            situation: 'Mora acumulada + negativa del arrendatario a restituir el inmueble.',
-            approach: 'Revisión exhaustiva de contrato, cálculo de deuda y ruta procesal efectiva.',
-            delivery: 'Carpeta de demanda lista y cronograma detallado de diligencias.',
+            situation: 'El arrendatario lleva meses sin pagar y no quiere devolverte la propiedad.',
+            approach: 'Revisamos el contrato, sacamos la cuenta de lo que te deben y elegimos la vía más rápida para recuperar tu inmueble.',
+            articleText: 'Revisa qué hacer si tu arrendatario no paga',
+            articleHref: '/blog/arrendatario-no-se-quiere-ir-que-hacer',
             tag: 'Arriendo',
             icon: <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
         },
         {
-            title: 'Incumplimiento Contractual',
-            situation: 'Servicios no ejecutados o incumplimiento de pactos comerciales.',
-            approach: 'Análisis de respaldo probatorio, gestión prejudicial y acción si procede.',
-            delivery: 'Estrategia con escenarios posibles, costos y plazos estimados.',
-            tag: 'Civil',
-            icon: <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-        },
-        {
             title: 'Deudas y Acreedores',
-            situation: 'Sobreendeudamiento crítico y presión de cobranza judicial.',
-            approach: 'Diagnóstico jurídico-financiero y evaluación de alternativas legales.',
-            delivery: 'Hoja de ruta con opciones de defensa o insolvencia y requisitos.',
+            situation: 'Las deudas se te hicieron impagables y ya empezó la cobranza judicial.',
+            approach: 'Miramos tu situación completa y te decimos qué alternativas reales tienes, sea defenderte o renegociar.',
+            articleText: 'Conoce cómo enfrentar tus deudas y la cobranza',
+            articleHref: '/abogado-insolvencia-puerto-montt',
             tag: 'Insolvencia',
             icon: <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
         }
@@ -104,9 +120,9 @@ const Testimonials: React.FC = () => {
                         <span className="text-brand-black">Te orientamos según tus antecedentes específicos.</span>
                     </p>
                 </div>
-                
+
                 {/* Carousel Container */}
-                <div 
+                <div
                     ref={scrollContainerRef}
                     className="flex gap-6 overflow-x-auto pb-12 scroll-smooth no-scrollbar scroll-snap-x-mandatory"
                     style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
@@ -128,8 +144,8 @@ const Testimonials: React.FC = () => {
 
                 {/* Se ha ocultado temporalmente la sección de reputación y reseñas de Google */}
                 <div className="text-center mt-12">
-                     <a 
-                        href="#consulta" 
+                     <a
+                        href="#consulta"
                         className="inline-block px-10 py-5 bg-brand-black text-white hover:bg-brand-gold rounded-xl font-bold transition-all duration-300 shadow-xl uppercase tracking-widest text-sm"
                         onClick={(e) => { handleScrollClick(e); trackCTAClick('Testimonials Consultation CTA Central'); }}
                     >
