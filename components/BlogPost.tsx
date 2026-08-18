@@ -227,7 +227,7 @@ const BlogPost: React.FC<{ post: Post }> = ({ post }) => {
 
                     {related.length > 0 && (
                         <section className="mt-12">
-                            <h2 className="text-lg sm:text-xl font-bold font-baskerville mb-5">Seguir leyendo</h2>
+                            <h2 className="text-lg sm:text-xl font-bold font-baskerville mb-5 text-white">Seguir leyendo</h2>
                             <div className="space-y-3">
                                 {related.map((r) => (
                                     <a
