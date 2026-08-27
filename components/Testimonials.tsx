@@ -139,7 +139,6 @@ const Testimonials: React.FC = () => {
                 </div>
 
                 <p className="text-center text-[10px] text-gray-400 uppercase tracking-widest mb-16 italic">
-                    "Casos referenciales. No constituyen garantía de resultado."
                 </p>
 
                 {/* Se ha ocultado temporalmente la sección de reputación y reseñas de Google */}
