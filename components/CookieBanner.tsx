@@ -63,10 +63,10 @@ const CookieBanner: React.FC = () => {
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 md:gap-6">
                     <div className="flex-1 text-left">
                         <h3 className="hidden md:flex text-brand-black font-bold text-sm uppercase tracking-widest mb-2 items-center gap-2">
-                            🍪 Privacidad y Cookies
+                            Privacidad y Cookies
                         </h3>
                         <p className="text-[11px] sm:text-sm text-gray-600 leading-snug sm:leading-relaxed">
-                            🍪 Usamos cookies para mejorar su experiencia y medir nuestras campañas.
+                            Usamos cookies para mejorar su experiencia y medir nuestras campañas.
                             <button
                                 onClick={handleNavigateToPrivacy}
                                 className="text-brand-gold font-bold ml-1 hover:underline transition-all"

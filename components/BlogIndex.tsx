@@ -46,7 +46,7 @@ const BlogIndex: React.FC = () => {
 
     return (
         <div 
-            className="min-h-screen text-brand-black bg-cover bg-center bg-fixed"
+            className="min-h-screen text-brand-black bg-cover bg-center bg-scroll md:bg-fixed"
             style={{ backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/fondo-articulo-blog.jpg')" }}
         >
             <Seo

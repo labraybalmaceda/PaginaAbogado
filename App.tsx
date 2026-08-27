@@ -114,7 +114,7 @@ const App: React.FC = () => {
         <>
             <Seo
                 title="Abogados en Puerto Varas y Puerto Montt | LABRA & BALMACEDA ABOGADOS"
-                description="¿Buscas abogados en Puerto Montt o Puerto Varas? LABRA & BALMACEDA: Especialistas en Derecho Civil, Arriendos, Insolvencia y Familia en la Región de Los Lagos. Primera consulta sin costo."
+                description="¿Buscas abogados en Puerto Montt o Puerto Varas? LABRA & BALMACEDA: Especialistas en Derecho Civil, Arriendos, Insolvencia y Familia en la Región de Los Lagos."
                 path="/"
             />
             <Header />
