@@ -19,6 +19,7 @@ import ArriendosPage from './components/ArriendosPage';
 import InsolvenciaPage from './components/InsolvenciaPage';
 import BlogIndex from './components/BlogIndex';
 import BlogPost from './components/BlogPost';
+import NotFound from './components/NotFound';
 import { getPost } from './content/blog';
 
 type Route =
@@ -30,7 +31,8 @@ type Route =
     | { name: 'arriendos' }
     | { name: 'insolvencia' }
     | { name: 'blog' }
-    | { name: 'post'; slug: string };
+    | { name: 'post'; slug: string }
+    | { name: 'notfound' };
 
 const BLOG_PREFIX = '/blog/';
 
@@ -55,7 +57,9 @@ const resolveRoute = (pathname: string): Route => {
         return getPost(slug) ? { name: 'post', slug } : { name: 'blog' };
     }
 
-    return { name: 'main' };
+    if (path === '/') return { name: 'main' };
+
+    return { name: 'notfound' };
 };
 
 const App: React.FC = () => {
@@ -109,6 +113,16 @@ const App: React.FC = () => {
         const post = getPost(route.slug);
         if (post) return <><BlogPost post={post} /><CookieBanner /></>;
     }
+
+    if (route.name === 'notfound') return <>
+        <Seo
+            title="Página no encontrada | Labra & Balmaceda Abogados"
+            description="La página que buscas no existe o cambió de dirección. Revisa aquí nuestras áreas de práctica y el blog."
+            path={window.location.pathname}
+            noindex
+        />
+        <NotFound /><CookieBanner />
+    </>;
 
     return (
         <>
