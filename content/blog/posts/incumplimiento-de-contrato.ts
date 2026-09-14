@@ -3,9 +3,9 @@ import type { Post } from '../types';
 const post: Post = {
     slug: 'incumplimiento-de-contrato',
     title: 'Incumplimiento de contrato: qué puedes hacer cuando la otra parte no cumple',
-    metaTitle: 'Incumplimiento de contrato en Chile: qué hacer | Labra & Balmaceda',
+    metaTitle: 'Incumplimiento de contrato en Chile: qué hacer',
     description:
-        'Tus opciones legales frente a un incumplimiento de contrato en Chile: exigir el cumplimiento o resolver el contrato, y en ambos casos reclamar indemnización de perjuicios.',
+        '¿La otra parte no cumplió el contrato? En Chile puedes exigir el cumplimiento o resolverlo y cobrar perjuicios. Te explicamos cuándo conviene cada camino.',
     excerpt:
         'Firmaste un contrato confiando en que la otra parte iba a cumplir. Pagaste, entregaste, hiciste tu parte. Y del otro lado, nada. ¿Qué hacer?',
     date: '2026-07-25',

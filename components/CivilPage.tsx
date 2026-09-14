@@ -30,8 +30,8 @@ const CivilPage: React.FC = () => {
     return (
         <div className="bg-white min-h-screen text-brand-black">
             <Seo
-                title="Abogado Civil en Puerto Montt y Puerto Varas | Labra & Balmaceda"
-                description="Abogados especialistas en Derecho Civil en Puerto Montt y Puerto Varas. Herencias, posesiones efectivas, precarios, juicios de arrendamiento e indemnizaciones. Consulta online."
+                title="Abogado Civil en Puerto Varas | Labra & Balmaceda"
+                description="Abogados civiles en Puerto Varas y Puerto Montt: herencias, posesión efectiva, juicio de partición, precarios e indemnización de perjuicios."
                 path="/abogado-civil-puerto-montt"
             />
             <Header />

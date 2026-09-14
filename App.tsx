@@ -101,6 +101,7 @@ const App: React.FC = () => {
             title="Gracias por tu consulta | Labra & Balmaceda Abogados"
             description="Recibimos tu consulta. Te contactaremos a la brevedad para agendar tu primera reunión."
             path="/gracias"
+            noindex
         />
         <Thanks /><CookieBanner />
     </>;
@@ -127,8 +128,8 @@ const App: React.FC = () => {
     return (
         <>
             <Seo
-                title="Abogados en Puerto Varas y Puerto Montt | LABRA & BALMACEDA ABOGADOS"
-                description="¿Buscas abogados en Puerto Montt o Puerto Varas? LABRA & BALMACEDA: Especialistas en Derecho Civil, Arriendos, Insolvencia y Familia en la Región de Los Lagos."
+                title="Abogados en Puerto Varas y Puerto Montt | Labra & Balmaceda"
+                description="¿Buscas abogados en Puerto Varas? Labra & Balmaceda: Derecho Civil, Familia, Arriendos e Insolvencia. Atendemos también en Puerto Montt y Llanquihue."
                 path="/"
             />
             <Header />

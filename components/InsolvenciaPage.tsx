@@ -30,8 +30,8 @@ const InsolvenciaPage: React.FC = () => {
     return (
         <div className="bg-white min-h-screen text-brand-black">
             <Seo
-                title="Abogado de Insolvencia y Deudas en Puerto Montt | Labra & Balmaceda"
-                description="Abogados especialistas en insolvencia y deudas en Puerto Montt. Renegociación, liquidación voluntaria y defensa ante cobranzas judiciales. Consulta online."
+                title="Abogado de Insolvencia en Puerto Varas | Labra & Balmaceda"
+                description="Abogados de insolvencia y deudas en Puerto Varas y Puerto Montt: renegociación, liquidación voluntaria y defensa ante cobranzas judiciales."
                 path="/abogado-insolvencia-puerto-montt"
             />
             <Header />

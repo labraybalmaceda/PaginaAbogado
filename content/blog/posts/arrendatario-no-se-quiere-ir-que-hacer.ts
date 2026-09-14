@@ -3,9 +3,9 @@ import type { Post } from '../types';
 const post: Post = {
     slug: 'arrendatario-no-se-quiere-ir-que-hacer',
     title: 'Tu arrendatario no paga: qué hacer para recuperar tu propiedad',
-    metaTitle: 'Arrendatario no paga y no se va: qué hacer en Chile | Labra & Balmaceda',
+    metaTitle: 'Arrendatario no se quiere ir: cómo recuperar tu propiedad',
     description:
-        'Conoce cómo recuperar tu propiedad cuando el arrendatario no paga, subarrienda sin permiso o daña el inmueble. Juicio rápido, causales y cómo cobrar deudas.',
+        '¿Tu arrendatario no se va aunque dejó de pagar o terminó el contrato? Te explicamos el juicio rápido, cuánto demora y por qué no debes cambiar la chapa.',
     excerpt:
         'Arrendar tu propiedad debía ser tranquilidad, pero la renta empezó a llegar tarde o simplemente no llega. La Ley N° 18.101 tiene un camino claro para que recuperes lo que es tuyo.',
     date: '2026-07-24',

@@ -30,8 +30,8 @@ const ArriendosPage: React.FC = () => {
     return (
         <div className="bg-white min-h-screen text-brand-black">
             <Seo
-                title="Abogado de Arriendos en Puerto Montt y Puerto Varas | Labra & Balmaceda"
-                description="Abogados especialistas en arriendos en Puerto Montt y Puerto Varas. Cobramos arriendos impagos, tramitamos lanzamientos y defendemos a arrendatarios. Consulta online."
+                title="Abogado de Arriendos en Puerto Varas | Labra & Balmaceda"
+                description="Abogados de arriendos en Puerto Varas y Puerto Montt: cobro de rentas impagas, juicios de término de contrato y lanzamiento."
                 path="/abogado-arriendo-puerto-montt"
             />
             <Header />

@@ -30,8 +30,8 @@ const FamiliaPage: React.FC = () => {
     return (
         <div className="bg-white min-h-screen text-brand-black">
             <Seo
-                title="Abogado de Familia en Puerto Montt y Puerto Varas | Labra & Balmaceda"
-                description="Abogados de familia en Puerto Montt y Puerto Varas. Pensiones de alimentos, divorcio, cuidado personal, relación directa y regular. Atención online. Consulta hoy."
+                title="Abogado de Familia en Puerto Varas | Labra & Balmaceda"
+                description="Abogados de familia en Puerto Varas y Puerto Montt: pensión de alimentos, divorcio, cuidado personal y relación directa y regular."
                 path="/abogado-familia-puerto-montt"
             />
             <Header />

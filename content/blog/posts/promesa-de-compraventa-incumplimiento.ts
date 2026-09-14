@@ -3,7 +3,7 @@ import type { Post } from '../types';
 const post: Post = {
     slug: 'promesa-de-compraventa-incumplimiento',
     title: 'Promesa de compraventa: qué pasa si la otra parte no firma o se arrepiente',
-    metaTitle: 'Promesa de compraventa: qué pasa si la otra parte no firma o se arrepiente',
+    metaTitle: 'Promesa de compraventa: si la otra parte se arrepiente',
     description:
         'Firmaste una promesa de compraventa y la otra parte se arrepiente. ¿Puedes obligarla a cumplir? Conoce tus derechos, las arras y qué hacer paso a paso.',
     excerpt:

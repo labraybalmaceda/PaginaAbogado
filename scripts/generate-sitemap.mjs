@@ -23,7 +23,6 @@ const STATIC_ROUTES = [
     { path: '/abogado-familia-puerto-montt', lastmod: '2026-07-15', changefreq: 'monthly', priority: '0.8' },
     { path: '/abogado-arriendo-puerto-montt', lastmod: '2026-07-15', changefreq: 'monthly', priority: '0.8' },
     { path: '/abogado-insolvencia-puerto-montt', lastmod: '2026-07-15', changefreq: 'monthly', priority: '0.8' },
-    { path: '/gracias', lastmod: '2026-07-15', changefreq: 'yearly', priority: '0.5' },
     { path: '/privacidad', lastmod: '2026-07-15', changefreq: 'yearly', priority: '0.3' },
 ];
 
@@ -94,6 +93,12 @@ ${urls}
 };
 
 const posts = readPosts();
+
+const blogRoute = STATIC_ROUTES.find((r) => r.path === '/blog');
+if (blogRoute && posts.length > 0) {
+    blogRoute.lastmod = posts[0].lastmod;
+}
+
 const routes = [...STATIC_ROUTES, ...posts];
 writeFileSync(OUTPUT, toXml(routes), 'utf8');
 
