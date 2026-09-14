@@ -60,7 +60,7 @@ const Thanks: React.FC = () => {
                 
                 <div className="space-y-6 text-gray-600 leading-relaxed text-base sm:text-lg">
                     <p className="font-medium">
-                        Un abogado de LABRA & BALMACEDA ABOGADOS revisará sus antecedentes y le contactará en el plazo indicado (24-48 horas hábiles).
+                        Un abogado de LABRA & BALMACEDA ABOGADOS revisará sus antecedentes y le contactará en el plazo indicado (24 horas).
                     </p>
                     <p className="text-sm text-gray-400 italic">
                         Hemos recibido su información de manera segura y confidencial.

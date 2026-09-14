@@ -15,6 +15,51 @@
   publish = "dist"
 
 [[redirects]]
-  from = "/*"
+  from = "/"
   to = "/index.html"
   status = 200
+
+[[redirects]]
+  from = "/blog"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/*"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/abogado-civil-puerto-montt"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/abogado-familia-puerto-montt"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/abogado-arriendo-puerto-montt"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/abogado-insolvencia-puerto-montt"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/gracias"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/privacidad"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404

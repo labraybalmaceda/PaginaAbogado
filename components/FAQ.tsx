@@ -91,7 +91,7 @@ const FAQ: React.FC = () => {
                     <FAQItem question="5. ¿Puedo comunicarme directamente con los abogados?">
                         <p>Sí. Priorizamos una comunicación clara y directa.</p>
                         <p className="mt-2">Puedes contactarnos por WhatsApp y teléfono, y mantenemos seguimiento del caso con actualizaciones de cada hito procesal.</p>
-                        <p className="mt-2 font-bold text-brand-black text-xs uppercase tracking-widest">Tiempo de respuesta habitual: 24–48 horas hábiles.</p>
+                        <p className="mt-2 font-bold text-brand-black text-xs uppercase tracking-widest">Tiempo de respuesta habitual: 24 horas.</p>
                     </FAQItem>
 
                     <FAQItem question="6. ¿Trabajan con mediación (familia)?">

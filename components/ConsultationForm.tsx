@@ -89,7 +89,7 @@ const ConsultationForm: React.FC = () => {
                             Consulta <span className="text-brand-gold">inicial</span>
                         </h2>
                         <p className="text-base sm:text-lg text-gray-500 font-medium italic">
-                            Respuesta en 24–48 horas hábiles. Atención reservada.
+                            Respuesta en 24 horas. Atención reservada.
                         </p>
                     </div>
 

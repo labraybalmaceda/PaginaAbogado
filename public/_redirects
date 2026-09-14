@@ -1,1 +1,10 @@
-/* /index.html 200
+/                                   /index.html  200
+/blog                               /index.html  200
+/blog/*                             /index.html  200
+/abogado-civil-puerto-montt         /index.html  200
+/abogado-familia-puerto-montt       /index.html  200
+/abogado-arriendo-puerto-montt      /index.html  200
+/abogado-insolvencia-puerto-montt   /index.html  200
+/gracias                            /index.html  200
+/privacidad                         /index.html  200
+/*                                  /404.html    404

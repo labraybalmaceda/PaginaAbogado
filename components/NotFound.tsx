@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import WhatsAppButton from './WhatsAppButton';
@@ -16,9 +16,23 @@ const LINKS = [
     { label: 'Insolvencia', path: '/abogado-insolvencia-puerto-montt' },
 ];
 
-const NotFound: React.FC = () => (
-    <div className="bg-white min-h-screen text-brand-black flex flex-col">
-        <Header />
+const NotFound: React.FC = () => {
+    useEffect(() => {
+        let meta = document.head.querySelector<HTMLMetaElement>('meta[name="prerender-status-code"]');
+        if (!meta) {
+            meta = document.createElement('meta');
+            meta.setAttribute('name', 'prerender-status-code');
+            document.head.appendChild(meta);
+        }
+        meta.setAttribute('content', '404');
+        return () => {
+            meta?.remove();
+        };
+    }, []);
+
+    return (
+        <div className="bg-white min-h-screen text-brand-black flex flex-col">
+            <Header />
 
         <main className="flex-grow container mx-auto px-4 sm:px-6 max-w-2xl py-20 sm:py-28 text-center">
             <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-gold mb-4">
@@ -62,6 +76,7 @@ const NotFound: React.FC = () => (
         <Footer />
         <WhatsAppButton />
     </div>
-);
+    );
+};
 
 export default NotFound;
