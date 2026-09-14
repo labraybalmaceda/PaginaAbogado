@@ -27,9 +27,11 @@ const Footer: React.FC = () => {
                     <div className="flex flex-col">
                         <div className="flex items-center gap-4 mb-8 group cursor-default">
                             <img 
-                                src="https://res.cloudinary.com/dt36zhzde/image/upload/lb_monogram_white2_omlw6a" 
+                                src="https://res.cloudinary.com/dt36zhzde/image/upload/f_auto,q_auto,h_96/lb_monogram_white2_omlw6a" 
                                 alt="Logo LABRA & BALMACEDA Monogram" 
                                 className="h-10 w-auto transition-transform duration-500 group-hover:scale-110"
+                                width={87}
+                                height={96}
                             />
                             <div className="flex flex-col leading-tight">
                                 <p className="text-lg font-bold text-white tracking-tight uppercase font-baskerville not-italic">

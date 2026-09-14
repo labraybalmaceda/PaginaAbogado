@@ -46,9 +46,11 @@ const Header: React.FC = () => {
                 {/* Branding as an interactable link to home */}
                 <a href="/" onClick={(e) => { e.preventDefault(); navigateTo('/', 'Home'); }} className="flex items-center gap-3 hover:opacity-80 transition cursor-pointer">
                     <img 
-                        src="https://res.cloudinary.com/dt36zhzde/image/upload/lb_monogram_ev2svh" 
+                        src="https://res.cloudinary.com/dt36zhzde/image/upload/f_auto,q_auto,h_96/lb_monogram_ev2svh" 
                         alt="Logo LABRA & BALMACEDA" 
                         className="h-10 w-auto sm:h-12"
+                        width={87}
+                        height={96}
                     />
                     <div className="flex flex-col leading-tight">
                         <span className="text-lg sm:text-2xl font-baskerville font-bold text-brand-black tracking-tight uppercase not-italic">

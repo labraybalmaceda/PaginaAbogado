@@ -18,9 +18,11 @@ const PrivacyPolicy: React.FC = () => {
                 <div className="container mx-auto px-4 flex justify-between items-center">
                     <div className="flex items-center gap-3">
                         <img 
-                            src="https://res.cloudinary.com/dt36zhzde/image/upload/lb_monogram_ev2svh" 
+                            src="https://res.cloudinary.com/dt36zhzde/image/upload/f_auto,q_auto,h_96/lb_monogram_ev2svh" 
                             alt="Logo LABRA & BALMACEDA" 
                             className="h-8 w-auto"
+                            width={87}
+                            height={96}
                         />
                         <span className="font-baskerville font-bold text-brand-black tracking-tight uppercase text-sm sm:text-base">
                             LABRA & BALMACEDA
@@ -46,7 +48,7 @@ const PrivacyPolicy: React.FC = () => {
                         <h2 className="text-xl font-bold text-brand-black mb-3 font-baskerville">1) Responsable del tratamiento</h2>
                         <ul className="list-none space-y-1">
                             <li><strong>Responsable:</strong> LABRA & BALMACEDA ABOGADOS</li>
-                            <li><strong>Correo de contacto:</strong> <a href="mailto:labrabalmaceda.estudiojuridico@gmail.com" className="text-brand-gold hover:underline">labrabalmaceda.estudiojuridico@gmail.com</a></li>
+                            <li><strong>Correo de contacto:</strong> <a href="mailto:labraybalmaceda@gmail.com" className="text-brand-gold hover:underline">labraybalmaceda@gmail.com</a></li>
                         </ul>
                     </section>
 
@@ -99,7 +101,7 @@ const PrivacyPolicy: React.FC = () => {
 
                     <section>
                         <h2 className="text-xl font-bold text-brand-black mb-3 font-baskerville">8) Derechos del titular</h2>
-                        <p>La persona puede solicitar acceso, rectificación o eliminación/cancelación de sus datos personales contactando a: <a href="mailto:labrabalmaceda.estudiojuridico@gmail.com" className="text-brand-gold hover:underline">labrabalmaceda.estudiojuridico@gmail.com</a>. LABRA & BALMACEDA ABOGADOS responderá dentro de un plazo razonable conforme a la normativa aplicable.</p>
+                        <p>La persona puede solicitar acceso, rectificación o eliminación/cancelación de sus datos personales contactando a: <a href="mailto:labraybalmaceda@gmail.com" className="text-brand-gold hover:underline">labraybalmaceda@gmail.com</a>. LABRA & BALMACEDA ABOGADOS responderá dentro de un plazo razonable conforme a la normativa aplicable.</p>
                     </section>
 
                     <section>

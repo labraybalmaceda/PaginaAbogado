@@ -29,9 +29,11 @@ const Thanks: React.FC = () => {
                 <div className="container mx-auto px-4 flex justify-between items-center">
                     <div className="flex items-center gap-3">
                         <img 
-                            src="https://res.cloudinary.com/dt36zhzde/image/upload/lb_monogram_ev2svh" 
+                            src="https://res.cloudinary.com/dt36zhzde/image/upload/f_auto,q_auto,h_96/lb_monogram_ev2svh" 
                             alt="Logo LABRA & BALMACEDA" 
                             className="h-8 w-auto"
+                            width={87}
+                            height={96}
                         />
                         <span className="font-baskerville font-bold text-brand-black tracking-tight uppercase text-sm sm:text-base">
                             LABRA & BALMACEDA

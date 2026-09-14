@@ -94,8 +94,8 @@ ${postLines}
 
 - Todo el contenido está en español y se refiere a la legislación chilena vigente, citando los artículos aplicables de cada norma.
 - Los artículos son informativos y no constituyen asesoría legal para un caso particular.
-- Índice del blog: ${BASE_URL}/blog
-- Política de privacidad: ${BASE_URL}/privacidad
+- [Índice del blog](${BASE_URL}/blog)
+- [Política de privacidad](${BASE_URL}/privacidad)
 `;
 
 writeFileSync(OUTPUT, content, 'utf8');
