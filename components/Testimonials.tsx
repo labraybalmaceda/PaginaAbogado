@@ -25,7 +25,7 @@ const CaseTypeCard: React.FC<CaseTypeCardProps> = ({ title, situation, approach,
             <div className="text-brand-gold mb-6 group-hover:scale-110 transition-transform duration-300">
                 {icon}
             </div>
-            <h4 className="text-lg font-bold text-brand-black mb-4 font-baskerville uppercase tracking-tight">{title}</h4>
+            <h3 className="text-lg font-bold text-brand-black mb-4 font-baskerville uppercase tracking-tight">{title}</h3>
 
             <div className="space-y-5 mb-8 flex-grow">
                 <div>

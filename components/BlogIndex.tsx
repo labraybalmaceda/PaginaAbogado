@@ -61,7 +61,7 @@ const BlogIndex: React.FC = () => {
                 <div className="container mx-auto px-4 sm:px-6 max-w-3xl">
                     <header className="mb-10 sm:mb-14">
                         <h1 className="text-2xl sm:text-4xl font-bold mb-4 font-baskerville uppercase tracking-tight not-italic leading-tight text-white">
-                            Artículos <span className="text-brand-gold"></span>
+                            Blog legal: arriendos, familia, herencias y deudas
                         </h1>
                         <p className="text-[15px] sm:text-lg text-white/85 leading-relaxed">
                             Explicamos los problemas que más nos consultan y tramitamos en la Región de Los Lagos: Incumplimientos contractuales e indemnizaciones, arriendos que no se pagan, divorcios, herencias que nadie logra repartir.

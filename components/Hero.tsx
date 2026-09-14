@@ -22,12 +22,12 @@ const Hero: React.FC = () => {
             style={{ backgroundImage: `linear-gradient(to bottom, rgba(17, 17, 17, 0.6), rgba(17, 17, 17, 0.7)), url('${heroImageUrl}')` }}
         >
             <div className="container mx-auto text-center z-10 max-w-5xl">
-                <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-4 tracking-tighter uppercase text-white font-baskerville not-italic mt-6">
+                <p className="text-4xl sm:text-6xl md:text-7xl font-bold mb-4 tracking-tighter uppercase text-white font-baskerville not-italic mt-6">
                     LABRA & <span className="text-brand-gold">BALMACEDA</span>
-                </h1>
-                <h2 className="text-xl sm:text-3xl md:text-4xl font-light mb-8 text-white max-w-4xl mx-auto leading-tight">
+                </p>
+                <h1 className="text-xl sm:text-3xl md:text-4xl font-light mb-8 text-white max-w-4xl mx-auto leading-tight">
                     Abogados en <span className="font-bold text-brand-gold">Puerto Varas</span> y <span className="font-bold text-brand-gold">Puerto Montt</span>.
-                </h2>
+                </h1>
 
                 <div className="text-base sm:text-lg md:text-xl mb-12 text-gray-400 max-w-3xl mx-auto space-y-2">
                     <p className="leading-relaxed">

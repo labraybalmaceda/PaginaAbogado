@@ -43,7 +43,7 @@ const FamiliaPage: React.FC = () => {
                         <div className="absolute top-0 left-0 w-full h-1.5 bg-brand-gold rounded-t-2xl sm:rounded-t-3xl"></div>
                         
                         <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 font-baskerville uppercase tracking-tight not-italic leading-tight text-center sm:text-left">
-                            Defensa y orientación estratégica en <span className="text-brand-gold block sm:inline mt-1 sm:mt-0">Derecho de Familia</span>
+                            Abogado de familia en Puerto Varas y Puerto Montt
                         </h1>
 
                         <ContactCTA source="Landing Familia" />

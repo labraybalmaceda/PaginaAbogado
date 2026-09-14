@@ -32,16 +32,16 @@ const Footer: React.FC = () => {
                                 className="h-10 w-auto transition-transform duration-500 group-hover:scale-110"
                             />
                             <div className="flex flex-col leading-tight">
-                                <h4 className="text-lg font-bold text-white tracking-tight uppercase font-baskerville not-italic">
+                                <p className="text-lg font-bold text-white tracking-tight uppercase font-baskerville not-italic">
                                     LABRA & BALMACEDA
-                                </h4>
+                                </p>
                                 <p className="text-brand-gold text-[9px] font-bold tracking-[0.3em] uppercase font-baskerville not-italic">ABOGADOS</p>
                             </div>
                         </div>
                         
                         <div className="space-y-4">
                             <div>
-                                <h5 className="text-[10px] font-bold uppercase tracking-widest text-white mb-2">Contacto</h5>
+                                <p className="text-[10px] font-bold uppercase tracking-widest text-white mb-2">Contacto</p>
                                 <p className="text-sm">
                                     <span className="block text-brand-gold font-semibold mb-1">WhatsApp / Teléfono:</span>
                                     <a href="tel:+56977646224" className="hover:text-white transition">+56 9 7764 6224</a>
@@ -61,7 +61,7 @@ const Footer: React.FC = () => {
                             
                             {/* Redes Sociales */}
                             <div className="pt-2">
-                                <h5 className="text-[10px] font-bold uppercase tracking-widest text-white mb-3">Síguenos</h5>
+                                <p className="text-[10px] font-bold uppercase tracking-widest text-white mb-3">Síguenos</p>
                                 <div className="flex items-center gap-4">
                                     <a href="https://www.instagram.com/labraybalmaceda" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-brand-gold transition-colors" aria-label="Instagram" onClick={() => trackExternalLink('Instagram')}>
                                         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -81,12 +81,12 @@ const Footer: React.FC = () => {
                     {/* Columna Horario y Cobertura */}
                     <div>
                         <div className="mb-8">
-                            <h4 className="text-sm font-bold mb-4 text-white uppercase tracking-widest font-baskerville not-italic">Horario de atención</h4>
+                            <p className="text-sm font-bold mb-4 text-white uppercase tracking-widest font-baskerville not-italic">Horario de atención</p>
                             <p className="text-sm">Lunes a viernes: 09:00 – 19:00 hrs</p>
                         </div>
                         
                         <div>
-                            <h4 className="text-sm font-bold mb-4 text-white uppercase tracking-widest font-baskerville not-italic">Zonas de cobertura</h4>
+                            <p className="text-sm font-bold mb-4 text-white uppercase tracking-widest font-baskerville not-italic">Zonas de cobertura</p>
                             <p className="text-sm leading-relaxed">
                                 Puerto Varas · Puerto Montt · Llanquihue <br />
                                 <span className="text-xs opacity-70">y otras comunas de la Región de Los Lagos</span>
@@ -96,7 +96,7 @@ const Footer: React.FC = () => {
 
                     {/* Columna Especialidades */}
                     <div>
-                        <h4 className="text-sm font-bold mb-4 text-white uppercase tracking-widest font-baskerville not-italic">Servicios</h4>
+                        <p className="text-sm font-bold mb-4 text-white uppercase tracking-widest font-baskerville not-italic">Servicios</p>
                         <ul className="space-y-3 text-sm">
                             <li><a href="/abogado-civil-puerto-montt" className="hover:text-brand-gold transition" onClick={(e) => { e.preventDefault(); handleNavigate('/abogado-civil-puerto-montt'); trackNavClick('Footer Area Civil'); }}>Derecho Civil</a></li>
                             <li><a href="/abogado-arriendo-puerto-montt" className="hover:text-brand-gold transition" onClick={(e) => { e.preventDefault(); handleNavigate('/abogado-arriendo-puerto-montt'); trackNavClick('Footer Area Arrendamientos'); }}>Arrendamientos</a></li>
