@@ -56,75 +56,122 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Attorney",
-      "@id": "https://labraybalmaceda.cl/#estudio",
-      "name": "Labra & Balmaceda Abogados",
-      "url": "https://labraybalmaceda.cl/",
-      "logo": "https://res.cloudinary.com/dt36zhzde/image/upload/w_1200,h_630,c_pad,b_white/v1781805477/LOGO_e4oacu.png",
-      "image": "https://res.cloudinary.com/dt36zhzde/image/upload/w_1200,h_630,c_pad,b_white/v1781805477/LOGO_e4oacu.png",
-      "telephone": "+56977646224",
-      "email": "labraybalmaceda@gmail.com",
-      "description": "Estudio de abogados especializado en Derecho Civil, Familia, Arriendos e Insolvencia. Atención con cita previa en Puerto Varas y Puerto Montt, y online en todo Chile.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Puerto Varas",
-        "addressRegion": "Región de Los Lagos",
-        "addressCountry": "CL"
-      },
-      "areaServed": [
-        { "@type": "City", "name": "Puerto Varas" },
-        { "@type": "City", "name": "Puerto Montt" },
-        { "@type": "City", "name": "Llanquihue" },
-        { "@type": "AdministrativeArea", "name": "Región de Los Lagos" },
-        { "@type": "Country", "name": "Chile" }
-      ],
-      "openingHoursSpecification": [
+      "@graph": [
         {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-          "opens": "09:00",
-          "closes": "19:00"
-        }
-      ],
-      "availableLanguage": { "@type": "Language", "name": "Español" },
-      "knowsAbout": [
-        "Derecho Civil",
-        "Derecho de Familia",
-        "Arrendamiento de inmuebles urbanos",
-        "Insolvencia y reemprendimiento",
-        "Juicios de arrendamiento y lanzamiento",
-        "Divorcio y compensación económica",
-        "Pensión de alimentos y su cobro",
-        "Herencias, posesión efectiva y partición de bienes",
-        "Incumplimiento de contrato e indemnización de perjuicios"
-      ],
-      "founder": {
-        "@type": "Person",
-        "name": "Renato Labra",
-        "jobTitle": "Abogado"
-      },
-      "contactPoint": [
-        {
-          "@type": "ContactPoint",
+          "@type": "LegalService",
+          "@id": "https://labraybalmaceda.cl/#estudio",
+          "name": "Labra & Balmaceda Abogados",
+          "url": "https://labraybalmaceda.cl/",
+          "logo": "https://res.cloudinary.com/dt36zhzde/image/upload/w_1200,h_630,c_pad,b_white/v1781805477/LOGO_e4oacu.png",
+          "image": "https://res.cloudinary.com/dt36zhzde/image/upload/w_1200,h_630,c_pad,b_white/v1781805477/LOGO_e4oacu.png",
           "telephone": "+56977646224",
-          "contactType": "customer service",
-          "availableLanguage": ["Spanish"],
-          "areaServed": "CL"
+          "email": "labraybalmaceda@gmail.com",
+          "description": "Estudio de abogados especializado en Derecho Civil, Familia, Arriendos e Insolvencia. Atención con cita previa en Puerto Varas y Puerto Montt, y online en todo Chile.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Puerto Varas",
+            "addressRegion": "Región de Los Lagos",
+            "addressCountry": "CL"
+          },
+          "areaServed": [
+            { "@type": "City", "name": "Puerto Varas" },
+            { "@type": "City", "name": "Puerto Montt" },
+            { "@type": "City", "name": "Llanquihue" },
+            { "@type": "AdministrativeArea", "name": "Región de Los Lagos" },
+            { "@type": "Country", "name": "Chile" }
+          ],
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+              "opens": "09:00",
+              "closes": "19:00"
+            }
+          ],
+          "availableLanguage": { "@type": "Language", "name": "Español" },
+          "knowsAbout": [
+            "Derecho Civil",
+            "Derecho de Familia",
+            "Arrendamiento de inmuebles urbanos",
+            "Insolvencia y reemprendimiento",
+            "Juicios de arrendamiento y lanzamiento",
+            "Divorcio y compensación económica",
+            "Pensión de alimentos y su cobro",
+            "Herencias, posesión efectiva y partición de bienes",
+            "Incumplimiento de contrato e indemnización de perjuicios"
+          ],
+          "founder": { "@id": "https://labraybalmaceda.cl/#renato-labra" },
+          "contactPoint": [
+            {
+              "@type": "ContactPoint",
+              "telephone": "+56977646224",
+              "contactType": "customer service",
+              "availableLanguage": ["Spanish"],
+              "areaServed": "CL"
+            }
+          ],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Áreas de práctica",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "@id": "https://labraybalmaceda.cl/abogado-civil-puerto-montt#service",
+                  "name": "Derecho Civil",
+                  "url": "https://labraybalmaceda.cl/abogado-civil-puerto-montt"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "@id": "https://labraybalmaceda.cl/abogado-arriendo-puerto-montt#service",
+                  "name": "Arrendamientos",
+                  "url": "https://labraybalmaceda.cl/abogado-arriendo-puerto-montt"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "@id": "https://labraybalmaceda.cl/abogado-familia-puerto-montt#service",
+                  "name": "Derecho de Familia",
+                  "url": "https://labraybalmaceda.cl/abogado-familia-puerto-montt"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "@id": "https://labraybalmaceda.cl/abogado-insolvencia-puerto-montt#service",
+                  "name": "Insolvencia y Deudas",
+                  "url": "https://labraybalmaceda.cl/abogado-insolvencia-puerto-montt"
+                }
+              }
+            ]
+          },
+          "sameAs": [
+            "https://www.facebook.com/profile.php?id=61575447067555",
+            "https://www.instagram.com/labraybalmaceda"
+          ]
+        },
+        {
+          "@type": "Person",
+          "@id": "https://labraybalmaceda.cl/#renato-labra",
+          "name": "Renato Labra",
+          "jobTitle": "Abogado",
+          "worksFor": { "@id": "https://labraybalmaceda.cl/#estudio" }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://labraybalmaceda.cl/#website",
+          "name": "Labra & Balmaceda Abogados",
+          "url": "https://labraybalmaceda.cl/",
+          "inLanguage": "es-CL",
+          "publisher": { "@id": "https://labraybalmaceda.cl/#estudio" }
         }
-      ],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Áreas de práctica",
-        "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Derecho Civil", "url": "https://labraybalmaceda.cl/abogado-civil-puerto-montt" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Arrendamientos", "url": "https://labraybalmaceda.cl/abogado-arriendo-puerto-montt" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Derecho de Familia", "url": "https://labraybalmaceda.cl/abogado-familia-puerto-montt" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Insolvencia y Deudas", "url": "https://labraybalmaceda.cl/abogado-insolvencia-puerto-montt" } }
-        ]
-      },
-      "sameAs": [
-        "https://www.facebook.com/profile.php?id=61575447067555",
-        "https://www.instagram.com/labraybalmaceda"
       ]
     }
     </script>
