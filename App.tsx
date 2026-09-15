@@ -54,7 +54,7 @@ const resolveRoute = (pathname: string): Route => {
         const slug = path.slice(BLOG_PREFIX.length);
         // Slug inexistente o borrador: se corrige la URL al índice del blog en
         // lugar de dejar una dirección que responde con contenido equivocado.
-        return getPost(slug) ? { name: 'post', slug } : { name: 'blog' };
+        return getPost(slug) ? { name: 'post', slug } : { name: 'notfound' };
     }
 
     if (path === '/') return { name: 'main' };

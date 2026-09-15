@@ -36,10 +36,24 @@ const renderBlock = (block: Block, i: number) => {
                     <p className="text-[15px] sm:text-lg text-gray-700 leading-relaxed italic">{block.text}</p>
                     {block.cite && (
                         <cite className="block mt-2 text-xs uppercase tracking-widest text-brand-gold not-italic font-bold">
-                            {block.cite}
+                            {block.citeUrl ? (
+                                <a href={block.citeUrl} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                                    {block.cite}
+                                </a>
+                            ) : (
+                                block.cite
+                            )}
                         </cite>
                     )}
                 </blockquote>
+            );
+        case 'summary':
+            return (
+                <div key={i} className="bg-gray-50 border-l-4 border-brand-gold rounded-r-xl px-5 py-4 mb-6">
+                    <p className="text-[15px] sm:text-lg text-gray-700 leading-relaxed">
+                        <strong className="text-brand-black">En resumen:</strong> {block.text}
+                    </p>
+                </div>
             );
         case 'p':
         default:
@@ -59,9 +73,11 @@ const BlogPost: React.FC<{ post: Post }> = ({ post }) => {
     // Memoizado: sin esto, el objeto se recrea en cada render y el efecto de Seo
     // reinyectaría el JSON-LD una y otra vez.
     const jsonLd = useMemo(() => {
-        const article = {
+        const SERVICE = SERVICES[post.service];
+        const article: any = {
             '@context': 'https://schema.org',
-            '@type': 'Article',
+            '@type': 'BlogPosting',
+            '@id': `${url}#blogposting`,
             headline: post.title,
             description: post.description,
             datePublished: post.date,
@@ -69,23 +85,20 @@ const BlogPost: React.FC<{ post: Post }> = ({ post }) => {
             inLanguage: 'es-CL',
             image: post.image || LOGO_URL,
             mainEntityOfPage: { '@type': 'WebPage', '@id': url },
-            author: {
-                '@type': 'Person',
-                name: 'Renato Labra',
-                jobTitle: 'Abogado',
-                url: `${BASE_URL}/`,
-            },
-            publisher: {
-                '@type': 'Organization',
-                name: 'Labra & Balmaceda Abogados',
-                url: `${BASE_URL}/`,
-                logo: { '@type': 'ImageObject', url: LOGO_URL },
-            },
+            author: { '@id': 'https://labraybalmaceda.cl/#renato-labra' },
+            publisher: { '@id': 'https://labraybalmaceda.cl/#estudio' },
+            isPartOf: { '@id': 'https://labraybalmaceda.cl/#website' },
+            breadcrumb: { '@id': `${url}#breadcrumb` },
         };
+
+        if (SERVICE) {
+            article.about = { '@id': `${BASE_URL}${SERVICE.path}#service` };
+        }
 
         const breadcrumbs = {
             '@context': 'https://schema.org',
             '@type': 'BreadcrumbList',
+            '@id': `${url}#breadcrumb`,
             itemListElement: [
                 { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${BASE_URL}/` },
                 { '@type': 'ListItem', position: 2, name: 'Blog', item: `${BASE_URL}/blog` },
@@ -189,6 +202,11 @@ const BlogPost: React.FC<{ post: Post }> = ({ post }) => {
                                 Cada caso tiene detalles que cambian la estrategia. Revisamos el tuyo y te decimos
                                 con claridad qué alternativas tienes.
                             </p>
+                            {SERVICES[post.service] && (
+                                <p className="text-sm sm:text-base text-gray-600 mb-6 max-w-xl mx-auto leading-relaxed">
+                                    Conoce nuestra área de <a href={SERVICES[post.service].path} onClick={(e) => { e.preventDefault(); navigateTo(SERVICES[post.service].path); }} className="text-brand-gold font-semibold underline hover:text-brand-black transition">{SERVICES[post.service].label} en Puerto Varas y Puerto Montt</a>.
+                                </p>
+                            )}
                             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                                 <a
                                     href="/#consulta"

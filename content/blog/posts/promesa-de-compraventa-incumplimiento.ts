@@ -37,7 +37,7 @@ const post: Post = {
         },
         {
             type: 'p',
-            text: 'Eso sí, para que tenga toda su fuerza, la promesa debe estar bien hecha. La ley exige, entre otras cosas, que conste por escrito, que fije con claridad la propiedad y el precio, y que establezca cuándo se firmará el contrato definitivo (un plazo o una condición). Si le falta alguno de estos elementos, la promesa puede ser nula, y ahí empiezan los problemas. Por eso conviene que la revise un abogado antes de firmarla, no después.',
+            text: 'Eso sí, para que tenga toda su fuerza, la promesa debe estar bien hecha. El artículo 1554 del Código Civil exige, entre otras cosas, que conste por escrito, que fije con claridad la propiedad y el precio, y que establezca cuándo se firmará el contrato definitivo (un plazo o una condición). Si le falta alguno de estos elementos, la promesa puede ser nula, y ahí empiezan los problemas. Por eso conviene que la revise un abogado antes de firmarla, no después.',
         },
         {
             type: 'h2',

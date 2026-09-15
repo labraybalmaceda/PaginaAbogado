@@ -33,6 +33,7 @@ const post: Post = {
             type: 'quote',
             text: 'Ninguno de los coasignatarios de una cosa universal o singular será obligado a permanecer en la indivisión; la partición del objeto asignado podrá siempre pedirse con tal que los coasignatarios no hayan estipulado lo contrario.',
             cite: 'Artículo 1317 del Código Civil',
+            citeUrl: "https://www.bcn.cl/leychile/navegar?idNorma=172986&idParte=8717776"
         },
         {
             type: 'p',

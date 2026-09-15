@@ -114,7 +114,7 @@ const Footer: React.FC = () => {
                         © 2026 <span className="font-baskerville">Labra & Balmaceda ABOGADOS</span>. Todos los derechos reservados.
                     </p>
                     <p className="text-[10px] text-gray-600 italic">
-                        La información de este sitio es referencial y no constituye asesoría legal. | <button onClick={() => handleNavigate('/privacidad')} className="hover:text-brand-gold underline transition">Política de Privacidad</button>
+                        La información de este sitio es referencial y no constituye asesoría legal. | <a href="/privacidad" onClick={(e) => { e.preventDefault(); handleNavigate('/privacidad'); }} className="hover:text-brand-gold underline transition">Política de Privacidad</a>
                     </p>
                 </div>
             </div>

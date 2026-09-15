@@ -14,8 +14,9 @@ export type Block =
     | { type: 'h2'; text: string }
     | { type: 'h3'; text: string }
     | { type: 'list'; items: string[] }
+    | { type: 'summary'; text: string }
     /** Cita legal destacada. `cite` es la norma: "Art. 1977 del Código Civil". */
-    | { type: 'quote'; text: string; cite?: string };
+    | { type: 'quote'; text: string; cite?: string; citeUrl?: string };
 
 export interface Faq {
     question: string;

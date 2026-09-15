@@ -15,26 +15,22 @@ const BlogIndex: React.FC = () => {
             {
                 '@context': 'https://schema.org',
                 '@type': 'Blog',
+                '@id': `${BASE_URL}/blog#blog`,
                 name: 'Blog legal | Labra & Balmaceda Abogados',
                 description:
                     'Artículos sobre arriendos, familia, herencias y deudas, explicados por abogados de Puerto Varas y Puerto Montt.',
                 url: `${BASE_URL}/blog`,
                 inLanguage: 'es-CL',
-                publisher: {
-                    '@type': 'Organization',
-                    name: 'Labra & Balmaceda Abogados',
-                    url: `${BASE_URL}/`,
-                },
+                isPartOf: { '@id': 'https://labraybalmaceda.cl/#website' },
+                publisher: { '@id': 'https://labraybalmaceda.cl/#estudio' },
                 blogPost: posts.map((p) => ({
-                    '@type': 'BlogPosting',
-                    headline: p.title,
-                    url: `${BASE_URL}/blog/${p.slug}`,
-                    datePublished: p.date,
+                    '@id': `${BASE_URL}/blog/${p.slug}#blogposting`,
                 })),
             },
             {
                 '@context': 'https://schema.org',
                 '@type': 'BreadcrumbList',
+                '@id': `${BASE_URL}/blog#breadcrumb`,
                 itemListElement: [
                     { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${BASE_URL}/` },
                     { '@type': 'ListItem', position: 2, name: 'Blog', item: `${BASE_URL}/blog` },
@@ -100,6 +96,7 @@ const BlogIndex: React.FC = () => {
                                             href={`/blog/${post.slug}`}
                                             onClick={(e) => { e.preventDefault(); navigateTo(`/blog/${post.slug}`); }}
                                             className="text-xs font-bold uppercase tracking-widest text-brand-black hover:text-brand-gold transition"
+                                            aria-label={`Leer artículo: ${post.title}`}
                                         >
                                             Leer artículo →
                                         </a>

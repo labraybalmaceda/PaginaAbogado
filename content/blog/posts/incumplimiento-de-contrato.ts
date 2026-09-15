@@ -11,6 +11,7 @@ const post: Post = {
     date: '2026-07-25',
     service: 'civil',
     blocks: [
+        { type: "summary", text: "Según el artículo 1545 del Código Civil, todo contrato legalmente celebrado es una ley para los contratantes. Si la otra parte no cumple, el artículo 1489 te permite exigir el cumplimiento o pedir la resolución del contrato, en ambos casos con indemnización de perjuicios, siempre que tú hayas cumplido o estés llano a cumplir (artículo 1552)." },
         {
             type: 'p',
             text: 'Firmaste un contrato confiando en que la otra parte iba a cumplir. Pagaste, entregaste, hiciste tu parte. Y del otro lado, nada: el servicio no llegó, la obra quedó a medias, el pago no aparece o lo que recibiste no es lo que se había pactado.',
@@ -27,6 +28,7 @@ const post: Post = {
             type: 'quote',
             text: 'Todo contrato legalmente celebrado es una ley para los contratantes, y no puede ser invalidado sino por su consentimiento mutuo o por causas legales.',
             cite: 'Artículo 1545 del Código Civil',
+            citeUrl: "https://www.bcn.cl/leychile/navegar?idNorma=172986&idParte=8717776"
         },
         { type: 'h2', text: 'Primero: tú tienes que estar cumpliendo' },
         {
@@ -46,6 +48,7 @@ const post: Post = {
             type: 'quote',
             text: 'En los contratos bilaterales va envuelta la condición resolutoria de no cumplirse por uno de los contratantes lo pactado. Pero en tal caso podrá el otro contratante pedir a su arbitrio o la resolución o el cumplimiento del contrato, con indemnización de perjuicios.',
             cite: 'Artículo 1489 del Código Civil',
+            citeUrl: "https://www.bcn.cl/leychile/navegar?idNorma=172986&idParte=8717776"
         },
         { type: 'h3', text: '1. Exigir el cumplimiento' },
         {

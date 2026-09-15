@@ -142,7 +142,7 @@ const ConsultationForm: React.FC = () => {
                                 <input type="checkbox" id="consentimiento" name="consentimiento" checked={formData.consentimiento} onChange={handleChange} required className="mt-1 w-5 h-5 text-brand-gold border-gray-300 rounded focus:ring-0 cursor-pointer"/>
                                 <div className="space-y-1">
                                     <label htmlFor="consentimiento" className="text-xs sm:text-sm text-gray-600 font-medium cursor-pointer">
-                                        He leído la <button type="button" onClick={() => { window.history.pushState({}, '', '/privacidad'); window.dispatchEvent(new PopStateEvent('popstate')); }} className="text-brand-gold underline hover:text-brand-black transition-colors">Política de Privacidad</button> y acepto ser contactado para responder esta consulta. <span className="text-brand-gold">*</span>
+                                        He leído la <a href="/privacidad" role="button" onClick={(e) => { e.preventDefault(); window.history.pushState({}, '', '/privacidad'); window.dispatchEvent(new PopStateEvent('popstate')); }} className="text-brand-gold underline hover:text-brand-black transition-colors">Política de Privacidad</a> y acepto ser contactado para responder esta consulta. <span className="text-brand-gold">*</span>
                                     </label>
                                     <p className="text-[10px] text-gray-400 font-medium">Tus datos se usan solo para responder esta solicitud. No enviamos spam.</p>
                                     {errors.consentimiento && <span className="block text-red-500 text-[10px] font-bold uppercase">{errors.consentimiento}</span>}

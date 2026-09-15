@@ -11,6 +11,7 @@ const post: Post = {
     date: '2026-07-24',
     service: 'arriendos',
     blocks: [
+        { type: "summary", text: "No puedes recuperar tu propiedad por tu cuenta: cambiar la chapa o cortar los servicios te expone a acciones civiles y penales. Si el arrendatario no paga, la Ley N° 18.101 contempla un procedimiento monitorio en que el tribunal le exige pagar o entregar la propiedad. Si el problema es otro (plazo vencido, deterioro, subarriendo sin permiso o uso distinto), puedes pedir el término del contrato. En el mismo juicio cobras las rentas, los consumos y los perjuicios." },
         {
             type: 'p',
             text: 'Arrendar tu propiedad debía ser tranquilidad: un ingreso mensual, un buen inquilino, cero problemas. Pero la realidad a veces es otra. La renta empezó a llegar tarde, después a medias, y ahora simplemente no llega.',
@@ -21,12 +22,12 @@ const post: Post = {
         },
         {
             type: 'p',
-            text: 'No tienes que aguantar esta situación indefinidamente, pero tampoco puedes recuperar tu propiedad por la fuerza. La ley tiene un camino claro para que recuperes lo que es tuyo, y hoy ese camino es mucho más rápido que antes. Asesoramos a propietarios de Puerto Varas, Puerto Montt y toda la Región de Los Lagos para recuperar su inmueble y cobrar lo que se les adeuda.',
+            text: 'No tienes que aguantar esta situación indefinidamente, pero tampoco puedes recuperar tu propiedad por la fuerza. La ley tiene un camino claro para que recuperes lo que es tuyo, y hoy ese camino es mucho más rápido que antes, gracias a la Ley N° 21.461, conocida como «Devuélveme mi casa», vigente desde 2022. Asesoramos a propietarios de Puerto Varas, Puerto Montt y toda la Región de Los Lagos para recuperar su inmueble y cobrar lo que se les adeuda.',
         },
         { type: 'h2', text: 'Si el arrendatario no paga la renta: el juicio rápido para recuperar tu propiedad' },
         {
             type: 'p',
-            text: 'El escenario más común es también el que la ley resolvió de manera más ágil. Cuando el arrendatario deja de pagar, existe un procedimiento especial pensado justamente para esto.',
+            text: 'Si el arrendatario deja de pagar la renta, la Ley N° 18.101, modificada por la Ley N° 21.461, contempla un procedimiento especial y rápido conocido como procedimiento monitorio. En ese mismo juicio puedes pedir la restitución de la propiedad y el cobro de las rentas adeudadas.',
         },
         {
             type: 'p',

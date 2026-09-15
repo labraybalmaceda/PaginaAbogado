@@ -17,14 +17,40 @@ const FamiliaPage: React.FC = () => {
 
     const schemaData = {
       "@context": "https://schema.org",
-      "@type": "LegalService",
-      "name": "Labra & Balmaceda Abogados - Derecho de Familia",
-      "description": "Abogados de familia en Puerto Montt y Puerto Varas.",
-      "url": "https://labraybalmaceda.cl/abogado-familia-puerto-montt",
-      "areaServed": ["Puerto Montt", "Puerto Varas", "Región de Los Lagos"],
-      "serviceType": "Derecho de Familia",
-      "telephone": "+56977646224",
-      "email": "labraybalmaceda@gmail.com"
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://labraybalmaceda.cl/abogado-familia-puerto-montt#webpage",
+          "url": "https://labraybalmaceda.cl/abogado-familia-puerto-montt",
+          "inLanguage": "es-CL",
+          "isPartOf": { "@id": "https://labraybalmaceda.cl/#website" },
+          "about": { "@id": "https://labraybalmaceda.cl/abogado-familia-puerto-montt#service" },
+          "breadcrumb": { "@id": "https://labraybalmaceda.cl/abogado-familia-puerto-montt#breadcrumb" }
+        },
+        {
+          "@type": "Service",
+          "@id": "https://labraybalmaceda.cl/abogado-familia-puerto-montt#service",
+          "name": "Derecho de Familia",
+          "serviceType": "Derecho de Familia",
+          "description": "Abogados de familia en Puerto Varas y Puerto Montt.",
+          "url": "https://labraybalmaceda.cl/abogado-familia-puerto-montt",
+          "provider": { "@id": "https://labraybalmaceda.cl/#estudio" },
+          "areaServed": [
+            { "@type": "City", "name": "Puerto Varas" },
+            { "@type": "City", "name": "Puerto Montt" },
+            { "@type": "City", "name": "Llanquihue" },
+            { "@type": "AdministrativeArea", "name": "Región de Los Lagos" }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://labraybalmaceda.cl/abogado-familia-puerto-montt#breadcrumb",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://labraybalmaceda.cl/" },
+            { "@type": "ListItem", "position": 2, "name": "Derecho de Familia", "item": "https://labraybalmaceda.cl/abogado-familia-puerto-montt" }
+          ]
+        }
+      ]
     };
 
     return (

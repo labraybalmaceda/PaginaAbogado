@@ -17,14 +17,40 @@ const ArriendosPage: React.FC = () => {
 
     const schemaData = {
       "@context": "https://schema.org",
-      "@type": "LegalService",
-      "name": "Labra & Balmaceda Abogados - Derecho de Arriendos",
-      "description": "Abogados especialistas en arriendos en Puerto Montt y Puerto Varas.",
-      "url": "https://labraybalmaceda.cl/abogado-arriendo-puerto-montt",
-      "areaServed": ["Puerto Montt", "Puerto Varas", "Región de Los Lagos"],
-      "serviceType": "Derecho de Arriendos",
-      "telephone": "+56977646224",
-      "email": "labraybalmaceda@gmail.com"
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://labraybalmaceda.cl/abogado-arriendo-puerto-montt#webpage",
+          "url": "https://labraybalmaceda.cl/abogado-arriendo-puerto-montt",
+          "inLanguage": "es-CL",
+          "isPartOf": { "@id": "https://labraybalmaceda.cl/#website" },
+          "about": { "@id": "https://labraybalmaceda.cl/abogado-arriendo-puerto-montt#service" },
+          "breadcrumb": { "@id": "https://labraybalmaceda.cl/abogado-arriendo-puerto-montt#breadcrumb" }
+        },
+        {
+          "@type": "Service",
+          "@id": "https://labraybalmaceda.cl/abogado-arriendo-puerto-montt#service",
+          "name": "Derecho de Arriendos",
+          "serviceType": "Derecho de Arriendos",
+          "description": "Abogados de arriendos en Puerto Varas y Puerto Montt.",
+          "url": "https://labraybalmaceda.cl/abogado-arriendo-puerto-montt",
+          "provider": { "@id": "https://labraybalmaceda.cl/#estudio" },
+          "areaServed": [
+            { "@type": "City", "name": "Puerto Varas" },
+            { "@type": "City", "name": "Puerto Montt" },
+            { "@type": "City", "name": "Llanquihue" },
+            { "@type": "AdministrativeArea", "name": "Región de Los Lagos" }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://labraybalmaceda.cl/abogado-arriendo-puerto-montt#breadcrumb",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://labraybalmaceda.cl/" },
+            { "@type": "ListItem", "position": 2, "name": "Derecho de Arriendos", "item": "https://labraybalmaceda.cl/abogado-arriendo-puerto-montt" }
+          ]
+        }
+      ]
     };
 
     return (
@@ -76,17 +102,17 @@ const ArriendosPage: React.FC = () => {
                         <div className="space-y-6 mb-10 sm:mb-12 text-sm sm:text-base text-gray-600 leading-relaxed font-medium">
                             <div>
                                 <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-lg">¿Es rápido recuperar mi propiedad cuando el arrendatario no paga?</h3>
-                                <p>Cuando el problema es solo el no pago de las rentas, el proceso se rige por las modificaciones de la Ley Devuélveme mi casa, que estableció un procedimiento sumamente rápido para estos casos. Cuando el conflicto es por otras materias, como vicios del contrato o daños al inmueble, el proceso es distinto y suele tomar más tiempo. Para saber por qué vía va tu caso, contáctanos.</p>
+                                <p>Sí, cuando el problema es solo el no pago de las rentas. La Ley N° 21.461, conocida como «Devuélveme mi casa», modificó la Ley N° 18.101 y estableció un procedimiento monitorio pensado para resolver estos casos con rapidez. Cuando el conflicto es por otras materias, como vicios del contrato o daños al inmueble, el procedimiento es distinto y suele tomar más tiempo. Para saber por qué vía va tu caso, contáctanos</p>
                             </div>
 
                             <div>
                                 <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-lg">¿Puedo demandar si el contrato de arriendo es solo verbal?</h3>
-                                <p>La dificultad está en probar los términos acordados. Los pagos por transferencia, mensajes o testigos son elementos útiles para demostrar la existencia y las condiciones del contrato. Para evaluar en qué situación estás y con qué pruebas cuentas, agenda una consulta con nosotros.</p>
+                                <p>Sí. La dificultad no es demandar, sino probar los términos que acordaron: el monto de la renta, la fecha de pago y la duración. Las transferencias, los mensajes y los testigos sirven para acreditar la existencia y las condiciones del arriendo.</p>
                             </div>
 
                             <div>
                                 <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-lg">¿Qué pasa si el arrendatario se niega a irse, aunque haya sentencia?</h3>
-                                <p>El tribunal puede ordenar el lanzamiento con auxilio de Carabineros. Para coordinar este proceso en tu caso, contáctanos.</p>
+                                <p>El tribunal puede ordenar el lanzamiento con auxilio de la fuerza pública (Carabineros). El propietario no debe sacar al arrendatario por su cuenta: cambiar la chapa o cortar los servicios lo expone a acciones civiles y penales. La restitución la ordena el tribunal y la ejecuta la fuerza pública.</p>
                             </div>
                         </div>
 

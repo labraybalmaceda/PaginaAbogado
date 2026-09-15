@@ -17,14 +17,40 @@ const CivilPage: React.FC = () => {
 
     const schemaData = {
       "@context": "https://schema.org",
-      "@type": "LegalService",
-      "name": "Labra & Balmaceda Abogados - Derecho Civil",
-      "description": "Abogados especialistas en Derecho Civil en Puerto Montt y Puerto Varas.",
-      "url": "https://labraybalmaceda.cl/abogado-civil-puerto-montt",
-      "areaServed": ["Puerto Montt", "Puerto Varas", "Región de Los Lagos"],
-      "serviceType": "Derecho Civil",
-      "telephone": "+56977646224",
-      "email": "labraybalmaceda@gmail.com"
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://labraybalmaceda.cl/abogado-civil-puerto-montt#webpage",
+          "url": "https://labraybalmaceda.cl/abogado-civil-puerto-montt",
+          "inLanguage": "es-CL",
+          "isPartOf": { "@id": "https://labraybalmaceda.cl/#website" },
+          "about": { "@id": "https://labraybalmaceda.cl/abogado-civil-puerto-montt#service" },
+          "breadcrumb": { "@id": "https://labraybalmaceda.cl/abogado-civil-puerto-montt#breadcrumb" }
+        },
+        {
+          "@type": "Service",
+          "@id": "https://labraybalmaceda.cl/abogado-civil-puerto-montt#service",
+          "name": "Derecho Civil",
+          "serviceType": "Derecho Civil",
+          "description": "Abogados civiles en Puerto Varas y Puerto Montt.",
+          "url": "https://labraybalmaceda.cl/abogado-civil-puerto-montt",
+          "provider": { "@id": "https://labraybalmaceda.cl/#estudio" },
+          "areaServed": [
+            { "@type": "City", "name": "Puerto Varas" },
+            { "@type": "City", "name": "Puerto Montt" },
+            { "@type": "City", "name": "Llanquihue" },
+            { "@type": "AdministrativeArea", "name": "Región de Los Lagos" }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://labraybalmaceda.cl/abogado-civil-puerto-montt#breadcrumb",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://labraybalmaceda.cl/" },
+            { "@type": "ListItem", "position": 2, "name": "Derecho Civil", "item": "https://labraybalmaceda.cl/abogado-civil-puerto-montt" }
+          ]
+        }
+      ]
     };
 
     return (

@@ -33,6 +33,7 @@ const post: Post = {
             type: 'quote',
             text: 'Sin perjuicio de lo anterior, el divorcio será decretado por el juez si ambos cónyuges lo solicitan de común acuerdo y acreditan que ha cesado su convivencia durante un lapso mayor de un año. En este caso, los cónyuges deberán acompañar un acuerdo que, ajustándose a la ley, regule en forma completa y suficiente sus relaciones mutuas y con respecto a sus hijos.',
             cite: 'Artículo 55, incisos primero y segundo, de la Ley 19.947 de Matrimonio Civil',
+            citeUrl: "https://www.bcn.cl/leychile/navegar?idNorma=225128"
         },
         {
             type: 'p',

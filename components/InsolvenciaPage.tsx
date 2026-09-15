@@ -17,14 +17,40 @@ const InsolvenciaPage: React.FC = () => {
 
     const schemaData = {
       "@context": "https://schema.org",
-      "@type": "LegalService",
-      "name": "Labra & Balmaceda Abogados - Derecho de Insolvencia",
-      "description": "Abogados especialistas en insolvencia y deudas en Puerto Montt.",
-      "url": "https://labraybalmaceda.cl/abogado-insolvencia-puerto-montt",
-      "areaServed": ["Puerto Montt", "Puerto Varas", "Región de Los Lagos"],
-      "serviceType": "Derecho de Insolvencia",
-      "telephone": "+56977646224",
-      "email": "labraybalmaceda@gmail.com"
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://labraybalmaceda.cl/abogado-insolvencia-puerto-montt#webpage",
+          "url": "https://labraybalmaceda.cl/abogado-insolvencia-puerto-montt",
+          "inLanguage": "es-CL",
+          "isPartOf": { "@id": "https://labraybalmaceda.cl/#website" },
+          "about": { "@id": "https://labraybalmaceda.cl/abogado-insolvencia-puerto-montt#service" },
+          "breadcrumb": { "@id": "https://labraybalmaceda.cl/abogado-insolvencia-puerto-montt#breadcrumb" }
+        },
+        {
+          "@type": "Service",
+          "@id": "https://labraybalmaceda.cl/abogado-insolvencia-puerto-montt#service",
+          "name": "Insolvencia y Deudas",
+          "serviceType": "Insolvencia y Deudas",
+          "description": "Abogados de insolvencia y deudas en Puerto Varas y Puerto Montt.",
+          "url": "https://labraybalmaceda.cl/abogado-insolvencia-puerto-montt",
+          "provider": { "@id": "https://labraybalmaceda.cl/#estudio" },
+          "areaServed": [
+            { "@type": "City", "name": "Puerto Varas" },
+            { "@type": "City", "name": "Puerto Montt" },
+            { "@type": "City", "name": "Llanquihue" },
+            { "@type": "AdministrativeArea", "name": "Región de Los Lagos" }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://labraybalmaceda.cl/abogado-insolvencia-puerto-montt#breadcrumb",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://labraybalmaceda.cl/" },
+            { "@type": "ListItem", "position": 2, "name": "Insolvencia y Deudas", "item": "https://labraybalmaceda.cl/abogado-insolvencia-puerto-montt" }
+          ]
+        }
+      ]
     };
 
     return (

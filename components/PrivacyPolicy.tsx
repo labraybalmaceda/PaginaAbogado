@@ -86,7 +86,7 @@ const PrivacyPolicy: React.FC = () => {
 
                     <section>
                         <h2 className="text-xl font-bold text-brand-black mb-3 font-baskerville">5) Proveedor del formulario</h2>
-                        <p>El formulario de este sitio es gestionado mediante Netlify, plataforma que permite recibir consultas y reenviarlas al correo de LABRA & BALMACEDA ABOGADOS. Netlify actúa como proveedor tecnológico para el funcionamiento del formulario y trata la información únicamente con ese propósito.</p>
+                        <p>El formulario de este sitio es gestionado mediante plataformas de desarrollo y alojamiento, que permite recibir consultas y reenviarlas al correo de LABRA & BALMACEDA ABOGADOS. Netlify actúa como proveedor tecnológico para el funcionamiento del formulario y trata la información únicamente con ese propósito.</p>
                     </section>
 
                     <section>

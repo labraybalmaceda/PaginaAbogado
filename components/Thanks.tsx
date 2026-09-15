@@ -68,9 +68,9 @@ const Thanks: React.FC = () => {
                 </div>
 
                 <div className="mt-12">
-                    <button onClick={handleBack} className="inline-block px-12 py-4 bg-brand-black text-white font-bold rounded-xl hover:bg-brand-gold transition shadow-xl uppercase tracking-widest text-sm transform hover:-translate-y-1">
+                    <a href="/" onClick={(e) => { e.preventDefault(); handleBack(); }} className="inline-block px-12 py-4 bg-brand-black text-white font-bold rounded-xl hover:bg-brand-gold transition shadow-xl uppercase tracking-widest text-sm transform hover:-translate-y-1">
                         Volver al inicio
-                    </button>
+                    </a>
                 </div>
             </main>
 
