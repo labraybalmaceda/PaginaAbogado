@@ -8,11 +8,8 @@ import RelatedPosts from './RelatedPosts';
 
 const InsolvenciaPage: React.FC = () => {
     const handleCTA = () => {
-        window.history.pushState({}, '', '/');
+        window.history.pushState({}, '', '/#consulta');
         window.dispatchEvent(new PopStateEvent('popstate'));
-        setTimeout(() => {
-            document.getElementById('consulta')?.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
     };
 
     const schemaData = {
@@ -63,13 +60,16 @@ const InsolvenciaPage: React.FC = () => {
             <Header />
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
             
-            <main className="py-12 sm:py-24 overflow-hidden mt-6 sm:mt-0">
+            <main 
+                className="py-12 sm:py-24 overflow-hidden mt-6 sm:mt-0 bg-cover bg-center bg-scroll md:bg-fixed"
+                style={{ backgroundImage: `linear-gradient(to bottom, rgba(17, 17, 17, 0.6), rgba(17, 17, 17, 0.7)), url('/fotohero.jpg')` }}
+            >
                 <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
                     <div className="bg-white p-6 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-100 relative">
                         <div className="absolute top-0 left-0 w-full h-1.5 bg-brand-gold rounded-t-2xl sm:rounded-t-3xl"></div>
                         
                         <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 font-baskerville uppercase tracking-tight not-italic leading-tight text-center sm:text-left">
-                            Abogado de insolvencia y deudas en Puerto Varas y Puerto Montt
+                            Abogado de insolvencia y deudas en <span className="font-bold text-brand-gold">Puerto Varas</span> y <span className="font-bold text-brand-gold">Puerto Montt</span>
                         </h1>
 
                         <ContactCTA source="Landing Insolvencia" />

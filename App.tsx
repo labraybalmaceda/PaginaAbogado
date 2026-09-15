@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useLayoutEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import StatsBar from './components/StatsBar';
@@ -73,13 +73,6 @@ const App: React.FC = () => {
             if (next.name === 'blog' && window.location.pathname.startsWith(BLOG_PREFIX)) {
                 window.history.replaceState({}, '', '/blog');
             }
-
-            if (next.name === 'main' && window.location.hash) {
-                setTimeout(() => {
-                    const el = document.getElementById(window.location.hash.substring(1));
-                    if (el) el.scrollIntoView({ behavior: 'smooth' });
-                }, 100);
-            }
         };
 
         window.addEventListener('popstate', handleLocationChange);
@@ -87,6 +80,28 @@ const App: React.FC = () => {
 
         return () => window.removeEventListener('popstate', handleLocationChange);
     }, []);
+
+    useLayoutEffect(() => {
+        if (!window.location.hash) {
+            const originalStyle = document.documentElement.style.scrollBehavior;
+            document.documentElement.style.scrollBehavior = 'auto';
+            window.scrollTo(0, 0);
+            document.documentElement.style.scrollBehavior = originalStyle;
+        } else if (route.name === 'main') {
+            const hash = window.location.hash.substring(1);
+            const scrollToHash = () => {
+                const el = document.getElementById(hash);
+                if (el) {
+                    const originalStyle = document.documentElement.style.scrollBehavior;
+                    document.documentElement.style.scrollBehavior = 'auto';
+                    el.scrollIntoView({ block: 'start' });
+                    document.documentElement.style.scrollBehavior = originalStyle;
+                }
+            };
+            setTimeout(scrollToHash, 150);
+            setTimeout(scrollToHash, 700);
+        }
+    }, [route, window.location.hash]);
 
     if (route.name === 'privacy') return <>
         <Seo

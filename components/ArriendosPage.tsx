@@ -8,11 +8,8 @@ import RelatedPosts from './RelatedPosts';
 
 const ArriendosPage: React.FC = () => {
     const handleCTA = () => {
-        window.history.pushState({}, '', '/');
+        window.history.pushState({}, '', '/#consulta');
         window.dispatchEvent(new PopStateEvent('popstate'));
-        setTimeout(() => {
-            document.getElementById('consulta')?.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
     };
 
     const schemaData = {
@@ -63,20 +60,23 @@ const ArriendosPage: React.FC = () => {
             <Header />
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
             
-            <main className="py-12 sm:py-24 overflow-hidden mt-6 sm:mt-0">
+            <main 
+                className="py-12 sm:py-24 overflow-hidden mt-6 sm:mt-0 bg-cover bg-center bg-scroll md:bg-fixed"
+                style={{ backgroundImage: `linear-gradient(to bottom, rgba(17, 17, 17, 0.6), rgba(17, 17, 17, 0.7)), url('/fotohero.jpg')` }}
+            >
                 <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
                     <div className="bg-white p-6 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-100 relative">
                         <div className="absolute top-0 left-0 w-full h-1.5 bg-brand-gold rounded-t-2xl sm:rounded-t-3xl"></div>
                         
                         <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 font-baskerville uppercase tracking-tight not-italic leading-tight text-center sm:text-left">
-                            Abogado de arriendos en Puerto Varas y Puerto Montt
+                            Abogado de arriendos en <span className="font-bold text-brand-gold">Puerto Varas</span> y <span className="font-bold text-brand-gold">Puerto Montt</span>
                         </h1>
 
                         <ContactCTA source="Landing Arriendos" />
 
                         <div className="space-y-5 sm:space-y-6 text-[15px] sm:text-lg mb-10 sm:mb-12 leading-relaxed text-gray-700">
                             <p>Un arrendatario que deja de pagar o que simplemente no se va es uno de los problemas más frustrantes para un propietario: el inmueble está ocupado, las rentas no llegan, y el proceso judicial tarda. En Labra & Balmaceda llevamos estos casos desde la demanda hasta el lanzamiento.</p>
-                            <p>El plazo depende del tipo de conflicto. Un caso de no pago bajo la Ley Devuélveme mi Casa puede resolverse en meses. Un juicio con más complejidad — daños al inmueble, vicios del contrato, ocupación sin título — toma más tiempo. Lo primero es saber exactamente en qué tipo de caso estás.</p>
+                            <p>El plazo depende del tipo de conflicto. Un caso de no pago bajo la Ley Devuélveme mi Casa puede resolverse en meses. Un juicio con más complejidad como daños al inmueble, vicios del contrato, ocupación sin título, toma más tiempo. Lo primero es saber exactamente en qué tipo de caso estás.</p>
                         </div>
                         
                         <h2 className="text-xl sm:text-2xl font-bold font-baskerville mb-5 sm:mb-6 text-center sm:text-left">Materias que cubrimos</h2>

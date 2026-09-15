@@ -77,9 +77,8 @@ const Header: React.FC = () => {
                     {navLinks.map(link => (
                         <a key={link.href} href={`/${link.href}`} className="text-brand-black hover:text-brand-gold transition" onClick={(e) => {
                             e.preventDefault();
-                            window.history.pushState({}, '', '/');
+                            window.history.pushState({}, '', '/' + link.href);
                             window.dispatchEvent(new PopStateEvent('popstate'));
-                            setTimeout(() => document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' }), 100);
                             trackNavClick(link.label);
                         }}>
                             {link.label}
@@ -88,7 +87,7 @@ const Header: React.FC = () => {
                     <a href="/blog" onClick={(e) => { e.preventDefault(); navigateTo('/blog', 'Blog'); window.scrollTo(0, 0); }} className="text-brand-black hover:text-brand-gold transition">
                         Blog
                     </a>
-                    <button onClick={(e) => { e.preventDefault(); window.history.pushState({}, '', '/'); window.dispatchEvent(new PopStateEvent('popstate')); setTimeout(() => document.getElementById('consulta')?.scrollIntoView({ behavior: 'smooth' }), 100); trackCTAClick('Header CTA'); }} className="text-white bg-brand-black hover:bg-brand-gold px-5 py-2.5 rounded-lg transition duration-300 shadow-md hover:shadow-lg uppercase tracking-wider text-xs cursor-pointer">
+                    <button onClick={(e) => { e.preventDefault(); window.history.pushState({}, '', '/#consulta'); window.dispatchEvent(new PopStateEvent('popstate')); trackCTAClick('Header CTA'); }} className="text-white bg-brand-black hover:bg-brand-gold px-5 py-2.5 rounded-lg transition duration-300 shadow-md hover:shadow-lg uppercase tracking-wider text-xs cursor-pointer">
                         Agendar Consulta
                     </button>
                 </nav>
@@ -111,7 +110,7 @@ const Header: React.FC = () => {
                         
                         <div className="py-2 px-4 font-bold text-xs uppercase tracking-widest text-brand-gold border-b border-gray-100 mb-1 mt-2">Estudio</div>
                         {navLinks.map(link => (
-                            <a key={link.href} href={`/${link.href}`} className="px-4 py-2 text-brand-black hover:bg-gray-50 rounded-lg transition text-sm" onClick={(e) => { e.preventDefault(); window.history.pushState({}, '', '/'); window.dispatchEvent(new PopStateEvent('popstate')); setTimeout(() => document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' }), 100); trackNavClick(`${link.label} Mobile`); toggleMenu(); }}>
+                            <a key={link.href} href={`/${link.href}`} className="px-4 py-2 text-brand-black hover:bg-gray-50 rounded-lg transition text-sm" onClick={(e) => { e.preventDefault(); window.history.pushState({}, '', '/' + link.href); window.dispatchEvent(new PopStateEvent('popstate')); trackNavClick(`${link.label} Mobile`); toggleMenu(); }}>
                                 {link.label}
                             </a>
                         ))}
@@ -122,7 +121,7 @@ const Header: React.FC = () => {
                             <a href="tel:+56977646224" className="flex items-center gap-2 px-4 py-3 text-brand-black font-semibold hover:bg-gray-50 rounded-lg transition" onClick={trackPhoneClick}>
                                 📞 +56 9 7764 6224
                             </a>
-                            <button onClick={(e) => { e.preventDefault(); window.history.pushState({}, '', '/'); window.dispatchEvent(new PopStateEvent('popstate')); setTimeout(() => document.getElementById('consulta')?.scrollIntoView({ behavior: 'smooth' }), 100); trackCTAClick('Mobile Menu CTA'); toggleMenu(); }} className="text-center bg-brand-black text-white px-4 py-3 rounded-lg font-bold hover:bg-brand-gold transition uppercase tracking-widest text-sm cursor-pointer w-full">
+                            <button onClick={(e) => { e.preventDefault(); window.history.pushState({}, '', '/#consulta'); window.dispatchEvent(new PopStateEvent('popstate')); trackCTAClick('Mobile Menu CTA'); toggleMenu(); }} className="text-center bg-brand-black text-white px-4 py-3 rounded-lg font-bold hover:bg-brand-gold transition uppercase tracking-widest text-sm cursor-pointer w-full">
                                 Agendar Consulta
                             </button>
                         </div>
