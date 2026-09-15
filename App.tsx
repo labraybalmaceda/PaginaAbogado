@@ -83,10 +83,9 @@ const App: React.FC = () => {
 
     useLayoutEffect(() => {
         if (!window.location.hash) {
-            const originalStyle = document.documentElement.style.scrollBehavior;
-            document.documentElement.style.scrollBehavior = 'auto';
-            window.scrollTo(0, 0);
-            document.documentElement.style.scrollBehavior = originalStyle;
+            setTimeout(() => {
+                window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
+            }, 0);
         } else if (route.name === 'main') {
             const hash = window.location.hash.substring(1);
             const scrollToHash = () => {
