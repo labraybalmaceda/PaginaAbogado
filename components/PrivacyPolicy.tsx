@@ -28,9 +28,9 @@ const PrivacyPolicy: React.FC = () => {
                             LABRA & BALMACEDA
                         </span>
                     </div>
-                    <button onClick={handleBack} className="text-xs font-bold uppercase tracking-widest text-brand-gold hover:text-brand-black transition">
+                    <a href="/" onClick={(e) => { e.preventDefault(); handleBack(e); }} className="text-xs font-bold uppercase tracking-widest text-brand-gold hover:text-brand-black transition">
                         Volver al sitio
-                    </button>
+                    </a>
                 </div>
             </header>
 
@@ -120,9 +120,9 @@ const PrivacyPolicy: React.FC = () => {
                 </div>
 
                 <div className="mt-16 text-center">
-                    <button onClick={handleBack} className="inline-block px-10 py-4 bg-brand-black text-white font-bold rounded-xl hover:bg-brand-gold transition shadow-lg uppercase tracking-widest text-xs">
+                    <a href="/" onClick={(e) => { e.preventDefault(); handleBack(e); }} className="inline-block px-10 py-4 bg-brand-black text-white font-bold rounded-xl hover:bg-brand-gold transition shadow-lg uppercase tracking-widest text-xs">
                         Volver al Inicio
-                    </button>
+                    </a>
                 </div>
             </main>
         </div>

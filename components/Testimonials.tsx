@@ -88,9 +88,9 @@ const Testimonials: React.FC = () => {
         },
         {
             title: 'Deudas y Acreedores',
-            situation: 'Las deudas se te hicieron impagables y ya empezó la cobranza judicial.',
-            approach: 'Miramos tu situación completa y te decimos qué alternativas reales tienes, sea defenderte o renegociar.',
-            articleText: 'Conoce cómo enfrentar tus deudas y la cobranza',
+            situation: 'Las deudas de la empresa se hicieron impagables y ya empezó la cobranza judicial.',
+            approach: 'Miramos la situación completa de la empresa y le decimos qué alternativas reales tiene: defenderse, reorganizarse o liquidar de forma ordenada.',
+            articleText: 'Conoce cómo enfrentar las deudas de tu empresa',
             articleHref: '/abogado-insolvencia-puerto-montt',
             tag: 'Insolvencia',
             icon: <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>

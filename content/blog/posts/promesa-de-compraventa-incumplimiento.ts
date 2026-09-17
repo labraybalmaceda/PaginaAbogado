@@ -9,6 +9,7 @@ const post: Post = {
     excerpt:
         'Encontraste la casa. Acordaste el precio. Firmaron una promesa de compraventa y entregaste parte del dinero, tranquilo de que el negocio estaba cerrado. Pero llega el día de firmar la escritura definitiva y la otra parte desaparece, pide más, o simplemente dice: "me arrepentí".',
     date: '2026-08-12',
+    updated: '2026-09-17',
     service: 'civil',
     blocks: [
         {

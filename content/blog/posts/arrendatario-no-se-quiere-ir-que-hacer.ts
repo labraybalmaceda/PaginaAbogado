@@ -9,6 +9,7 @@ const post: Post = {
     excerpt:
         'Arrendar tu propiedad debía ser tranquilidad, pero la renta empezó a llegar tarde o simplemente no llega. La Ley N° 18.101 tiene un camino claro para que recuperes lo que es tuyo.',
     date: '2026-07-24',
+    updated: '2026-09-17',
     service: 'arriendos',
     blocks: [
         { type: "summary", text: "No puedes recuperar tu propiedad por tu cuenta: cambiar la chapa o cortar los servicios te expone a acciones civiles y penales. Si el arrendatario no paga, la Ley N° 18.101 contempla un procedimiento monitorio en que el tribunal le exige pagar o entregar la propiedad. Si el problema es otro (plazo vencido, deterioro, subarriendo sin permiso o uso distinto), puedes pedir el término del contrato. En el mismo juicio cobras las rentas, los consumos y los perjuicios." },

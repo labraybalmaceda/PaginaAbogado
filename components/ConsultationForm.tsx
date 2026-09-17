@@ -99,7 +99,7 @@ const ConsultationForm: React.FC = () => {
                         <div className="grid sm:grid-cols-2 gap-6">
                             <div className="space-y-2">
                                 <label htmlFor="nombre" className="block text-[11px] font-bold text-brand-black uppercase tracking-[0.2em]">Nombre completo <span className="text-brand-gold">*</span></label>
-                                <input type="text" id="nombre" name="nombre" value={formData.nombre} onChange={handleChange} required placeholder="Juan Pérez" className="w-full px-5 py-4 border-2 border-gray-100 rounded-xl focus:border-brand-gold focus:ring-0 transition bg-gray-50 text-brand-black font-semibold"/>
+                                <input type="text" id="nombre" name="nombre" value={formData.nombre} onChange={handleChange} required placeholder="Nombre y Apellido" className="w-full px-5 py-4 border-2 border-gray-100 rounded-xl focus:border-brand-gold focus:ring-0 transition bg-gray-50 text-brand-black font-semibold"/>
                                 {errors.nombre && <p className="text-red-500 text-[10px] font-bold uppercase mt-1">{errors.nombre}</p>}
                             </div>
                             <div className="space-y-2">
@@ -162,7 +162,7 @@ const ConsultationForm: React.FC = () => {
                                 {status === 'loading' ? 'Procesando...' : 'Enviar consulta'}
                             </button>
                             <p className="mt-6 text-[11px] text-gray-400 font-bold uppercase tracking-[0.2em]">
-                                Te respondemos en 24–48h hábiles. <br className="sm:hidden" />
+                                Te respondemos en 24 horas. <br className="sm:hidden" />
                                 <span className="text-brand-gold/60">Te indicamos próximos pasos, documentos y opciones.</span>
                             </p>
                         </div>

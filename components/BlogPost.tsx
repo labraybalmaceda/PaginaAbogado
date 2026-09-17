@@ -158,8 +158,8 @@ const BlogPost: React.FC<{ post: Post }> = ({ post }) => {
                         </a>
                     </nav>
 
-                    <article className="bg-white p-6 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-100 relative">
-                        <div className="absolute top-0 left-0 w-full h-1.5 bg-brand-gold rounded-t-2xl sm:rounded-t-3xl"></div>
+                    <article className="bg-white p-6 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-100 relative overflow-hidden border-t-0">
+                        <div className="absolute inset-x-0 top-0 h-1.5 bg-brand-gold"></div>
 
                         <p className="text-[10px] sm:text-xs uppercase tracking-widest text-brand-gold font-bold mb-3">
                             {service.label}

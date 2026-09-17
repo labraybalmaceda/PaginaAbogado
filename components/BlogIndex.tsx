@@ -24,7 +24,13 @@ const BlogIndex: React.FC = () => {
                 isPartOf: { '@id': 'https://labraybalmaceda.cl/#website' },
                 publisher: { '@id': 'https://labraybalmaceda.cl/#estudio' },
                 blogPost: posts.map((p) => ({
+                    '@type': 'BlogPosting',
                     '@id': `${BASE_URL}/blog/${p.slug}#blogposting`,
+                    headline: p.title,
+                    url: `${BASE_URL}/blog/${p.slug}`,
+                    datePublished: p.date,
+                    dateModified: p.updated || p.date,
+                    author: { '@id': 'https://labraybalmaceda.cl/#renato-labra' },
                 })),
             },
             {

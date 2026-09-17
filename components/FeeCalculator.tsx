@@ -67,8 +67,8 @@ const FeeCalculator: React.FC = () => {
                 </div>
 
                 <FadeInUp>
-                    <div className="bg-white p-8 sm:p-12 rounded-3xl shadow-2xl border border-gray-100 relative group">
-                        <div className="absolute top-0 left-0 w-full h-1.5 bg-brand-gold"></div>
+                    <div className="bg-white p-8 sm:p-12 rounded-3xl shadow-2xl border border-gray-100 relative group overflow-hidden border-t-0">
+                        <div className="absolute inset-x-0 top-0 h-1.5 bg-brand-gold"></div>
                         
                         <div className="grid md:grid-cols-2 gap-8 mb-10">
                             <div className="space-y-2">
