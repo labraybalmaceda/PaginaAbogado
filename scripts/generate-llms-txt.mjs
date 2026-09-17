@@ -20,7 +20,7 @@ const SERVICES = [
     ['Derecho Civil', '/abogado-civil-puerto-montt', 'Contratos, herencias, posesión efectiva, partición, precario e indemnización de perjuicios.'],
     ['Arrendamientos', '/abogado-arriendo-puerto-montt', 'Terminación de contrato por no pago, lanzamiento, cobro de rentas y defensa del arrendatario.'],
     ['Derecho de Familia', '/abogado-familia-puerto-montt', 'Divorcio, pensión de alimentos y su cobro, cuidado personal y compensación económica.'],
-    ['Insolvencia y Deudas', '/abogado-insolvencia-puerto-montt', 'Renegociación, liquidación voluntaria y defensa ante cobranzas judiciales.'],
+    ['Liquidación de Empresas', '/abogado-insolvencia-puerto-montt', 'Liquidación y reorganización judicial de empresas, y defensa en juicios ejecutivos, embargos y remates.'],
 ];
 
 const match = (source, pattern) => {

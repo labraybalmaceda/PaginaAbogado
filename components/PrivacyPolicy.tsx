@@ -114,9 +114,7 @@ const PrivacyPolicy: React.FC = () => {
                         <p>LABRA & BALMACEDA ABOGADOS puede actualizar esta Política para reflejar mejoras del sitio o cambios normativos. La versión vigente será la publicada en esta misma página.</p>
                     </section>
 
-                    <div className="pt-10 border-t border-gray-100 text-sm font-bold text-gray-400 uppercase tracking-widest">
-                        Última actualización: Enero 2026
-                    </div>
+                    <p>Última actualización: <time dateTime="2026-09-17">17 de septiembre de 2026</time>.</p>
                 </div>
 
                 <div className="mt-16 text-center">

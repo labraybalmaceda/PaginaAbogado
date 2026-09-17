@@ -2,7 +2,7 @@ import type { Post } from '../types';
 
 const post: Post = {
     slug: 'arrendatario-no-se-quiere-ir-que-hacer',
-    title: 'Tu arrendatario no paga: qué hacer para recuperar tu propiedad',
+    title: 'Tu arrendatario no se quiere ir: qué hacer para recuperar tu propiedad',
     metaTitle: 'Arrendatario no se quiere ir: cómo recuperar tu propiedad',
     description:
         '¿Tu arrendatario no se va aunque dejó de pagar o terminó el contrato? Te explicamos el juicio rápido, cuánto demora y por qué no debes cambiar la chapa.',

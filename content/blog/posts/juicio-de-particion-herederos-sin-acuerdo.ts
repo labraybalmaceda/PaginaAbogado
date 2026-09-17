@@ -3,14 +3,15 @@ import type { Post } from '../types';
 const post: Post = {
     slug: 'juicio-de-particion-herederos-sin-acuerdo',
     title: 'Herederos que no se ponen de acuerdo: el juicio de partición',
-    metaTitle: 'Juicio de partición de herencia en Chile | Labra & Balmaceda',
+    metaTitle: 'Juicio de partición de herencia en Chile: cómo funciona',
     description:
-        'Qué hacer cuando los herederos no logran repartir los bienes: posesión efectiva, acción de partición del artículo 1317, juez partidor y venta del inmueble en subasta.',
+        '¿Los herederos no se ponen de acuerdo para repartir la herencia? Te explicamos el juicio de partición en Chile y qué hace el juez partidor.',
     excerpt:
         'La casa quedó para los cuatro hermanos. Uno vive ahí, dos quieren vender y el cuarto no contesta el teléfono. La ley tiene una salida para eso.',
     date: '2026-07-23',
     service: 'civil',
     blocks: [
+        { type: 'summary', text: 'Si los herederos no se ponen de acuerdo, cualquiera de ellos puede pedir la partición en cualquier momento: el artículo 1317 del Código Civil dice que nadie está obligado a permanecer en la indivisión. Antes hay que tramitar la posesión efectiva. Si no logran repartir por escritura pública, la partición la hace un juez partidor, que debe ser abogado. Y el heredero que ocupa solo la casa puede tener que pagar una renta a la comunidad.' },
         {
             type: 'p',
             text: 'Murió el papá y quedó la casa. Uno de los hermanos se quedó viviendo ahí, dos quieren vender porque necesitan el dinero, y el cuarto opina distinto cada vez que se toca el tema. Pasan tres años, la casa se deteriora, las contribuciones las paga siempre el mismo, y nadie puede hacer nada porque cualquier decisión requiere la firma de todos.',

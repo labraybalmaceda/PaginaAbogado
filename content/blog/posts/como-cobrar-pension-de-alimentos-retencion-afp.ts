@@ -3,14 +3,15 @@ import type { Post } from '../types';
 const post: Post = {
     slug: 'como-cobrar-pension-de-alimentos-retencion-afp',
     title: 'No te pagan la pensión de alimentos: la ley tiene cómo obligarlos a pagar',
-    metaTitle: 'Cómo cobrar pensión de alimentos impaga en Chile | Labra & Balmaceda',
+    metaTitle: 'Cómo cobrar una pensión de alimentos impaga en Chile',
     description:
-        'Herramientas legales para cobrar una pensión de alimentos adeudada en Chile: Registro Nacional de Deudores, retención bancaria y de impuestos, fondos de AFP, arresto y arraigo.',
+        '¿No te pagan la pensión de alimentos? Conoce las herramientas legales para cobrarla en Chile: retención de impuestos, fondos de AFP, arresto y arraigo.',
     excerpt:
         'Tener una pensión fijada por el tribunal y recibirla todos los meses son dos cosas distintas. Estas son las herramientas que efectivamente hacen que el dinero llegue.',
     date: '2026-07-20',
     service: 'familia',
     blocks: [
+        { type: 'summary', text: 'Si no te pagan la pensión de alimentos, el tribunal liquida la deuda y puede ordenar la retención de las cuentas bancarias del deudor y de su devolución de impuestos. Si eso no alcanza, la deuda puede pagarse con sus fondos de la AFP. Además, el deudor queda inscrito en el Registro Nacional de Deudores de Pensiones de Alimentos y puede sufrir arresto nocturno y arraigo nacional.' },
         {
             type: 'p',
             text: 'La pensión se fijó hace años. Al principio pagó, más o menos al día. Después empezaron los atrasos, las excusas. Y en algún momento, simplemente dejó de pagar.',

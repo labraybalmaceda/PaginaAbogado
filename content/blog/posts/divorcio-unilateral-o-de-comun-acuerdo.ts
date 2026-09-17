@@ -3,9 +3,9 @@ import type { Post } from '../types';
 const post: Post = {
     slug: 'divorcio-unilateral-o-de-comun-acuerdo',
     title: 'Divorcio unilateral o de común acuerdo: cuál conviene en tu caso',
-    metaTitle: 'Divorcio unilateral vs. común acuerdo en Chile | Labra & Balmaceda',
+    metaTitle: 'Divorcio unilateral o de común acuerdo en Chile',
     description:
-        'Diferencias entre el divorcio de común acuerdo y el unilateral en Chile: plazos de cese de convivencia, el acuerdo completo y suficiente, cómo se prueba y compensación económica.',
+        'Diferencias entre el divorcio de común acuerdo y el unilateral en Chile: plazos de cese de convivencia, qué se debe probar y compensación económica.',
     excerpt:
         'La pregunta que más nos hacen es si se puede uno divorciar cuando el otro no quiere. Se puede. Lo que cambia es el plazo y, sobre todo, la prueba.',
     date: '2026-07-22',

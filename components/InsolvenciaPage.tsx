@@ -44,7 +44,7 @@ const InsolvenciaPage: React.FC = () => {
           "@id": "https://labraybalmaceda.cl/abogado-insolvencia-puerto-montt#breadcrumb",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://labraybalmaceda.cl/" },
-            { "@type": "ListItem", "position": 2, "name": "Insolvencia y Deudas", "item": "https://labraybalmaceda.cl/abogado-insolvencia-puerto-montt" }
+            { "@type": "ListItem", "position": 2, "name": "Liquidación de Empresas", "item": "https://labraybalmaceda.cl/abogado-insolvencia-puerto-montt" }
           ]
         }
       ]
@@ -53,7 +53,7 @@ const InsolvenciaPage: React.FC = () => {
     return (
         <div className="bg-white min-h-screen text-brand-black">
             <Seo
-                title="Abogado de Liquidación de Empresas en Puerto Varas | Labra & Balmaceda"
+                title="Abogado de Liquidación de Empresas en Puerto Varas"
                 description="Abogados de liquidación de empresas en Puerto Varas y Puerto Montt: reorganización judicial, liquidación voluntaria y defensa ante cobranzas."
                 path="/abogado-insolvencia-puerto-montt"
             />
@@ -108,7 +108,7 @@ const InsolvenciaPage: React.FC = () => {
 
                             <div>
                                 <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-lg">¿Desde cuándo se frenan los embargos si inicio un procedimiento concursal?</h3>
-                                <p>Los embargos y cobros no se detienen por el solo hecho de presentar los antecedentes. La suspensión opera una vez que el procedimiento es formalmente admitido o declarado, según el caso. Para saber si tu situación califica y desde cuándo quedarías protegido, contáctanos.</p>
+                                <p>Los embargos y cobros no se detienen por el solo hecho de presentar los antecedentes. La suspensión opera una vez que el procedimiento es formalmente admitido o declarado, según el caso.</p>
                             </div>
                         </div>
 
