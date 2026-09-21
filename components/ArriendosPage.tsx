@@ -12,6 +12,21 @@ const ArriendosPage: React.FC = () => {
         window.dispatchEvent(new PopStateEvent('popstate'));
     };
 
+    const faqs = [
+        {
+            question: '¿Es rápido recuperar mi propiedad cuando el arrendatario no paga?',
+            answer: 'Sí, cuando el problema es solo el no pago de las rentas. La Ley N° 21.461, conocida como «Devuélveme mi casa», modificó la Ley N° 18.101 y estableció un procedimiento monitorio pensado para resolver estos casos con rapidez. Cuando el conflicto es por otras materias, como vicios del contrato o daños al inmueble, el procedimiento es distinto y suele tomar más tiempo. Para saber por qué vía va tu caso, contáctanos'
+        },
+        {
+            question: '¿Puedo demandar si el contrato de arriendo es solo verbal?',
+            answer: 'Sí. La dificultad no es demandar, sino probar los términos que acordaron: el monto de la renta, la fecha de pago y la duración. Las transferencias, los mensajes y los testigos sirven para acreditar la existencia y las condiciones del arriendo.'
+        },
+        {
+            question: '¿Qué pasa si el arrendatario se niega a irse, aunque haya sentencia?',
+            answer: 'El tribunal puede ordenar el lanzamiento con auxilio de la fuerza pública (Carabineros). El propietario no debe sacar al arrendatario por su cuenta: cambiar la chapa o cortar los servicios lo expone a acciones civiles y penales. La restitución la ordena el tribunal y la ejecuta la fuerza pública.'
+        }
+    ];
+
     const schemaData = {
       "@context": "https://schema.org",
       "@graph": [
@@ -22,7 +37,8 @@ const ArriendosPage: React.FC = () => {
           "inLanguage": "es-CL",
           "isPartOf": { "@id": "https://labraybalmaceda.cl/#website" },
           "about": { "@id": "https://labraybalmaceda.cl/abogado-arriendo-puerto-montt#service" },
-          "breadcrumb": { "@id": "https://labraybalmaceda.cl/abogado-arriendo-puerto-montt#breadcrumb" }
+          "breadcrumb": { "@id": "https://labraybalmaceda.cl/abogado-arriendo-puerto-montt#breadcrumb" },
+          "mainEntity": { "@id": "https://labraybalmaceda.cl/abogado-arriendo-puerto-montt#faq" }
         },
         {
           "@type": "Service",
@@ -46,6 +62,18 @@ const ArriendosPage: React.FC = () => {
             { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://labraybalmaceda.cl/" },
             { "@type": "ListItem", "position": 2, "name": "Derecho de Arriendos", "item": "https://labraybalmaceda.cl/abogado-arriendo-puerto-montt" }
           ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://labraybalmaceda.cl/abogado-arriendo-puerto-montt#faq",
+          "mainEntity": faqs.map((faq) => ({
+            "@type": "Question",
+            "name": faq.question,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": faq.answer
+            }
+          }))
         }
       ]
     };
@@ -100,20 +128,12 @@ const ArriendosPage: React.FC = () => {
 
                         <h2 className="text-xl sm:text-2xl font-bold font-baskerville mb-5 sm:mb-6 text-center sm:text-left">Preguntas frecuentes</h2>
                         <div className="space-y-6 mb-10 sm:mb-12 text-sm sm:text-base text-gray-600 leading-relaxed font-medium">
-                            <div>
-                                <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-lg">¿Es rápido recuperar mi propiedad cuando el arrendatario no paga?</h3>
-                                <p>Sí, cuando el problema es solo el no pago de las rentas. La Ley N° 21.461, conocida como «Devuélveme mi casa», modificó la Ley N° 18.101 y estableció un procedimiento monitorio pensado para resolver estos casos con rapidez. Cuando el conflicto es por otras materias, como vicios del contrato o daños al inmueble, el procedimiento es distinto y suele tomar más tiempo. Para saber por qué vía va tu caso, contáctanos</p>
-                            </div>
-
-                            <div>
-                                <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-lg">¿Puedo demandar si el contrato de arriendo es solo verbal?</h3>
-                                <p>Sí. La dificultad no es demandar, sino probar los términos que acordaron: el monto de la renta, la fecha de pago y la duración. Las transferencias, los mensajes y los testigos sirven para acreditar la existencia y las condiciones del arriendo.</p>
-                            </div>
-
-                            <div>
-                                <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-lg">¿Qué pasa si el arrendatario se niega a irse, aunque haya sentencia?</h3>
-                                <p>El tribunal puede ordenar el lanzamiento con auxilio de la fuerza pública (Carabineros). El propietario no debe sacar al arrendatario por su cuenta: cambiar la chapa o cortar los servicios lo expone a acciones civiles y penales. La restitución la ordena el tribunal y la ejecuta la fuerza pública.</p>
-                            </div>
+                            {faqs.map((faq, index) => (
+                                <div key={index}>
+                                    <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-lg">{faq.question}</h3>
+                                    <p>{faq.answer}</p>
+                                </div>
+                            ))}
                         </div>
 
                         <RelatedPosts service="arriendos" />

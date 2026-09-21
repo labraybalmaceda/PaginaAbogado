@@ -12,6 +12,21 @@ const InsolvenciaPage: React.FC = () => {
         window.dispatchEvent(new PopStateEvent('popstate'));
     };
 
+    const faqs = [
+        {
+            question: '¿Los socios o el representante legal responden con su patrimonio personal por las deudas de la empresa?',
+            answer: 'Por regla general, no: la sociedad responde con su propio patrimonio y los socios solo hasta el monto de sus aportes. La excepción es si el representante legal firmó avales o fianzas personales, o si hubo administración dolosa o culpable de los negocios sociales. Revisamos tu caso concreto para saber qué riesgo personal existe antes de avanzar.'
+        },
+        {
+            question: '¿Qué pasa con los trabajadores y sus indemnizaciones si la empresa entra en liquidación?',
+            answer: 'Los créditos laborales (remuneraciones, indemnizaciones y cotizaciones) tienen preferencia de primera clase y se pagan antes que la mayoría de los demás acreedores, dentro de los límites que fija la ley. Revisamos junto a ti cómo queda esa masa de pago antes de iniciar el proceso, para que no haya sorpresas.'
+        },
+        {
+            question: '¿Desde cuándo se frenan los embargos si inicio un procedimiento concursal?',
+            answer: 'Los embargos y cobros no se detienen por el solo hecho de presentar los antecedentes. La suspensión opera una vez que el procedimiento es formalmente admitido o declarado, según el caso.'
+        }
+    ];
+
     const schemaData = {
       "@context": "https://schema.org",
       "@graph": [
@@ -22,7 +37,8 @@ const InsolvenciaPage: React.FC = () => {
           "inLanguage": "es-CL",
           "isPartOf": { "@id": "https://labraybalmaceda.cl/#website" },
           "about": { "@id": "https://labraybalmaceda.cl/abogado-insolvencia-puerto-montt#service" },
-          "breadcrumb": { "@id": "https://labraybalmaceda.cl/abogado-insolvencia-puerto-montt#breadcrumb" }
+          "breadcrumb": { "@id": "https://labraybalmaceda.cl/abogado-insolvencia-puerto-montt#breadcrumb" },
+          "mainEntity": { "@id": "https://labraybalmaceda.cl/abogado-insolvencia-puerto-montt#faq" }
         },
         {
           "@type": "Service",
@@ -46,6 +62,18 @@ const InsolvenciaPage: React.FC = () => {
             { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://labraybalmaceda.cl/" },
             { "@type": "ListItem", "position": 2, "name": "Liquidación de Empresas", "item": "https://labraybalmaceda.cl/abogado-insolvencia-puerto-montt" }
           ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://labraybalmaceda.cl/abogado-insolvencia-puerto-montt#faq",
+          "mainEntity": faqs.map((faq) => ({
+            "@type": "Question",
+            "name": faq.question,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": faq.answer
+            }
+          }))
         }
       ]
     };
@@ -97,19 +125,12 @@ const InsolvenciaPage: React.FC = () => {
 
                         <h2 className="text-xl sm:text-2xl font-bold font-baskerville mb-5 sm:mb-6 text-center sm:text-left">Preguntas frecuentes</h2>
                         <div className="space-y-6 mb-10 sm:mb-12 text-sm sm:text-base text-gray-600 leading-relaxed font-medium">
-                            <div>
-                                <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-lg">¿Los socios o el representante legal responden con su patrimonio personal por las deudas de la empresa?</h3>
-                                <p>Por regla general, no: la sociedad responde con su propio patrimonio y los socios solo hasta el monto de sus aportes. La excepción es si el representante legal firmó avales o fianzas personales, o si hubo administración dolosa o culpable de los negocios sociales. Revisamos tu caso concreto para saber qué riesgo personal existe antes de avanzar.</p>
-                            </div>
-                            <div>
-                                <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-lg">¿Qué pasa con los trabajadores y sus indemnizaciones si la empresa entra en liquidación?</h3>
-                                <p>Los créditos laborales (remuneraciones, indemnizaciones y cotizaciones) tienen preferencia de primera clase y se pagan antes que la mayoría de los demás acreedores, dentro de los límites que fija la ley. Revisamos junto a ti cómo queda esa masa de pago antes de iniciar el proceso, para que no haya sorpresas.</p>
-                            </div>
-
-                            <div>
-                                <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-lg">¿Desde cuándo se frenan los embargos si inicio un procedimiento concursal?</h3>
-                                <p>Los embargos y cobros no se detienen por el solo hecho de presentar los antecedentes. La suspensión opera una vez que el procedimiento es formalmente admitido o declarado, según el caso.</p>
-                            </div>
+                            {faqs.map((faq, index) => (
+                                <div key={index}>
+                                    <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-lg">{faq.question}</h3>
+                                    <p>{faq.answer}</p>
+                                </div>
+                            ))}
                         </div>
 
                         <RelatedPosts service="insolvencia" />

@@ -12,6 +12,25 @@ const FamiliaPage: React.FC = () => {
         window.dispatchEvent(new PopStateEvent('popstate'));
     };
 
+    const faqs = [
+        {
+            question: '¿Qué pasa si el padre o madre no paga la pensión de alimentos?',
+            answer: 'La ley tiene herramientas concretas para cobrar. El tribunal puede ordenar que se retenga el dinero directamente desde las cuentas bancarias del deudor y, si ahí no hay fondos, incluso desde sus ahorros en la AFP. A eso se suman medidas de presión como el arresto nocturno, la suspensión de la licencia de conducir y el arraigo nacional, que le impide salir del país. Si tienes una pensión que no te están pagando, contáctanos y vemos qué medida conviene activar primero.'
+        },
+        {
+            question: '¿Necesito la autorización del otro padre para salir del país con mi hijo?',
+            answer: 'Sí. Para que un niño salga de Chile se requiere el permiso del padre o madre que no viaja. Si esa persona no lo da de forma voluntaria, se puede pedir la autorización directamente al tribunal de familia. Este trámite toma tiempo, así que conviene iniciarlo con buena antelación a la fecha del vuelo. Si tienes un viaje programado, escríbenos con tiempo para gestionarlo.'
+        },
+        {
+            question: '¿Siempre hay que ir a mediación antes del juicio de alimentos?',
+            answer: 'Sí, en materia de alimentos, cuidado personal y relación directa y regular, la mediación previa es obligatoria.'
+        },
+        {
+            question: '¿Cada cuánto puedo pedir un aumento de la pensión de alimentos?',
+            answer: 'No hay un plazo fijo de espera. Lo que importa es que las circunstancias hayan cambiado: si tu hijo tiene nuevas necesidades, si tu situación económica se ha deteriorado, o si la del otro padre ha mejorado, vale la pena revisar el monto. Para evaluar si en tu caso corresponde pedir un aumento, agenda una consulta con nosotros.'
+        }
+    ];
+
     const schemaData = {
       "@context": "https://schema.org",
       "@graph": [
@@ -22,7 +41,8 @@ const FamiliaPage: React.FC = () => {
           "inLanguage": "es-CL",
           "isPartOf": { "@id": "https://labraybalmaceda.cl/#website" },
           "about": { "@id": "https://labraybalmaceda.cl/abogado-familia-puerto-montt#service" },
-          "breadcrumb": { "@id": "https://labraybalmaceda.cl/abogado-familia-puerto-montt#breadcrumb" }
+          "breadcrumb": { "@id": "https://labraybalmaceda.cl/abogado-familia-puerto-montt#breadcrumb" },
+          "mainEntity": { "@id": "https://labraybalmaceda.cl/abogado-familia-puerto-montt#faq" }
         },
         {
           "@type": "Service",
@@ -46,6 +66,18 @@ const FamiliaPage: React.FC = () => {
             { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://labraybalmaceda.cl/" },
             { "@type": "ListItem", "position": 2, "name": "Derecho de Familia", "item": "https://labraybalmaceda.cl/abogado-familia-puerto-montt" }
           ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://labraybalmaceda.cl/abogado-familia-puerto-montt#faq",
+          "mainEntity": faqs.map((faq) => ({
+            "@type": "Question",
+            "name": faq.question,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": faq.answer
+            }
+          }))
         }
       ]
     };
@@ -101,25 +133,12 @@ const FamiliaPage: React.FC = () => {
 
                         <h2 className="text-xl sm:text-2xl font-bold font-baskerville mb-5 sm:mb-6 text-center sm:text-left">Preguntas frecuentes</h2>
                         <div className="space-y-6 mb-10 sm:mb-12 text-sm sm:text-base text-gray-600 leading-relaxed font-medium">
-                            <div>
-                                <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-lg">¿Qué pasa si el papá o la mamá no paga la pensión de alimentos?</h3>
-                                <p>La ley tiene herramientas concretas para cobrar. El tribunal puede ordenar que se retenga el dinero directamente desde las cuentas bancarias del deudor y, si ahí no hay fondos, incluso desde sus ahorros en la AFP. A eso se suman medidas de presión como el arresto nocturno, la suspensión de la licencia de conducir y el arraigo nacional, que le impide salir del país. Si tienes una pensión que no te están pagando, contáctanos y vemos qué medida conviene activar primero.</p>
-                            </div>
-
-                            <div>
-                                <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-lg">¿Necesito la autorización del otro padre para salir del país con mi hijo?</h3>
-                                <p>Sí. Para que un niño salga de Chile se requiere el permiso del padre o madre que no viaja. Si esa persona no lo da de forma voluntaria, se puede pedir la autorización directamente al tribunal de familia. Este trámite toma tiempo, así que conviene iniciarlo con buena antelación a la fecha del vuelo. Si tienes un viaje programado, escríbenos con tiempo para gestionarlo.</p>
-                            </div>
-
-                            <div>
-                                <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-lg">¿Siempre hay que ir a mediación antes del juicio de alimentos?</h3>
-                                <p>Sí, en materia de alimentos, cuidado personal y relación directa y regular, la mediación previa es obligatoria.</p>
-                            </div>
-
-                            <div>
-                                <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-lg">¿Cada cuánto puedo pedir un aumento de la pensión de alimentos?</h3>
-                                <p>No hay un plazo fijo de espera. Lo que importa es que las circunstancias hayan cambiado: si tu hijo tiene nuevas necesidades, si tu situación económica se ha deteriorado, o si la del otro padre ha mejorado, vale la pena revisar el monto. Para evaluar si en tu caso corresponde pedir un aumento, agenda una consulta con nosotros.</p>
-                            </div>
+                            {faqs.map((faq, index) => (
+                                <div key={index}>
+                                    <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-lg">{faq.question}</h3>
+                                    <p>{faq.answer}</p>
+                                </div>
+                            ))}
                         </div>
 
                         <RelatedPosts service="familia" />

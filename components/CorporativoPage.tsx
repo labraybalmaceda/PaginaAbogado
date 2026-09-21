@@ -12,6 +12,21 @@ const CorporativoPage: React.FC = () => {
         window.dispatchEvent(new PopStateEvent('popstate'));
     };
 
+    const faqs = [
+        {
+            question: '¿Hasta dónde responde un socio por las deudas de la empresa?',
+            answer: 'Hasta el monto de su aporte. En la sociedad por acciones lo dice el artículo 429 del Código de Comercio, e igualmente en la sociedad de responsabilidad limitada. La excepción es cuando el socio o el representante legal firmó un aval o una fianza personal, o cuando hubo administración dolosa o culpable de los negocios sociales. Antes de firmar cualquier documento a nombre de la empresa conviene revisar qué riesgo personal se está asumiendo.'
+        },
+        {
+            question: '¿Puedo demandar a mi socio en el juzgado civil?',
+            answer: 'Por regla general no. En la sociedad por acciones, el artículo 441 del Código de Comercio manda que las diferencias entre accionistas, entre estos y la sociedad, o con sus administradores o liquidadores, se resuelvan por arbitraje.'
+        },
+        {
+            question: '¿Necesito un abogado para constituir una sociedad?',
+            answer: 'No, la ley no lo exige. El formulario del régimen simplificado de la Ley N° 20.659 lo suscribe el propio constituyente, sin que intervenga un abogado. Si vas a constituir solo, con un giro simple y sin socios, probablemente no necesites asesoría. Si hay dos o más socios, aportes de distinto tipo, o la expectativa de que ingrese un inversionista, conviene asesoramiento, para definir por escrito la administración, la venta de acciones y la salida de un socio antes de firmar.'
+        }
+    ];
+
     const schemaData = {
       "@context": "https://schema.org",
       "@graph": [
@@ -22,7 +37,8 @@ const CorporativoPage: React.FC = () => {
           "inLanguage": "es-CL",
           "isPartOf": { "@id": "https://labraybalmaceda.cl/#website" },
           "about": { "@id": "https://labraybalmaceda.cl/abogado-corporativo-puerto-montt#service" },
-          "breadcrumb": { "@id": "https://labraybalmaceda.cl/abogado-corporativo-puerto-montt#breadcrumb" }
+          "breadcrumb": { "@id": "https://labraybalmaceda.cl/abogado-corporativo-puerto-montt#breadcrumb" },
+          "mainEntity": { "@id": "https://labraybalmaceda.cl/abogado-corporativo-puerto-montt#faq" }
         },
         {
           "@type": "Service",
@@ -46,6 +62,18 @@ const CorporativoPage: React.FC = () => {
             { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://labraybalmaceda.cl/" },
             { "@type": "ListItem", "position": 2, "name": "Derecho Corporativo", "item": "https://labraybalmaceda.cl/abogado-corporativo-puerto-montt" }
           ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://labraybalmaceda.cl/abogado-corporativo-puerto-montt#faq",
+          "mainEntity": faqs.map((faq) => ({
+            "@type": "Question",
+            "name": faq.question,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": faq.answer
+            }
+          }))
         }
       ]
     };
@@ -82,10 +110,10 @@ const CorporativoPage: React.FC = () => {
                         <h2 className="text-xl sm:text-2xl font-bold font-baskerville mb-5 sm:mb-6 text-center sm:text-left">Materias que cubrimos</h2>
                         <div className="space-y-5 sm:space-y-6 text-[15px] sm:text-lg mb-10 sm:mb-12 text-gray-700 leading-relaxed">
                             <p>
-                                <strong>Constitución y modificación de sociedades.</strong> Elegir entre una sociedad por acciones, una de responsabilidad limitada, una anónima cerrada o una empresa individual no es un trámite: define quién manda, cómo entra y sale capital y hasta dónde responde cada socio. Constituimos por el el régimen general con escritura pública, o por el régimen simplificado de la Ley N° 20.659 También redactamos aumentos de capital, transformaciones, fusiones y disoluciones, y saneamos vicios formales conforme a la Ley N° 19.499.
+                                <strong>Constitución y modificación de sociedades.</strong> Elegir entre una sociedad por acciones, una de responsabilidad limitada, una anónima cerrada o una empresa individual no es un trámite: define quién manda, cómo entra y sale capital y hasta dónde responde cada socio. Constituimos por el régimen general con escritura pública, o por el régimen simplificado de la Ley N° 20.659. También redactamos aumentos de capital, transformaciones, fusiones y disoluciones, y saneamos vicios formales conforme a la Ley N° 19.499.
                             </p>
                             <p>
-                                <strong>Pactos de accionistas y conflictos entre socios.</strong> El pacto sirve para el día en que los socios dejan de estar de acuerdo. Redactamos cláusulas de preferencia, de arrastre y acompañamiento, de bloqueo y de salida. Asímimso, ante un conflicto entre los socios, actuamos en el arbitraje que la ley impone para las diferencias entre accionistas, la sociedad y sus administradores, y evaluamos la disolución judicial cuando la empresa quedó paralizada.
+                                <strong>Pactos de accionistas y conflictos entre socios.</strong> El pacto sirve para el día en que los socios dejan de estar de acuerdo. Redactamos cláusulas de preferencia, de arrastre y acompañamiento, de bloqueo y de salida. Asimismo, ante un conflicto entre los socios, actuamos en el arbitraje que la ley impone para las diferencias entre accionistas, la sociedad y sus administradores, y evaluamos la disolución judicial cuando la empresa quedó paralizada.
                             </p>
                             <p>
                                 <strong>Contratos comerciales.</strong> Prestación de servicios, distribución, proveedores, confidencialidad, arriendo de local comercial, términos y condiciones. Redactamos y revisamos el contrato antes de firmarlo, con atención a lo que casi nunca se negocia y siempre se reclama: plazos, causales de término, multas, garantías y tribunal competente.
@@ -97,20 +125,12 @@ const CorporativoPage: React.FC = () => {
 
                         <h2 className="text-xl sm:text-2xl font-bold font-baskerville mb-5 sm:mb-6 text-center sm:text-left">Preguntas frecuentes</h2>
                         <div className="space-y-6 mb-10 sm:mb-12 text-sm sm:text-base text-gray-600 leading-relaxed font-medium">
-                            <div>
-                                <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-lg">¿Hasta dónde responde un socio por las deudas de la empresa?</h3>
-                                <p>Hasta el monto de su aporte. En la sociedad por acciones lo dice el artículo 429 del Código de Comercio, e igualmente en la sociedad de responsabilidad limitada. La excepción es cuando el socio o el representante legal firmó un aval o una fianza personal, o cuando hubo administración dolosa o culpable de los negocios sociales. Antes de firmar cualquier documento a nombre de la empresa conviene revisar qué riesgo personal se está asumiendo.</p>
-                            </div>
-
-                            <div>
-                                <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-lg">¿Puedo demandar a mi socio en el juzgado civil?</h3>
-                                <p>Por regla general no. En la sociedad por acciones, el artículo 441 del Código de Comercio manda que las diferencias entre accionistas, entre estos y la sociedad, o con sus administradores o liquidadores, se resuelvan por arbitraje.</p>
-                            </div>
-
-                            <div>
-                                <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-lg">¿Necesito un abogado para constituir una sociedad?</h3>
-                                <p>No, la ley no lo exige. El formulario del régimen simplificado de la Ley N° 20.659 lo suscriben el constituyente. Si vas a constituir solo, con un giro simple y sin socios, probablemente no necesites asesoría. Si hay dos o más socios, aportes de distinto tipo, o la expectativa de que ingrese un inversionista, conviene asesoramiento, para definir por escrito la administración, la venta de acciones y la salida de un socio antes de firmar.</p>
-                            </div>
+                            {faqs.map((faq, index) => (
+                                <div key={index}>
+                                    <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-lg">{faq.question}</h3>
+                                    <p>{faq.answer}</p>
+                                </div>
+                            ))}
                         </div>
 
                         <RelatedPosts service="corporativo" />

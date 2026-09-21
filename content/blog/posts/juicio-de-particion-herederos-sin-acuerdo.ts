@@ -14,7 +14,7 @@ const post: Post = {
         { type: 'summary', text: 'Si los herederos no se ponen de acuerdo, cualquiera de ellos puede pedir la partición en cualquier momento: el artículo 1317 del Código Civil dice que nadie está obligado a permanecer en la indivisión. Antes hay que tramitar la posesión efectiva. Si no logran repartir por escritura pública, la partición la hace un juez partidor, que debe ser abogado. Y el heredero que ocupa solo la casa puede tener que pagar una renta a la comunidad.' },
         {
             type: 'p',
-            text: 'Murió el papá y quedó la casa. Uno de los hermanos se quedó viviendo ahí, dos quieren vender porque necesitan el dinero, y el cuarto opina distinto cada vez que se toca el tema. Pasan tres años, la casa se deteriora, las contribuciones las paga siempre el mismo, y nadie puede hacer nada porque cualquier decisión requiere la firma de todos.',
+            text: 'Murió el padre y quedó la casa. Uno de los hermanos se quedó viviendo ahí, dos quieren vender porque necesitan el dinero, y el cuarto opina distinto cada vez que se toca el tema. Pasan tres años, la casa se deteriora, las contribuciones las paga siempre el mismo, y nadie puede hacer nada porque cualquier decisión requiere la firma de todos.',
         },
         {
             type: 'p',

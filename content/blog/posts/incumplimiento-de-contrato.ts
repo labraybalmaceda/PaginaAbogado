@@ -95,7 +95,7 @@ const post: Post = {
         },
         {
             type: 'p',
-            text: 'Según el tipo de contrato y las circunstancias, también puede discutirse el daño moral. Cada caso es distinto, y ahí la asesoría marca la diferencia entre una demanda bien armada y una que deja plata sobre la mesa.',
+            text: 'Según el tipo de contrato y las circunstancias, también puede discutirse el daño moral. Cada caso es distinto, y ahí la asesoría marca la diferencia entre una demanda bien armada y una que deja el dinero sobre la mesa.',
         },
         { type: 'h2', text: 'Antes de litigar, muchas veces conviene negociar' },
         {

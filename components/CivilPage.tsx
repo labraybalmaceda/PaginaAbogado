@@ -12,6 +12,25 @@ const CivilPage: React.FC = () => {
         window.dispatchEvent(new PopStateEvent('popstate'));
     };
 
+    const faqs = [
+        {
+            question: '¿Conviene asesorarse antes de firmar un contrato?',
+            answer: 'Sí. Revisamos y redactamos contratos para que digan lo que realmente necesitas. Eso incluye dejar claras las formas de término, incorporar las cláusulas esenciales y asegurarnos de que el contrato esté dentro de lo que permite la ley. Un contrato bien hecho evita la mayoría de los problemas, por eso siempre es mejor asesorarse antes de firmar.'
+        },
+        {
+            question: '¿Puedo demandar si no tengo contrato escrito?',
+            answer: 'Sí. La falta de contrato escrito no impide demandar, pero sí afecta la prueba disponible. En ese caso hay que acreditar la existencia de la obligación con otros medios: correos electrónicos, mensajes, testigos o transferencias bancarias.'
+        },
+        {
+            question: '¿Qué necesito para iniciar un cobro ejecutivo?',
+            answer: 'Necesitas un título ejecutivo: un pagaré, una factura con mérito ejecutivo o una sentencia firme. Si tienes el documento, podemos evaluar contigo si el caso es viable y cómo proceder.'
+        },
+        {
+            question: '¿Qué pasa si los herederos no se ponen de acuerdo para dividir una herencia?',
+            answer: 'La ley no obliga a nadie a quedarse para siempre como dueño compartido de una herencia. Cualquier heredero puede pedir que se divida, y cuando no hay acuerdo, esa división la resuelve un juez partidor. Lo mismo ocurre tras un divorcio, cuando los ex cónyuges no logran ponerse de acuerdo sobre cómo repartir los bienes y quién se queda con qué. Ambos casos los tramitamos.'
+        }
+    ];
+
     const schemaData = {
       "@context": "https://schema.org",
       "@graph": [
@@ -22,7 +41,8 @@ const CivilPage: React.FC = () => {
           "inLanguage": "es-CL",
           "isPartOf": { "@id": "https://labraybalmaceda.cl/#website" },
           "about": { "@id": "https://labraybalmaceda.cl/abogado-civil-puerto-montt#service" },
-          "breadcrumb": { "@id": "https://labraybalmaceda.cl/abogado-civil-puerto-montt#breadcrumb" }
+          "breadcrumb": { "@id": "https://labraybalmaceda.cl/abogado-civil-puerto-montt#breadcrumb" },
+          "mainEntity": { "@id": "https://labraybalmaceda.cl/abogado-civil-puerto-montt#faq" }
         },
         {
           "@type": "Service",
@@ -46,6 +66,18 @@ const CivilPage: React.FC = () => {
             { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://labraybalmaceda.cl/" },
             { "@type": "ListItem", "position": 2, "name": "Derecho Civil", "item": "https://labraybalmaceda.cl/abogado-civil-puerto-montt" }
           ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://labraybalmaceda.cl/abogado-civil-puerto-montt#faq",
+          "mainEntity": faqs.map((faq) => ({
+            "@type": "Question",
+            "name": faq.question,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": faq.answer
+            }
+          }))
         }
       ]
     };
@@ -100,25 +132,12 @@ const CivilPage: React.FC = () => {
 
                         <h2 className="text-xl sm:text-2xl font-bold font-baskerville mb-5 sm:mb-6 text-center sm:text-left">Preguntas frecuentes</h2>
                         <div className="space-y-6 mb-10 sm:mb-12 text-sm sm:text-base text-gray-600 leading-relaxed font-medium">
-                            <div>
-                                <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-lg">¿Conviene asesorarse antes de firmar un contrato?</h3>
-                                <p>Sí. Revisamos y redactamos contratos para que digan lo que realmente necesitas. Eso incluye dejar claras las formas de término, incorporar las cláusulas esenciales y asegurarnos de que el contrato esté dentro de lo que permite la ley. Un contrato bien hecho evita la mayoría de los problemas, por eso siempre es mejor asesorarse antes de firmar.</p>
-                            </div>
-
-                            <div>
-                                <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-lg">¿Puedo demandar si no tengo contrato escrito?</h3>
-                                <p>Sí. La falta de contrato escrito no impide demandar, pero sí afecta la prueba disponible. En ese caso hay que acreditar la existencia de la obligación con otros medios: correos electrónicos, mensajes, testigos o transferencias bancarias.</p>
-                            </div>
-
-                            <div>
-                                <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-lg">¿Qué necesito para iniciar un cobro ejecutivo?</h3>
-                                <p>Necesitas un título ejecutivo: un pagaré, una factura con mérito ejecutivo o una sentencia firme. Si tienes el documento, podemos evaluar contigo si el caso es viable y cómo proceder.</p>
-                            </div>
-
-                            <div>
-                                <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-lg">¿Qué pasa si los herederos no se ponen de acuerdo para dividir una herencia?</h3>
-                                <p>La ley no obliga a nadie a quedarse para siempre como dueño compartido de una herencia. Cualquier heredero puede pedir que se divida, y cuando no hay acuerdo, esa división la resuelve un juez partidor. Lo mismo ocurre tras un divorcio, cuando los ex cónyuges no logran ponerse de acuerdo sobre cómo repartir los bienes y quién se queda con qué. Ambos casos los tramitamos.</p>
-                            </div>
+                            {faqs.map((faq, index) => (
+                                <div key={index}>
+                                    <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-lg">{faq.question}</h3>
+                                    <p>{faq.answer}</p>
+                                </div>
+                            ))}
                         </div>
 
                         <RelatedPosts service="civil" />

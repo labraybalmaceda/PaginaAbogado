@@ -83,7 +83,7 @@ const post: Post = {
         { type: 'h2', text: 'Después de constituir: RUT, inicio de actividades y permisos' },
         {
             type: 'p',
-            text: 'Con la sociedad inscrita viene el Servicio de Impuestos Internos: el rol único tributario de la empresa y el inicio de actividades del giro. En el régimen simplificado esos pasos están integrados al mismo sistema del Registro.',
+            text: 'Con la sociedad inscrita viene el Servicio de Impuestos Internos: el rol único tributario de la empresa y el inicio de actividades del giro.',
         },
         {
             type: 'p',

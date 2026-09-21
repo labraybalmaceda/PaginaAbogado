@@ -17,7 +17,7 @@ const BASE_URL = 'https://labraybalmaceda.cl';
 
 // Páginas fijas del sitio. `lastmod` se actualiza a mano cuando cambia la página.
 const STATIC_ROUTES = [
-    { path: '/', lastmod: '2026-09-17', changefreq: 'monthly', priority: '1.0' },
+    { path: '/', lastmod: '2026-09-21', changefreq: 'monthly', priority: '1.0' },
     { path: '/blog', lastmod: '2026-07-20', changefreq: 'weekly', priority: '0.9' },
     { path: '/abogado-civil-puerto-montt', lastmod: '2026-09-17', changefreq: 'monthly', priority: '0.8' },
     { path: '/abogado-familia-puerto-montt', lastmod: '2026-09-17', changefreq: 'monthly', priority: '0.8' },
