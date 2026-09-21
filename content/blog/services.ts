@@ -25,4 +25,9 @@ export const SERVICES: Record<ServiceKey, { label: string; path: string; cta: st
         path: '/abogado-insolvencia-puerto-montt',
         cta: 'Ordenar mis deudas con un abogado',
     },
+    corporativo: {
+        label: 'Derecho Corporativo',
+        path: '/abogado-corporativo-puerto-montt',
+        cta: 'Estructurar mi empresa con un abogado',
+    },
 };

@@ -89,10 +89,25 @@ const PracticeAreas: React.FC = () => {
                 'Indemnizaciones / Accidentes',
                 'Responsabilidad Civil Patrimonial'
             ],
-            ctaText: 'Consultar caso Civil →',
+            ctaText: 'Consultar caso Civil',
             microcopy: 'Te indicamos riesgos, plazos y alternativa más eficiente.',
             trackingId: 'Derecho Civil',
             isHighlighted: true
+        },
+        {
+            title: 'Corporativo',
+            path: '/abogado-corporativo-puerto-montt',
+            promise: 'Constituir, estructurar y proteger la empresa antes de que haya conflicto.',
+            icon: <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>,
+            services: [
+                'Constitución y Modificación de Sociedades',
+                'Pactos de Accionistas y Estatutos',
+                'Contratos Comerciales',
+                'Compraventa de Empresas y Due Diligence'
+            ],
+            ctaText: 'Estructurar mi empresa',
+            microcopy: 'Te decimos qué sociedad conviene y qué debe quedar por escrito.',
+            trackingId: 'Derecho Corporativo'
         },
         {
             title: 'Arrendamientos',
@@ -110,6 +125,21 @@ const PracticeAreas: React.FC = () => {
             trackingId: 'Juicios Arriendo'
         },
         {
+            title: 'Insolvencia',
+            path: '/abogado-insolvencia-puerto-montt',
+            promise: 'Reorganización o liquidación: claridad financiera + ruta legal.',
+            icon: <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>,
+            services: [
+                'Liquidación de la Empresa Deudora',
+                'Reorganización Judicial',
+                'Defensa en Juicios Ejecutivos y Remates',
+                'Representación en Juntas de Acreedores e Incidentes'
+            ],
+            ctaText: 'Revisar mi situación de deudas',
+            microcopy: 'Diagnóstico inicial y plan de acción inmediato.',
+            trackingId: 'Derecho Concursal'
+        },
+        {
             title: 'Familia',
             path: '/abogado-familia-puerto-montt',
             promise: 'Divorcios, alimentos y cuidado personal con enfoque estratégico.',
@@ -124,21 +154,6 @@ const PracticeAreas: React.FC = () => {
             ctaText: 'Evaluar mi caso de Familia',
             microcopy: 'Confidencialidad y pasos concretos desde la primera reunión.',
             trackingId: 'Derecho Familia'
-        },
-        {
-            title: 'Insolvencia',
-            path: '/abogado-insolvencia-puerto-montt',
-            promise: 'Reorganización o liquidación: claridad financiera + ruta legal.',
-            icon: <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>,
-            services: [
-                'Liquidación de la Empresa Deudora',
-                'Reorganización Judicial',
-                'Defensa en Juicios Ejecutivos y Remates',
-                'Representación en Juntas de Acreedores e Incidentes'
-            ],
-            ctaText: 'Revisar mi situación de deudas',
-            microcopy: 'Diagnóstico inicial y plan de acción inmediato.',
-            trackingId: 'Derecho Concursal'
         }
     ];
 
@@ -166,7 +181,7 @@ const PracticeAreas: React.FC = () => {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     {areas.map(area => <PracticeAreaCard key={area.title} {...area} />)}
                 </div>
 

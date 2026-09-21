@@ -21,6 +21,7 @@ const SERVICES = [
     ['Arrendamientos', '/abogado-arriendo-puerto-montt', 'Terminación de contrato por no pago, lanzamiento, cobro de rentas y defensa del arrendatario.'],
     ['Derecho de Familia', '/abogado-familia-puerto-montt', 'Divorcio, pensión de alimentos y su cobro, cuidado personal y compensación económica.'],
     ['Liquidación de Empresas', '/abogado-insolvencia-puerto-montt', 'Liquidación y reorganización judicial de empresas, y defensa en juicios ejecutivos, embargos y remates.'],
+    ['Derecho Corporativo', '/abogado-corporativo-puerto-montt', 'Constitución y modificación de sociedades, pactos de accionistas, contratos comerciales, compraventa de empresas y conflictos entre socios.'],
 ];
 
 const match = (source, pattern) => {

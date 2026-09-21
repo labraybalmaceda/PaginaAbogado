@@ -2,7 +2,7 @@
 // Un artículo = un archivo en content/blog/posts/. No hay que tocar ningún
 // componente para publicar: el registro se arma solo (ver content/blog/index.ts).
 
-export type ServiceKey = 'arriendos' | 'familia' | 'civil' | 'insolvencia';
+export type ServiceKey = 'arriendos' | 'familia' | 'civil' | 'insolvencia' | 'corporativo';
 
 /**
  * Bloques de contenido. El orden del arreglo es el orden en que se renderiza.

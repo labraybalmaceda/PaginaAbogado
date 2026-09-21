@@ -50,6 +50,11 @@
   status = 200
 
 [[redirects]]
+  from = "/abogado-corporativo-puerto-montt"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
   from = "/gracias"
   to = "/index.html"
   status = 200

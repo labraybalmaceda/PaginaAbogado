@@ -23,6 +23,7 @@ const STATIC_ROUTES = [
     { path: '/abogado-familia-puerto-montt', lastmod: '2026-09-17', changefreq: 'monthly', priority: '0.8' },
     { path: '/abogado-arriendo-puerto-montt', lastmod: '2026-09-17', changefreq: 'monthly', priority: '0.8' },
     { path: '/abogado-insolvencia-puerto-montt', lastmod: '2026-09-17', changefreq: 'monthly', priority: '0.8' },
+    { path: '/abogado-corporativo-puerto-montt', lastmod: '2026-09-21', changefreq: 'monthly', priority: '0.8' },
     { path: '/privacidad', lastmod: '2026-09-17', changefreq: 'yearly', priority: '0.3' },
 ];
 

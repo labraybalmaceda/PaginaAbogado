@@ -17,6 +17,7 @@ import CivilPage from './components/CivilPage';
 import FamiliaPage from './components/FamiliaPage';
 import ArriendosPage from './components/ArriendosPage';
 import InsolvenciaPage from './components/InsolvenciaPage';
+import CorporativoPage from './components/CorporativoPage';
 import BlogIndex from './components/BlogIndex';
 import BlogPost from './components/BlogPost';
 import NotFound from './components/NotFound';
@@ -30,6 +31,7 @@ type Route =
     | { name: 'familia' }
     | { name: 'arriendos' }
     | { name: 'insolvencia' }
+    | { name: 'corporativo' }
     | { name: 'blog' }
     | { name: 'post'; slug: string }
     | { name: 'notfound' };
@@ -47,6 +49,7 @@ const resolveRoute = (pathname: string): Route => {
         case '/abogado-familia-puerto-montt': return { name: 'familia' };
         case '/abogado-arriendo-puerto-montt': return { name: 'arriendos' };
         case '/abogado-insolvencia-puerto-montt': return { name: 'insolvencia' };
+        case '/abogado-corporativo-puerto-montt': return { name: 'corporativo' };
         case '/blog': return { name: 'blog' };
     }
 
@@ -123,6 +126,7 @@ const App: React.FC = () => {
     if (route.name === 'familia') return <><FamiliaPage /><CookieBanner /></>;
     if (route.name === 'arriendos') return <><ArriendosPage /><CookieBanner /></>;
     if (route.name === 'insolvencia') return <><InsolvenciaPage /><CookieBanner /></>;
+    if (route.name === 'corporativo') return <><CorporativoPage /><CookieBanner /></>;
     if (route.name === 'blog') return <><BlogIndex /><CookieBanner /></>;
     if (route.name === 'post') {
         const post = getPost(route.slug);
