@@ -69,13 +69,13 @@ const Testimonials: React.FC = () => {
             icon: <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
         },
         {
-            title: 'Divorcio y Alimentos',
-            situation: 'Una separación en la que no logran ponerse de acuerdo en la pensión o en las visitas de los hijos.',
-            approach: 'Ordenamos tus antecedentes y vemos si conviene negociar o ir a juicio, según lo que tengas en juego.',
-            articleText: 'Revisa cómo funciona el divorcio en Chile',
-            articleHref: '/blog/divorcio-unilateral-o-de-comun-acuerdo',
-            tag: 'Familia',
-            icon: <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+            title: 'Constitución de Sociedades',
+            situation: 'Vas a formar una empresa con otra persona y no sabes qué tipo de sociedad conviene ni qué dejar por escrito entre los socios.',
+            approach: 'Te decimos qué sociedad conviene, redactamos el estatuto y dejamos resuelto qué pasa si un socio quiere salir o si no se ponen de acuerdo.',
+            articleText: 'Revisa cómo constituir una empresa en Chile',
+            articleHref: '/blog/como-constituir-una-empresa-en-chile',
+            tag: 'Corporativo',
+            icon: <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
         },
         {
             title: 'No Pago de Rentas',

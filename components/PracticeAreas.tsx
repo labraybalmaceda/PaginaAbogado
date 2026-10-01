@@ -29,12 +29,7 @@ const PracticeAreaCard: React.FC<PracticeAreaCardProps> = ({ icon, title, promis
 
     return (
         <FadeInUp>
-            <div className={`relative bg-white p-8 rounded-2xl shadow-sm border transition-all duration-500 flex flex-col h-full group ${isHighlighted ? 'border-brand-gold ring-1 ring-brand-gold shadow-xl -translate-y-2' : 'border-gray-100 hover:border-brand-gold hover:shadow-md'}`}>
-                {isHighlighted && (
-                    <span className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-brand-gold text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">
-                        Más Consultada
-                    </span>
-                )}
+            <div className="relative bg-white p-8 rounded-2xl shadow-sm border transition-all duration-500 flex flex-col h-full group border-brand-gold ring-1 ring-brand-gold shadow-xl -translate-y-2">
                 
                 <div className="mb-6 text-brand-gold flex justify-center">
                     <div className={`p-4 rounded-2xl ${isHighlighted ? 'bg-brand-gold/10' : 'bg-gray-50 group-hover:bg-brand-gold/5'} transition-colors`}>
@@ -89,10 +84,9 @@ const PracticeAreas: React.FC = () => {
                 'Indemnizaciones / Accidentes',
                 'Responsabilidad Civil Patrimonial'
             ],
-            ctaText: 'Consultar caso Civil',
+            ctaText: 'Evaluar mi situación',
             microcopy: 'Te indicamos riesgos, plazos y alternativa más eficiente.',
-            trackingId: 'Derecho Civil',
-            isHighlighted: true
+            trackingId: 'Derecho Civil'
         },
         {
             title: 'Corporativo',

@@ -79,7 +79,7 @@ const content = `# Labra & Balmaceda Abogados
 
 > Estudio jurídico chileno con base en Puerto Varas. Atiende con cita previa en Puerto Varas y Puerto Montt, y de forma online en todo Chile. Áreas: Derecho Civil, Derecho de Familia, Arrendamientos e Insolvencia. Fundado por el abogado Renato Labra.
 
-Contacto: +56 9 7764 6224 (teléfono y WhatsApp) | labraybalmaceda@gmail.com
+Contacto: +56 9 7764 6224 (teléfono y WhatsApp) | contacto@labraybalmaceda.cl
 Horario: lunes a viernes, de 09:00 a 19:00 (hora de Chile).
 Cobertura: Puerto Varas, Puerto Montt, Llanquihue y el resto de la Región de Los Lagos. Atención online en todo el país.
 

@@ -48,7 +48,7 @@ const PrivacyPolicy: React.FC = () => {
                         <h2 className="text-xl font-bold text-brand-black mb-3 font-baskerville">1) Responsable del tratamiento</h2>
                         <ul className="list-none space-y-1">
                             <li><strong>Responsable:</strong> LABRA & BALMACEDA ABOGADOS</li>
-                            <li><strong>Correo de contacto:</strong> <a href="mailto:labraybalmaceda@gmail.com" className="text-brand-gold hover:underline">labraybalmaceda@gmail.com</a></li>
+                            <li><strong>Correo de contacto:</strong> <a href="mailto:contacto@labraybalmaceda.cl" className="text-brand-gold hover:underline">contacto@labraybalmaceda.cl</a></li>
                         </ul>
                     </section>
 
@@ -101,7 +101,7 @@ const PrivacyPolicy: React.FC = () => {
 
                     <section>
                         <h2 className="text-xl font-bold text-brand-black mb-3 font-baskerville">8) Derechos del titular</h2>
-                        <p>La persona puede solicitar acceso, rectificación o eliminación/cancelación de sus datos personales contactando a: <a href="mailto:labraybalmaceda@gmail.com" className="text-brand-gold hover:underline">labraybalmaceda@gmail.com</a>. LABRA & BALMACEDA ABOGADOS responderá dentro de un plazo razonable conforme a la normativa aplicable.</p>
+                        <p>La persona puede solicitar acceso, rectificación o eliminación/cancelación de sus datos personales contactando a: <a href="mailto:contacto@labraybalmaceda.cl" className="text-brand-gold hover:underline">contacto@labraybalmaceda.cl</a>. LABRA & BALMACEDA ABOGADOS responderá dentro de un plazo razonable conforme a la normativa aplicable.</p>
                     </section>
 
                     <section>
@@ -114,7 +114,7 @@ const PrivacyPolicy: React.FC = () => {
                         <p>LABRA & BALMACEDA ABOGADOS puede actualizar esta Política para reflejar mejoras del sitio o cambios normativos. La versión vigente será la publicada en esta misma página.</p>
                     </section>
 
-                    <p>Última actualización: <time dateTime="2026-09-17">17 de septiembre de 2026</time>.</p>
+                    <p>Última actualización: <time dateTime="2026-10-01">1 de octubre de 2026</time>.</p>
                 </div>
 
                 <div className="mt-16 text-center">

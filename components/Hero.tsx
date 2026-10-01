@@ -18,8 +18,8 @@ const Hero: React.FC = () => {
     return (
         <section 
             id="hero" 
-            className="bg-cover bg-center bg-scroll md:bg-fixed relative min-h-[85vh] flex items-center justify-center text-white px-4 sm:px-6 py-20"
-            style={{ backgroundImage: `linear-gradient(to bottom, rgba(17, 17, 17, 0.6), rgba(17, 17, 17, 0.7)), url('${heroImageUrl}')` }}
+            className="bg-cover bg-center md:bg-position-[center_20%] bg-scroll md:bg-fixed relative min-h-[85vh] flex items-center justify-center text-white px-4 sm:px-6 py-20"
+            style={{ backgroundImage: `linear-gradient(to bottom, rgba(17, 17, 17, 0.5), rgba(17, 17, 17, 0.6)), url('${heroImageUrl}')` }}
         >
             <div className="container mx-auto text-center z-10 max-w-5xl">
                 <p className="text-4xl sm:text-6xl md:text-7xl font-bold mb-4 tracking-tighter uppercase text-white font-baskerville not-italic mt-6">

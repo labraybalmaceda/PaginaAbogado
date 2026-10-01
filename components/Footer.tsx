@@ -52,8 +52,8 @@ const Footer: React.FC = () => {
                             <div>
                                 <p className="text-sm">
                                     <span className="block text-brand-gold font-semibold mb-1">Email:</span>
-                                    <a href="mailto:labraybalmaceda@gmail.com" className="hover:text-brand-gold transition break-all">
-                                        labraybalmaceda@gmail.com
+                                    <a href="mailto:contacto@labraybalmaceda.cl" className="hover:text-brand-gold transition break-all">
+                                        contacto@labraybalmaceda.cl
                                     </a>
                                 </p>
                             </div>
