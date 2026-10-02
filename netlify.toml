@@ -15,6 +15,24 @@
   publish = "dist"
 
 [[redirects]]
+  from = "/blog/juicio-particion-herederos-sin-acuerdo"
+  to = "/blog/juicio-de-particion-herederos-sin-acuerdo"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/vender-casa-heredada-hermano-se-opone-particion"
+  to = "/blog/juicio-de-particion-herederos-sin-acuerdo"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/posts/promesa-de-compraventa"
+  to = "/blog/promesa-de-compraventa-incumplimiento"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/"
   to = "/index.html"
   status = 200

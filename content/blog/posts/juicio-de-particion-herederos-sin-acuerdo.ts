@@ -43,7 +43,7 @@ const post: Post = {
         { type: 'h2', text: 'El juez partidor' },
         {
             type: 'p',
-            text: 'La partición es materia de arbitraje: Si los herederos no logran repartir de común acuerdo por escritura pública, la partición la hace un árbitro.',
+            text: 'La partición es materia de arbitraje: si los herederos no logran repartir de común acuerdo por escritura pública, la partición la hace un árbitro.',
         },
         {
             type: 'p',
@@ -56,7 +56,7 @@ const post: Post = {
         },
         {
             type: 'p',
-            text: 'Además, un heredero ceder su cuota en la herencia a un tercero, sin necesidad del consentimiento de los demás. Quien compra pasa a ocupar su lugar y puede pedir la partición e intervenir en ella.',
+            text: 'Además, un heredero puede ceder su cuota en la herencia a un tercero, sin necesidad del consentimiento de los demás. Quien compra pasa a ocupar su lugar y puede pedir la partición e intervenir en ella.',
         },
         { type: 'h2', text: 'El heredero que vive en la casa y no paga nada' },
         {
@@ -78,7 +78,7 @@ const post: Post = {
         {
             question: '¿Hay plazo para hacer la partición?',
             answer:
-                'La acción de partición es imprescriptible, así que se puede pedir en cualquier momento. Sin embargo, las demás acciones hereditarias si tienen plazos.',
+                'La acción de partición es imprescriptible, así que se puede pedir en cualquier momento. Sin embargo, las demás acciones hereditarias sí tienen plazos.',
         },
         {
             question: '¿Cuánto cuesta un juicio de partición?',

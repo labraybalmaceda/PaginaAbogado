@@ -4,9 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Precarga la foto del hero solo en las páginas que la usan (portada y páginas de servicio), para mejorar el LCP en móvil -->
+    <script>
+      (function () {
+        var p = location.pathname;
+        if (p === '/' || p.indexOf('/abogado-') === 0) {
+          var l = document.createElement('link');
+          l.rel = 'preload';
+          l.as = 'image';
+          l.href = '/fotohero.webp';
+          l.setAttribute('fetchpriority', 'high');
+          document.head.appendChild(l);
+        }
+      })();
+    </script>
+
     <!-- SEO Optimizado para Puerto Montt y Puerto Varas -->
     <title>Abogados en Puerto Varas y Puerto Montt | Labra & Balmaceda</title>
-    <meta name="description" content="¿Buscas abogados en Puerto Varas? Labra & Balmaceda: Derecho Civil, Familia, Arriendos e Insolvencia. Atendemos también en Puerto Montt y Llanquihue.">
+    <meta name="description" content="¿Buscas abogados en Puerto Varas? Labra & Balmaceda: Derecho Civil, Familia, Arriendos y Derecho Concursal. Atendemos también en Puerto Montt y Llanquihue.">
     <meta name="keywords" content="abogado puerto varas, abogado puerto montt, abogados puerto varas, abogados puerto montt, divorcio puerto varas, divorcio puerto montt, deudas puerto montt, herencias puerto montt, abogados region de los lagos, renato labra abogado">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     
@@ -39,7 +54,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://labraybalmaceda.cl/">
     <meta property="og:title" content="Abogados en Puerto Varas y Puerto Montt | Labra & Balmaceda">
-    <meta property="og:description" content="¿Buscas abogados en Puerto Varas? Labra & Balmaceda: Derecho Civil, Familia, Arriendos e Insolvencia. Atendemos también en Puerto Montt y Llanquihue.">
+    <meta property="og:description" content="¿Buscas abogados en Puerto Varas? Labra & Balmaceda: Derecho Civil, Familia, Arriendos y Derecho Concursal. Atendemos también en Puerto Montt y Llanquihue.">
     <meta property="og:image" content="https://res.cloudinary.com/dt36zhzde/image/upload/w_1200,h_630,c_pad,b_white/v1781805477/LOGO_e4oacu.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -67,7 +82,7 @@
           "image": "https://res.cloudinary.com/dt36zhzde/image/upload/w_1200,h_630,c_pad,b_white/v1781805477/LOGO_e4oacu.png",
           "telephone": "+56977646224",
           "email": "contacto@labraybalmaceda.cl",
-          "description": "Estudio de abogados especializado en Derecho Civil, Derecho Corporativo, Arriendos, Liquidación de Empresas, y Familia. Atención con cita previa en Puerto Varas y Puerto Montt, y online en todo Chile.",
+          "description": "Estudio de abogados especializado en Derecho Civil, Derecho Corporativo, Arriendos, Derecho Concursal y Familia. Atención con cita previa en Puerto Varas y Puerto Montt, y online en todo Chile.",
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "Puerto Varas",
@@ -94,7 +109,10 @@
             "Derecho Civil",
             "Derecho de Familia",
             "Arrendamiento de inmuebles urbanos",
-            "Insolvencia y reemprendimiento",
+            "Derecho Concursal",
+            "Reorganización y liquidación de empresas",
+            "Representación de acreedores en procedimientos concursales",
+            "Derecho Corporativo",
             "Juicios de arrendamiento y lanzamiento",
             "Divorcio y compensación económica",
             "Pensión de alimentos y su cobro",
@@ -147,7 +165,7 @@
                 "itemOffered": {
                   "@type": "Service",
                   "@id": "https://labraybalmaceda.cl/abogado-insolvencia-puerto-montt#service",
-                  "name": "Liquidación de Empresas",
+                  "name": "Derecho Concursal",
                   "url": "https://labraybalmaceda.cl/abogado-insolvencia-puerto-montt"
                 }
               },

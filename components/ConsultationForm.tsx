@@ -75,7 +75,7 @@ const ConsultationForm: React.FC = () => {
         { value: "Familia", label: "Familia" },
         { value: "Arriendo", label: "Arriendo" },
         { value: "Civil", label: "Civil" },
-        { value: "Insolvencia", label: "Insolvencia" },
+        { value: "Insolvencia", label: "Derecho Concursal" },
         { value: "Otro", label: "Otro" },
     ];
 

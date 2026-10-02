@@ -20,7 +20,7 @@ const SERVICES = [
     ['Derecho Civil', '/abogado-civil-puerto-montt', 'Contratos, herencias, posesión efectiva, partición, precario e indemnización de perjuicios.'],
     ['Arrendamientos', '/abogado-arriendo-puerto-montt', 'Terminación de contrato por no pago, lanzamiento, cobro de rentas y defensa del arrendatario.'],
     ['Derecho de Familia', '/abogado-familia-puerto-montt', 'Divorcio, pensión de alimentos y su cobro, cuidado personal y compensación económica.'],
-    ['Liquidación de Empresas', '/abogado-insolvencia-puerto-montt', 'Liquidación y reorganización judicial de empresas, y defensa en juicios ejecutivos, embargos y remates.'],
+    ['Derecho Concursal', '/abogado-insolvencia-puerto-montt', 'Reorganización y liquidación de empresas (Ley N° 20.720), procedimientos simplificados para micro y pequeñas empresas, representación de acreedores y defensa en juicios ejecutivos.'],
     ['Derecho Corporativo', '/abogado-corporativo-puerto-montt', 'Constitución y modificación de sociedades, pactos de accionistas, contratos comerciales, compraventa de empresas y conflictos entre socios.'],
 ];
 
@@ -77,7 +77,7 @@ const postLines = posts
 
 const content = `# Labra & Balmaceda Abogados
 
-> Estudio jurídico chileno con base en Puerto Varas. Atiende con cita previa en Puerto Varas y Puerto Montt, y de forma online en todo Chile. Áreas: Derecho Civil, Derecho de Familia, Arrendamientos e Insolvencia. Fundado por el abogado Renato Labra.
+> Estudio jurídico chileno con base en Puerto Varas. Atiende con cita previa en Puerto Varas y Puerto Montt, y de forma online en todo Chile. Áreas: Derecho Civil, Derecho Corporativo, Derecho de Familia, Arrendamientos y Derecho Concursal. Fundado por el abogado Renato Labra.
 
 Contacto: +56 9 7764 6224 (teléfono y WhatsApp) | contacto@labraybalmaceda.cl
 Horario: lunes a viernes, de 09:00 a 19:00 (hora de Chile).

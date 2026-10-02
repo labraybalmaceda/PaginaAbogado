@@ -94,7 +94,7 @@ const FamiliaPage: React.FC = () => {
             
             <main 
                 className="py-12 sm:py-24 overflow-hidden mt-6 sm:mt-0 bg-cover bg-center bg-scroll md:bg-fixed"
-                style={{ backgroundImage: `linear-gradient(to bottom, rgba(17, 17, 17, 0.6), rgba(17, 17, 17, 0.7)), url('/fotohero.jpg')` }}
+                style={{ backgroundImage: `linear-gradient(to bottom, rgba(17, 17, 17, 0.6), rgba(17, 17, 17, 0.7)), url('/fotohero.webp')` }}
             >
                 <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
                     <div className="bg-white p-6 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-100 relative overflow-hidden border-t-0">
@@ -121,7 +121,7 @@ const FamiliaPage: React.FC = () => {
                                 <strong>Cuidado personal y relación directa y regular.</strong> El cuidado personal determina con quién vive el hijo. La relación directa y regular regula los tiempos del padre o madre que no tiene el cuidado. Ambas materias pueden resolverse por acuerdo homologado ante el tribunal o mediante juicio si no hay consenso. El interés superior del niño es el criterio que el tribunal aplica en todos los casos.
                             </p>
                             <p>
-                                <strong>Divorcio.</strong> El divorcio de común acuerdo requiere al menos un año de cese de convivencia y un acuerdo completo y suficiente sobre los efectos del matrimonio. El divorcio unilateral exige tres años de cese de convivencia. En ambos casos gestionamos el trámite completo, incluyendo la liquidación de la sociedad conyugal si corresponde.
+                                <strong>Divorcio.</strong> El divorcio de común acuerdo requiere más de un año de cese de convivencia y un acuerdo completo y suficiente sobre los efectos del matrimonio. El divorcio unilateral exige tres años de cese de convivencia. En ambos casos gestionamos el trámite completo, incluyendo la liquidación de la sociedad conyugal si corresponde.
                             </p>
                             <p>
                                 <strong>Compensación económica.</strong> Cuando uno de los cónyuges postergó su desarrollo profesional o laboral para dedicarse al hogar o al cuidado de los hijos, tiene derecho a una compensación económica al momento del divorcio. El tribunal la fija caso a caso, ponderando la duración del matrimonio, la edad y el estado de salud del cónyuge, y sus posibilidades reales de acceder al mercado laboral.

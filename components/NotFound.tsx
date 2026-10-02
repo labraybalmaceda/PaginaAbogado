@@ -13,7 +13,7 @@ const LINKS = [
     { label: 'Arriendos', path: '/abogado-arriendo-puerto-montt' },
     { label: 'Familia', path: '/abogado-familia-puerto-montt' },
     { label: 'Civil', path: '/abogado-civil-puerto-montt' },
-    { label: 'Insolvencia', path: '/abogado-insolvencia-puerto-montt' },
+    { label: 'Derecho Concursal', path: '/abogado-insolvencia-puerto-montt' },
 ];
 
 const NotFound: React.FC = () => {

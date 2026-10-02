@@ -2,7 +2,7 @@ import React from 'react';
 import { trackCTAClick, trackWhatsAppClick } from '../services/tracking';
 
 const Hero: React.FC = () => {
-    const heroImageUrl = '/fotohero.jpg';
+    const heroImageUrl = '/fotohero.webp';
 
     const handleScrollClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
         event.preventDefault();

@@ -147,7 +147,7 @@ const App: React.FC = () => {
         <>
             <Seo
                 title="Abogados en Puerto Varas y Puerto Montt | Labra & Balmaceda"
-                description="¿Buscas abogados en Puerto Varas? Labra & Balmaceda: Derecho Civil, Familia, Arriendos e Insolvencia. Atendemos también en Puerto Montt y Llanquihue."
+                description="¿Buscas abogados en Puerto Varas? Labra & Balmaceda: Derecho Civil, Familia, Arriendos y Derecho Concursal. Atendemos también en Puerto Montt y Llanquihue."
                 path="/"
             />
             <Header />
