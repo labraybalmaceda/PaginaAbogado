@@ -21,7 +21,7 @@ export const getPost = (slug: string): Post | undefined =>
     posts.find((p) => p.slug === slug);
 
 /** Artículos de un área, para enlazar desde las páginas de servicio. */
-export const getPostsByService = (service: ServiceKey, limit = 3): Post[] =>
+export const getPostsByService = (service: ServiceKey, limit = 6): Post[] =>
     indexablePosts.filter((p) => p.service === service).slice(0, limit);
 
 /** Otros artículos de la misma área, para enlazar entre artículos. */

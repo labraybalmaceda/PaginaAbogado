@@ -5,7 +5,7 @@ const post: Post = {
     title: 'Promesa de compraventa: qué pasa si la otra parte no firma o se arrepiente',
     metaTitle: 'Promesa de compraventa: si la otra parte se arrepiente',
     description:
-        'Firmaste una promesa de compraventa y la otra parte se arrepiente. ¿Puedes obligarla a cumplir? Conoce tus derechos, las arras y qué hacer paso a paso.',
+        'Firmaste una promesa de compraventa y la otra parte se arrepiente. ¿Puedes obligarla a cumplir? Conoce tus derechos y qué hacer paso a paso.',
     excerpt:
         'Encontraste la casa. Acordaste el precio. Firmaron una promesa de compraventa y entregaste parte del dinero, tranquilo de que el negocio estaba cerrado. Pero llega el día de firmar la escritura definitiva y la otra parte desaparece, pide más, o simplemente dice: "me arrepentí".',
     date: '2026-08-12',

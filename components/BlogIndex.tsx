@@ -47,8 +47,8 @@ const BlogIndex: React.FC = () => {
     );
 
     return (
-        <div className="relative isolate min-h-screen text-brand-black">
-            <div aria-hidden="true" className="fixed inset-0 -z-10 bg-cover bg-position-[30%_center] md:bg-center" style={{ backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/fondo-articulo-blog.jpg')" }} />
+        <div className="relative isolate min-h-screen bg-brand-black text-brand-black">
+            <div aria-hidden="true" className="absolute inset-x-0 top-0 h-screen supports-[height:100lvh]:h-lvh -z-10 bg-cover bg-position-[30%_center] md:bg-center" style={{ backgroundImage: "linear-gradient(to bottom, rgba(17, 17, 17, 0.65), rgba(17, 17, 17, 0.75) 60%, rgba(17, 17, 17, 1)), url('/fondo-articulo-blog.jpg')" }} />
             <Seo
                 title="Blog legal | Labra & Balmaceda Abogados"
                 description="Artículos sobre arriendos, divorcio, herencias, pensión de alimentos y deudas, explicados en simple por abogados de Puerto Varas y Puerto Montt."
@@ -61,9 +61,9 @@ const BlogIndex: React.FC = () => {
                 <div className="container mx-auto px-4 sm:px-6 max-w-3xl">
                     <header className="mb-10 sm:mb-14">
                         <h1 className="text-2xl sm:text-4xl font-bold mb-4 font-baskerville uppercase tracking-tight not-italic leading-tight text-white">
-                            Blog legal: arriendos, familia, herencias y deudas
+                            Artículos destacados
                         </h1>
-                        <p className="text-[15px] sm:text-lg text-white/85 leading-relaxed">
+                        <p className="text-[15px] sm:text-lg text-white leading-relaxed">
                             Explicamos los problemas que más nos consultan y tramitamos en la Región de Los Lagos: Incumplimientos contractuales e indemnizaciones, arriendos que no se pagan, divorcios, herencias que nadie logra repartir.
                         </p>
                     </header>

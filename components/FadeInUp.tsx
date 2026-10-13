@@ -5,11 +5,21 @@ interface FadeInUpProps {
     children: React.ReactNode;
 }
 
+// Los bots y el prerender de Netlify (un navegador sin pantalla) no hacen scroll: con la animación,
+// las secciones bajo el pliegue quedaban guardadas con opacity-0 en su copia de la página.
+// Para ellos (y si el navegador no tiene IntersectionObserver) el contenido se muestra desde el inicio.
+const shouldSkipAnimation = (): boolean => {
+    if (typeof window === 'undefined' || typeof IntersectionObserver === 'undefined') return true;
+    return navigator.webdriver === true || /bot|crawler|spider|prerender|headless/i.test(navigator.userAgent);
+};
+
 const FadeInUp: React.FC<FadeInUpProps> = ({ children }) => {
-    const [isVisible, setIsVisible] = useState(false);
+    const [isVisible, setIsVisible] = useState(shouldSkipAnimation);
     const domRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
+        if (isVisible) return;
+
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import StatsBar from './components/StatsBar';
+import BlogDestacados from './components/BlogDestacados';
 import PracticeAreas from './components/PracticeAreas';
 import Testimonials from './components/Testimonials';
 import WhyChooseUs from './components/WhyChooseUs';
@@ -153,7 +153,7 @@ const App: React.FC = () => {
             <Header />
             <main>
                 <Hero />
-                <StatsBar />
+                <BlogDestacados />
                 <PracticeAreas />
                 <Testimonials />
                 <WhyChooseUs />

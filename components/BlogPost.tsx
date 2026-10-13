@@ -124,8 +124,8 @@ const BlogPost: React.FC<{ post: Post }> = ({ post }) => {
     }, [post, url]);
 
     return (
-        <div className="relative isolate min-h-screen text-brand-black">
-            <div aria-hidden="true" className="fixed inset-0 -z-10 bg-cover bg-position-[30%_center] md:bg-center" style={{ backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/fondo-articulo-blog.jpg')" }} />
+        <div className="relative isolate min-h-screen bg-brand-black text-brand-black">
+            <div aria-hidden="true" className="absolute inset-x-0 top-0 h-screen supports-[height:100lvh]:h-lvh -z-10 bg-cover bg-position-[30%_center] md:bg-center" style={{ backgroundImage: "linear-gradient(to bottom, rgba(17, 17, 17, 0.65), rgba(17, 17, 17, 0.75) 60%, rgba(17, 17, 17, 1)), url('/fondo-articulo-blog.jpg')" }} />
             <Seo
                 title={post.metaTitle || `${post.title} | Labra & Balmaceda`}
                 description={post.description}
