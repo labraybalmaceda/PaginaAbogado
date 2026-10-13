@@ -62,7 +62,7 @@ const Footer: React.FC = () => {
                             </p>
                             
                             {/* Redes Sociales */}
-                            <div className="pt-2">
+                            <div className="pt-2 hidden">
                                 <p className="text-[10px] font-bold uppercase tracking-widest text-white mb-3">Síguenos</p>
                                 <div className="flex items-center gap-4">
                                     <a href="https://www.instagram.com/labraybalmaceda" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-brand-gold transition-colors" aria-label="Instagram" onClick={() => trackExternalLink('Instagram')}>

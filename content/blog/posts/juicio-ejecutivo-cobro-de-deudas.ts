@@ -64,7 +64,7 @@ const post: Post = {
             items: [
                 'Que esté vencida: la fecha de pago ya pasó (art. 437).',
                 'Que el monto sea claro o líquido: tiene que salir del mismo documento, a lo más con operaciones aritméticas simples hechas con los datos que ese documento trae (art. 438). Si para saber cuánto se debe hay que discutir o probar algo, la vía de cobro no es la ejecutiva.',
-                'Que no esté prescrita: si el plazo ya pasó, el tribunal rechaza la demanda ejecutiva aunque el deudor no lo diga (art. 442).',
+                'Que no esté prescrita (art. 442).',
             ],
         },
         { type: 'h2', text: '¿Cuánto plazo tengo para cobrar?' },

@@ -47,10 +47,8 @@ const BlogIndex: React.FC = () => {
     );
 
     return (
-        <div 
-            className="min-h-screen text-brand-black bg-cover bg-center bg-scroll md:bg-fixed"
-            style={{ backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/fondo-articulo-blog.jpg')" }}
-        >
+        <div className="relative isolate min-h-screen text-brand-black">
+            <div aria-hidden="true" className="fixed inset-0 -z-10 bg-cover bg-position-[30%_center] md:bg-center" style={{ backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/fondo-articulo-blog.jpg')" }} />
             <Seo
                 title="Blog legal | Labra & Balmaceda Abogados"
                 description="Artículos sobre arriendos, divorcio, herencias, pensión de alimentos y deudas, explicados en simple por abogados de Puerto Varas y Puerto Montt."

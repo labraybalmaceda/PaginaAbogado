@@ -18,18 +18,18 @@ const Hero: React.FC = () => {
     return (
         <section 
             id="hero" 
-            className="bg-cover bg-center md:bg-position-[center_20%] bg-scroll md:bg-fixed relative min-h-[85vh] flex items-center justify-center text-white px-4 sm:px-6 py-20"
-            style={{ backgroundImage: `linear-gradient(to bottom, rgba(17, 17, 17, 0.5), rgba(17, 17, 17, 0.6)), url('${heroImageUrl}')` }}
+            className="bg-cover bg-center md:bg-position-[center_20%] bg-scroll relative min-h-[85vh] flex items-center justify-center text-white px-4 sm:px-6 py-20"
+            style={{ backgroundImage: `linear-gradient(to bottom, rgba(17, 17, 17, 0.7), rgba(17, 17, 17, 0.8)), url('${heroImageUrl}')` }}
         >
             <div className="container mx-auto text-center z-10 max-w-5xl">
                 <p className="text-4xl sm:text-6xl md:text-7xl font-bold mb-4 tracking-tighter uppercase text-white font-baskerville not-italic mt-6">
-                    LABRA & <span className="text-brand-gold">BALMACEDA</span>
+                    LABRA & <span className="text-[#DDB35F]">BALMACEDA</span>
                 </p>
                 <h1 className="text-xl sm:text-3xl md:text-4xl font-light mb-8 text-white max-w-4xl mx-auto leading-tight">
-                    Abogados en <span className="font-bold text-brand-gold">Puerto Varas</span> y <span className="font-bold text-brand-gold">Puerto Montt</span>.
+                    Abogados en <span className="font-bold text-[#DDB35F]">Puerto Varas</span> y <span className="font-bold text-[#DDB35F]">Puerto Montt</span>.
                 </h1>
 
-                <div className="text-base sm:text-lg md:text-xl mb-12 text-gray-400 max-w-3xl mx-auto space-y-2">
+                <div className="text-base sm:text-lg md:text-xl mb-12 text-gray-200 max-w-3xl mx-auto space-y-2">
                     <p className="leading-relaxed">
                         Te orientamos desde el inicio con los pasos concretos para tu caso: <br className="hidden sm:block" />
                         <span className="text-white font-medium">documentos, riesgos, plazos y alternativas legales.</span>
