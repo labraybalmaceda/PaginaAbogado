@@ -166,7 +166,7 @@ const BlogPost: React.FC<{ post: Post }> = ({ post }) => {
                             {service.label}
                         </p>
 
-                        <h1 className="text-2xl sm:text-4xl font-bold mb-4 font-baskerville uppercase tracking-tight not-italic leading-tight">
+                        <h1 className="text-2xl sm:text-4xl font-bold mb-4 font-baskerville tracking-tight not-italic leading-tight">
                             {post.title}
                         </h1>
 
