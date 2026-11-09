@@ -1,5 +1,6 @@
 import React from 'react';
 import { trackCTAClick, trackWhatsAppClick } from '../services/tracking';
+import GradientText from './GradientText';
 
 const Hero: React.FC = () => {
     const heroImageUrl = '/fotohero.webp';
@@ -23,13 +24,13 @@ const Hero: React.FC = () => {
         >
             <div className="container mx-auto text-center z-10 max-w-5xl">
                 <p className="text-4xl sm:text-6xl md:text-7xl font-bold mb-4 tracking-tighter uppercase text-white font-baskerville not-italic mt-6">
-                    LABRA & <span className="text-[#DDB35F]">BALMACEDA</span>
+                    LABRA & <GradientText>BALMACEDA</GradientText>
                 </p>
                 <h1 className="text-xl sm:text-3xl md:text-4xl font-light mb-6 text-white max-w-4xl mx-auto leading-tight">
-                    Abogados en <span className="font-bold text-[#DDB35F] whitespace-nowrap">Puerto Varas</span> y <span className="font-bold text-[#DDB35F] whitespace-nowrap">Puerto Montt</span>.
+                    Abogados en <GradientText className="font-bold whitespace-nowrap">Puerto Varas</GradientText> y <GradientText className="font-bold whitespace-nowrap">Puerto Montt</GradientText>.
                 </h1>
 
-                <div className="w-12 h-px bg-[#DDB35F] mx-auto mb-6" aria-hidden="true"></div>
+                <div className="w-12 h-px bg-[#BF8F0A] mx-auto mb-6" aria-hidden="true"></div>
                 <p className="text-lg sm:text-xl md:text-2xl font-light text-gray-200 mb-12 max-w-2xl mx-auto leading-relaxed text-balance">
                     Asesoría legal para empresas y personas en el sur de Chile.
                 </p>
