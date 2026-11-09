@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import FadeInUp from './FadeInUp';
 import { trackServiceClick, trackCTAClick } from '../services/tracking';
 import { navigateTo } from './blogUtils';
 
 interface PracticeAreaCardProps {
-    icon: React.ReactNode;
     title: string;
     promise: string;
     services: string[];
@@ -15,7 +14,68 @@ interface PracticeAreaCardProps {
     path: string;
 }
 
-const PracticeAreaCard: React.FC<PracticeAreaCardProps> = ({ icon, title, promise, services, ctaText, microcopy, trackingId, isHighlighted, path }) => {
+// Brillo en el borde: sigue al cursor y se intensifica al acercarse a un costado.
+// Hecho a mano, sin librerías. En pantallas táctiles queda solo el borde dorado fijo.
+const GLOW_CORE = '#E8B321';
+const GLOW_MAIN = '#BF8F0A';
+const GLOW_EDGE_PX = 90;
+
+const GLOW_GRADIENT =
+    `radial-gradient(240px circle at var(--x, 50%) var(--y, 50%), ${GLOW_CORE}, ${GLOW_MAIN} 38%, transparent 72%), ` +
+    `radial-gradient(170px circle at var(--rx, 50%) var(--ry, 50%), rgba(191, 143, 10, 0.55), transparent 70%)`;
+
+const GlowFrame: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+    const frame = useRef<HTMLDivElement>(null);
+
+    const handleMove = (e: React.PointerEvent<HTMLDivElement>) => {
+        if (e.pointerType !== 'mouse' || !frame.current) return;
+        const box = frame.current.getBoundingClientRect();
+        const x = e.clientX - box.left;
+        const y = e.clientY - box.top;
+        const edge = Math.min(x, box.width - x, y, box.height - y);
+        const nearness = 1 - Math.min(Math.max(edge, 0), GLOW_EDGE_PX) / GLOW_EDGE_PX;
+        const el = frame.current;
+        el.style.setProperty('--x', `${x}px`);
+        el.style.setProperty('--y', `${y}px`);
+        el.style.setProperty('--rx', `${box.width - x}px`);
+        el.style.setProperty('--ry', `${box.height - y}px`);
+        el.style.setProperty('--o', String(0.3 + 0.7 * nearness));
+    };
+
+    const handleLeave = () => frame.current?.style.setProperty('--o', '0');
+
+    return (
+        <div
+            ref={frame}
+            onPointerMove={handleMove}
+            onPointerLeave={handleLeave}
+            className="relative isolate rounded-2xl h-full -translate-y-2"
+            style={{ '--o': 0 } as React.CSSProperties}
+        >
+            {/* Resplandor suave que se asoma por fuera de la tarjeta */}
+            <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -inset-1 -z-10 rounded-3xl blur-xl transition-opacity duration-300"
+                style={{ background: GLOW_GRADIENT, opacity: 'calc(var(--o) * 0.55)' }}
+            />
+            {children}
+            {/* Línea de borde brillante (solo el contorno de 2 px) */}
+            <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 rounded-2xl p-0.5 transition-opacity duration-300"
+                style={{
+                    background: GLOW_GRADIENT,
+                    opacity: 'var(--o)',
+                    WebkitMask: 'linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)',
+                    WebkitMaskComposite: 'xor',
+                    mask: 'linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0)',
+                }}
+            />
+        </div>
+    );
+};
+
+const PracticeAreaCard: React.FC<PracticeAreaCardProps> = ({ title, promise, services, ctaText, microcopy, trackingId, isHighlighted, path }) => {
     const handleScrollClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
         event.preventDefault();
         const href = event.currentTarget.getAttribute('href');
@@ -29,14 +89,9 @@ const PracticeAreaCard: React.FC<PracticeAreaCardProps> = ({ icon, title, promis
 
     return (
         <FadeInUp>
-            <div className="relative bg-white p-8 rounded-2xl shadow-sm border transition-all duration-500 flex flex-col h-full group border-brand-gold ring-1 ring-brand-gold shadow-xl -translate-y-2">
+            <GlowFrame>
+            <div className="relative bg-white p-8 rounded-2xl border transition-all duration-500 flex flex-col h-full group border-brand-gold/40 ring-1 ring-brand-gold/40 shadow-xl">
                 
-                <div className="mb-6 text-brand-gold flex justify-center">
-                    <div className={`p-4 rounded-2xl ${isHighlighted ? 'bg-brand-gold/10' : 'bg-gray-50 group-hover:bg-brand-gold/5'} transition-colors`}>
-                        {icon}
-                    </div>
-                </div>
-
                 <h3 className="text-xl font-bold mb-2 text-brand-black text-center font-baskerville not-italic">
                     <a href={path} onClick={(e) => { e.preventDefault(); navigateTo(path); }} className="hover:text-brand-gold transition">{title}</a>
                 </h3>
@@ -66,6 +121,7 @@ const PracticeAreaCard: React.FC<PracticeAreaCardProps> = ({ icon, title, promis
                     </p>
                 </div>
             </div>
+            </GlowFrame>
         </FadeInUp>
     );
 };
@@ -76,7 +132,6 @@ const PracticeAreas: React.FC = () => {
             title: 'Civil',
             path: '/abogado-civil-puerto-montt',
             promise: 'Contratos, deudas y conflictos patrimoniales: ordenamos tu caso y lo ejecutamos.',
-            icon: <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/></svg>,
             services: [
                 'Incumplimiento de Contrato / Cobros',
                 'Juicios Ejecutivos y Embargos',
@@ -92,7 +147,6 @@ const PracticeAreas: React.FC = () => {
             title: 'Corporativo',
             path: '/abogado-corporativo-puerto-montt',
             promise: 'Constituir, estructurar y proteger la empresa antes de que haya conflicto.',
-            icon: <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>,
             services: [
                 'Constitución y Modificación de Sociedades',
                 'Pactos de Accionistas y Estatutos',
@@ -107,7 +161,6 @@ const PracticeAreas: React.FC = () => {
             title: 'Arrendamientos',
             path: '/abogado-arriendo-puerto-montt',
             promise: 'Término, cobro y restitución: tramitación completa y diligencias.',
-            icon: <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>,
             services: [
                 'Terminación por No Pago de Rentas',
                 'Juicios de Desahucio',
@@ -122,7 +175,6 @@ const PracticeAreas: React.FC = () => {
             title: 'Derecho Concursal',
             path: '/abogado-insolvencia-puerto-montt',
             promise: 'Reorganización, liquidación y representación de acreedores.',
-            icon: <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>,
             services: [
                 'Liquidación de la Empresa Deudora',
                 'Reorganización Judicial',
@@ -137,7 +189,6 @@ const PracticeAreas: React.FC = () => {
             title: 'Familia',
             path: '/abogado-familia-puerto-montt',
             promise: 'Divorcios, alimentos y cuidado personal con enfoque estratégico.',
-            icon: <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>,
             services: [
                 'Divorcio (Acuerdo / Unilateral)',
                 'Compensación Económica',

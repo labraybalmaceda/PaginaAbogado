@@ -6,13 +6,14 @@ import Seo from './Seo';
 import type { Post, Block } from '../content/blog/types';
 import { SERVICES } from '../content/blog/services';
 import { getRelatedPosts } from '../content/blog';
+import ArticleSidebar, { type SidebarItem } from './ArticleSidebar';
 import { navigateTo, BASE_URL, LOGO_URL, formatDate } from './blogUtils';
 
 const renderBlock = (block: Block, i: number) => {
     switch (block.type) {
         case 'h2':
             return (
-                <h2 key={i} className="text-xl sm:text-2xl font-bold font-baskerville text-brand-black mt-10 mb-4 scroll-mt-24">
+                <h2 key={i} id={`seccion-${i}`} className="text-xl sm:text-2xl font-bold font-baskerville text-brand-black mt-10 mb-4 scroll-mt-24">
                     {block.text}
                 </h2>
             );
@@ -116,6 +117,12 @@ const BlogPost: React.FC<{ post: Post }> = ({ post }) => {
     const url = `${BASE_URL}/blog/${post.slug}`;
     const related = getRelatedPosts(post);
 
+    // Índice lateral: los H2 del cuerpo (ids `seccion-<posición>`) y las preguntas frecuentes.
+    const sidebarItems: SidebarItem[] = [
+        ...post.blocks.flatMap((b, i) => (b.type === 'h2' ? [{ id: `seccion-${i}`, label: b.text }] : [])),
+        ...(post.faq && post.faq.length > 0 ? [{ id: 'preguntas-frecuentes', label: 'Preguntas frecuentes' }] : []),
+    ];
+
     // Memoizado: sin esto, el objeto se recrea en cada render y el efecto de Seo
     // reinyectaría el JSON-LD una y otra vez.
     const jsonLd = useMemo(() => {
@@ -185,8 +192,8 @@ const BlogPost: React.FC<{ post: Post }> = ({ post }) => {
             />
             <Header />
 
-            <main className="py-12 sm:py-20 overflow-hidden mt-6 sm:mt-0">
-                <div className="container mx-auto px-4 sm:px-6 max-w-3xl">
+            <main className="py-12 sm:py-20 overflow-x-clip mt-6 sm:mt-0">
+                <div className="container mx-auto px-4 sm:px-6 max-w-3xl lg:max-w-6xl">
                     <nav aria-label="Migas de pan" className="mb-6 text-xs sm:text-sm text-white font-bold">
                         <a
                             href="/"
@@ -205,7 +212,10 @@ const BlogPost: React.FC<{ post: Post }> = ({ post }) => {
                         </a>
                     </nav>
 
-                    <article className="bg-white p-6 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-100 relative overflow-hidden border-t-0">
+                    <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_17.5rem] lg:gap-8 lg:items-start">
+                    <div className="min-w-0">
+                    <ArticleSidebar items={sidebarItems} articleId="articulo" variant="mobile" />
+                    <article id="articulo" className="bg-white p-6 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-100 relative overflow-hidden border-t-0">
                         <div className="absolute inset-x-0 top-0 h-1.5 bg-brand-gold"></div>
 
                         <p className="text-[10px] sm:text-xs uppercase tracking-widest text-brand-gold font-bold mb-3">
@@ -229,7 +239,7 @@ const BlogPost: React.FC<{ post: Post }> = ({ post }) => {
 
                         {post.faq && post.faq.length > 0 && (
                             <section className="mt-12">
-                                <h2 className="text-xl sm:text-2xl font-bold font-baskerville mb-6">Preguntas frecuentes</h2>
+                                <h2 id="preguntas-frecuentes" className="text-xl sm:text-2xl font-bold font-baskerville mb-6 scroll-mt-24">Preguntas frecuentes</h2>
                                 <div className="space-y-6">
                                     {post.faq.map((f, i) => (
                                         <div key={i}>
@@ -268,6 +278,9 @@ const BlogPost: React.FC<{ post: Post }> = ({ post }) => {
                             </div>
                         </section>
                     )}
+                    </div>
+                    <ArticleSidebar items={sidebarItems} articleId="articulo" variant="desktop" />
+                    </div>
                 </div>
             </main>
 
