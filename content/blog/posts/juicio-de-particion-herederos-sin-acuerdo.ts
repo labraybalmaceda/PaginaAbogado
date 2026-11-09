@@ -18,7 +18,7 @@ const post: Post = {
         },
         {
             type: 'p',
-            text: 'Esa situación tiene nombre, se llama comunidad hereditaria, y la ley la mira con desconfianza. Justamente por eso entrega una salida que no depende de que todos estén de acuerdo. En el estudio asesoramos a herederos de Puerto Varas, Puerto Montt y toda la Región de Los Lagos para desbloquear estas herencias y repartir los bienes.',
+            text: 'Esa situación tiene nombre, se llama comunidad hereditaria, y la ley la mira con desconfianza. Justamente por eso entrega una salida que no depende de que todos estén de acuerdo. En el estudio asesoramos a herederos de Puerto Varas, Puerto Montt y toda la Región de Los Lagos para evitar la paralización de estas herencias y repartir los bienes.',
         },
         { type: 'h2', text: 'Primero: la posesión efectiva' },
         {
