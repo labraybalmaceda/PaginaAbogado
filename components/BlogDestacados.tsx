@@ -9,6 +9,19 @@ const INTERVALO_MS = 10000;
 
 const destacados = indexablePosts.filter((p) => p.service !== 'familia');
 
+const Flecha: React.FC<{ lado: 'izq' | 'der'; onClick: () => void; className?: string }> = ({ lado, onClick, className = '' }) => (
+    <button
+        type="button"
+        onClick={onClick}
+        aria-label={lado === 'izq' ? 'Artículo anterior' : 'Artículo siguiente'}
+        className={`shrink-0 items-center justify-center w-11 h-11 rounded-full border border-[#BF8F0A]/60 text-[#BF8F0A] hover:bg-[#BF8F0A] hover:text-brand-black transition duration-300 cursor-pointer ${className}`}
+    >
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" d={lado === 'izq' ? 'M15 19l-7-7 7-7' : 'M9 5l7 7-7 7'} />
+        </svg>
+    </button>
+);
+
 /** Titular corto: lo que va antes de los dos puntos, o las primeras 8 palabras. */
 const tituloCorto = (title: string): string => {
     const antesDeDosPuntos = title.split(':')[0].trim();
@@ -30,6 +43,9 @@ const BlogDestacados: React.FC = () => {
 
     if (destacados.length === 0) return null;
 
+    const ir = (paso: number) => setActual((i) => (i + paso + destacados.length) % destacados.length);
+    const hayVarios = destacados.length > 1;
+
     return (
         <section
             className="bg-brand-black text-white py-12 sm:py-16 border-b border-white/5"
@@ -41,7 +57,9 @@ const BlogDestacados: React.FC = () => {
         >
             <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
                 {/* Todos los artículos ocupan la misma celda: el alto no salta al cambiar. */}
-                <div className="grid">
+                <div className="flex items-center gap-4 lg:gap-8">
+                {hayVarios && <Flecha lado="izq" onClick={() => ir(-1)} className="hidden md:flex" />}
+                <div className="grid flex-1 min-w-0">
                     {destacados.map((post, i) => {
                         const visible = i === actual;
                         return (
@@ -65,16 +83,19 @@ const BlogDestacados: React.FC = () => {
                                         {post.excerpt}
                                     </p>
                                 </div>
-                                <span className="inline-flex self-start md:self-center shrink-0 px-8 py-4 text-xs sm:text-sm font-bold uppercase tracking-widest rounded-md border border-[#DDB35F] text-[#DDB35F] group-hover:bg-[#DDB35F] group-hover:text-brand-black transition duration-300">
+                                <span className="inline-flex self-start md:self-center shrink-0 px-8 py-4 text-xs sm:text-sm font-bold uppercase tracking-widest rounded-md border border-[#BF8F0A] text-[#BF8F0A] group-hover:bg-[#BF8F0A] group-hover:text-brand-black transition duration-300">
                                     Leer artículo
                                 </span>
                             </a>
                         );
                     })}
                 </div>
+                {hayVarios && <Flecha lado="der" onClick={() => ir(1)} className="hidden md:flex" />}
+                </div>
 
-                {destacados.length > 1 && (
-                    <div className="flex gap-2 mt-8">
+                {hayVarios && (
+                    <div className="flex items-center justify-between gap-4 mt-8 md:pl-[3.75rem] lg:pl-[4.75rem]">
+                        <div className="flex gap-1 sm:gap-2">
                         {destacados.map((post, i) => (
                             <button
                                 key={post.slug}
@@ -84,9 +105,14 @@ const BlogDestacados: React.FC = () => {
                                 aria-current={i === actual}
                                 className="py-2 cursor-pointer"
                             >
-                                <span className={`block h-0.5 w-8 transition-colors duration-300 ${i === actual ? 'bg-[#DDB35F]' : 'bg-white/25 hover:bg-white/50'}`}></span>
+                                <span className={`block h-0.5 w-4 sm:w-8 transition-colors duration-300 ${i === actual ? 'bg-[#BF8F0A]' : 'bg-white/25 hover:bg-white/50'}`}></span>
                             </button>
                         ))}
+                        </div>
+                        <div className="flex gap-3 md:hidden">
+                            <Flecha lado="izq" onClick={() => ir(-1)} className="flex" />
+                            <Flecha lado="der" onClick={() => ir(1)} className="flex" />
+                        </div>
                     </div>
                 )}
             </div>
