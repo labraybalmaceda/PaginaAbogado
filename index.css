@@ -3,7 +3,7 @@
 @theme {
   --font-baskerville: "Libre Baskerville", serif;
   --color-brand-black: #111111;
-  --color-brand-gold: #C5A059;
+  --color-brand-gold: #BF8F0A;
   --color-neutro-gris: #6B7280;
   --color-whatsapp-verde: #25D366;
   --animate-pulse-sutil: pulse-sutil 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
@@ -21,12 +21,12 @@
 
 @keyframes badge-pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.4);
+    box-shadow: 0 0 0 0 rgba(191, 143, 10, 0.4);
   }
   70% {
-    box-shadow: 0 0 0 10px rgba(197, 160, 89, 0);
+    box-shadow: 0 0 0 10px rgba(191, 143, 10, 0);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(197, 160, 89, 0);
+    box-shadow: 0 0 0 0 rgba(191, 143, 10, 0);
   }
 }
