@@ -11,37 +11,38 @@ const post: Post = {
     blocks: [
         {
             type: 'summary',
-            text: 'Constituir una empresa en Chile exige dos decisiones. Primero, el tipo de sociedad: por acciones, de responsabilidad limitada, anónima cerrada o empresa individual. Segundo, la vía: el formulario electrónico del régimen simplificado de la Ley N° 20.659, que puede quedar firmado e inscrito el mismo día, o el régimen general con escritura pública, extracto inscrito en el Registro de Comercio y publicación en el Diario Oficial.',
+            text: 'Constituir una empresa en Chile exige elegir el tipo de sociedad (por acciones, de responsabilidad limitada, anónima cerrada o empresa individual) y la vía. Por el régimen simplificado de la Ley 20.659, la sociedad queda inscrita y con RUT el mismo día en que todos firman el formulario. Por el régimen general, el extracto se inscribe y publica dentro de 60 días desde la escritura.',
         },
         {
             type: 'p',
-            text: 'Tienes el negocio en marcha, emites boletas a tu nombre y llegó el momento de formalizar. O estás por asociarte con alguien y quieren partir ordenados. En los dos casos la pregunta es la misma: qué hay que hacer para tener una empresa con RUT propio, y cuánto de eso se resuelve en un día.',
+            text: 'Quien formaliza un negocio suele dedicar casi toda su atención al trámite y muy poca al estatuto. Es comprensible: el trámite es lo visible, y hoy puede resolverse en una tarde. Pero el estatuto es lo que queda, y sus reglas sobre administración, venta de acciones y salida de socios recién se leen cuando aparece el primer desacuerdo o el primer inversionista.',
         },
         {
             type: 'p',
-            text: 'El trámite es hoy mucho más simple que hace quince años. Lo que sigue siendo complejo es la decisión previa. El estatuto suele quedar con el texto por defecto del formulario, sin que nadie revise qué dice sobre la administración, sobre la venta de acciones o sobre la salida de un socio. Esas cláusulas recién se leen cuando aparece el primer desacuerdo.',
+            text: 'El trámite es hoy mucho más simple que hace quince años. Lo que no se simplificó son las decisiones previas, y de ellas depende quién manda en la empresa, cuánto cuesta incorporar o retirar a un socio y hasta dónde responde cada dueño con sus bienes. Esas cláusulas toman relevancia para el constituyente cuando cuando aparece el primer desacuerdo.',
         },
         {
             type: 'p',
-            text: 'Lo que sigue es el orden en que conviene tomar esas decisiones, con las normas que las respaldan. Es la misma revisión que hacemos con quienes formalizan su empresa en Puerto Varas, en Puerto Montt y en el resto de la Región de Los Lagos.',
+            text: 'Este artículo revisa, en el orden en que conviene decidirlas, la elección del tipo de sociedad, las dos vías para constituirla, los trámites posteriores y las cláusulas que conviene dejar escritas desde el inicio. Es la misma revisión que hacemos con quienes formalizan su empresa en Puerto Varas, en Puerto Montt y en el resto de la Región de Los Lagos.',
         },
         { type: 'h2', text: 'Paso 1: elegir el tipo de sociedad' },
         {
             type: 'p',
-            text: 'De esta decisión dependen todas las demás: quién administra, cómo ingresa un socio nuevo, qué se necesita para vender la participación y hasta dónde responde cada uno.',
+            text: 'La elección depende de tres factores: cuántas personas participan, si se espera que más adelante ingrese capital de terceros y con qué facilidad debe poder venderse una participación. Las formas más usadas son:',
         },
         {
             type: 'list',
             items: [
                 'Empresa individual de responsabilidad limitada (EIRL). La regula la Ley N° 19.857. Un solo titular y un giro determinado.',
-                'Sociedad de responsabilidad limitada. Los socios responden hasta el monto de sus aportes, pero la propiedad es poco móvil: cada cambio de socio exige escritura pública y acuerdo de todos. Se usa en negocios familiares o entre dos personas que no piensan vender su participación.',
-                'Sociedad por acciones (SpA). La regulan los artículos 424 y siguientes del Código de Comercio. El capital se divide en acciones y el estatuto admite casi cualquier regla que los socios quieran pactar. Es la forma más usada hoy, sobre todo cuando se espera que ingrese capital más adelante.',
+                'Sociedad de responsabilidad limitada. Pensada para un grupo reducido de socios, los cuales responden hasta el monto de sus aportes, pero la propiedad es poco móvil: cada cambio de socio exige escritura pública y acuerdo de todos. Se usa en negocios familiares o entre dos personas que no piensan vender su participación.',
+                'Sociedad por acciones (SpA). La regulan los artículos 424 y siguientes del Código de Comercio. El capital se divide en acciones y el estatuto admite casi cualquier regla que los socios quieran pactar. Es la forma más usada hoy, en especial cuando se espera sumar socios o inversionistas.',
                 'Sociedad anónima cerrada. La regula la Ley N° 18.046. Tiene directorio, juntas y formalidades que las demás no exigen. Se justifica cuando hay muchos accionistas o cuando el rubro lo impone.',
             ],
         },
+        { type: 'h2', text: '2. Responsabilidad limitada: qué protege y qué no' },
         {
             type: 'p',
-            text: 'Las cuatro comparten una característica que recién se aprecia cuando llega una demanda: separan el patrimonio de la empresa del patrimonio de sus dueños.',
+            text: 'Como regla general, las cuatro formas separan el patrimonio de la empresa del patrimonio de sus dueños. Si la empresa no puede pagar, los acreedores cobran sobre los bienes de la empresa y no sobre los bienes personales de quienes la formaron.',
         },
         {
             type: 'quote',
@@ -51,57 +52,68 @@ const post: Post = {
         },
         {
             type: 'p',
-            text: 'Esa separación tiene dos excepciones. Si firmas un aval o una fianza personal por un crédito de la empresa, respondes tú con tus bienes, y tener sociedad no altera esa obligación. Lo mismo ocurre si hubo administración dolosa o culpable de los negocios sociales.',
-        },
-        { type: 'h2', text: 'Paso 2: elegir la vía, formulario electrónico o escritura pública' },
-        { type: 'h3', text: 'Régimen simplificado de la Ley N° 20.659' },
-        {
-            type: 'p',
-            text: 'Es el sistema conocido como Empresas en un Día. La sociedad se crea completando y firmando un formulario electrónico en el Registro de Empresas y Sociedades, sin escritura pública y sin inscripción en el Conservador.',
+            text: 'La misma regla rige para los socios de una sociedad de responsabilidad limitada (art. 2 de la Ley 3.918), y en la EIRL el titular responde con su patrimonio solo del pago del aporte que se comprometió a hacer (art. 8 de la Ley 19.857).',
         },
         {
             type: 'p',
-            text: 'El artículo 5° de la ley dispone que el contrato social y el estatuto son los que constan en el formulario inscrito. Lo que quede mal redactado ahí es lo que rige.',
+            text: 'Con todo, la protección tiene límites que suelen pasarse por alto. Si el dueño firma como aval o fiador de un crédito de la empresa, responde con sus bienes personales por esa deuda, porque se obligó él mismo y no solo la sociedad.',
         },
         {
             type: 'p',
-            text: 'Para suscribirlo se necesita firma electrónica avanzada. Quien no la tenga puede firmar ante notario, según el artículo 9° de la misma ley.',
+            text: 'La consecuencia práctica es simple: la sociedad protege el patrimonio personal mientras el dueño no lo comprometa por su cuenta. Antes de firmar un crédito o un arriendo a nombre de la empresa, conviene revisar qué garantías personales se están entregando.',
+        },
+        { type: 'h2', text: '3. Empresas en un Día: el régimen simplificado de la Ley 20.659' },
+        {
+            type: 'p',
+            text: 'El régimen simplificado permite crear la sociedad completando y firmando un formulario electrónico en el Registro de Empresas y Sociedades, sin escritura pública y sin inscripción en el Conservador. Pueden acogerse la SpA, la sociedad de responsabilidad limitada, la anónima cerrada, la EIRL, la colectiva comercial y las sociedades en comandita, entre otras (art. 2 de la Ley 20.659).',
         },
         {
             type: 'p',
-            text: 'El artículo 2° enumera quiénes pueden acogerse: la EIRL, la sociedad de responsabilidad limitada, la anónima cerrada, la sociedad por acciones, la colectiva comercial y las en comandita, entre otras.',
-        },
-        { type: 'h3', text: 'Régimen general' },
-        {
-            type: 'p',
-            text: 'El camino tradicional: escritura pública ante notario, extracto inscrito en el Registro de Comercio del domicilio social y publicación por una sola vez en el Diario Oficial. Todo dentro de 60 días contados desde la fecha de la escritura.',
+            text: 'Su ventaja es la rapidez. El formulario se incorpora al Registro en el momento en que lo firman todos los que deben concurrir, coordinado con el Servicio de Impuestos Internos que asigna el RUT de la empresa (art. 13 de la Ley 20.659).',
         },
         {
             type: 'p',
-            text: 'Sigue siendo la vía obligada cuando el estatuto contiene cláusulas que el formulario no permite escribir.',
-        },
-        { type: 'h2', text: 'Después de constituir: RUT, inicio de actividades y permisos' },
-        {
-            type: 'p',
-            text: 'Con la sociedad inscrita viene el Servicio de Impuestos Internos: el rol único tributario de la empresa y el inicio de actividades del giro.',
+            text: 'El punto que suele malinterpretarse es otro. El contrato social y el estatuto son los que constan en el formulario inscrito, y en lo que no se regula en el formulario se aplican las reglas generales del tipo de sociedad elegido (art. 5 de la Ley 20.659). Muchas sociedades quedan con el texto por defecto, sin que se haya revisado qué dice sobre la administración, la venta de acciones o la salida de un socio.',
         },
         {
             type: 'p',
-            text: 'Lo que sigue depende del giro y de la comuna: patente municipal, resolución sanitaria si hay manipulación de alimentos, permisos sectoriales cuando el rubro los exige. En comunas con actividad turística y gastronómica como Puerto Varas y Puerto Montt, esta etapa suele tomar más tiempo que la constitución misma.',
+            text: 'El trámite toma poco tiempo, pero lo que se firma esa tarde es el estatuto que regirá la empresa durante años, y conviene leerlo antes.',
         },
-        { type: 'h2', text: 'Lo que el formulario no contiene: el pacto entre socios' },
+        { type: 'h2', text: '4. Régimen general: escritura pública, inscripción y publicación' },
         {
             type: 'p',
-            text: 'Si son dos o más socios, hay preguntas que conviene responder al inicio y no después. Qué ocurre si uno quiere vender su parte. Si el otro tiene preferencia para comprarla y a qué precio. Quién administra. Qué decisiones requieren acuerdo de todos. Qué pasa si alguien deja el negocio pero conserva sus acciones.',
+            text: 'En el régimen general, la sociedad se constituye por escritura pública ante notario. La SpA también puede constituirse por instrumento privado con firmas autorizadas ante notario y protocolizado (art. 425 del Código de Comercio). Luego, un extracto autorizado por el notario debe inscribirse en el Registro de Comercio del domicilio social y publicarse por una sola vez en el Diario Oficial.',
         },
         {
             type: 'p',
-            text: 'En la SpA lo técnicamente superior es llevar esas cláusulas al estatuto mismo. Ahí son oponibles a la sociedad, que puede negarse a inscribir un traspaso hecho contra la regla pactada. En la sociedad anónima el pacto de accionistas es un contrato aparte, y eso cambia el resultado: la sociedad está obligada a inscribir los traspasos que se le presenten aunque infrinjan el pacto, y al socio afectado solo le queda demandar al infractor.',
+            text: 'Es la vía habitual cuando los socios quieren un estatuto redactado a medida, con reglas propias de administración, de venta de acciones o de salida, en lugar de completar los campos de un formulario. El dato que hay que controlar es el plazo: cuando la inscripción y la publicación se hacen a tiempo, la sociedad produce efectos desde la fecha de la escritura (art. 425 del Código de Comercio y art. 3 de la Ley 3.918).',
         },
-        { type: 'h2', text: 'Conflictos entre socios y accionistas' },
+        { type: 'h2', text: '5. Después de constituir: inicio de actividades y patente municipal' },
         {
             type: 'p',
-            text: 'Las diferencias societarias no se ven en la justicia ordinaria. Es un detalle procesal que conviene conocer antes de demandar.',
+            text: 'Con la sociedad inscrita y su RUT, el siguiente paso es la declaración de inicio de actividades ante el Servicio de Impuestos Internos (art. 68 del Código Tributario). Las municipalidades y los organismos públicos que otorgan autorizaciones para ejercer una actividad económica deben exigir que ese trámite esté hecho.',
+        },
+        {
+            type: 'p',
+            text: 'Luego viene la patente municipal, a la que está sujeta toda actividad lucrativa secundaria o terciaria, sea cual sea su naturaleza (art. 23 de la Ley de Rentas Municipales). Según el giro, pueden requerirse además autorizaciones sanitarias o sectoriales.',
+        },
+        {
+            type: 'p',
+            text: 'En comunas con actividad turística y gastronómica como Puerto Varas y Puerto Montt, esta etapa suele tomar más tiempo que la constitución misma. Quien planifica la apertura de un local le conviene contar desde el inicio con esos plazos, y no solo con el de la sociedad.',
+        },
+        { type: 'h2', text: '6. El estatuto y el pacto entre socios: lo que conviene decidir al inicio' },
+        {
+            type: 'p',
+            text: 'Cuando son dos o más socios, hay preguntas que conviene responder antes de firmar. Qué ocurre si uno quiere vender su parte. Si los demás tienen preferencia para comprarla y a qué precio. Quién administra y qué decisiones requieren acuerdo de todos. Qué pasa si alguien deja de trabajar en el negocio pero conserva sus acciones.',
+        },
+        {
+            type: 'p',
+            text: 'En la SpA, el lugar más seguro para esas reglas es el estatuto. La ley deja a los accionistas fijarlas con amplia libertad (art. 424 del Código de Comercio) e incluso permite pactar en el estatuto límites al control accionario y casos en que un accionista puede ser obligado a vender (art. 435 del mismo código). Un pacto de accionistas firmado aparte tiene menos fuerza: si no se deposita en la sociedad, no se puede oponer a terceros, y aunque se deposite no impide que la sociedad inscriba los traspasos que se le presenten (art. 14 de la Ley 18.046, aplicable a la SpA en lo no regulado).',
+        },
+        { type: 'h2', text: '7. Conflictos entre accionistas: el arbitraje es obligatorio' },
+        {
+            type: 'p',
+            text: 'En la SpA, las diferencias entre socios no se discuten ante el juzgado civil, sino ante un árbitro. La regla está en la ley y no depende de lo que se haya pactado.',
         },
         {
             type: 'quote',
@@ -111,33 +123,49 @@ const post: Post = {
         },
         {
             type: 'p',
-            text: 'Si el estatuto no dijo nada sobre el tipo de arbitraje, conoce un árbitro designado por el tribunal del domicilio social, en única instancia. Presentar la demanda ante el juzgado civil termina en una excepción de incompetencia.',
+            text: 'Si el estatuto no dice nada sobre el tipo de arbitraje, conoce un solo árbitro mixto en única instancia. Si no dice quién lo designa, lo nombra el tribunal del domicilio social (art. 441 del Código de Comercio).',
         },
         {
             type: 'p',
-            text: 'Lo que define si el negocio resiste un desacuerdo, una venta o la entrada de un inversionista es lo que quedó escrito en el estatuto el día de la constitución. Si estás por formalizar en Puerto Varas o en la Región de Los Lagos, conviene revisar esas cláusulas antes de firmar y no cuando el conflicto ya está planteado.',
+            text: 'Presentar la demanda ante un juzgado civil expone a que la contraparte alegue la incompetencia y se pierdan meses. El tipo de arbitraje, el número de árbitros y la forma de designarlos se definen mejor al redactar el estatuto, cuando los socios todavía están de acuerdo.',
+        },
+        { type: 'h2', text: 'Puntos clave sobre cómo constituir una empresa en Chile' },
+        {
+            type: 'list',
+            items: [
+                'Elegir el tipo de sociedad según cuántos socios habrá y si se espera que ingrese capital, no según cuál es más simple de inscribir.',
+                'Leer el estatuto del formulario de Empresas en un Día antes de firmarlo, porque es el que regirá la empresa.',
+                'Agendar el plazo de 60 días para inscribir y publicar el extracto cuando se constituye por escritura pública.',
+                'Presentar el inicio de actividades dentro de los dos meses siguientes al comienzo de las operaciones.',
+                'Llevar al estatuto, y no solo a un pacto privado, las reglas sobre venta de acciones, preferencia y salida de socios.',
+                'Revisar qué garantías personales se firman en cada crédito, porque un aval compromete los bienes propios.',
+            ],
+        },
+        {
+            type: 'p',
+            text: 'En Labra & Balmaceda Abogados asesoramos a emprendedores y empresas de Puerto Varas, Puerto Montt y la Región de Los Lagos en la constitución de sociedades, desde la elección del tipo social y la redacción del estatuto hasta los pactos entre socios y los conflictos que surgen después. Quien esté por formalizar su negocio puede revisar el estatuto con el estudio antes de firmarlo.',
         },
     ],
     faq: [
         {
             question: '¿Cuánto demora constituir una empresa en Chile?',
-            answer: 'Por el régimen simplificado de la Ley N° 20.659 puede quedar lista en menos de una semana: el formulario se entiende incorporado al Registro cuando lo firman todos los que deben concurrir a su firma. Por el régimen general hay que inscribir el extracto en el Registro de Comercio y publicarlo en el Diario Oficial dentro de 60 días contados desde la escritura.',
+            answer: 'Por el régimen simplificado puede quedar lista el mismo día. El formulario se incorpora al Registro cuando lo firman todos los que deben concurrir, y el Servicio de Impuestos Internos asigna el RUT en ese mismo acto (arts. 4 y 13 de la Ley 20.659). Por el régimen general, el extracto de la escritura debe inscribirse en el Registro de Comercio y publicarse en el Diario Oficial dentro de 60 días desde la escritura (art. 426 del Código de Comercio).',
         },
         {
-            question: '¿Puedo constituir una empresa solo, sin socios?',
-            answer: 'Sí. La sociedad por acciones admite un único accionista, según el artículo 424 del Código de Comercio, y la empresa individual de responsabilidad limitada de la Ley N° 19.857 está hecha para un titular único. En la práctica conviene la SpA unipersonal, porque permite sumar socios después sin cambiar de estructura.',
+            question: '¿Se puede constituir una empresa sin socios?',
+            answer: 'Sí. La sociedad por acciones puede ser creada por una sola persona (art. 424 del Código de Comercio), y la empresa individual de responsabilidad limitada está pensada para un titular único que sea persona natural (art. 1 de la Ley 19.857). En la práctica suele convenir la SpA unipersonal, porque permite incorporar socios más adelante sin cambiar de estructura.',
         },
         {
-            question: '¿Necesito un abogado para constituir una empresa?',
-            answer: 'No es obligatorio constituir una empresa con asesoría legal. Es posible efectuarlo de forma independiente. Sin embargo, si existe pluralidad de socios, participación de inversionistas o la estructura requiere complejidad (holdings, SPV, aportes en especie, restricciones de voto), la intervención de un abogado es altamente recomendable. El fundamento es directo: una sociedad constituida con deficiencias estructurales genera costos significativos en etapas posteriores. Un estatuto insuficiente, vacíos en el pacto de accionistas o conflictos de competencias entre socios son problemas tolerables en el corto plazo, pero se convierten en obstáculos críticos cuando ingresa un inversionista, un socio requiere desinvertir o la operación enfrenta paralización. La reestructuración durante el giro operacional, la corrección de acuerdos deficientes o el litigio sobre interpretación contractual representan costos superiores a los honorarios del asesoramiento inicial. Para una estructura simple y unipersonal, sin tensiones accionarias: es viable una constitución independiente. Para cualquier configuración adicional: resulta más eficiente invertir en una estructuración adecuada desde el origen.',
+            question: '¿Es obligatorio contratar un abogado para constituir una empresa?',
+            answer: 'No. La ley permite que los propios constituyentes completen y firmen el formulario del régimen simplificado (art. 9 de la Ley 20.659). La asesoría se justifica cuando hay dos o más socios, se espera la entrada de inversionistas o se aportan bienes distintos del dinero, porque un estatuto que no regula la administración, la venta de acciones o la salida de un socio es mucho más difícil de corregir con la empresa en marcha.',
         },
         {
-            question: '¿Necesito ir al notario para constituir una empresa?',
-            answer: 'Solo si no tienes firma electrónica avanzada. El artículo 9° de la Ley N° 20.659 permite suscribir el formulario ante notario, que estampa su firma electrónica avanzada en tu lugar. Por el régimen general el notario siempre interviene, porque la constitución exige escritura pública.',
+            question: '¿Hay que ir al notario para constituir una empresa?',
+            answer: 'Solo si no se cuenta con firma electrónica avanzada. En ese caso, el formulario del régimen simplificado se firma ante un notario, que estampa su propia firma electrónica avanzada (art. 9 de la Ley 20.659). En el régimen general el notario siempre interviene, porque la sociedad se constituye por escritura pública o, en la SpA, por instrumento privado protocolizado (art. 425 del Código de Comercio).',
         },
         {
-            question: '¿Respondo con mis bienes personales por las deudas de la empresa?',
-            answer: 'No, por regla general. Los accionistas responden hasta el monto de sus aportes, según el artículo 429 del Código de Comercio, y lo mismo vale para los socios de una sociedad de responsabilidad limitada. La regla cambia si firmaste un aval o una fianza personal, o si hubo administración dolosa o culpable de los negocios sociales.',
+            question: '¿Los dueños responden con sus bienes personales por las deudas de la empresa?',
+            answer: 'No, por regla general. Los accionistas responden hasta el monto de sus aportes (art. 429 del Código de Comercio), lo mismo que los socios de una sociedad de responsabilidad limitada (art. 2 de la Ley 3.918). La situación cambia si el dueño firmó como aval o fiador de un crédito de la empresa.',
         },
     ],
 };
