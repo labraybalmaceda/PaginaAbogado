@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { indexablePosts } from '../content/blog';
 import { navigateTo } from './blogUtils';
 import { trackNavClick } from '../services/tracking';
+import { useDragSwipe } from './useDragSwipe';
 
 // Franja negra bajo el hero: muestra un artículo del blog a la vez y cambia
 // cada 10 segundos. Los artículos de Familia no se promocionan aquí.
@@ -32,14 +33,16 @@ const tituloCorto = (title: string): string => {
 const BlogDestacados: React.FC = () => {
     const [actual, setActual] = useState(0);
     const [pausado, setPausado] = useState(false);
+    // Arrastre con mouse o dedo: el artículo sigue al puntero y, al soltar, pasa al siguiente o al anterior.
+    const drag = useDragSwipe((dir) => setActual((i) => (i + dir + destacados.length) % destacados.length));
 
     useEffect(() => {
-        if (pausado || destacados.length < 2) return;
+        if (pausado || drag.dragging || destacados.length < 2) return;
         const id = window.setTimeout(() => {
             setActual((i) => (i + 1) % destacados.length);
         }, INTERVALO_MS);
         return () => window.clearTimeout(id);
-    }, [actual, pausado]);
+    }, [actual, pausado, drag.dragging]);
 
     if (destacados.length === 0) return null;
 
@@ -59,9 +62,13 @@ const BlogDestacados: React.FC = () => {
                 {/* Todos los artículos ocupan la misma celda: el alto no salta al cambiar. */}
                 <div className="flex items-center gap-4 lg:gap-8">
                 {hayVarios && <Flecha lado="izq" onClick={() => ir(-1)} className="hidden md:flex" />}
-                <div className="grid flex-1 min-w-0">
+                <div
+                    {...(hayVarios ? drag.bind : {})}
+                    className={`grid flex-1 min-w-0 touch-pan-y select-none ${drag.dragging ? 'cursor-grabbing' : hayVarios ? 'md:cursor-grab' : ''}`}
+                >
                     {destacados.map((post, i) => {
                         const visible = i === actual;
+                        const arrastrando = visible && drag.dragging;
                         return (
                             <a
                                 key={post.slug}
@@ -73,7 +80,12 @@ const BlogDestacados: React.FC = () => {
                                 }}
                                 aria-hidden={!visible}
                                 tabIndex={visible ? 0 : -1}
-                                className={`group [grid-area:1/1] flex flex-col md:flex-row md:items-center gap-6 md:gap-12 transition-opacity duration-700 motion-reduce:transition-none ${visible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+                                className={`group [grid-area:1/1] flex flex-col md:flex-row md:items-center gap-6 md:gap-12 transition-[opacity,transform] duration-700 motion-reduce:transition-none ${visible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+                                style={arrastrando ? {
+                                    transform: `translateX(${drag.dx}px)`,
+                                    opacity: Math.max(0.3, 1 - Math.abs(drag.dx) / 400),
+                                    transition: 'none',
+                                } : undefined}
                             >
                                 <div className="flex-1 min-w-0">
                                     <p className="text-2xl sm:text-3xl font-bold font-baskerville tracking-tight leading-snug text-white mb-3">

@@ -1,15 +1,28 @@
-import React, { useRef } from 'react';
-import FadeInUp from './FadeInUp';
+import React, { useState } from 'react';
 import { trackCTAClick } from '../services/tracking';
+import { useDragSwipe } from './useDragSwipe';
 
-interface CaseTypeCardProps {
+// "Casos tipo y enfoque de trabajo": carrusel con profundidad.
+// La tarjeta activa queda al frente; las vecinas se ven detrás, más pequeñas
+// e inclinadas. Hecho a mano, sin librerías (inspirado en el "Depth Carousel"
+// de React Bits). Todo el contenido queda en el HTML, también para Google.
+
+interface CaseLink {
+    text: string;
+    href: string;
+    /** 'articulo' = artículo del blog; 'area' = página de servicio. */
+    kind: 'articulo' | 'area';
+}
+
+interface CaseType {
     title: string;
     situation: string;
     approach: string;
-    articleText: string;
-    articleHref: string;
+    links: CaseLink[];
     tag: string;
-    icon: React.ReactNode;
+    /** Foto de public/. Encuadre con `imagePosition` (object-position). */
+    image: string;
+    imagePosition: string;
 }
 
 // Navegación interna, mismo patrón que el resto del sitio (SPA sin router).
@@ -19,83 +32,152 @@ const navigateToArticle = (href: string) => {
     window.scrollTo(0, 0);
 };
 
-const CaseTypeCard: React.FC<CaseTypeCardProps> = ({ title, situation, approach, articleText, articleHref, tag, icon }) => (
-    <div className="flex-none w-[280px] sm:w-[350px] scroll-snap-align-start group">
-        <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 h-full flex flex-col border-t-4 border-t-transparent hover:border-t-brand-gold">
-            <div className="text-brand-gold mb-6 group-hover:scale-110 transition-transform duration-300">
-                {icon}
-            </div>
-            <h3 className="text-lg font-bold text-brand-black mb-4 font-baskerville uppercase tracking-tight">{title}</h3>
+const cases: CaseType[] = [
+    {
+        title: 'Incumplimiento Contractual',
+        situation: 'Contrataste un servicio que no se ejecutó, o la otra parte no cumplió lo pactado.',
+        approach: 'Revisamos qué pruebas tienes, intentamos resolverlo antes de tribunales y, si no, demandamos.',
+        links: [
+            { text: 'Revisa qué hacer ante un incumplimiento de contrato', href: '/blog/incumplimiento-de-contrato', kind: 'articulo' },
+            { text: 'Revisa cómo cobrar una factura, un pagaré o un cheque', href: '/blog/juicio-ejecutivo-cobro-de-deudas', kind: 'articulo' },
+        ],
+        tag: 'Civil',
+        image: '/fondo-articulo-blog.jpg',
+        imagePosition: '22% center',
+    },
+    {
+        title: 'Constitución de Sociedades',
+        situation: 'Vas a formar una empresa con otra persona y no sabes qué tipo de sociedad conviene ni qué dejar por escrito entre los socios.',
+        approach: 'Te decimos qué sociedad conviene, redactamos el estatuto y dejamos resuelto qué pasa si un socio quiere salir o si no se ponen de acuerdo.',
+        links: [
+            { text: 'Revisa cómo constituir una empresa en Chile', href: '/blog/como-constituir-una-empresa-en-chile', kind: 'articulo' },
+            { text: 'Conoce nuestra área de Derecho Corporativo', href: '/abogado-corporativo-puerto-montt', kind: 'area' },
+        ],
+        tag: 'Corporativo',
+        image: '/foto2.jpg',
+        imagePosition: '30% center',
+    },
+    {
+        title: 'No Pago de Rentas',
+        situation: 'El arrendatario lleva meses sin pagar y no quiere devolverte la propiedad.',
+        approach: 'Revisamos el contrato, sacamos la cuenta de lo que te deben y elegimos la vía más rápida para recuperar tu inmueble.',
+        links: [
+            { text: 'Revisa qué hacer si tu arrendatario no paga', href: '/blog/arrendatario-no-se-quiere-ir-que-hacer', kind: 'articulo' },
+            { text: 'Conoce nuestra área de Arriendos', href: '/abogado-arriendo-puerto-montt', kind: 'area' },
+        ],
+        tag: 'Arriendo',
+        image: '/casos-puerto-varas-aereo.webp',
+        imagePosition: '55% 60%',
+    },
+    {
+        title: 'Deudas y Acreedores',
+        situation: 'Las deudas de la empresa se hicieron impagables y ya empezó la cobranza judicial.',
+        approach: 'Miramos la situación completa de la empresa y le decimos qué alternativas reales tiene: defenderse, reorganizarse o liquidar de forma ordenada.',
+        links: [
+            { text: 'Conoce cómo enfrentar las deudas de tu empresa', href: '/abogado-insolvencia-puerto-montt', kind: 'area' },
+        ],
+        tag: 'Derecho Concursal',
+        image: '/casos-iglesia-puerto-varas.webp',
+        imagePosition: '62% 55%',
+    },
+];
 
-            <div className="space-y-5 mb-8 flex-grow">
-                <div>
-                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 block mb-1">Situación habitual</span>
-                    <p className="text-sm text-gray-600 leading-relaxed">{situation}</p>
-                </div>
-                <div>
-                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 block mb-1">Cómo lo abordamos</span>
-                    <p className="text-sm text-gray-600 leading-relaxed font-medium italic">{approach}</p>
-                </div>
-                <a
-                    href={articleHref}
-                    onClick={(e) => { e.preventDefault(); navigateToArticle(articleHref); trackCTAClick(`Caso ${tag} - Articulo`); }}
-                    className="bg-brand-gold/5 p-4 rounded-xl border-l-2 border-brand-gold block hover:bg-brand-gold/10 transition-colors cursor-pointer"
-                >
-                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-gold block mb-1">Artículo destacado</span>
-                    <p className="text-sm text-brand-black font-semibold leading-relaxed">{articleText} →</p>
-                </a>
-            </div>
+/** Posición relativa a la tarjeta activa, con vuelta: -1 izquierda, 0 frente, 1 derecha. */
+const relativeOffset = (i: number, active: number, n: number) => {
+    let off = (i - active) % n;
+    if (off > n / 2) off -= n;
+    if (off < -n / 2) off += n;
+    return off;
+};
 
-            <div className="mt-auto pt-4 border-t border-gray-50 flex justify-between items-center">
-                <span className="px-2 py-1 bg-gray-100 text-[9px] font-bold text-gray-500 uppercase tracking-widest rounded">
-                    {tag}
-                </span>
-            </div>
+const CaseCard: React.FC<{ c: CaseType; isActive: boolean }> = ({ c, isActive }) => (
+    <article className="relative bg-white rounded-3xl shadow-2xl overflow-hidden grid md:grid-cols-[1.15fr_1fr] md:min-h-[30rem] text-left">
+        <div className="absolute inset-x-0 top-0 h-1 bg-brand-gold z-10" aria-hidden="true" />
+
+        {/* Foto: arriba en el teléfono, a la derecha en PC */}
+        <div className="relative h-44 sm:h-56 md:h-auto md:order-2">
+            <img
+                src={c.image}
+                alt=""
+                loading="lazy"
+                decoding="async"
+                className="absolute inset-0 w-full h-full object-cover"
+                style={{ objectPosition: c.imagePosition }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-black/50 via-transparent to-transparent md:bg-gradient-to-r md:from-brand-black/25" aria-hidden="true" />
+            <div className="absolute inset-3 sm:inset-4 rounded-2xl ring-1 ring-inset ring-white/40" aria-hidden="true" />
         </div>
-    </div>
+
+        {/* Texto */}
+        <div className="p-6 sm:p-10 flex flex-col">
+            <span className="self-start px-3 py-1 rounded-full bg-brand-gold/10 text-brand-gold text-[10px] font-bold uppercase tracking-[0.2em] mb-4">
+                {c.tag}
+            </span>
+            <h3 className="text-2xl sm:text-3xl font-bold text-brand-black font-baskerville tracking-tight leading-tight mb-6">
+                {c.title}
+            </h3>
+
+            <div className="space-y-5 mb-8">
+                <div>
+                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 block mb-1.5">Situación habitual</span>
+                    <p className="text-[15px] text-gray-600 leading-relaxed">{c.situation}</p>
+                </div>
+                <div className="border-l-2 border-brand-gold pl-4">
+                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 block mb-1.5">Cómo lo abordamos</span>
+                    <p className="text-[15px] text-brand-black leading-relaxed font-medium">{c.approach}</p>
+                </div>
+            </div>
+
+            <ul className="mt-auto space-y-2">
+                {c.links.map((link, j) => (
+                    <li key={link.href}>
+                        <a
+                            href={link.href}
+                            tabIndex={isActive ? 0 : -1}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                navigateToArticle(link.href);
+                                trackCTAClick(j === 0 ? `Caso ${c.tag} - Articulo` : `Caso ${c.tag} - Articulo ${j + 1}`);
+                            }}
+                            className="group/link flex items-center justify-between gap-4 px-4 py-3 rounded-xl bg-gray-50 hover:bg-brand-black transition-colors duration-300"
+                        >
+                            <span>
+                                <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-brand-gold block">
+                                    {link.kind === 'articulo' ? 'Artículo destacado' : 'Área de práctica'}
+                                </span>
+                                <span className="text-sm font-semibold text-brand-black group-hover/link:text-white transition-colors duration-300">
+                                    {link.text}
+                                </span>
+                            </span>
+                            <svg className="w-4 h-4 shrink-0 text-brand-gold transition-transform duration-300 group-hover/link:translate-x-1" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" aria-hidden="true">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    </article>
+);
+
+const Flecha: React.FC<{ lado: 'izq' | 'der'; onClick: () => void }> = ({ lado, onClick }) => (
+    <button
+        type="button"
+        onClick={onClick}
+        aria-label={lado === 'izq' ? 'Caso anterior' : 'Caso siguiente'}
+        className="flex items-center justify-center w-12 h-12 rounded-full border border-brand-gold/60 text-brand-gold hover:bg-brand-gold hover:text-white transition duration-300 cursor-pointer"
+    >
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" d={lado === 'izq' ? 'M15 19l-7-7 7-7' : 'M9 5l7 7-7 7'} />
+        </svg>
+    </button>
 );
 
 const Testimonials: React.FC = () => {
-    const scrollContainerRef = useRef<HTMLDivElement>(null);
-
-    const cases = [
-        {
-            title: 'Incumplimiento Contractual',
-            situation: 'Contrataste un servicio que no se ejecutó, o la otra parte no cumplió lo pactado.',
-            approach: 'Revisamos qué pruebas tienes, intentamos resolverlo antes de tribunales y, si no, demandamos.',
-            articleText: 'Revisa qué hacer ante un incumplimiento de contrato',
-            articleHref: '/blog/incumplimiento-de-contrato',
-            tag: 'Civil',
-            icon: <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-        },
-        {
-            title: 'Constitución de Sociedades',
-            situation: 'Vas a formar una empresa con otra persona y no sabes qué tipo de sociedad conviene ni qué dejar por escrito entre los socios.',
-            approach: 'Te decimos qué sociedad conviene, redactamos el estatuto y dejamos resuelto qué pasa si un socio quiere salir o si no se ponen de acuerdo.',
-            articleText: 'Revisa cómo constituir una empresa en Chile',
-            articleHref: '/blog/como-constituir-una-empresa-en-chile',
-            tag: 'Corporativo',
-            icon: <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
-        },
-        {
-            title: 'No Pago de Rentas',
-            situation: 'El arrendatario lleva meses sin pagar y no quiere devolverte la propiedad.',
-            approach: 'Revisamos el contrato, sacamos la cuenta de lo que te deben y elegimos la vía más rápida para recuperar tu inmueble.',
-            articleText: 'Revisa qué hacer si tu arrendatario no paga',
-            articleHref: '/blog/arrendatario-no-se-quiere-ir-que-hacer',
-            tag: 'Arriendo',
-            icon: <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-        },
-        {
-            title: 'Deudas y Acreedores',
-            situation: 'Las deudas de la empresa se hicieron impagables y ya empezó la cobranza judicial.',
-            approach: 'Miramos la situación completa de la empresa y le decimos qué alternativas reales tiene: defenderse, reorganizarse o liquidar de forma ordenada.',
-            articleText: 'Conoce cómo enfrentar las deudas de tu empresa',
-            articleHref: '/abogado-insolvencia-puerto-montt',
-            tag: 'Derecho Concursal',
-            icon: <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        }
-    ];
+    const [active, setActive] = useState(0);
+    const n = cases.length;
+    const go = (step: number) => setActive((i) => (i + step + n) % n);
+    const drag = useDragSwipe((dir) => go(dir));
 
     const handleScrollClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
         event.preventDefault();
@@ -111,7 +193,7 @@ const Testimonials: React.FC = () => {
     return (
         <section id="testimonios" className="py-20 sm:py-28 bg-gray-50/50 overflow-hidden">
             <div className="container mx-auto px-4 sm:px-6">
-                <div className="text-center max-w-3xl mx-auto mb-16">
+                <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
                     <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-brand-black uppercase tracking-tight font-baskerville not-italic">
                         Casos tipo y <span className="text-brand-gold">enfoque de trabajo</span>
                     </h2>
@@ -121,29 +203,80 @@ const Testimonials: React.FC = () => {
                     </p>
                 </div>
 
-                {/* Carousel Container */}
+                {/* Escenario: todas las tarjetas comparten la misma celda; la profundidad la dan las transformaciones. */}
                 <div
-                    ref={scrollContainerRef}
-                    className="flex gap-6 overflow-x-auto pb-12 scroll-smooth no-scrollbar scroll-snap-x-mandatory"
-                    style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                    role="region"
+                    aria-roledescription="carrusel"
+                    aria-label="Casos tipo"
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                        if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }
+                        if (e.key === 'ArrowRight') { e.preventDefault(); go(1); }
+                    }}
+                    {...drag.bind}
+                    className={`grid [perspective:1800px] [--shift:90%] md:[--shift:58%] touch-pan-y select-none outline-none focus-visible:ring-2 focus-visible:ring-brand-gold/50 rounded-3xl ${
+                        drag.dragging ? 'cursor-grabbing' : 'md:cursor-grab'
+                    }`}
                 >
-                    {cases.map((c, index) => (
-                        <CaseTypeCard key={index} {...c} />
-                    ))}
+                    {cases.map((c, i) => {
+                        const off = relativeOffset(i, active, n);
+                        const isActive = off === 0;
+                        const isSide = Math.abs(off) === 1;
+                        // Mientras se arrastra, todo el carrusel sigue al puntero.
+                        const follow = `translateX(${drag.dx}px)`;
+                        const transform = isActive
+                            ? `${follow} translateX(0) scale(1) rotateY(0deg)`
+                            : isSide
+                                ? `${follow} translateX(calc(${off} * var(--shift))) scale(0.8) rotateY(${off * -14}deg)`
+                                : `${follow} translateX(0) scale(0.6) rotateY(0deg)`;
+                        return (
+                            <div
+                                key={c.title}
+                                aria-hidden={!isActive}
+                                onClick={isSide ? () => setActive(i) : undefined}
+                                className={`[grid-area:1/1] w-full max-w-4xl mx-auto transition-[transform,opacity,filter] duration-700 ease-[cubic-bezier(0.22,0.8,0.2,1)] motion-reduce:transition-none ${
+                                    isActive ? 'z-30' : isSide ? 'z-20 cursor-pointer' : 'z-10 pointer-events-none'
+                                }`}
+                                style={{
+                                    transform,
+                                    transition: drag.dragging ? 'none' : undefined,
+                                    opacity: isActive ? 1 : isSide ? 0.55 : 0,
+                                    filter: isActive ? 'none' : 'saturate(0.6)',
+                                }}
+                            >
+                                <div className={isActive ? '' : 'pointer-events-none select-none'}>
+                                    <CaseCard c={c} isActive={isActive} />
+                                </div>
+                            </div>
+                        );
+                    })}
                 </div>
 
-                <div className="flex justify-center gap-2 mb-10">
-                    {cases.map((_, i) => (
-                        <div key={i} className="w-1.5 h-1.5 rounded-full bg-brand-gold/30"></div>
-                    ))}
+                {/* Controles */}
+                <div className="flex items-center justify-center gap-6 mt-10">
+                    <Flecha lado="izq" onClick={() => go(-1)} />
+                    <div className="flex items-center gap-2">
+                        {cases.map((c, i) => (
+                            <button
+                                key={c.title}
+                                type="button"
+                                onClick={() => setActive(i)}
+                                aria-label={`Ver caso ${i + 1} de ${n}: ${c.title}`}
+                                aria-current={i === active}
+                                className="py-2 cursor-pointer"
+                            >
+                                <span className={`block h-0.5 transition-all duration-300 ${i === active ? 'w-10 bg-brand-gold' : 'w-5 bg-gray-300 hover:bg-gray-400'}`} />
+                            </button>
+                        ))}
+                    </div>
+                    <Flecha lado="der" onClick={() => go(1)} />
                 </div>
-
-                <p className="text-center text-[10px] text-gray-400 uppercase tracking-widest mb-16 italic">
+                <p className="text-center text-xs text-gray-400 tracking-widest mt-3 tabular-nums" aria-live="polite">
+                    {String(active + 1).padStart(2, '0')} / {String(n).padStart(2, '0')}
                 </p>
 
-                {/* Se ha ocultado temporalmente la sección de reputación y reseñas de Google */}
                 <div className="text-center mt-12">
-                     <a
+                    <a
                         href="#consulta"
                         className="inline-block px-10 py-5 bg-brand-black text-white hover:bg-brand-gold rounded-xl font-bold transition-all duration-300 shadow-xl uppercase tracking-widest text-sm"
                         onClick={(e) => { handleScrollClick(e); trackCTAClick('Testimonials Consultation CTA Central'); }}
@@ -152,11 +285,6 @@ const Testimonials: React.FC = () => {
                     </a>
                 </div>
             </div>
-            <style dangerouslySetInnerHTML={{ __html: `
-                .no-scrollbar::-webkit-scrollbar { display: none; }
-                .scroll-snap-x-mandatory { scroll-snap-type: x mandatory; }
-                .scroll-snap-align-start { scroll-snap-align: start; }
-            `}} />
         </section>
     );
 };

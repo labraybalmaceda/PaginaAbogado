@@ -18,8 +18,9 @@ interface GradientTextProps {
 const GradientText: React.FC<GradientTextProps> = ({
     children,
     className = '',
-    colors = ['#BF8F0A', '#F2CB5C', '#E8B321', '#BF8F0A'],
-    duration = 6,
+    // Dorado con un destello blanco puro al centro, que recorre la palabra.
+    colors = ['#BF8F0A', '#BF8F0A', '#E8B321', '#FFFFFF', '#E8B321', '#BF8F0A', '#BF8F0A'],
+    duration = 5,
 }) => {
     const ref = useRef<HTMLSpanElement>(null);
 
