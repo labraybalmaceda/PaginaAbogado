@@ -112,8 +112,8 @@ const InsolvenciaPage: React.FC = () => {
                     <div className="bg-white p-6 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-100 relative overflow-hidden border-t-0">
                         <div className="absolute inset-x-0 top-0 h-1.5 bg-brand-gold"></div>
 
-                        <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 font-baskerville uppercase tracking-tight not-italic leading-tight text-center sm:text-left">
-                            Abogado de derecho concursal para empresas en <span className="font-bold text-brand-gold">Puerto Varas</span> y <span className="font-bold text-brand-gold">Puerto Montt</span>
+                        <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 font-baskerville tracking-tight not-italic leading-tight text-center sm:text-left">
+                            Abogado de <span className="font-bold text-brand-gold">Derecho Concursal</span> para empresas en Puerto Varas y Puerto Montt
                         </h1>
 
                         <ContactCTA source="Landing Insolvencia" />
