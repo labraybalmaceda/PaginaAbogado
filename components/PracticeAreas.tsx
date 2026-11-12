@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import FadeInUp from './FadeInUp';
 import { trackServiceClick, trackCTAClick } from '../services/tracking';
 import { navigateTo } from './blogUtils';
+import DepthCard, { depthLayerStyle } from './DepthCard';
 
 interface PracticeAreaCardProps {
     title: string;
@@ -52,12 +53,6 @@ const GlowFrame: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             className="relative isolate rounded-2xl h-full -translate-y-2"
             style={{ '--o': 0 } as React.CSSProperties}
         >
-            {/* Resplandor suave que se asoma por fuera de la tarjeta */}
-            <div
-                aria-hidden="true"
-                className="pointer-events-none absolute -inset-1 -z-10 rounded-3xl blur-xl transition-opacity duration-300"
-                style={{ background: GLOW_GRADIENT, opacity: 'calc(var(--o) * 0.55)' }}
-            />
             {children}
             {/* Línea de borde brillante (solo el contorno de 2 px) */}
             <div
@@ -89,8 +84,10 @@ const PracticeAreaCard: React.FC<PracticeAreaCardProps> = ({ title, promise, ser
 
     return (
         <FadeInUp>
+            <DepthCard>
             <GlowFrame>
             <div className="relative bg-white p-8 rounded-2xl border transition-all duration-500 flex flex-col h-full group border-brand-gold/40 ring-1 ring-brand-gold/40 shadow-xl">
+                <div className="flex flex-col h-full" style={depthLayerStyle}>
                 
                 <h3 className="text-xl font-bold mb-2 text-brand-black text-center font-baskerville not-italic">
                     <a href={path} onClick={(e) => { e.preventDefault(); navigateTo(path); }} className="hover:text-brand-gold transition">{title}</a>
@@ -120,8 +117,10 @@ const PracticeAreaCard: React.FC<PracticeAreaCardProps> = ({ title, promise, ser
                         {microcopy}
                     </p>
                 </div>
+                </div>
             </div>
             </GlowFrame>
+            </DepthCard>
         </FadeInUp>
     );
 };
