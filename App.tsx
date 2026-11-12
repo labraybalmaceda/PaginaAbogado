@@ -18,6 +18,7 @@ import FamiliaPage from './components/FamiliaPage';
 import ArriendosPage from './components/ArriendosPage';
 import InsolvenciaPage from './components/InsolvenciaPage';
 import CorporativoPage from './components/CorporativoPage';
+import AsesoriaEmpresasPage from './components/AsesoriaEmpresasPage';
 import BlogIndex from './components/BlogIndex';
 import BlogPost from './components/BlogPost';
 import NotFound from './components/NotFound';
@@ -32,6 +33,7 @@ type Route =
     | { name: 'arriendos' }
     | { name: 'insolvencia' }
     | { name: 'corporativo' }
+    | { name: 'asesoria' }
     | { name: 'blog' }
     | { name: 'post'; slug: string }
     | { name: 'notfound' };
@@ -50,6 +52,7 @@ const resolveRoute = (pathname: string): Route => {
         case '/abogado-arriendo-puerto-montt': return { name: 'arriendos' };
         case '/abogado-insolvencia-puerto-montt': return { name: 'insolvencia' };
         case '/abogado-corporativo-puerto-montt': return { name: 'corporativo' };
+        case '/asesoria-legal-empresas-puerto-montt': return { name: 'asesoria' };
         case '/blog': return { name: 'blog' };
     }
 
@@ -127,6 +130,7 @@ const App: React.FC = () => {
     if (route.name === 'arriendos') return <><ArriendosPage /><CookieBanner /></>;
     if (route.name === 'insolvencia') return <><InsolvenciaPage /><CookieBanner /></>;
     if (route.name === 'corporativo') return <><CorporativoPage /><CookieBanner /></>;
+    if (route.name === 'asesoria') return <><AsesoriaEmpresasPage /><CookieBanner /></>;
     if (route.name === 'blog') return <><BlogIndex /><CookieBanner /></>;
     if (route.name === 'post') {
         const post = getPost(route.slug);
