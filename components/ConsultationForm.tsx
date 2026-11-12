@@ -332,7 +332,7 @@ const ConsultationForm: React.FC = () => {
                                     <div className="flex items-start justify-between gap-4">
                                         <div>
                                             <ErrorText msg={errors.descripcion} />
-                                            <p className="text-[11px] text-gray-400 font-medium">No hace falta que sea largo: con lo esencial te indicamos los próximos pasos. Sin enlaces ni archivos.</p>
+                                            <p className="text-[11px] text-gray-400 font-medium">No hace falta que sea largo: con lo esencial te indicamos los próximos pasos.</p>
                                         </div>
                                         <p className={`shrink-0 text-[11px] font-bold tabular-nums ${palabras > MAX_PALABRAS ? 'text-red-500' : 'text-gray-400'}`} aria-live="polite">
                                             {palabras} / {MAX_PALABRAS} palabras
