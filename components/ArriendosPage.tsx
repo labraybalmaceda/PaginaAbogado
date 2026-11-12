@@ -97,7 +97,7 @@ const ArriendosPage: React.FC = () => {
                         <div className="absolute inset-x-0 top-0 h-1.5 bg-brand-gold"></div>
                         
                         <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 font-baskerville tracking-tight not-italic leading-tight text-center sm:text-left">
-                            Abogado de <span className="font-bold text-brand-gold">arriendos</span> en Puerto Varas y Puerto Montt
+                            Abogado de <span className="font-bold text-brand-gold">Arriendos</span> en Puerto Varas y Puerto Montt
                         </h1>
 
                         <ContactCTA source="Landing Arriendos" />
