@@ -14,6 +14,7 @@ const AREAS = [
     { path: '/abogado-familia-puerto-montt', label: 'Derecho de Familia', track: 'Familia' },
     { path: '/abogado-insolvencia-puerto-montt', label: 'Derecho Concursal', track: 'Insolvencia' },
     { path: '/abogado-corporativo-puerto-montt', label: 'Derecho Corporativo', track: 'Corporativo' },
+    { path: '/asesoria-legal-empresas-puerto-montt', label: 'Asesoría Mensual para Empresas', track: 'Asesoria Mensual' },
 ];
 
 // Los 3 artículos más recientes, sin Familia (misma regla que la franja de la portada).
