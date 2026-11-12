@@ -104,7 +104,7 @@ const CorporativoPage: React.FC = () => {
 
                         <div className="space-y-5 sm:space-y-6 text-[15px] sm:text-lg mb-10 sm:mb-12 leading-relaxed text-gray-700">
                             <p>Una estructura societaria inadecuada genera costos significativos en etapas posteriores. La figura legal que se opta para constituir una sociedad, lo que dice el estatuto y lo que quedó sin escribir en el pacto de socios definen qué pasa cuando entra un inversionista, cuando un socio quiere salir o cuando el negocio se paraliza. Asesoramos a empresas y emprendedores de Puerto Varas, Puerto Montt y el resto de la Región de Los Lagos desde la constitución hasta la venta.</p>
-                            <p></p>
+                            <p>Para las empresas que necesitan un abogado de forma permanente, y no solo para un trámite, ofrecemos una <a href="/asesoria-legal-empresas-puerto-montt" onClick={(e) => { e.preventDefault(); window.history.pushState({}, '', '/asesoria-legal-empresas-puerto-montt'); window.dispatchEvent(new PopStateEvent('popstate')); }} className="text-brand-gold font-semibold underline underline-offset-2 hover:text-brand-black transition">asesoría legal mensual para empresas</a>.</p>
                         </div>
                         
                         <h2 className="text-xl sm:text-2xl font-bold font-baskerville mb-5 sm:mb-6 text-center sm:text-left">Materias que cubrimos</h2>

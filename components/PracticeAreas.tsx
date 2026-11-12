@@ -157,6 +157,20 @@ const PracticeAreas: React.FC = () => {
             trackingId: 'Derecho Corporativo'
         },
         {
+            title: 'Asesoría Mensual',
+            path: '/asesoria-legal-empresas-puerto-montt',
+            promise: 'Un abogado externo para el día a día de la empresa, por una cuota mensual.',
+            services: [
+                'Consultas Legales Permanentes',
+                'Contratos, Acuerdos y Negociaciones',
+                'Riesgos Laborales y Tributarios',
+                'Cobranza de Facturas'
+            ],
+            ctaText: 'Conversar un plan mensual',
+            microcopy: 'Los juicios y las gestiones puntuales se cotizan aparte.',
+            trackingId: 'Asesoria Mensual'
+        },
+        {
             title: 'Arrendamientos',
             path: '/abogado-arriendo-puerto-montt',
             promise: 'Término, cobro y restitución: tramitación completa y diligencias.',
