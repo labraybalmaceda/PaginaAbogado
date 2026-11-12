@@ -37,6 +37,7 @@ const areaOptions = [
     { value: "Civil", label: "Civil" },
     { value: "Insolvencia", label: "Derecho Concursal" },
     { value: "Corporativo", label: "Corporativo" },
+    { value: "Asesoria mensual", label: "Asesoría mensual" },
     { value: "Otro", label: "Otro" },
 ];
 
