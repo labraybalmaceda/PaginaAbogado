@@ -9,6 +9,37 @@ import { getRelatedPosts } from '../content/blog';
 import ArticleSidebar, { type SidebarItem } from './ArticleSidebar';
 import { navigateTo, BASE_URL, LOGO_URL, formatDate } from './blogUtils';
 
+// Enlaces dentro del texto: [texto visible](/ruta-interna). Solo rutas internas (empiezan con /).
+const renderInline = (text: string): React.ReactNode => {
+    const re = /\[([^\]]+)\]\((\/[^)\s]*)\)/g;
+    const parts: React.ReactNode[] = [];
+    let last = 0;
+    let match: RegExpExecArray | null;
+    let k = 0;
+    while ((match = re.exec(text)) !== null) {
+        if (match.index > last) parts.push(text.slice(last, match.index));
+        const href = match[2];
+        parts.push(
+            <a
+                key={k++}
+                href={href}
+                onClick={(e) => {
+                    if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+                    e.preventDefault();
+                    navigateTo(href);
+                }}
+                className="text-brand-gold font-semibold underline hover:text-brand-black transition"
+            >
+                {match[1]}
+            </a>
+        );
+        last = match.index + match[0].length;
+    }
+    if (last === 0) return text;
+    if (last < text.length) parts.push(text.slice(last));
+    return parts;
+};
+
 const renderBlock = (block: Block, i: number) => {
     switch (block.type) {
         case 'h2':
@@ -27,7 +58,7 @@ const renderBlock = (block: Block, i: number) => {
             return (
                 <ul key={i} className="list-disc pl-5 space-y-2 mb-6 text-[15px] sm:text-lg text-gray-700 leading-relaxed">
                     {block.items.map((item, j) => (
-                        <li key={j}>{item}</li>
+                        <li key={j}>{renderInline(item)}</li>
                     ))}
                 </ul>
             );
@@ -60,7 +91,7 @@ const renderBlock = (block: Block, i: number) => {
         default:
             return (
                 <p key={i} className="text-[15px] sm:text-lg text-gray-700 leading-relaxed mb-5">
-                    {block.text}
+                    {renderInline(block.text)}
                 </p>
             );
     }
