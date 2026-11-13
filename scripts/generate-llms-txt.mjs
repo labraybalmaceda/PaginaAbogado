@@ -22,7 +22,7 @@ const SERVICES = [
     ['Derecho de Familia', '/abogado-familia-puerto-montt', 'Divorcio, pensión de alimentos y su cobro, cuidado personal y compensación económica.'],
     ['Derecho Concursal', '/abogado-insolvencia-puerto-montt', 'Reorganización y liquidación de empresas (Ley N° 20.720), procedimientos simplificados para micro y pequeñas empresas, representación de acreedores y defensa en juicios ejecutivos.'],
     ['Derecho Corporativo', '/abogado-corporativo-puerto-montt', 'Constitución y modificación de sociedades, pactos de accionistas, contratos comerciales, compraventa de empresas y conflictos entre socios.'],
-    ['Asesoría legal mensual para empresas', '/asesoria-legal-empresas-puerto-montt', 'Abogado externo para empresas, pymes y personas con negocios por una cuota mensual (iguala): consultas permanentes, contratos, negociaciones, riesgos laborales y tributarios, gestión societaria y cobranza de facturas. Atención online en todo Chile.'],
+    ['Asesoría legal mensual para empresas', '/asesoria-legal-empresas-puerto-montt', 'Abogado externo para empresas, pymes y personas con negocios con un convenio mensual (iguala) que incluye consultas permanentes, contratos, negociaciones, riesgos laborales y tributarios, gestión societaria, cobro de créditos y juicios. Honorarios por horas trabajadas, con tope mensual y facturación mensual contra liquidación detallada. Atención online en todo Chile.'],
 ];
 
 const match = (source, pattern) => {

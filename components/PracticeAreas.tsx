@@ -159,15 +159,15 @@ const PracticeAreas: React.FC = () => {
         {
             title: 'Asesoría Mensual',
             path: '/asesoria-legal-empresas-puerto-montt',
-            promise: 'Un abogado externo para el día a día de la empresa, por una cuota mensual.',
+            promise: 'Un abogado externo para el día a día de la empresa, con un tope de costo mensual.',
             services: [
                 'Consultas Legales Permanentes',
                 'Contratos, Acuerdos y Negociaciones',
-                'Riesgos Laborales y Tributarios',
-                'Cobranza de Facturas'
+                'Asesoría en Riesgos Laborales y Tributarios',
+                'Cobro de Créditos de la Empresa: Facturas y Pagarés'
             ],
             ctaText: 'Conversar un plan mensual',
-            microcopy: 'Los juicios y las gestiones puntuales se cotizan aparte.',
+            microcopy: 'Revisemos el convenio que mejor se ajusta a su empresa.',
             trackingId: 'Asesoria Mensual'
         },
         {
