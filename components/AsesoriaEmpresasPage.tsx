@@ -126,7 +126,7 @@ const AsesoriaEmpresasPage: React.FC = () => {
                             </p>
                         </div>
 
-                        <h2 className="text-xl sm:text-2xl font-bold font-baskerville mb-5 sm:mb-6 text-center sm:text-left">Cómo se cobra la asesoría</h2>
+                        <h2 className="text-xl sm:text-2xl font-bold font-baskerville mb-5 sm:mb-6 text-center sm:text-left">Cobro de la asesoría</h2>
                         <div className="space-y-5 sm:space-y-6 text-[15px] sm:text-lg mb-10 sm:mb-12 text-gray-700 leading-relaxed">
                             <p><strong>Por horas trabajadas.</strong> Solo se pagan las horas dedicadas a la empresa.</p>
                             <p><strong>Con un tope mensual.</strong> Se fija al firmar el convenio, para mantener el control del gasto.</p>
