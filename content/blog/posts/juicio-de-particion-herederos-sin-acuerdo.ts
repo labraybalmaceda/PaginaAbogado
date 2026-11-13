@@ -3,12 +3,13 @@ import type { Post } from '../types';
 const post: Post = {
     slug: 'juicio-de-particion-herederos-sin-acuerdo',
     title: 'Herederos que no se ponen de acuerdo: el juicio de partición',
-    metaTitle: 'Juicio de partición de herencia en Chile: cómo funciona',
+    metaTitle: 'Juicio de partición en Chile: cuánto demora y cuánto cuesta',
     description:
-        '¿Los herederos no se ponen de acuerdo para repartir la herencia? Te explicamos el juicio de partición en Chile y qué hace el juez partidor.',
+        'Herederos sin acuerdo para repartir la herencia: cómo funciona el juicio de partición en Chile, qué hace el juez partidor, cuánto demora y quién paga.',
     excerpt:
         'La casa quedó para los cuatro hermanos. Uno vive ahí, dos quieren vender y el cuarto no contesta el teléfono. La ley tiene una salida para eso.',
     date: '2026-07-23',
+    updated: '2026-11-13',
     service: 'civil',
     blocks: [
         { type: 'summary', text: 'Si los herederos no se ponen de acuerdo, cualquiera de ellos puede pedir la partición en cualquier momento: el artículo 1317 del Código Civil dice que nadie está obligado a permanecer en la indivisión. Antes hay que tramitar la posesión efectiva. Si no logran repartir por escritura pública, la partición la hace un juez partidor, que debe ser abogado. Y el heredero que ocupa solo la casa puede tener que pagar una renta a la comunidad.' },
@@ -66,7 +67,7 @@ const post: Post = {
         { type: 'h2', text: 'Qué revisar antes de empezar' },
         {
             type: 'p',
-            text: 'Casi siempre conviene intentar un acuerdo antes, porque una partición por escritura pública es más rápida y económica que un arbitraje. Pero se negocia mucho mejor cuando la otra parte sabe que existe la acción de partición y que no puede bloquearla. Si heredaste un bien en Puerto Varas, Puerto Montt o cualquier comuna de la Región de Los Lagos y no logran ponerse de acuerdo, conviene revisar tu caso antes de que el tiempo lo haga más caro.',
+            text: 'Casi siempre conviene intentar un acuerdo antes, porque una partición por escritura pública es más rápida y económica que un arbitraje. Pero se negocia mucho mejor cuando la otra parte sabe que existe la acción de partición y que no puede bloquearla. Si la familia heredó un bien en Puerto Varas, Puerto Montt o cualquier comuna de la Región de Los Lagos y no logra ponerse de acuerdo, conviene revisar el caso antes de que el tiempo lo haga más caro.',
         },
     ],
     faq: [
@@ -81,7 +82,12 @@ const post: Post = {
                 'La acción de partición es imprescriptible, así que se puede pedir en cualquier momento. Sin embargo, las demás acciones hereditarias sí tienen plazos.',
         },
         {
-            question: '¿Cuánto cuesta un juicio de partición?',
+            question: '¿Cuánto demora un juicio de partición en Chile?',
+            answer:
+                'Lo habitual es entre 18 y 24 meses, aunque puede tomar de uno a tres años. Depende de factores que el abogado no controla: cuánto tarda la designación del juez partidor, si hay acuerdo en la conciliación o hay que llegar a la venta forzosa de los bienes, el tiempo de adjudicación, la carga del tribunal y el número de herederos.',
+        },
+        {
+            question: '¿Cuánto cuesta un juicio de partición y quién lo paga?',
             answer:
                 'Los componentes principales son los honorarios del juez partidor, que fija en el laudo y paga la masa hereditaria a prorrata, las tasaciones de los bienes y los honorarios del abogado de cada heredero. Por eso, cuando el acuerdo es posible, la partición por escritura pública casi siempre conviene más.',
         },

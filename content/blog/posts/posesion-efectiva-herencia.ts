@@ -4,7 +4,7 @@ const post: Post = {
     slug: 'posesion-efectiva-herencia',
     title: 'Posesión efectiva: qué es, cómo se tramita y por qué no conviene postergarla',
     metaTitle: 'Posesión efectiva en Chile: qué es y por qué hacerla',
-    description: '¿Murió un familiar y no saben por dónde partir? La posesión efectiva es el primer paso para heredar en Chile. Cómo pedirla y qué pasa si no la haces.',
+    description: '¿Murió un familiar y no saben por dónde partir? La posesión efectiva es el primer paso para heredar en Chile. Cómo se pide y qué pasa si se posterga.',
     excerpt: 'La casa sigue a nombre del padre, la cuenta del banco está congelada y nadie sabe por dónde empezar. Casi siempre el primer paso es el mismo.',
     date: '2026-09-17',
     service: 'civil',

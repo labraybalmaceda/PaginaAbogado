@@ -2,10 +2,10 @@ import type { Post } from '../types';
 
 const post: Post = {
     slug: 'cesion-de-derechos-hereditarios',
-    title: 'Cesión de derechos hereditarios: qué revisar antes de vender tu parte de la herencia',
+    title: 'Cesión de derechos hereditarios: qué revisar antes de vender la parte de la herencia',
     metaTitle: 'Cesión de derechos hereditarios en Chile: qué revisar',
-    description: '¿Quieres vender tu parte de la herencia en Chile? Conoce la forma exigida, los riesgos y el impuesto que debes revisar antes de firmar la cesión.',
-    excerpt: 'Alguien te ofrece comprar tu parte de la herencia, o necesitas vender tu cuota sin esperar la partición. Antes de firmar, esto es lo que debes revisar.',
+    description: 'Vender la parte de una herencia en Chile antes de la partición: la forma que exige la ley, los riesgos y el impuesto que hay que revisar antes de firmar la cesión.',
+    excerpt: 'Alguien ofrece comprar la parte de la herencia, o hace falta vender la cuota sin esperar la partición. Antes de firmar, esto es lo que hay que revisar.',
     date: '2026-10-28',
     service: 'civil',
     blocks: [

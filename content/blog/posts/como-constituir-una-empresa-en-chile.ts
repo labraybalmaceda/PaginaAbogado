@@ -4,7 +4,7 @@ const post: Post = {
     slug: 'como-constituir-una-empresa-en-chile',
     title: 'Cómo constituir una empresa en Chile: qué sociedad elegir y qué trámites vienen después',
     metaTitle: 'Cómo constituir una empresa en Chile paso a paso',
-    description: '¿Vas a constituir una empresa en Chile? Te explicamos qué sociedad conviene, las dos vías legales para crearla y qué trámites vienen después.',
+    description: 'Qué sociedad conviene para constituir una empresa en Chile, las dos vías legales para crearla y los trámites que vienen después de firmar.',
     excerpt: 'Antes del trámite hay dos decisiones: qué tipo de sociedad conviene y por qué vía constituirla. Del estatuto que se firma ese día depende casi todo lo demás.',
     date: '2026-09-21',
     service: 'corporativo',

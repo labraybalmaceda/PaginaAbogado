@@ -3,7 +3,7 @@ import type { Post } from '../types';
 const post: Post = {
     slug: 'divorcio-de-mutuo-acuerdo',
     title: 'Divorcio de mutuo acuerdo en Chile: requisitos, plazos y cómo se tramita',
-    metaTitle: 'Divorcio de mutuo acuerdo en Chile | Labra & Balmaceda',
+    metaTitle: 'Divorcio de mutuo acuerdo en Chile: requisitos y plazos',
     description:
         'Divorcio de mutuo acuerdo en Chile: el plazo de cese de convivencia, cómo se prueba, qué debe contener el acuerdo completo y suficiente y cómo se tramita.',
     excerpt:
