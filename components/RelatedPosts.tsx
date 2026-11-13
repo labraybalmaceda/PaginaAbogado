@@ -2,6 +2,8 @@ import React from 'react';
 import { getPostsByService } from '../content/blog';
 import type { ServiceKey } from '../content/blog/types';
 import { navigateTo } from './blogUtils';
+import DepthCard, { depthLayerStyle } from './DepthCard';
+import GlowFrame from './GlowFrame';
 
 /**
  * Enlaces desde una página de servicio hacia los artículos de esa misma área.
@@ -19,15 +21,20 @@ const RelatedPosts: React.FC<{ service: ServiceKey }> = ({ service }) => {
             </h2>
             <div className="space-y-3">
                 {posts.map((post) => (
-                    <a
-                        key={post.slug}
-                        href={`/blog/${post.slug}`}
-                        onClick={(e) => { e.preventDefault(); navigateTo(`/blog/${post.slug}`); }}
-                        className="block p-4 sm:p-5 rounded-xl border border-gray-100 hover:border-brand-gold/40 hover:shadow-lg transition-all"
-                    >
-                        <h3 className="font-bold font-baskerville text-brand-black text-base mb-1">{post.title}</h3>
-                        <p className="text-sm text-gray-600 leading-relaxed">{post.excerpt}</p>
-                    </a>
+                    <DepthCard key={post.slug} rounded="rounded-xl">
+                        <GlowFrame rounded="rounded-xl" className="">
+                            <a
+                                href={`/blog/${post.slug}`}
+                                onClick={(e) => { e.preventDefault(); navigateTo(`/blog/${post.slug}`); }}
+                                className="block p-4 sm:p-5 bg-white rounded-xl border border-brand-gold/40"
+                            >
+                                <div style={depthLayerStyle}>
+                                    <h3 className="font-bold font-baskerville text-brand-black text-base mb-1">{post.title}</h3>
+                                    <p className="text-sm text-gray-600 leading-relaxed">{post.excerpt}</p>
+                                </div>
+                            </a>
+                        </GlowFrame>
+                    </DepthCard>
                 ))}
             </div>
         </section>

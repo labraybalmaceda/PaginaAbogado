@@ -1,8 +1,9 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import FadeInUp from './FadeInUp';
 import { trackServiceClick, trackCTAClick } from '../services/tracking';
 import { navigateTo } from './blogUtils';
 import DepthCard, { depthLayerStyle } from './DepthCard';
+import GlowFrame from './GlowFrame';
 
 interface PracticeAreaCardProps {
     title: string;
@@ -15,72 +16,7 @@ interface PracticeAreaCardProps {
     path: string;
 }
 
-// Brillo en el borde: sigue al cursor y se intensifica al acercarse a un costado.
-// Hecho a mano, sin librerías. En pantallas táctiles queda solo el borde dorado fijo.
-const GLOW_CORE = '#E8B321';
-const GLOW_MAIN = '#BF8F0A';
-const GLOW_EDGE_PX = 90;
-
-const GLOW_GRADIENT =
-    `radial-gradient(240px circle at var(--x, 50%) var(--y, 50%), ${GLOW_CORE}, ${GLOW_MAIN} 38%, transparent 72%), ` +
-    `radial-gradient(170px circle at var(--rx, 50%) var(--ry, 50%), rgba(191, 143, 10, 0.55), transparent 70%)`;
-
-const GlowFrame: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const frame = useRef<HTMLDivElement>(null);
-
-    const handleMove = (e: React.PointerEvent<HTMLDivElement>) => {
-        if (e.pointerType !== 'mouse' || !frame.current) return;
-        const box = frame.current.getBoundingClientRect();
-        const x = e.clientX - box.left;
-        const y = e.clientY - box.top;
-        const edge = Math.min(x, box.width - x, y, box.height - y);
-        const nearness = 1 - Math.min(Math.max(edge, 0), GLOW_EDGE_PX) / GLOW_EDGE_PX;
-        const el = frame.current;
-        el.style.setProperty('--x', `${x}px`);
-        el.style.setProperty('--y', `${y}px`);
-        el.style.setProperty('--rx', `${box.width - x}px`);
-        el.style.setProperty('--ry', `${box.height - y}px`);
-        el.style.setProperty('--o', String(0.3 + 0.7 * nearness));
-    };
-
-    const handleLeave = () => frame.current?.style.setProperty('--o', '0');
-
-    return (
-        <div
-            ref={frame}
-            onPointerMove={handleMove}
-            onPointerLeave={handleLeave}
-            className="relative isolate rounded-2xl h-full -translate-y-2"
-            style={{ '--o': 0 } as React.CSSProperties}
-        >
-            {children}
-            {/* Línea de borde brillante (solo el contorno de 2 px) */}
-            <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-0 rounded-2xl p-0.5 transition-opacity duration-300"
-                style={{
-                    background: GLOW_GRADIENT,
-                    opacity: 'var(--o)',
-                    WebkitMask: 'linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)',
-                    WebkitMaskComposite: 'xor',
-                    mask: 'linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0)',
-                }}
-            />
-        </div>
-    );
-};
-
 const PracticeAreaCard: React.FC<PracticeAreaCardProps> = ({ title, promise, services, ctaText, microcopy, trackingId, isHighlighted, path }) => {
-    const handleScrollClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
-        event.preventDefault();
-        const href = event.currentTarget.getAttribute('href');
-        if (href?.startsWith('#')) {
-            const targetElement = document.querySelector(href);
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-    };
 
     return (
         <FadeInUp>
@@ -107,9 +43,9 @@ const PracticeAreaCard: React.FC<PracticeAreaCardProps> = ({ title, promise, ser
 
                 <div className="text-center mt-auto">
                     <a 
-                        href="#consulta" 
+                        href={path} 
                         className={`inline-block w-full py-3.5 px-6 rounded-xl font-bold text-sm transition-all duration-300 shadow-md ${isHighlighted ? 'bg-brand-black text-white hover:bg-brand-gold' : 'bg-gray-50 text-brand-black hover:bg-brand-black hover:text-white'}`}
-                        onClick={(e) => { handleScrollClick(e); trackServiceClick(trackingId); }}
+                        onClick={(e) => { e.preventDefault(); trackServiceClick(trackingId); navigateTo(path); }}
                     >
                         {ctaText}
                     </a>
@@ -159,15 +95,15 @@ const PracticeAreas: React.FC = () => {
         {
             title: 'Asesoría Mensual',
             path: '/asesoria-legal-empresas-puerto-montt',
-            promise: 'Un abogado externo para el día a día de la empresa, por una cuota mensual.',
+            promise: 'Un abogado externo para el día a día de la empresa, con un tope de costo mensual.',
             services: [
                 'Consultas Legales Permanentes',
                 'Contratos, Acuerdos y Negociaciones',
-                'Riesgos Laborales y Tributarios',
-                'Cobranza de Facturas'
+                'Asesoría en Riesgos Laborales y Tributarios',
+                'Cobro de Créditos de la Empresa: Facturas y Pagarés'
             ],
             ctaText: 'Conversar un plan mensual',
-            microcopy: 'Los juicios y las gestiones puntuales se cotizan aparte.',
+            microcopy: 'Revisemos el convenio que mejor se ajusta a su empresa.',
             trackingId: 'Asesoria Mensual'
         },
         {
