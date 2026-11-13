@@ -71,16 +71,6 @@ const GlowFrame: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 };
 
 const PracticeAreaCard: React.FC<PracticeAreaCardProps> = ({ title, promise, services, ctaText, microcopy, trackingId, isHighlighted, path }) => {
-    const handleScrollClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
-        event.preventDefault();
-        const href = event.currentTarget.getAttribute('href');
-        if (href?.startsWith('#')) {
-            const targetElement = document.querySelector(href);
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-    };
 
     return (
         <FadeInUp>
@@ -107,9 +97,9 @@ const PracticeAreaCard: React.FC<PracticeAreaCardProps> = ({ title, promise, ser
 
                 <div className="text-center mt-auto">
                     <a 
-                        href="#consulta" 
+                        href={path} 
                         className={`inline-block w-full py-3.5 px-6 rounded-xl font-bold text-sm transition-all duration-300 shadow-md ${isHighlighted ? 'bg-brand-black text-white hover:bg-brand-gold' : 'bg-gray-50 text-brand-black hover:bg-brand-black hover:text-white'}`}
-                        onClick={(e) => { handleScrollClick(e); trackServiceClick(trackingId); }}
+                        onClick={(e) => { e.preventDefault(); trackServiceClick(trackingId); navigateTo(path); }}
                     >
                         {ctaText}
                     </a>

@@ -126,16 +126,11 @@ const AsesoriaEmpresasPage: React.FC = () => {
                             </p>
                         </div>
 
-                        <h2 className="text-xl sm:text-2xl font-bold font-baskerville mb-5 sm:mb-6 text-center sm:text-left">Juicios y gestiones mayores</h2>
-                        <div className="space-y-5 sm:space-y-6 text-[15px] sm:text-lg mb-10 sm:mb-12 text-gray-700 leading-relaxed">
-                            <p>El convenio no se limita a las consultas. Incluye también los juicios civiles, laborales y de cobranza, los procedimientos de <a href="/abogado-insolvencia-puerto-montt" onClick={goTo('/abogado-insolvencia-puerto-montt')} className={linkClass}>reorganización o liquidación</a> y la compraventa de una empresa con su revisión legal previa. Como el estudio ya conoce la empresa, el trabajo parte con los antecedentes a mano y sin pagar por ponerse al día.</p>
-                        </div>
-
                         <h2 className="text-xl sm:text-2xl font-bold font-baskerville mb-5 sm:mb-6 text-center sm:text-left">Cómo se cobra la asesoría</h2>
                         <div className="space-y-5 sm:space-y-6 text-[15px] sm:text-lg mb-10 sm:mb-12 text-gray-700 leading-relaxed">
-                            <p><strong>Por horas trabajadas.</strong> La empresa paga solo las horas que efectivamente se dedican a sus asuntos. Un mes tranquilo cuesta menos que un mes con un juicio o una negociación grande.</p>
-                            <p><strong>Con un tope mensual.</strong> Al firmar el convenio se fija un tope mensual. Así la empresa sabe desde el principio cuánto puede llegar a pagar en un mes y mantiene el control de su gasto legal.</p>
-                            <p><strong>Con liquidación detallada.</strong> Los servicios se facturan una vez al mes, contra una liquidación que detalla cada gestión realizada y el tiempo que tomó. La empresa ve en qué se usó cada hora antes de pagar.</p>
+                            <p><strong>Por horas trabajadas.</strong> Solo se pagan las horas dedicadas a la empresa.</p>
+                            <p><strong>Con un tope mensual.</strong> Se fija al firmar el convenio, para mantener el control del gasto.</p>
+                            <p><strong>Con liquidación detallada.</strong> Se factura cada mes, con el detalle de las gestiones realizadas.</p>
                         </div>
 
                         <RelatedPosts service="corporativo" />
