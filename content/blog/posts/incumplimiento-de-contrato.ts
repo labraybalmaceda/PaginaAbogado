@@ -127,7 +127,7 @@ const post: Post = {
         {
             question: '¿Qué plazo hay para demandar por incumplimiento de contrato?',
             answer:
-                'Por regla general, la acción ordinaria prescribe en cinco años y la ejecutiva en tres, contados desde que la obligación se hizo exigible (artículos 2514 y 2515 del Código Civil). Hay plazos especiales más cortos, como los dos años para cobrar honorarios de profesionales liberales (artículo 2521). La prescripción se interrumpe con la demanda judicial o cuando el deudor reconoce la deuda (artículo 2518).',
+                'Por regla general, la acción ordinaria prescribe en cinco años y la ejecutiva en tres, contados desde que la obligación se hizo exigible (artículos 2514 y 2515 del Código Civil).',
         },
     ],
 };
