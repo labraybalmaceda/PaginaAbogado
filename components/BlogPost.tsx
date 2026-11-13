@@ -261,9 +261,6 @@ const BlogPost: React.FC<{ post: Post }> = ({ post }) => {
 
                         <p className="text-xs sm:text-sm text-gray-500 mb-8">
                             Publicado el <time dateTime={post.date}>{formatDate(post.date)}</time>
-                            {post.updated && post.updated !== post.date && (
-                                <> · Actualizado el <time dateTime={post.updated}>{formatDate(post.updated)}</time></>
-                            )}
                         </p>
 
                         <ConsultaCta post={post} className="mb-8 pb-8 border-b border-gray-100 text-center" />
