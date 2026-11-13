@@ -14,6 +14,8 @@ const SETTLE = 0.001;    // bajo este valor la animación se detiene
 interface DepthCardProps {
     children: React.ReactNode;
     className?: string;
+    /** Redondeo de la tarjeta (para que la sombra calce con el borde). */
+    rounded?: string;
 }
 
 // Los hijos que quieran moverse con el paralaje usan este estilo.
@@ -21,7 +23,7 @@ export const depthLayerStyle: React.CSSProperties = {
     transform: 'translate3d(var(--dc-x, 0px), var(--dc-y, 0px), 0)',
 };
 
-const DepthCard: React.FC<DepthCardProps> = ({ children, className = '' }) => {
+const DepthCard: React.FC<DepthCardProps> = ({ children, className = '', rounded = 'rounded-2xl' }) => {
     const root = useRef<HTMLDivElement>(null);
     const card = useRef<HTMLDivElement>(null);
     const target = useRef({ x: 0, y: 0, on: 0 });   // posición del cursor de -1 a 1
@@ -90,7 +92,7 @@ const DepthCard: React.FC<DepthCardProps> = ({ children, className = '' }) => {
         >
             <div
                 ref={card}
-                className="relative h-full rounded-2xl"
+                className={`relative h-full ${rounded}`}
                 style={{ transformStyle: 'preserve-3d' }}
             >
                 {children}

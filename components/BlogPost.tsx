@@ -8,6 +8,8 @@ import { SERVICES } from '../content/blog/services';
 import { getRelatedPosts } from '../content/blog';
 import ArticleSidebar, { type SidebarItem } from './ArticleSidebar';
 import { navigateTo, BASE_URL, LOGO_URL, formatDate } from './blogUtils';
+import DepthCard, { depthLayerStyle } from './DepthCard';
+import GlowFrame from './GlowFrame';
 
 // Enlaces dentro del texto: [texto visible](/ruta-interna). Solo rutas internas (empiezan con /).
 const renderInline = (text: string): React.ReactNode => {
@@ -296,15 +298,20 @@ const BlogPost: React.FC<{ post: Post }> = ({ post }) => {
                             <h2 className="text-lg sm:text-xl font-bold font-baskerville mb-5 text-white">Seguir leyendo</h2>
                             <div className="space-y-3">
                                 {related.map((r) => (
-                                    <a
-                                        key={r.slug}
-                                        href={`/blog/${r.slug}`}
-                                        onClick={(e) => { e.preventDefault(); navigateTo(`/blog/${r.slug}`); }}
-                                        className="block p-5 bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-lg hover:border-brand-gold/40 transition-all"
-                                    >
-                                        <h3 className="font-bold font-baskerville text-brand-black text-base mb-1">{r.title}</h3>
-                                        <p className="text-sm text-gray-600 leading-relaxed">{r.excerpt}</p>
-                                    </a>
+                                    <DepthCard key={r.slug} rounded="rounded-xl">
+                                        <GlowFrame rounded="rounded-xl" className="">
+                                            <a
+                                                href={`/blog/${r.slug}`}
+                                                onClick={(e) => { e.preventDefault(); navigateTo(`/blog/${r.slug}`); }}
+                                                className="block p-5 bg-white rounded-xl border border-brand-gold/40"
+                                            >
+                                                <div style={depthLayerStyle}>
+                                                    <h3 className="font-bold font-baskerville text-brand-black text-base mb-1">{r.title}</h3>
+                                                    <p className="text-sm text-gray-600 leading-relaxed">{r.excerpt}</p>
+                                                </div>
+                                            </a>
+                                        </GlowFrame>
+                                    </DepthCard>
                                 ))}
                             </div>
                         </section>
