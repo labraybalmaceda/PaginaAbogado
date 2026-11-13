@@ -3,7 +3,7 @@ import type { Post } from '../types';
 const post: Post = {
     slug: 'arrendatario-no-se-quiere-ir-que-hacer',
     title: 'Arrendatario que no paga o no se quiere ir: cómo recuperar la propiedad en Chile',
-    metaTitle: 'Arrendatario no se quiere ir: cómo recuperar la propiedad',
+    metaTitle: 'Cómo sacar a un arrendatario que no se quiere ir en Chile',
     description: '¿El arrendatario no paga o no entrega la propiedad? En Chile hay un juicio monitorio para recuperarla y cobrar. Plazos, documentos y errores a evitar.',
     excerpt: 'Un arrendatario que deja de pagar o no entrega el inmueble no obliga al dueño a esperar indefinidamente: la ley ofrece una vía rápida, siempre que se use bien desde el inicio.',
     date: '2026-07-24',

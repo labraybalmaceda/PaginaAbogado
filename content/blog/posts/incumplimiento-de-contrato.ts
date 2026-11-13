@@ -2,13 +2,14 @@ import type { Post } from '../types';
 
 const post: Post = {
     slug: 'incumplimiento-de-contrato',
-    title: 'Incumplimiento de contrato: qué puedes hacer cuando la otra parte no cumple',
-    metaTitle: 'Incumplimiento de contrato en Chile: qué hacer',
+    title: 'Incumplimiento de contrato: qué hacer cuando la otra parte no cumple',
+    metaTitle: 'Incumplimiento de contrato en Chile: cuándo se puede demandar',
     description:
-        '¿La otra parte no cumplió el contrato? En Chile puedes exigir el cumplimiento o resolverlo y cobrar perjuicios. Te explicamos cuándo conviene cada camino.',
+        'Si la otra parte no cumplió el contrato, en Chile se puede exigir el cumplimiento o pedir la resolución, con perjuicios. Cuándo conviene cada vía y qué plazo hay.',
     excerpt:
-        'Firmaste un contrato confiando en que la otra parte iba a cumplir. Pagaste, entregaste, hiciste tu parte. Y del otro lado, nada. ¿Qué hacer?',
+        'Se firmó el contrato, se pagó, se entregó lo pactado. Y del otro lado, nada. La ley da dos caminos para reaccionar, y elegir mal puede costar la indemnización.',
     date: '2026-07-25',
+    updated: '2026-11-13',
     service: 'civil',
     blocks: [
         { type: "summary", text: "Según el artículo 1545 del Código Civil, todo contrato legalmente celebrado es una ley para los contratantes. Si la otra parte no cumple, el artículo 1489 te permite exigir el cumplimiento o pedir la resolución del contrato, en ambos casos con indemnización de perjuicios, siempre que tú hayas cumplido o estés llano a cumplir (artículo 1552)." },
@@ -109,19 +110,24 @@ const post: Post = {
     ],
     faq: [
         {
-            question: '¿Puedo exigir que cumplan y además cobrar los perjuicios?',
+            question: '¿Se puede demandar el cumplimiento y además cobrar los perjuicios?',
             answer:
-                'Sí. El artículo 1489 del Código Civil permite pedir, a tu elección, el cumplimiento forzado o la resolución del contrato, y en ambos casos con indemnización de perjuicios. La indemnización no reemplaza a la opción principal, se suma a ella.',
+                'Sí. El artículo 1489 del Código Civil permite al contratante que cumplió pedir, a su elección, el cumplimiento forzado o la resolución del contrato, y en ambos casos con indemnización de perjuicios. La indemnización no reemplaza a la opción principal, se suma a ella.',
         },
         {
             question: '¿Qué pasa si yo tampoco cumplí del todo?',
             answer:
-                'La contraparte puede oponer la excepción de contrato no cumplido del artículo 1552: mientras tú no cumplas o no estés llano a cumplir, no puedes exigirle a ella. Los tribunales exigen que tu incumplimiento sea relevante, no un detalle menor, pero es un riesgo que conviene revisar antes de demandar.',
+                'La contraparte puede oponer la excepción de contrato no cumplido del artículo 1552: mientras quien demanda no cumpla o no esté llano a cumplir, no puede exigirle a la otra parte. Los tribunales exigen que ese incumplimiento sea relevante, no un detalle menor, pero es un riesgo que conviene revisar antes de demandar.',
         },
         {
             question: '¿Sirve tener una cláusula penal en el contrato?',
             answer:
-                'La cláusula penal fija de antemano el monto a pagar por el incumplimiento, y su ventaja práctica, es que no necesitas probar el monto de los perjuicios. Eso simplifica enormemente el juicio. Conviene pactarla al momento de firmar.',
+                'La cláusula penal fija de antemano el monto a pagar por el incumplimiento, y su ventaja práctica es que no hay que probar el monto de los perjuicios. Eso simplifica bastante el juicio. Conviene pactarla al momento de firmar.',
+        },
+        {
+            question: '¿Qué plazo hay para demandar por incumplimiento de contrato?',
+            answer:
+                'Por regla general, la acción ordinaria prescribe en cinco años y la ejecutiva en tres, contados desde que la obligación se hizo exigible (artículos 2514 y 2515 del Código Civil). Hay plazos especiales más cortos, como los dos años para cobrar honorarios de profesionales liberales (artículo 2521). La prescripción se interrumpe con la demanda judicial o cuando el deudor reconoce la deuda (artículo 2518).',
         },
     ],
 };
