@@ -16,6 +16,10 @@ interface DepthCardProps {
     className?: string;
     /** Redondeo de la tarjeta (para que la sombra calce con el borde). */
     rounded?: string;
+    /** Inclinación máxima en grados (por defecto MAX_TILT). Los elementos bajos, como un botón, necesitan más para que se note. */
+    maxTilt?: number;
+    /** Desplazamiento máximo del contenido en px (por defecto PARALLAX). */
+    parallax?: number;
 }
 
 // Los hijos que quieran moverse con el paralaje usan este estilo.
@@ -23,7 +27,7 @@ export const depthLayerStyle: React.CSSProperties = {
     transform: 'translate3d(var(--dc-x, 0px), var(--dc-y, 0px), 0)',
 };
 
-const DepthCard: React.FC<DepthCardProps> = ({ children, className = '', rounded = 'rounded-2xl' }) => {
+const DepthCard: React.FC<DepthCardProps> = ({ children, className = '', rounded = 'rounded-2xl', maxTilt = MAX_TILT, parallax = PARALLAX }) => {
     const root = useRef<HTMLDivElement>(null);
     const card = useRef<HTMLDivElement>(null);
     const target = useRef({ x: 0, y: 0, on: 0 });   // posición del cursor de -1 a 1
@@ -43,8 +47,8 @@ const DepthCard: React.FC<DepthCardProps> = ({ children, className = '', rounded
         c.y += (t.y - c.y) * EASE;
         c.on += (t.on - c.on) * EASE;
 
-        const rotateX = -c.y * MAX_TILT;
-        const rotateY = c.x * MAX_TILT;
+        const rotateX = -c.y * maxTilt;
+        const rotateY = c.x * maxTilt;
         const el = card.current;
         if (el) {
             el.style.transform = `rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg)`;
@@ -52,8 +56,8 @@ const DepthCard: React.FC<DepthCardProps> = ({ children, className = '', rounded
                 `${(-c.x * 8).toFixed(1)}px ${(14 - c.y * 6).toFixed(1)}px ${(28 + c.on * 12).toFixed(0)}px ` +
                 `rgba(0, 0, 0, ${(0.08 + c.on * 0.06).toFixed(3)})`;
         }
-        root.current?.style.setProperty('--dc-x', `${(c.x * PARALLAX).toFixed(2)}px`);
-        root.current?.style.setProperty('--dc-y', `${(c.y * PARALLAX).toFixed(2)}px`);
+        root.current?.style.setProperty('--dc-x', `${(c.x * parallax).toFixed(2)}px`);
+        root.current?.style.setProperty('--dc-y', `${(c.y * parallax).toFixed(2)}px`);
 
         const moving =
             Math.abs(t.x - c.x) > SETTLE || Math.abs(t.y - c.y) > SETTLE || Math.abs(t.on - c.on) > SETTLE;
