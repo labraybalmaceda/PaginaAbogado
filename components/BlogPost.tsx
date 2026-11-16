@@ -47,19 +47,19 @@ const renderBlock = (block: Block, i: number) => {
     switch (block.type) {
         case 'h2':
             return (
-                <h2 key={i} id={`seccion-${i}`} className="text-xl sm:text-2xl font-bold font-baskerville text-brand-black mt-10 mb-4 scroll-mt-24">
+                <h2 key={i} id={`seccion-${i}`} className="text-xl sm:text-[22px] font-bold font-baskerville text-brand-black mt-10 mb-4 scroll-mt-24">
                     {block.text}
                 </h2>
             );
         case 'h3':
             return (
-                <h3 key={i} className="text-lg sm:text-xl font-bold font-baskerville text-brand-black mt-8 mb-3">
+                <h3 key={i} className="text-lg font-bold font-baskerville text-brand-black mt-8 mb-3">
                     {block.text}
                 </h3>
             );
         case 'list':
             return (
-                <ul key={i} className="list-disc pl-5 space-y-2 mb-6 text-[15px] sm:text-lg text-gray-700 leading-relaxed">
+                <ul key={i} className="list-disc pl-5 space-y-2 mb-6 text-[15px] sm:text-base text-gray-700 leading-relaxed text-justify hyphens-auto">
                     {block.items.map((item, j) => (
                         <li key={j}>{renderInline(item)}</li>
                     ))}
@@ -68,7 +68,7 @@ const renderBlock = (block: Block, i: number) => {
         case 'quote':
             return (
                 <blockquote key={i} className="border-l-4 border-brand-gold bg-gray-50 rounded-r-xl px-5 py-4 mb-6">
-                    <p className="text-[15px] sm:text-lg text-gray-700 leading-relaxed italic">{block.text}</p>
+                    <p className="text-[15px] sm:text-base text-gray-700 leading-relaxed text-justify hyphens-auto italic">{block.text}</p>
                     {block.cite && (
                         <cite className="block mt-2 text-xs uppercase tracking-widest text-brand-gold not-italic font-bold">
                             {block.citeUrl ? (
@@ -85,7 +85,7 @@ const renderBlock = (block: Block, i: number) => {
         case 'summary':
             return (
                 <div key={i} className="bg-gray-50 border-l-4 border-brand-gold rounded-r-xl px-5 py-4 mb-6">
-                    <p className="text-[15px] sm:text-lg text-gray-700 leading-relaxed">
+                    <p className="text-[15px] sm:text-base text-gray-700 leading-relaxed text-justify hyphens-auto">
                         <strong className="text-brand-black">En resumen:</strong> {block.text}
                     </p>
                 </div>
@@ -93,7 +93,7 @@ const renderBlock = (block: Block, i: number) => {
         case 'p':
         default:
             return (
-                <p key={i} className="text-[15px] sm:text-lg text-gray-700 leading-relaxed mb-5">
+                <p key={i} className="text-[15px] sm:text-base text-gray-700 leading-relaxed text-justify hyphens-auto mb-5">
                     {renderInline(block.text)}
                 </p>
             );
@@ -256,7 +256,7 @@ const BlogPost: React.FC<{ post: Post }> = ({ post }) => {
                             {service.label}
                         </p>
 
-                        <h1 className="text-2xl sm:text-4xl font-bold mb-4 font-baskerville tracking-tight not-italic leading-tight">
+                        <h1 className="text-2xl sm:text-3xl font-bold mb-4 font-baskerville tracking-tight not-italic leading-tight">
                             {post.title}
                         </h1>
 
@@ -270,14 +270,14 @@ const BlogPost: React.FC<{ post: Post }> = ({ post }) => {
 
                         {post.faq && post.faq.length > 0 && (
                             <section className="mt-12">
-                                <h2 id="preguntas-frecuentes" className="text-xl sm:text-2xl font-bold font-baskerville mb-6 scroll-mt-24">Preguntas frecuentes</h2>
+                                <h2 id="preguntas-frecuentes" className="text-xl sm:text-[22px] font-bold font-baskerville mb-6 scroll-mt-24">Preguntas frecuentes</h2>
                                 <div className="space-y-6">
                                     {post.faq.map((f, i) => (
                                         <div key={i}>
-                                            <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-lg">
+                                            <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-[17px]">
                                                 {f.question}
                                             </h3>
-                                            <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{f.answer}</p>
+                                            <p className="text-sm sm:text-[15px] text-gray-600 leading-relaxed">{f.answer}</p>
                                         </div>
                                     ))}
                                 </div>
