@@ -96,19 +96,19 @@ const CorporativoPage: React.FC = () => {
                     <div className="bg-white p-6 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-100 relative overflow-hidden border-t-0">
                         <div className="absolute inset-x-0 top-0 h-1.5 bg-brand-gold"></div>
                         
-                        <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 font-baskerville tracking-tight not-italic leading-tight text-center sm:text-left">
+                        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8 font-baskerville tracking-tight not-italic leading-tight text-center sm:text-left">
                             Abogado de <span className="font-bold text-brand-gold">Derecho Corporativo</span> en Puerto Varas y Puerto Montt
                         </h1>
 
                         <ContactCTA source="Landing Corporativo" />
 
-                        <div className="space-y-5 sm:space-y-6 text-[15px] sm:text-lg mb-10 sm:mb-12 leading-relaxed text-gray-700">
+                        <div className="space-y-5 sm:space-y-6 text-[15px] sm:text-base mb-10 sm:mb-12 leading-relaxed text-gray-700">
                             <p>Una estructura societaria inadecuada genera costos significativos en etapas posteriores. La figura legal que se opta para constituir una sociedad, lo que dice el estatuto y lo que quedó sin escribir en el pacto de socios definen qué pasa cuando entra un inversionista, cuando un socio quiere salir o cuando el negocio se paraliza. Asesoramos a empresas y emprendedores de Puerto Varas, Puerto Montt y el resto de la Región de Los Lagos desde la constitución hasta la venta.</p>
                             <p>Para las empresas que necesitan un abogado de forma permanente, y no solo para un trámite, ofrecemos una <a href="/asesoria-legal-empresas-puerto-montt" onClick={(e) => { e.preventDefault(); window.history.pushState({}, '', '/asesoria-legal-empresas-puerto-montt'); window.dispatchEvent(new PopStateEvent('popstate')); }} className="text-brand-gold font-semibold underline underline-offset-2 hover:text-brand-black transition">asesoría legal mensual para empresas</a>.</p>
                         </div>
                         
-                        <h2 className="text-xl sm:text-2xl font-bold font-baskerville mb-5 sm:mb-6 text-center sm:text-left">Materias que cubrimos</h2>
-                        <div className="space-y-5 sm:space-y-6 text-[15px] sm:text-lg mb-10 sm:mb-12 text-gray-700 leading-relaxed">
+                        <h2 className="text-xl sm:text-[22px] font-bold font-baskerville mb-5 sm:mb-6 text-center sm:text-left">Materias que cubrimos</h2>
+                        <div className="space-y-5 sm:space-y-6 text-[15px] sm:text-base mb-10 sm:mb-12 text-gray-700 leading-relaxed">
                             <p>
                                 <strong>Constitución y modificación de sociedades.</strong> Elegir entre una sociedad por acciones, una de responsabilidad limitada, una anónima cerrada o una empresa individual no es un trámite: define quién manda, cómo entra y sale capital y hasta dónde responde cada socio. Constituimos por el régimen general con escritura pública, o por el régimen simplificado de la Ley N° 20.659. También redactamos aumentos de capital, transformaciones, fusiones y disoluciones, y saneamos vicios formales conforme a la Ley N° 19.499.
                             </p>
@@ -123,11 +123,11 @@ const CorporativoPage: React.FC = () => {
                             </p>
                         </div>
 
-                        <h2 className="text-xl sm:text-2xl font-bold font-baskerville mb-5 sm:mb-6 text-center sm:text-left">Preguntas frecuentes</h2>
-                        <div className="space-y-6 mb-10 sm:mb-12 text-sm sm:text-base text-gray-600 leading-relaxed font-medium">
+                        <h2 className="text-xl sm:text-[22px] font-bold font-baskerville mb-5 sm:mb-6 text-center sm:text-left">Preguntas frecuentes</h2>
+                        <div className="space-y-6 mb-10 sm:mb-12 text-sm sm:text-[15px] text-gray-600 leading-relaxed font-medium">
                             {faqs.map((faq, index) => (
                                 <div key={index}>
-                                    <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-lg">{faq.question}</h3>
+                                    <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-[17px]">{faq.question}</h3>
                                     <p>{faq.answer}</p>
                                 </div>
                             ))}

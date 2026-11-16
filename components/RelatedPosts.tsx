@@ -16,7 +16,7 @@ const RelatedPosts: React.FC<{ service: ServiceKey }> = ({ service }) => {
 
     return (
         <section className="mt-12 pt-8 border-t border-gray-100">
-            <h2 className="text-xl sm:text-2xl font-bold font-baskerville mb-5 text-center sm:text-left">
+            <h2 className="text-xl sm:text-[22px] font-bold font-baskerville mb-5 text-center sm:text-left">
                 Artículos sobre este tema
             </h2>
             <div className="space-y-3">

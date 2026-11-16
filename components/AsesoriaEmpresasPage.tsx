@@ -87,19 +87,19 @@ const AsesoriaEmpresasPage: React.FC = () => {
                     <div className="bg-white p-6 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-100 relative overflow-hidden border-t-0">
                         <div className="absolute inset-x-0 top-0 h-1.5 bg-brand-gold"></div>
 
-                        <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 font-baskerville tracking-tight not-italic leading-tight text-center sm:text-left">
+                        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8 font-baskerville tracking-tight not-italic leading-tight text-center sm:text-left">
                             <span className="font-bold text-brand-gold">Asesoría Legal Permanente</span> para empresas en Puerto Montt y Puerto Varas
                         </h1>
 
                         <ContactCTA source="Landing Asesoría Mensual" />
 
-                        <div className="space-y-5 sm:space-y-6 text-[15px] sm:text-lg mb-10 sm:mb-12 leading-relaxed text-gray-700">
+                        <div className="space-y-5 sm:space-y-6 text-[15px] sm:text-base mb-10 sm:mb-12 leading-relaxed text-gray-700">
                             <p>Una empresa toma decisiones con consecuencias legales casi todas las semanas: firma con un proveedor, contrata o despide a un trabajador, recibe una carta de cobro o una notificación del Servicio de Impuestos Internos. Con una asesoría legal mensual, la empresa cuenta con un abogado externo que conoce el negocio y revisa esas decisiones antes de que se conviertan en un juicio.</p>
                             <p>Trabajamos con pymes, emprendedores y personas con negocios propios de Puerto Montt, Puerto Varas y la Región de Los Lagos. El convenio cubre todo el trabajo legal de la empresa: el del día a día y también los juicios y las gestiones que van apareciendo.</p>
                         </div>
 
-                        <h2 className="text-xl sm:text-2xl font-bold font-baskerville mb-5 sm:mb-6 text-center sm:text-left">Qué incluye la asesoría mensual</h2>
-                        <div className="space-y-5 sm:space-y-6 text-[15px] sm:text-lg mb-10 sm:mb-12 text-gray-700 leading-relaxed">
+                        <h2 className="text-xl sm:text-[22px] font-bold font-baskerville mb-5 sm:mb-6 text-center sm:text-left">Qué incluye la asesoría mensual</h2>
+                        <div className="space-y-5 sm:space-y-6 text-[15px] sm:text-base mb-10 sm:mb-12 text-gray-700 leading-relaxed">
                             <p>
                                 <strong>Consultas legales del día a día.</strong> Las dudas se resuelven con los mismos abogados que ya conocen la empresa, sus contratos y su historia. No hace falta agendar una consulta nueva ni explicar todo desde cero cada vez.
                             </p>
@@ -126,8 +126,8 @@ const AsesoriaEmpresasPage: React.FC = () => {
                             </p>
                         </div>
 
-                        <h2 className="text-xl sm:text-2xl font-bold font-baskerville mb-5 sm:mb-6 text-center sm:text-left">Cobro de la asesoría</h2>
-                        <div className="space-y-5 sm:space-y-6 text-[15px] sm:text-lg mb-10 sm:mb-12 text-gray-700 leading-relaxed">
+                        <h2 className="text-xl sm:text-[22px] font-bold font-baskerville mb-5 sm:mb-6 text-center sm:text-left">Cobro de la asesoría</h2>
+                        <div className="space-y-5 sm:space-y-6 text-[15px] sm:text-base mb-10 sm:mb-12 text-gray-700 leading-relaxed">
                             <p><strong>Por horas trabajadas.</strong> Solo se pagan las horas dedicadas a la empresa.</p>
                             <p><strong>Con un tope mensual.</strong> Se fija al firmar el convenio, para mantener el control del gasto.</p>
                             <p><strong>Con liquidación detallada.</strong> Se factura cada mes, con el detalle de las gestiones realizadas.</p>
