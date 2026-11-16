@@ -6,6 +6,7 @@ import Seo from './Seo';
 import type { Post, Block } from '../content/blog/types';
 import { SERVICES } from '../content/blog/services';
 import { getRelatedPosts } from '../content/blog';
+import PreferredSourceButton from './PreferredSourceButton';
 import ArticleSidebar, { type SidebarItem } from './ArticleSidebar';
 import { navigateTo, BASE_URL, LOGO_URL, formatDate } from './blogUtils';
 import DepthCard, { depthLayerStyle } from './DepthCard';
@@ -284,6 +285,8 @@ const BlogPost: React.FC<{ post: Post }> = ({ post }) => {
                         )}
 
                         <ConsultaCta post={post} className="mt-12 pt-8 border-t border-gray-100 text-center" />
+
+                        <PreferredSourceButton key={post.slug} className="mt-8 pt-8 border-t border-gray-100 text-center" />
 
                         <p className="mt-8 text-[11px] text-gray-400 italic leading-relaxed text-center">
                             Este artículo es informativo y no constituye asesoría legal para un caso particular.
