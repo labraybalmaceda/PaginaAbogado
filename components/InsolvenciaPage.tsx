@@ -112,19 +112,19 @@ const InsolvenciaPage: React.FC = () => {
                     <div className="bg-white p-6 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-100 relative overflow-hidden border-t-0">
                         <div className="absolute inset-x-0 top-0 h-1.5 bg-brand-gold"></div>
 
-                        <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 font-baskerville tracking-tight not-italic leading-tight text-center sm:text-left">
+                        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8 font-baskerville tracking-tight not-italic leading-tight text-center sm:text-left">
                             Abogado de <span className="font-bold text-brand-gold">Derecho Concursal</span> para empresas en Puerto Varas y Puerto Montt
                         </h1>
 
                         <ContactCTA source="Landing Insolvencia" />
 
-                        <div className="space-y-5 sm:space-y-6 text-[15px] sm:text-lg mb-10 sm:mb-12 leading-relaxed text-gray-700">
+                        <div className="space-y-5 sm:space-y-6 text-[15px] sm:text-base mb-10 sm:mb-12 leading-relaxed text-gray-700">
                             <p>El derecho concursal regula qué pasa cuando una empresa ya no puede pagar sus deudas. En Chile está en la <a href={LEY_20720} target="_blank" rel="noopener noreferrer" className={linkClass}>Ley N° 20.720</a>. La ley ofrece dos caminos: reorganizar la empresa si el negocio todavía es viable, o liquidarla de forma ordenada si ya no lo es.</p>
                             <p>Asesoramos a empresas deudoras y a empresas acreedoras que necesitan cobrar dentro de un procedimiento concursal. Partimos por un diagnóstico: cuánto debe la empresa y a quién, qué bienes tiene en garantía, si ya hay juicios ejecutivos en curso y si califica como micro o pequeña empresa. De eso depende qué procedimiento le sirve y qué plazos corren.</p>
                         </div>
 
-                        <h2 className="text-xl sm:text-2xl font-bold font-baskerville mb-5 sm:mb-6 text-center sm:text-left">Qué hacemos en derecho concursal</h2>
-                        <div className="space-y-5 sm:space-y-6 text-[15px] sm:text-lg mb-10 sm:mb-12 text-gray-700 leading-relaxed">
+                        <h2 className="text-xl sm:text-[22px] font-bold font-baskerville mb-5 sm:mb-6 text-center sm:text-left">Qué hacemos en derecho concursal</h2>
+                        <div className="space-y-5 sm:space-y-6 text-[15px] sm:text-base mb-10 sm:mb-12 text-gray-700 leading-relaxed">
                             <p>
                                 <strong>Reorganización judicial de la empresa.</strong> La empresa pide su reorganización ante el tribunal de su domicilio (artículo 54 de la Ley N° 20.720). Mientras dura, no se puede iniciar en su contra una liquidación, juicios ejecutivos ni restituciones en juicios de arrendamiento, y los que estaban en curso se suspenden, salvo ciertos juicios laborales (artículo 57). Preparamos la propuesta de acuerdo y la negociamos con los acreedores.
                             </p>
@@ -148,11 +148,11 @@ const InsolvenciaPage: React.FC = () => {
                             </p>
                         </div>
 
-                        <h2 className="text-xl sm:text-2xl font-bold font-baskerville mb-5 sm:mb-6 text-center sm:text-left">Preguntas frecuentes</h2>
-                        <div className="space-y-6 mb-10 sm:mb-12 text-sm sm:text-base text-gray-600 leading-relaxed font-medium">
+                        <h2 className="text-xl sm:text-[22px] font-bold font-baskerville mb-5 sm:mb-6 text-center sm:text-left">Preguntas frecuentes</h2>
+                        <div className="space-y-6 mb-10 sm:mb-12 text-sm sm:text-[15px] text-gray-600 leading-relaxed font-medium">
                             {faqs.map((faq, index) => (
                                 <div key={index}>
-                                    <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-lg">{faq.question}</h3>
+                                    <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-[17px]">{faq.question}</h3>
                                     <p>{faq.answer}</p>
                                 </div>
                             ))}
