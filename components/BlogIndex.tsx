@@ -1,11 +1,34 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import WhatsAppButton from './WhatsAppButton';
 import Seo from './Seo';
 import { indexablePosts } from '../content/blog';
 import { SERVICES } from '../content/blog/services';
+import type { ServiceKey } from '../content/blog/types';
 import { navigateTo, BASE_URL, formatDate } from './blogUtils';
+import DepthCard, { depthLayerStyle } from './DepthCard';
+import GlowFrame from './GlowFrame';
+
+// Nombre corto de cada área para los botones de filtro.
+const ETIQUETA_CORTA: Record<ServiceKey, string> = {
+    arriendos: 'Arriendos',
+    familia: 'Familia',
+    civil: 'Civil',
+    insolvencia: 'Concursal',
+    corporativo: 'Corporativo',
+};
+
+/** Minúsculas y sin tildes, para que "particion" encuentre "partición". */
+const normalizar = (texto: string): string =>
+    texto.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase();
+
+/** Clic normal: navegación interna. Ctrl, Cmd, Shift o clic central: el navegador abre otra pestaña. */
+const abrirArticulo = (e: React.MouseEvent<HTMLAnchorElement>, slug: string) => {
+    if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    e.preventDefault();
+    navigateTo(`/blog/${slug}`);
+};
 
 const BlogIndex: React.FC = () => {
     const posts = indexablePosts;
@@ -46,6 +69,36 @@ const BlogIndex: React.FC = () => {
         [posts]
     );
 
+    const [area, setArea] = useState<ServiceKey | 'todas'>('todas');
+    const [query, setQuery] = useState('');
+
+    // Solo se ofrecen como filtro las áreas que tienen artículos publicados.
+    const areas = useMemo(
+        () => (Object.keys(SERVICES) as ServiceKey[]).filter((key) => posts.some((p) => p.service === key)),
+        [posts]
+    );
+
+    const visibles = useMemo(() => {
+        const q = normalizar(query.trim());
+        return posts.filter((p) => {
+            if (area !== 'todas' && p.service !== area) return false;
+            if (!q) return true;
+            return normalizar(`${p.title} ${p.excerpt} ${SERVICES[p.service].label}`).includes(q);
+        });
+    }, [posts, area, query]);
+
+    const limpiarFiltros = () => {
+        setArea('todas');
+        setQuery('');
+    };
+
+    const pillClass = (activa: boolean) =>
+        `px-4 py-2 rounded-full text-xs sm:text-sm font-bold uppercase tracking-widest border transition-colors duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold/60 ${
+            activa
+                ? 'bg-brand-gold border-brand-gold text-white'
+                : 'bg-white/5 border-white/20 text-white/80 hover:border-white/50 hover:text-white'
+        }`;
+
     return (
         <div className="relative isolate min-h-screen bg-brand-black text-brand-black">
             <div aria-hidden="true" className="absolute inset-x-0 top-0 h-screen supports-[height:100lvh]:h-lvh -z-10 bg-cover bg-position-[30%_center] md:bg-center" style={{ backgroundImage: "linear-gradient(to bottom, rgba(17, 17, 17, 0.65), rgba(17, 17, 17, 0.75) 60%, rgba(17, 17, 17, 1)), url('/fondo-articulo-blog.jpg')" }} />
@@ -58,8 +111,8 @@ const BlogIndex: React.FC = () => {
             <Header />
 
             <main className="py-12 sm:py-20 overflow-hidden mt-6 sm:mt-0">
-                <div className="container mx-auto px-4 sm:px-6 max-w-3xl">
-                    <header className="mb-10 sm:mb-14">
+                <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
+                    <header className="mb-8 sm:mb-10 max-w-3xl">
                         <h1 className="text-2xl sm:text-4xl font-bold mb-4 font-baskerville uppercase tracking-tight not-italic leading-tight text-white">
                             Blog legal: Arriendos, Sociedades, herencias, incumplimientos contractuales.
                         </h1>
@@ -69,45 +122,81 @@ const BlogIndex: React.FC = () => {
                     </header>
 
                     {posts.length === 0 ? (
-                        <p className="text-gray-600 text-[15px] leading-relaxed">
+                        <p className="text-white/80 text-[15px] leading-relaxed">
                             Estamos preparando los primeros artículos. Vuelve pronto.
                         </p>
                     ) : (
-                        <div className="space-y-5">
-                            {posts.map((post) => (
-                                <article
-                                    key={post.slug}
-                                    className="bg-white p-6 sm:p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:border-brand-gold/40 transition-all duration-300"
-                                >
-                                    <p className="text-[10px] uppercase tracking-widest text-brand-gold font-bold mb-2">
-                                        {SERVICES[post.service].label}
-                                    </p>
-                                    <h2 className="text-lg sm:text-2xl font-bold font-baskerville tracking-tight mb-2 leading-snug">
-                                        <a
-                                            href={`/blog/${post.slug}`}
-                                            onClick={(e) => { e.preventDefault(); navigateTo(`/blog/${post.slug}`); }}
-                                            className="text-brand-black hover:text-brand-gold transition"
-                                        >
-                                            {post.title}
-                                        </a>
-                                    </h2>
-                                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-4">{post.excerpt}</p>
-                                    <div className="flex items-center justify-between gap-4">
-                                        <time dateTime={post.date} className="text-xs text-gray-400">
-                                            {formatDate(post.date)}
-                                        </time>
-                                        <a
-                                            href={`/blog/${post.slug}`}
-                                            onClick={(e) => { e.preventDefault(); navigateTo(`/blog/${post.slug}`); }}
-                                            className="text-xs font-bold uppercase tracking-widest text-brand-black hover:text-brand-gold transition"
-                                            aria-label={`Leer artículo: ${post.title}`}
-                                        >
-                                            Leer artículo →
-                                        </a>
-                                    </div>
-                                </article>
-                            ))}
-                        </div>
+                        <>
+                            {/* Filtros por área */}
+                            <div role="group" aria-label="Filtrar artículos por área" className="flex flex-wrap gap-2 mb-4">
+                                <button type="button" aria-pressed={area === 'todas'} onClick={() => setArea('todas')} className={pillClass(area === 'todas')}>
+                                    Todos
+                                </button>
+                                {areas.map((key) => (
+                                    <button key={key} type="button" aria-pressed={area === key} onClick={() => setArea(key)} className={pillClass(area === key)}>
+                                        {ETIQUETA_CORTA[key]}
+                                    </button>
+                                ))}
+                            </div>
+
+                            {/* Buscador */}
+                            <div className="relative mb-8">
+                                <svg aria-hidden="true" className="absolute z-10 left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/60 pointer-events-none" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                                    <circle cx="11" cy="11" r="7" />
+                                    <path strokeLinecap="round" d="m20 20-3.5-3.5" />
+                                </svg>
+                                <input
+                                    type="search"
+                                    value={query}
+                                    onChange={(e) => setQuery(e.target.value)}
+                                    maxLength={80}
+                                    placeholder="Buscar: arriendo, herencia, divorcio…"
+                                    aria-label="Buscar artículos"
+                                    className="w-full rounded-full bg-white/10 border border-white/15 pl-12 pr-5 py-3.5 text-[15px] text-white placeholder:text-white/50 backdrop-blur-sm focus:outline-none focus:border-brand-gold transition-colors"
+                                />
+                            </div>
+
+                            {visibles.length === 0 ? (
+                                <div className="text-center py-16 px-4 rounded-2xl border border-white/10 bg-white/5">
+                                    <p className="text-white/80 mb-5">No hay artículos que coincidan con la búsqueda.</p>
+                                    <button type="button" onClick={limpiarFiltros} className={pillClass(true)}>
+                                        Ver todos los artículos
+                                    </button>
+                                </div>
+                            ) : (
+                                <div className="grid gap-5 md:grid-cols-2">
+                                    {visibles.map((post) => (
+                                        <DepthCard key={post.slug} rounded="rounded-2xl">
+                                            <GlowFrame rounded="rounded-2xl" className="h-full">
+                                                <article className="relative h-full bg-white rounded-2xl border border-brand-gold/40">
+                                                    <div className="flex flex-col h-full p-6 sm:p-7" style={depthLayerStyle}>
+                                                        <p className="text-[10px] uppercase tracking-widest text-brand-gold font-bold mb-3">
+                                                            {SERVICES[post.service].label}
+                                                        </p>
+                                                        <h2 className="text-lg sm:text-xl font-bold font-baskerville tracking-tight mb-3 leading-snug">
+                                                            <a
+                                                                href={`/blog/${post.slug}`}
+                                                                onClick={(e) => abrirArticulo(e, post.slug)}
+                                                                className="text-brand-black hover:text-brand-gold transition after:absolute after:inset-0 after:rounded-2xl focus:outline-none focus-visible:after:ring-2 focus-visible:after:ring-brand-gold"
+                                                            >
+                                                                {post.title}
+                                                            </a>
+                                                        </h2>
+                                                        <p className="text-sm sm:text-[15px] text-gray-600 leading-relaxed mb-5 line-clamp-3">{post.excerpt}</p>
+                                                        <div className="mt-auto flex items-center justify-between gap-4 text-xs">
+                                                            <time dateTime={post.date} className="text-gray-400">{formatDate(post.date)}</time>
+                                                            <span aria-hidden="true" className="font-bold uppercase tracking-widest text-brand-black whitespace-nowrap">
+                                                                Leer →
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </article>
+                                            </GlowFrame>
+                                        </DepthCard>
+                                    ))}
+                                </div>
+                            )}
+                        </>
                     )}
                 </div>
             </main>
