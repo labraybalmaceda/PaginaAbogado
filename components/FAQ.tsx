@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useId, useState } from 'react';
 import FadeInUp from './FadeInUp';
 import { trackCTAClick } from '../services/tracking';
 
@@ -7,19 +7,41 @@ interface FAQItemProps {
     children: React.ReactNode;
 }
 
-const FAQItem: React.FC<FAQItemProps> = ({ question, children }) => (
-    <FadeInUp>
-        <details className="bg-white shadow-sm rounded-xl overflow-hidden border border-gray-100 group">
-            <summary className="flex justify-between items-center p-6 cursor-pointer font-bold text-brand-black hover:bg-gray-50 transition font-baskerville uppercase tracking-tight">
-                <span className="text-sm sm:text-base leading-tight">{question}</span>
-                <span className="text-xl leading-none transition-transform transform group-open:rotate-45 text-brand-gold ml-4">+</span>
-            </summary>
-            <div className="px-6 pb-6 text-sm sm:text-base text-gray-600 leading-relaxed font-medium">
-                {children}
+// La respuesta baja en 0,5 s al abrir (y sube en 0,5 s al cerrar): la fila de la grilla
+// pasa de 0fr a 1fr. Con "reducir movimiento" se abre sin animación.
+// La respuesta queda siempre en el HTML (Google la lee aunque esté cerrada).
+const FAQItem: React.FC<FAQItemProps> = ({ question, children }) => {
+    const [open, setOpen] = useState(false);
+    const panelId = useId();
+
+    return (
+        <FadeInUp>
+            <div className="bg-white shadow-sm rounded-xl overflow-hidden border border-gray-100">
+                <button
+                    type="button"
+                    aria-expanded={open}
+                    aria-controls={panelId}
+                    onClick={() => setOpen((o) => !o)}
+                    className="w-full flex justify-between items-center p-6 text-left cursor-pointer font-bold text-brand-black hover:bg-gray-50 transition font-baskerville uppercase tracking-tight focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-brand-gold/50"
+                >
+                    <span className="text-sm sm:text-base leading-tight">{question}</span>
+                    <span aria-hidden="true" className={`text-xl leading-none transition-transform duration-500 text-brand-gold ml-4 ${open ? 'rotate-45' : ''}`}>+</span>
+                </button>
+                <div
+                    id={panelId}
+                    inert={!open}
+                    className={`grid transition-[grid-template-rows] duration-500 ease-in-out motion-reduce:transition-none ${open ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}
+                >
+                    <div className="overflow-hidden">
+                        <div className={`px-6 pb-6 text-sm sm:text-base text-gray-600 leading-relaxed font-medium transition-opacity duration-500 motion-reduce:transition-none ${open ? 'opacity-100' : 'opacity-0'}`}>
+                            {children}
+                        </div>
+                    </div>
+                </div>
             </div>
-        </details>
-    </FadeInUp>
-);
+        </FadeInUp>
+    );
+};
 
 const FAQ: React.FC = () => {
     const handleScrollClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
