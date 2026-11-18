@@ -20,7 +20,8 @@ const GradientText: React.FC<GradientTextProps> = ({
     className = '',
     // Dorado con un destello blanco puro al centro, que recorre la palabra.
     colors = ['#BF8F0A', '#BF8F0A', '#E8B321', '#FFFFFF', '#E8B321', '#BF8F0A', '#BF8F0A'],
-    duration = 5,
+    // 8 s por pasada (antes 5): el destello pasa con menos frecuencia.
+    duration = 8,
 }) => {
     const ref = useRef<HTMLSpanElement>(null);
 
