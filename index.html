@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Precarga la foto del hero solo en las páginas que la usan (portada y páginas de servicio), para mejorar el LCP en móvil -->
+    <!-- Precarga la foto del hero solo en las páginas que la usan (portada y páginas de servicio, también en inglés), para mejorar el LCP en móvil -->
     <script>
       (function () {
         var p = location.pathname;
-        if (p === '/' || p.indexOf('/abogado-') === 0) {
+        if (p === '/' || p.indexOf('/abogado-') === 0 || p.indexOf('/asesoria-') === 0 || p === '/en' || p.indexOf('/en/') === 0) {
           var l = document.createElement('link');
           l.rel = 'preload';
           l.as = 'image';
@@ -45,10 +45,10 @@
       gtag('config', 'G-JZ8Y51YTZK');
     </script>
 
-    <!-- Google Fonts: Libre Baskerville -->
+    <!-- Google Fonts: Libre Baskerville (títulos) y Poppins 200/300 (hero). display=optional: sin salto de letra (CLS); si la fuente no llega a tiempo en la primera visita, se usa la del sistema -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Poppins:wght@200;300&display=optional" rel="stylesheet">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -113,6 +113,7 @@
             "Reorganización y liquidación de empresas",
             "Representación de acreedores en procedimientos concursales",
             "Derecho Corporativo",
+            "Derecho Inmobiliario y Construcción",
             "Juicios de arrendamiento y lanzamiento",
             "Divorcio y compensación económica",
             "Pensión de alimentos y su cobro",
@@ -138,7 +139,7 @@
                 "itemOffered": {
                   "@type": "Service",
                   "@id": "https://labraybalmaceda.cl/abogado-civil-puerto-montt#service",
-                  "name": "Derecho Civil",
+                  "name": "Litigios Civiles y Comerciales",
                   "url": "https://labraybalmaceda.cl/abogado-civil-puerto-montt"
                 }
               },
@@ -186,6 +187,15 @@
                   "name": "Asesoría legal permanente para empresas",
                   "url": "https://labraybalmaceda.cl/asesoria-legal-empresas-puerto-montt"
                 }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "@id": "https://labraybalmaceda.cl/abogado-inmobiliario-puerto-montt#service",
+                  "name": "Derecho Inmobiliario y Construcción",
+                  "url": "https://labraybalmaceda.cl/abogado-inmobiliario-puerto-montt"
+                }
               }
             ]
           },
@@ -218,6 +228,7 @@
 
     <!-- Formulario oculto para Netlify Forms, necesario para SPA/React -->
     <form name="consulta" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="tipo_cliente" />
       <input type="text" name="nombre" />
       <input type="email" name="email" />
       <input type="text" name="telefono" />

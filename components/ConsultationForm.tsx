@@ -1,14 +1,20 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { trackFormSubmission, trackFormSubmissionError } from '../services/tracking';
+import { trackFormSubmission, trackFormSubmissionError, trackWhatsAppConversion } from '../services/tracking';
+import { conIdioma, type Lang } from './i18n';
 
 // Formulario de consulta en 3 pasos con barras de progreso.
 // Hecho a mano, sin librerías (inspirado en el "Stepper" de React Bits, modo lineal:
 // no se avanza sin completar el paso). Los nombres de los campos, el envío a
 // Netlify Forms ("consulta") y el paso a /gracias son los mismos de antes.
+// Campo nuevo (19-11): `tipo_cliente` (Empresa / Persona). También está en el
+// formulario oculto de index.html: sin eso, Netlify lo descarta.
+// La versión en inglés (/en) usa los mismos nombres y valores de campo; solo
+// cambian los textos visibles.
 
 type FormStatus = 'idle' | 'loading' | 'success' | 'error';
 
 type FormData = {
+    tipo_cliente: string;
     nombre: string;
     email: string;
     telefono: string;
@@ -25,31 +31,155 @@ const encode = (data: { [key: string]: any }) => {
         .join("&");
 }
 
-const STEPS = [
-    { label: 'Tu consulta', fields: ['area', 'ciudad'] },
-    { label: 'El caso', fields: ['descripcion'] },
-    { label: 'Tus datos', fields: ['nombre', 'email', 'telefono', 'consentimiento'] },
+const STEP_FIELDS = [
+    ['tipo_cliente', 'area', 'ciudad'],
+    ['descripcion'],
+    ['nombre', 'email', 'telefono', 'consentimiento'],
 ] as const;
 
-const areaOptions = [
-    { value: "Familia", label: "Familia" },
-    { value: "Arriendo", label: "Arriendo" },
-    { value: "Civil", label: "Civil" },
-    { value: "Insolvencia", label: "Derecho Concursal" },
-    { value: "Corporativo", label: "Corporativo" },
-    { value: "Asesoria mensual", label: "Asesoría mensual" },
-    { value: "Otro", label: "Otro" },
+// Valores fijos (son los que llegan a Netlify); la etiqueta cambia según el idioma.
+const tipoOptions = [
+    { value: 'Empresa', es: 'Empresa', en: 'Company' },
+    { value: 'Persona', es: 'Persona', en: 'Individual' },
 ];
 
-// Nombre visible de cada cuadro, para el aviso "Revise el cuadro…".
-const NOMBRES_CAMPOS: { [key: string]: string } = {
-    area: 'Tipo de consulta',
-    ciudad: 'Ciudad',
-    descripcion: 'Descripción del caso',
-    nombre: 'Nombre completo',
-    email: 'Email',
-    telefono: 'Teléfono / WhatsApp',
-    consentimiento: 'Política de Privacidad',
+const areaOptions = [
+    { value: "Corporativo", es: "Corporativo", en: "Corporate" },
+    { value: "Asesoria mensual", es: "Asesoría mensual", en: "Monthly counsel" },
+    { value: "Civil", es: "Litigios civiles", en: "Litigation" },
+    { value: "Insolvencia", es: "Derecho Concursal", en: "Insolvency" },
+    { value: "Inmobiliario", es: "Inmobiliario y Construcción", en: "Real estate & construction" },
+    { value: "Arriendo", es: "Arriendo", en: "Leases" },
+    { value: "Familia", es: "Familia", en: "Family" },
+    { value: "Otro", es: "Otro", en: "Other" },
+];
+
+const TEXTOS = {
+    es: {
+        pasos: ['La consulta', 'El caso', 'Sus datos'],
+        // Nombre visible de cada cuadro, para el aviso "Revise el cuadro…".
+        campos: {
+            tipo_cliente: 'Empresa o persona',
+            area: 'Tipo de consulta',
+            ciudad: 'Ciudad',
+            descripcion: 'Descripción del caso',
+            nombre: 'Nombre completo',
+            email: 'Email',
+            telefono: 'Teléfono / WhatsApp',
+            consentimiento: 'Política de Privacidad',
+        } as { [key: string]: string },
+        titulo: <>Consulta <span className="text-brand-gold">inicial</span></>,
+        bajada: 'Respuesta en 24 horas. Atención reservada.',
+        paso: (n: number, total: number) => `Paso ${n} de ${total}`,
+        pasosAria: 'Pasos del formulario',
+        pasoAria: (n: number, label: string, done: boolean) => `Paso ${n}: ${label}${done ? ' (completado, volver)' : ''}`,
+        tipoPregunta: '¿La consulta es por una empresa o a título personal?',
+        personaAntes: 'Si lo prefiere, también puede escribirnos por ',
+        areaPregunta: '¿Sobre qué es su consulta?',
+        ciudad: 'Ciudad',
+        ciudadEj: 'Ej: Puerto Varas, Puerto Montt, Osorno...',
+        descripcion: 'Descripción breve del caso',
+        descripcionEj: 'Indique en 4 puntos: (1) qué pasó, (2) cuándo, (3) con quién, (4) qué objetivo busca. Si tiene documentos (contrato, sentencia, mensajes), menciónelos.',
+        descripcionAyuda: 'No hace falta que sea largo: con lo esencial le indicamos los próximos pasos.',
+        palabras: 'palabras',
+        nombre: 'Nombre completo',
+        nombreEj: 'Nombre y Apellido',
+        email: 'Email',
+        emailEj: 'ejemplo@correo.com',
+        telefono: 'Teléfono / WhatsApp',
+        consentimientoAntes: 'He leído la ',
+        privacidad: 'Política de Privacidad',
+        consentimientoDespues: ' y acepto ser contactado para responder esta consulta.',
+        datos: 'Sus datos se usan solo para responder esta solicitud. No enviamos spam.',
+        revise: (n: number) => `Revise ${n === 1 ? 'el cuadro' : 'los cuadros'}: `,
+        errorEnvio: 'No pudimos enviar su consulta. Revise su conexión e intente de nuevo, o',
+        errorWhatsApp: 'escríbanos por WhatsApp',
+        atras: 'Atrás',
+        continuar: 'Continuar',
+        procesando: 'Procesando...',
+        enviar: 'Enviar consulta',
+        pie1: 'Respondemos en 24 horas.',
+        pie2: 'Le indicamos próximos pasos, documentos y opciones.',
+        errores: {
+            nombreRequerido: 'El nombre es requerido.',
+            maximo: (n: number) => `Máximo ${n} caracteres.`,
+            soloLetrasNombre: 'Use solo letras en el nombre.',
+            email: 'Email inválido o requerido.',
+            telefonoRequerido: 'Teléfono es requerido.',
+            telefono: 'Use solo números (8 a 15 dígitos).',
+            ciudadRequerida: 'La ciudad es requerida.',
+            soloLetrasCiudad: 'Use solo letras en la ciudad.',
+            tipo: 'Indique si consulta por una empresa o a título personal.',
+            area: 'El tipo de consulta es requerido.',
+            descripcionRequerida: 'La descripción es requerida.',
+            signos: 'No se permiten los signos < > { } [ ] ` \\',
+            enlaces: 'Por seguridad, no incluya enlaces.',
+            palabras: (max: number, n: number) => `Máximo ${max} palabras (lleva ${n}).`,
+            consentimiento: 'Debe aceptar los términos.',
+        },
+    },
+    en: {
+        pasos: ['Your inquiry', 'The matter', 'Your details'],
+        campos: {
+            tipo_cliente: 'Company or individual',
+            area: 'Type of inquiry',
+            ciudad: 'City',
+            descripcion: 'Description of the matter',
+            nombre: 'Full name',
+            email: 'Email',
+            telefono: 'Phone / WhatsApp',
+            consentimiento: 'Privacy Policy',
+        } as { [key: string]: string },
+        titulo: <>Initial <span className="text-brand-gold">consultation</span></>,
+        bajada: 'Reply within 24 hours. Confidential.',
+        paso: (n: number, total: number) => `Step ${n} of ${total}`,
+        pasosAria: 'Form steps',
+        pasoAria: (n: number, label: string, done: boolean) => `Step ${n}: ${label}${done ? ' (completed, go back)' : ''}`,
+        tipoPregunta: 'Is the inquiry on behalf of a company or in a personal capacity?',
+        personaAntes: 'If you prefer, you can also write to us on ',
+        areaPregunta: 'What is your inquiry about?',
+        ciudad: 'City',
+        ciudadEj: 'E.g. Puerto Varas, Puerto Montt, Santiago...',
+        descripcion: 'Brief description of the matter',
+        descripcionEj: 'In 4 points: (1) what happened, (2) when, (3) with whom, (4) what you want to achieve. If you have documents (contract, judgment, messages), please mention them.',
+        descripcionAyuda: 'It does not need to be long: with the essentials we can tell you the next steps.',
+        palabras: 'words',
+        nombre: 'Full name',
+        nombreEj: 'First and last name',
+        email: 'Email',
+        emailEj: 'example@email.com',
+        telefono: 'Phone / WhatsApp',
+        consentimientoAntes: 'I have read the ',
+        privacidad: 'Privacy Policy (in Spanish)',
+        consentimientoDespues: ' and agree to be contacted in response to this inquiry.',
+        datos: 'Your details are used only to reply to this request. We do not send spam.',
+        revise: (n: number) => `Please check ${n === 1 ? 'this field' : 'these fields'}: `,
+        errorEnvio: 'We could not send your inquiry. Please check your connection and try again, or',
+        errorWhatsApp: 'write to us on WhatsApp',
+        atras: 'Back',
+        continuar: 'Continue',
+        procesando: 'Sending...',
+        enviar: 'Send inquiry',
+        pie1: 'We reply within 24 hours.',
+        pie2: 'We will tell you the next steps, documents and options.',
+        errores: {
+            nombreRequerido: 'Name is required.',
+            maximo: (n: number) => `Maximum ${n} characters.`,
+            soloLetrasNombre: 'Please use letters only in the name.',
+            email: 'Invalid or missing email.',
+            telefonoRequerido: 'Phone is required.',
+            telefono: 'Numbers only (8 to 15 digits).',
+            ciudadRequerida: 'City is required.',
+            soloLetrasCiudad: 'Please use letters only in the city.',
+            tipo: 'Please indicate whether the inquiry is for a company or personal.',
+            area: 'The type of inquiry is required.',
+            descripcionRequerida: 'A description is required.',
+            signos: 'The characters < > { } [ ] ` \\ are not allowed',
+            enlaces: 'For security reasons, please do not include links.',
+            palabras: (max: number, n: number) => `Maximum ${max} words (currently ${n}).`,
+            consentimiento: 'You must accept the terms.',
+        },
+    },
 };
 
 // ---- Medidas básicas de seguridad ----
@@ -74,35 +204,38 @@ const limpiar = (texto: string, multilinea = false) => {
     return sinControl.trim().replace(/^[=+\-@]+/, '').trim();
 };
 
-const validateField = (name: string, data: FormData): string | null => {
+const validateField = (name: string, data: FormData, lang: Lang): string | null => {
+    const e = TEXTOS[lang].errores;
     switch (name) {
         case 'nombre':
-            if (!data.nombre.trim()) return 'El nombre es requerido.';
-            if (data.nombre.length > LIMITES.nombre) return `Máximo ${LIMITES.nombre} caracteres.`;
-            return SOLO_LETRAS.test(data.nombre.trim()) ? null : 'Use solo letras en el nombre.';
+            if (!data.nombre.trim()) return e.nombreRequerido;
+            if (data.nombre.length > LIMITES.nombre) return e.maximo(LIMITES.nombre);
+            return SOLO_LETRAS.test(data.nombre.trim()) ? null : e.soloLetrasNombre;
         case 'email':
-            if (!data.email.trim() || data.email.length > LIMITES.email) return 'Email inválido o requerido.';
-            return EMAIL.test(data.email.trim()) ? null : 'Email inválido o requerido.';
+            if (!data.email.trim() || data.email.length > LIMITES.email) return e.email;
+            return EMAIL.test(data.email.trim()) ? null : e.email;
         case 'telefono': {
-            if (!data.telefono.trim()) return 'Teléfono es requerido.';
+            if (!data.telefono.trim()) return e.telefonoRequerido;
             const digitos = data.telefono.replace(/\D/g, '').length;
-            return TELEFONO.test(data.telefono) && digitos >= 8 && digitos <= 15 ? null : 'Use solo números (8 a 15 dígitos).';
+            return TELEFONO.test(data.telefono) && digitos >= 8 && digitos <= 15 ? null : e.telefono;
         }
         case 'ciudad':
-            if (!data.ciudad.trim()) return 'La ciudad es requerida.';
-            if (data.ciudad.length > LIMITES.ciudad) return `Máximo ${LIMITES.ciudad} caracteres.`;
-            return /^[\p{L}\p{M}' .,-]+$/u.test(data.ciudad.trim()) ? null : 'Use solo letras en la ciudad.';
+            if (!data.ciudad.trim()) return e.ciudadRequerida;
+            if (data.ciudad.length > LIMITES.ciudad) return e.maximo(LIMITES.ciudad);
+            return /^[\p{L}\p{M}' .,-]+$/u.test(data.ciudad.trim()) ? null : e.soloLetrasCiudad;
+        case 'tipo_cliente':
+            return tipoOptions.some(o => o.value === data.tipo_cliente) ? null : e.tipo;
         case 'area':
-            return areaOptions.some(o => o.value === data.area) ? null : 'El tipo de consulta es requerido.';
+            return areaOptions.some(o => o.value === data.area) ? null : e.area;
         case 'descripcion': {
-            if (!data.descripcion.trim()) return 'La descripción es requerida.';
-            if (SIGNOS_PROHIBIDOS.test(data.descripcion)) return 'No se permiten los signos < > { } [ ] ` \\';
-            if (ENLACES.test(data.descripcion)) return 'Por seguridad, no incluya enlaces.';
+            if (!data.descripcion.trim()) return e.descripcionRequerida;
+            if (SIGNOS_PROHIBIDOS.test(data.descripcion)) return e.signos;
+            if (ENLACES.test(data.descripcion)) return e.enlaces;
             const palabras = contarPalabras(data.descripcion);
-            if (palabras > MAX_PALABRAS) return `Máximo ${MAX_PALABRAS} palabras (lleva ${palabras}).`;
-            return data.descripcion.length > LIMITES.descripcion ? `Máximo ${LIMITES.descripcion} caracteres.` : null;
+            if (palabras > MAX_PALABRAS) return e.palabras(MAX_PALABRAS, palabras);
+            return data.descripcion.length > LIMITES.descripcion ? e.maximo(LIMITES.descripcion) : null;
         }
-        case 'consentimiento': return data.consentimiento ? null : 'Debe aceptar los términos.';
+        case 'consentimiento': return data.consentimiento ? null : e.consentimiento;
         default: return null;
     }
 };
@@ -112,8 +245,11 @@ const labelClass = "block text-[11px] font-bold text-brand-black uppercase track
 const ErrorText: React.FC<{ msg?: string }> = ({ msg }) =>
     msg ? <p className="text-red-500 text-[10px] font-bold uppercase mt-1" role="alert">{msg}</p> : null;
 
-const ConsultationForm: React.FC = () => {
+const ConsultationForm: React.FC<{ lang?: Lang }> = ({ lang: langProp }) => {
+    const lang: Lang = langProp ?? 'es';
+    const t = TEXTOS[lang];
     const [formData, setFormData] = useState<FormData>({
+        tipo_cliente: '',
         nombre: '',
         email: '',
         telefono: '',
@@ -128,7 +264,7 @@ const ConsultationForm: React.FC = () => {
     const direction = useRef(1);
     const stepRef = useRef<HTMLDivElement>(null);
     const firstRender = useRef(true);
-    const last = STEPS.length - 1;
+    const last = STEP_FIELDS.length - 1;
     // Anti-bots: campo trampa invisible y tiempo mínimo desde que cargó la página.
     const honeypotRef = useRef<HTMLInputElement>(null);
     const cargadoEn = useRef(Date.now());
@@ -161,8 +297,8 @@ const ConsultationForm: React.FC = () => {
 
     const validateStep = (index: number): boolean => {
         const stepErrors: { [key: string]: string } = {};
-        for (const field of STEPS[index].fields) {
-            const msg = validateField(field, formData);
+        for (const field of STEP_FIELDS[index]) {
+            const msg = validateField(field, formData, lang);
             if (msg) stepErrors[field] = msg;
         }
         setErrors(stepErrors);
@@ -170,8 +306,8 @@ const ConsultationForm: React.FC = () => {
         if (primero) {
             // Lleva el cursor al primer cuadro con problema.
             window.setTimeout(() => {
-                const el = primero === 'area'
-                    ? document.querySelector<HTMLElement>('#consulta input[name="area"]')
+                const el = primero === 'area' || primero === 'tipo_cliente'
+                    ? document.querySelector<HTMLElement>(`#consulta input[name="${primero}"]`)
                     : document.getElementById(primero);
                 el?.focus();
             }, 0);
@@ -204,6 +340,7 @@ const ConsultationForm: React.FC = () => {
         }
 
         const limpio = {
+            tipo_cliente: formData.tipo_cliente,
             nombre: limpiar(formData.nombre),
             email: limpiar(formData.email),
             telefono: formData.telefono.replace(/[^+\d\s()-]/g, '').trim(),
@@ -240,10 +377,10 @@ const ConsultationForm: React.FC = () => {
 
                     <div className="text-center mb-8 sm:mb-10">
                         <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-brand-black font-baskerville uppercase tracking-tight not-italic">
-                            Consulta <span className="text-brand-gold">inicial</span>
+                            {t.titulo}
                         </h2>
                         <p className="text-base sm:text-lg text-gray-500 font-medium italic">
-                            Respuesta en 24 horas. Atención reservada.
+                            {t.bajada}
                         </p>
                     </div>
 
@@ -251,24 +388,24 @@ const ConsultationForm: React.FC = () => {
                     <div className="mb-8">
                         <div className="flex items-center justify-between mb-3">
                             <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-brand-gold">
-                                Paso {step + 1} de {STEPS.length}
+                                {t.paso(step + 1, STEP_FIELDS.length)}
                             </p>
                             <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-brand-black">
-                                {STEPS[step].label}
+                                {t.pasos[step]}
                             </p>
                         </div>
-                        <ol className="grid grid-cols-3 gap-2" aria-label="Pasos del formulario">
-                            {STEPS.map((s, i) => {
+                        <ol className="grid grid-cols-3 gap-2" aria-label={t.pasosAria}>
+                            {t.pasos.map((label, i) => {
                                 const done = i < step;
                                 const current = i === step;
                                 return (
-                                    <li key={s.label}>
+                                    <li key={label}>
                                         <button
                                             type="button"
                                             onClick={() => done && goTo(i)}
                                             disabled={!done}
                                             aria-current={current ? 'step' : undefined}
-                                            aria-label={`Paso ${i + 1}: ${s.label}${done ? ' (completado, volver)' : ''}`}
+                                            aria-label={t.pasoAria(i + 1, label, done)}
                                             className={`block w-full py-2 ${done ? 'cursor-pointer' : 'cursor-default'}`}
                                         >
                                             <span className="block h-1.5 rounded-full bg-gray-100 overflow-hidden">
@@ -278,7 +415,7 @@ const ConsultationForm: React.FC = () => {
                                                 />
                                             </span>
                                             <span className={`hidden sm:block mt-2 text-left text-[10px] font-bold uppercase tracking-[0.15em] ${current ? 'text-brand-black' : done ? 'text-brand-gold' : 'text-gray-300'}`}>
-                                                {s.label}
+                                                {label}
                                             </span>
                                         </button>
                                     </li>
@@ -298,7 +435,43 @@ const ConsultationForm: React.FC = () => {
                             {step === 0 && (
                                 <>
                                     <fieldset className="space-y-3">
-                                        <legend className={`${labelClass} mb-3`}>¿Sobre qué es tu consulta? <span className="text-brand-gold">*</span></legend>
+                                        <legend className={`${labelClass} mb-3 leading-relaxed`}>{t.tipoPregunta} <span className="text-brand-gold">*</span></legend>
+                                        <div className="grid grid-cols-2 gap-3">
+                                            {tipoOptions.map(option => {
+                                                const selected = formData.tipo_cliente === option.value;
+                                                return (
+                                                    <label
+                                                        key={option.value}
+                                                        className={`flex items-center justify-center text-center px-3 py-4 rounded-xl border-2 text-sm font-bold cursor-pointer transition-colors duration-200 has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-brand-gold/40 ${
+                                                            selected ? 'border-brand-gold bg-brand-gold/10 text-brand-black' : 'border-gray-100 bg-gray-50 text-gray-600 hover:border-brand-gold/40'
+                                                        }`}
+                                                    >
+                                                        <input type="radio" name="tipo_cliente" value={option.value} checked={selected} onChange={handleChange} className="sr-only" />
+                                                        {option[lang]}
+                                                    </label>
+                                                );
+                                            })}
+                                        </div>
+                                        <ErrorText msg={errors.tipo_cliente} />
+                                        {/* A título personal: se ofrece también WhatsApp (no bloquea el envío). */}
+                                        {formData.tipo_cliente === 'Persona' && (
+                                            <p className="text-xs text-gray-500 font-medium">
+                                                {t.personaAntes}
+                                                <a
+                                                    href="https://wa.me/56977646224"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    onClick={() => trackWhatsAppConversion(conIdioma('Formulario Persona', lang))}
+                                                    className="font-bold text-brand-gold underline hover:text-brand-black transition-colors"
+                                                >
+                                                    WhatsApp
+                                                </a>.
+                                            </p>
+                                        )}
+                                    </fieldset>
+
+                                    <fieldset className="space-y-3">
+                                        <legend className={`${labelClass} mb-3`}>{t.areaPregunta} <span className="text-brand-gold">*</span></legend>
                                         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                                             {areaOptions.map(option => {
                                                 const selected = formData.area === option.value;
@@ -310,7 +483,7 @@ const ConsultationForm: React.FC = () => {
                                                         }`}
                                                     >
                                                         <input type="radio" name="area" value={option.value} checked={selected} onChange={handleChange} className="sr-only" />
-                                                        {option.label}
+                                                        {option[lang]}
                                                     </label>
                                                 );
                                             })}
@@ -319,8 +492,8 @@ const ConsultationForm: React.FC = () => {
                                     </fieldset>
 
                                     <div className="space-y-2">
-                                        <label htmlFor="ciudad" className={labelClass}>Ciudad <span className="text-brand-gold">*</span></label>
-                                        <input type="text" id="ciudad" name="ciudad" value={formData.ciudad} onChange={handleChange} required maxLength={LIMITES.ciudad} autoComplete="address-level2" placeholder="Ej: Puerto Varas, Puerto Montt, Osorno..." className={inputClass} />
+                                        <label htmlFor="ciudad" className={labelClass}>{t.ciudad} <span className="text-brand-gold">*</span></label>
+                                        <input type="text" id="ciudad" name="ciudad" value={formData.ciudad} onChange={handleChange} required maxLength={LIMITES.ciudad} autoComplete="address-level2" placeholder={t.ciudadEj} className={inputClass} />
                                         <ErrorText msg={errors.ciudad} />
                                     </div>
                                 </>
@@ -328,15 +501,15 @@ const ConsultationForm: React.FC = () => {
 
                             {step === 1 && (
                                 <div className="space-y-2">
-                                    <label htmlFor="descripcion" className={labelClass}>Descripción breve del caso <span className="text-brand-gold">*</span></label>
-                                    <textarea id="descripcion" name="descripcion" value={formData.descripcion} onChange={handleChange} required rows={7} maxLength={LIMITES.descripcion} placeholder="Cuéntanos en 4 puntos: (1) qué pasó, (2) cuándo, (3) con quién, (4) qué objetivo buscas. Si tienes documentos (contrato, sentencia, mensajes), indícalo." className={`${inputClass} resize-none`}></textarea>
+                                    <label htmlFor="descripcion" className={labelClass}>{t.descripcion} <span className="text-brand-gold">*</span></label>
+                                    <textarea id="descripcion" name="descripcion" value={formData.descripcion} onChange={handleChange} required rows={7} maxLength={LIMITES.descripcion} placeholder={t.descripcionEj} className={`${inputClass} resize-none`}></textarea>
                                     <div className="flex items-start justify-between gap-4">
                                         <div>
                                             <ErrorText msg={errors.descripcion} />
-                                            <p className="text-[11px] text-gray-400 font-medium">No hace falta que sea largo: con lo esencial te indicamos los próximos pasos.</p>
+                                            <p className="text-[11px] text-gray-400 font-medium">{t.descripcionAyuda}</p>
                                         </div>
                                         <p className={`shrink-0 text-[11px] font-bold tabular-nums ${palabras > MAX_PALABRAS ? 'text-red-500' : 'text-gray-400'}`} aria-live="polite">
-                                            {palabras} / {MAX_PALABRAS} palabras
+                                            {palabras} / {MAX_PALABRAS} {t.palabras}
                                         </p>
                                     </div>
                                 </div>
@@ -345,18 +518,18 @@ const ConsultationForm: React.FC = () => {
                             {step === 2 && (
                                 <>
                                     <div className="space-y-2">
-                                        <label htmlFor="nombre" className={labelClass}>Nombre completo <span className="text-brand-gold">*</span></label>
-                                        <input type="text" id="nombre" name="nombre" value={formData.nombre} onChange={handleChange} required maxLength={LIMITES.nombre} autoComplete="name" placeholder="Nombre y Apellido" className={inputClass} />
+                                        <label htmlFor="nombre" className={labelClass}>{t.nombre} <span className="text-brand-gold">*</span></label>
+                                        <input type="text" id="nombre" name="nombre" value={formData.nombre} onChange={handleChange} required maxLength={LIMITES.nombre} autoComplete="name" placeholder={t.nombreEj} className={inputClass} />
                                         <ErrorText msg={errors.nombre} />
                                     </div>
                                     <div className="grid sm:grid-cols-2 gap-6">
                                         <div className="space-y-2">
-                                            <label htmlFor="email" className={labelClass}>Email <span className="text-brand-gold">*</span></label>
-                                            <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required maxLength={LIMITES.email} autoComplete="email" placeholder="ejemplo@correo.com" className={inputClass} />
+                                            <label htmlFor="email" className={labelClass}>{t.email} <span className="text-brand-gold">*</span></label>
+                                            <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required maxLength={LIMITES.email} autoComplete="email" placeholder={t.emailEj} className={inputClass} />
                                             <ErrorText msg={errors.email} />
                                         </div>
                                         <div className="space-y-2">
-                                            <label htmlFor="telefono" className={labelClass}>Teléfono / WhatsApp <span className="text-brand-gold">*</span></label>
+                                            <label htmlFor="telefono" className={labelClass}>{t.telefono} <span className="text-brand-gold">*</span></label>
                                             <input type="tel" id="telefono" name="telefono" value={formData.telefono} onChange={handleChange} required maxLength={LIMITES.telefono} inputMode="tel" autoComplete="tel" placeholder="+56 9 8765 4321" className={inputClass} />
                                             <ErrorText msg={errors.telefono} />
                                         </div>
@@ -366,9 +539,9 @@ const ConsultationForm: React.FC = () => {
                                         <input type="checkbox" id="consentimiento" name="consentimiento" checked={formData.consentimiento} onChange={handleChange} required className="mt-1 w-5 h-5 text-brand-gold border-gray-300 rounded focus:ring-0 cursor-pointer" />
                                         <div className="space-y-1">
                                             <label htmlFor="consentimiento" className="text-xs sm:text-sm text-gray-600 font-medium cursor-pointer">
-                                                He leído la <a href="/privacidad" role="button" onClick={(e) => { e.preventDefault(); window.history.pushState({}, '', '/privacidad'); window.dispatchEvent(new PopStateEvent('popstate')); }} className="text-brand-gold underline hover:text-brand-black transition-colors">Política de Privacidad</a> y acepto ser contactado para responder esta consulta. <span className="text-brand-gold">*</span>
+                                                {t.consentimientoAntes}<a href="/privacidad" role="button" onClick={(e) => { e.preventDefault(); window.history.pushState({}, '', '/privacidad'); window.dispatchEvent(new PopStateEvent('popstate')); }} className="text-brand-gold underline hover:text-brand-black transition-colors">{t.privacidad}</a>{t.consentimientoDespues} <span className="text-brand-gold">*</span>
                                             </label>
-                                            <p className="text-[10px] text-gray-400 font-medium">Tus datos se usan solo para responder esta solicitud. No enviamos spam.</p>
+                                            <p className="text-[10px] text-gray-400 font-medium">{t.datos}</p>
                                             {errors.consentimiento && <span className="block text-red-500 text-[10px] font-bold uppercase" role="alert">{errors.consentimiento}</span>}
                                         </div>
                                     </div>
@@ -378,14 +551,14 @@ const ConsultationForm: React.FC = () => {
 
                         {Object.keys(errors).length > 0 && (
                           <div className="mt-6 bg-amber-50 border border-amber-200 text-amber-900 p-4 rounded-xl text-sm" role="alert">
-                            <strong className="font-bold">Revise {Object.keys(errors).length === 1 ? 'el cuadro' : 'los cuadros'}: </strong>
-                            {Object.keys(errors).map(k => NOMBRES_CAMPOS[k] || k).join(', ')}.
+                            <strong className="font-bold">{t.revise(Object.keys(errors).length)}</strong>
+                            {Object.keys(errors).map(k => t.campos[k] || k).join(', ')}.
                           </div>
                         )}
 
                         {status === 'error' && (
                           <div className="mt-6 bg-gray-50 border border-gray-200 text-brand-black p-4 rounded-xl text-center text-sm" role="alert">
-                            No pudimos enviar su consulta. Revise su conexión e intente de nuevo, o{' '}
+                            {t.errorEnvio}{' '}
                             <a
                                 href="https://wa.me/56977646224"
                                 target="_blank"
@@ -401,7 +574,7 @@ const ConsultationForm: React.FC = () => {
                                     }
                                 }}
                             >
-                                escríbanos por WhatsApp
+                                {t.errorWhatsApp}
                             </a>.
                           </div>
                         )}
@@ -415,7 +588,7 @@ const ConsultationForm: React.FC = () => {
                                     className="inline-flex items-center justify-center gap-2 px-6 py-4 text-sm font-bold uppercase tracking-widest text-gray-500 hover:text-brand-black transition-colors cursor-pointer"
                                 >
                                     <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
-                                    Atrás
+                                    {t.atras}
                                 </button>
                             ) : <span className="hidden sm:block" />}
 
@@ -426,16 +599,16 @@ const ConsultationForm: React.FC = () => {
                             >
                                 {step < last ? (
                                     <>
-                                        Continuar
+                                        {t.continuar}
                                         <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
                                     </>
-                                ) : status === 'loading' ? 'Procesando...' : 'Enviar consulta'}
+                                ) : status === 'loading' ? t.procesando : t.enviar}
                             </button>
                         </div>
 
                         <p className="mt-6 text-center text-[11px] text-gray-400 font-bold uppercase tracking-[0.2em]">
-                            Te respondemos en 24 horas. <br className="sm:hidden" />
-                            <span className="text-brand-gold/60">Te indicamos próximos pasos, documentos y opciones.</span>
+                            {t.pie1} <br className="sm:hidden" />
+                            <span className="text-brand-gold/60">{t.pie2}</span>
                         </p>
                     </form>
                 </div>

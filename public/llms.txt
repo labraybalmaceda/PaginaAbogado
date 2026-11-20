@@ -1,6 +1,6 @@
 # Labra & Balmaceda Abogados
 
-> Estudio jurídico chileno con base en Puerto Varas. Atiende con cita previa en Puerto Varas y Puerto Montt, y de forma online en todo Chile. Áreas: Derecho Civil, Derecho Corporativo, Derecho de Familia, Arrendamientos y Derecho Concursal. Fundado por el abogado Renato Labra.
+> Estudio jurídico chileno con base en Puerto Varas. Atiende con cita previa en Puerto Varas y Puerto Montt, y de forma online en todo Chile. Áreas: Derecho Corporativo, asesoría legal mensual para empresas, Litigios Civiles y Comerciales, Derecho Concursal, Derecho Inmobiliario y Construcción, Arrendamientos y Derecho de Familia. Fundado por el abogado Renato Labra.
 
 Contacto: +56 9 7764 6224 (teléfono y WhatsApp) | contacto@labraybalmaceda.cl
 Horario: lunes a viernes, de 09:00 a 19:00 (hora de Chile).
@@ -8,29 +8,42 @@ Cobertura: Puerto Varas, Puerto Montt, Llanquihue y el resto de la Región de Lo
 
 ## Áreas de práctica
 
-- [Derecho Civil](https://labraybalmaceda.cl/abogado-civil-puerto-montt): Contratos, herencias, posesión efectiva, partición, precario e indemnización de perjuicios.
+- [Litigios Civiles y Comerciales](https://labraybalmaceda.cl/abogado-civil-puerto-montt): Contratos, cobros, herencias, posesión efectiva, partición, precario e indemnización de perjuicios.
+- [Derecho Inmobiliario y Construcción](https://labraybalmaceda.cl/abogado-inmobiliario-puerto-montt): Compraventas y promesas, estudio de títulos, arriendos comerciales, contratos de construcción, normativa urbanística y permisos, y litigios por incumplimiento o por defectos de construcción.
 - [Arrendamientos](https://labraybalmaceda.cl/abogado-arriendo-puerto-montt): Terminación de contrato por no pago, lanzamiento, cobro de rentas y defensa del arrendatario.
 - [Derecho de Familia](https://labraybalmaceda.cl/abogado-familia-puerto-montt): Divorcio, pensión de alimentos y su cobro, cuidado personal y compensación económica.
 - [Derecho Concursal](https://labraybalmaceda.cl/abogado-insolvencia-puerto-montt): Reorganización y liquidación de empresas (Ley N° 20.720), procedimientos simplificados para micro y pequeñas empresas, representación de acreedores y defensa en juicios ejecutivos.
 - [Derecho Corporativo](https://labraybalmaceda.cl/abogado-corporativo-puerto-montt): Constitución y modificación de sociedades, pactos de accionistas, contratos comerciales, compraventa de empresas y conflictos entre socios.
+- [Asesoría legal mensual para empresas](https://labraybalmaceda.cl/asesoria-legal-empresas-puerto-montt): Abogado externo para empresas y sus socios con un convenio mensual que incluye consultas permanentes, contratos, negociaciones, riesgos laborales y tributarios, gestión societaria, cobro de créditos y juicios. Atención online en todo Chile.
+
+## English version
+
+- [Home (English)](https://labraybalmaceda.cl/en): Legal counsel for companies and individuals in southern Chile.
+- [Corporate Law](https://labraybalmaceda.cl/en/corporate-law): Incorporation and amendment of companies, shareholder agreements, commercial contracts and purchase and sale of companies.
+- [Monthly Legal Counsel](https://labraybalmaceda.cl/en/monthly-legal-counsel): Outside lawyer for companies and their partners under a monthly agreement covering ongoing advice, contracts, labor and tax risks, collections and lawsuits.
+- [Civil and Commercial Litigation](https://labraybalmaceda.cl/en/litigation): Enforcement proceedings, inheritances and probate, precario actions and damages claims.
+- [Real Estate and Construction](https://labraybalmaceda.cl/en/real-estate-and-construction): Sales and promissory agreements, title review, commercial leases, building contracts, urban planning permits and construction litigation.
+- [Insolvency Law](https://labraybalmaceda.cl/en/insolvency): Reorganization and liquidation of companies under Ley N° 20.720, simplified procedures for micro and small companies and representation of creditors.
 
 ## Artículos del blog
 
-- [Cesión de derechos hereditarios: qué revisar antes de vender tu parte de la herencia](https://labraybalmaceda.cl/blog/cesion-de-derechos-hereditarios): ¿Quieres vender tu parte de la herencia en Chile? Conoce la forma exigida, los riesgos y el impuesto que debes revisar antes de firmar la cesión.
+- [Cómo terminar un contrato de arriendo en Chile: formas, plazos y qué se puede demandar (Ley 18.101)](https://labraybalmaceda.cl/blog/como-terminar-un-contrato-de-arriendo-en-chile): ¿Cómo se termina un arriendo en Chile? Formas de término, plazo del desahucio y las seis demandas que permite el art. 7 de la Ley 18.101.
+- [Testamento en Chile: tipos, requisitos y cómo hacerlo para proteger a la familia](https://labraybalmaceda.cl/blog/testamento-en-chile-como-hacerlo): ¿Cómo se hace un testamento en Chile? Tipos, testigos, requisitos y cuánto de los bienes se puede dejar a quien se quiera. Guía clara para decidir bien.
+- [Cesión de derechos hereditarios: qué revisar antes de vender la parte de la herencia](https://labraybalmaceda.cl/blog/cesion-de-derechos-hereditarios): Vender la parte de una herencia en Chile antes de la partición: la forma que exige la ley, los riesgos y el impuesto que hay que revisar antes de firmar la cesión.
 - [Juicio ejecutivo: cómo cobrar una factura, un pagaré o un cheque que no pagaron a tu empresa](https://labraybalmaceda.cl/blog/juicio-ejecutivo-cobro-de-deudas): ¿Un cliente no te paga una factura, un pagaré o un cheque? El juicio ejecutivo permite embargar sus bienes. Qué necesitas y cuánto plazo tienes.
-- [Cómo constituir una empresa en Chile: qué sociedad elegir y qué trámites vienen después](https://labraybalmaceda.cl/blog/como-constituir-una-empresa-en-chile): ¿Vas a constituir una empresa en Chile? Te explicamos qué sociedad conviene, las dos vías legales para crearla y qué trámites vienen después.
-- [Posesión efectiva: qué es, cómo se tramita y por qué no conviene postergarla](https://labraybalmaceda.cl/blog/posesion-efectiva-herencia): ¿Murió un familiar y no saben por dónde partir? La posesión efectiva es el primer paso para heredar en Chile. Cómo pedirla y qué pasa si no la haces.
+- [Cómo constituir una empresa en Chile: qué sociedad elegir y qué trámites vienen después](https://labraybalmaceda.cl/blog/como-constituir-una-empresa-en-chile): Qué sociedad conviene para constituir una empresa en Chile, las dos vías legales para crearla y los trámites que vienen después de firmar.
+- [Posesión efectiva: qué es, cómo se tramita y por qué no conviene postergarla](https://labraybalmaceda.cl/blog/posesion-efectiva-herencia): ¿Murió un familiar y no saben por dónde partir? La posesión efectiva es el primer paso para heredar en Chile. Cómo se pide y qué pasa si se posterga.
 - [Divorcio de mutuo acuerdo en Chile: requisitos, plazos y cómo se tramita](https://labraybalmaceda.cl/blog/divorcio-de-mutuo-acuerdo): Divorcio de mutuo acuerdo en Chile: el plazo de cese de convivencia, cómo se prueba, qué debe contener el acuerdo completo y suficiente y cómo se tramita.
 - [Promesa de compraventa: qué pasa si la otra parte no firma o se arrepiente](https://labraybalmaceda.cl/blog/promesa-de-compraventa-incumplimiento): Firmaste una promesa de compraventa y la otra parte se arrepiente. ¿Puedes obligarla a cumplir? Conoce tus derechos y qué hacer paso a paso.
-- [Incumplimiento de contrato: qué puedes hacer cuando la otra parte no cumple](https://labraybalmaceda.cl/blog/incumplimiento-de-contrato): ¿La otra parte no cumplió el contrato? En Chile puedes exigir el cumplimiento o resolverlo y cobrar perjuicios. Te explicamos cuándo conviene cada camino.
-- [Tu arrendatario no se quiere ir: qué hacer para recuperar tu propiedad](https://labraybalmaceda.cl/blog/arrendatario-no-se-quiere-ir-que-hacer): ¿Tu arrendatario no se va aunque dejó de pagar o terminó el contrato? Te explicamos el juicio rápido, cuánto demora y por qué no debes cambiar la chapa.
-- [Herederos que no se ponen de acuerdo: el juicio de partición](https://labraybalmaceda.cl/blog/juicio-de-particion-herederos-sin-acuerdo): ¿Los herederos no se ponen de acuerdo para repartir la herencia? Te explicamos el juicio de partición en Chile y qué hace el juez partidor.
+- [Incumplimiento de contrato: qué hacer cuando la otra parte no cumple](https://labraybalmaceda.cl/blog/incumplimiento-de-contrato): Si la otra parte no cumplió el contrato, en Chile se puede exigir el cumplimiento o pedir la resolución, con perjuicios. Cuándo conviene cada vía y qué plazo hay.
+- [Arrendatario que no paga o no se quiere ir: cómo recuperar la propiedad en Chile](https://labraybalmaceda.cl/blog/arrendatario-no-se-quiere-ir-que-hacer): ¿El arrendatario no paga o no entrega la propiedad? En Chile hay un juicio monitorio para recuperarla y cobrar. Plazos, documentos y errores a evitar.
+- [Herederos que no se ponen de acuerdo: el juicio de partición](https://labraybalmaceda.cl/blog/juicio-de-particion-herederos-sin-acuerdo): Herederos sin acuerdo para repartir la herencia: cómo funciona el juicio de partición en Chile, qué hace el juez partidor, cuánto demora y quién paga.
 - [Divorcio unilateral o de común acuerdo: cuál conviene en tu caso](https://labraybalmaceda.cl/blog/divorcio-unilateral-o-de-comun-acuerdo): Diferencias entre el divorcio de común acuerdo y el unilateral en Chile: plazos de cese de convivencia, qué se debe probar y compensación económica.
 - [No te pagan la pensión de alimentos: la ley tiene cómo obligarlos a pagar](https://labraybalmaceda.cl/blog/como-cobrar-pension-de-alimentos-retencion-afp): ¿No te pagan la pensión de alimentos? Conoce las herramientas legales para cobrarla en Chile: retención de impuestos, fondos de AFP, arresto y arraigo.
 
 ## Notas
 
-- Todo el contenido está en español y se refiere a la legislación chilena vigente, citando los artículos aplicables de cada norma.
+- El contenido está en español, salvo la portada y 5 páginas de servicio en inglés (sección "English version"), y se refiere a la legislación chilena vigente, con enlaces a su texto oficial en bcn.cl.
 - Los artículos son informativos y no constituyen asesoría legal para un caso particular.
 - [Índice del blog](https://labraybalmaceda.cl/blog)
 - [Política de privacidad](https://labraybalmaceda.cl/privacidad)

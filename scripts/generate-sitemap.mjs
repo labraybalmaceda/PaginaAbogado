@@ -17,16 +17,49 @@ const BASE_URL = 'https://labraybalmaceda.cl';
 
 // Páginas fijas del sitio. `lastmod` se actualiza a mano cuando cambia la página.
 const STATIC_ROUTES = [
-    { path: '/', lastmod: '2026-10-01', changefreq: 'monthly', priority: '1.0' },
+    { path: '/', lastmod: '2026-11-20', changefreq: 'monthly', priority: '1.0' },
     { path: '/blog', lastmod: '2026-07-20', changefreq: 'weekly', priority: '0.9' },
-    { path: '/abogado-civil-puerto-montt', lastmod: '2026-09-17', changefreq: 'monthly', priority: '0.8' },
-    { path: '/abogado-familia-puerto-montt', lastmod: '2026-09-17', changefreq: 'monthly', priority: '0.8' },
-    { path: '/abogado-arriendo-puerto-montt', lastmod: '2026-09-17', changefreq: 'monthly', priority: '0.8' },
-    { path: '/abogado-insolvencia-puerto-montt', lastmod: '2026-10-02', changefreq: 'monthly', priority: '0.8' },
-    { path: '/abogado-corporativo-puerto-montt', lastmod: '2026-11-12', changefreq: 'monthly', priority: '0.8' },
-    { path: '/asesoria-legal-empresas-puerto-montt', lastmod: '2026-11-13', changefreq: 'monthly', priority: '0.8' },
+    { path: '/abogado-civil-puerto-montt', lastmod: '2026-11-20', changefreq: 'monthly', priority: '0.8' },
+    { path: '/abogado-familia-puerto-montt', lastmod: '2026-11-20', changefreq: 'monthly', priority: '0.8' },
+    { path: '/abogado-arriendo-puerto-montt', lastmod: '2026-11-20', changefreq: 'monthly', priority: '0.8' },
+    { path: '/abogado-insolvencia-puerto-montt', lastmod: '2026-11-20', changefreq: 'monthly', priority: '0.8' },
+    { path: '/abogado-corporativo-puerto-montt', lastmod: '2026-11-20', changefreq: 'monthly', priority: '0.8' },
+    { path: '/abogado-inmobiliario-puerto-montt', lastmod: '2026-11-20', changefreq: 'monthly', priority: '0.8' },
+    { path: '/asesoria-legal-empresas-puerto-montt', lastmod: '2026-11-20', changefreq: 'monthly', priority: '0.8' },
     { path: '/privacidad', lastmod: '2026-10-01', changefreq: 'yearly', priority: '0.3' },
+    // Versión en inglés (portada y 4 páginas de empresa).
+    { path: '/en', lastmod: '2026-11-20', changefreq: 'monthly', priority: '0.7' },
+    { path: '/en/corporate-law', lastmod: '2026-11-20', changefreq: 'monthly', priority: '0.6' },
+    { path: '/en/monthly-legal-counsel', lastmod: '2026-11-20', changefreq: 'monthly', priority: '0.6' },
+    { path: '/en/litigation', lastmod: '2026-11-20', changefreq: 'monthly', priority: '0.6' },
+    { path: '/en/insolvency', lastmod: '2026-11-20', changefreq: 'monthly', priority: '0.6' },
+    { path: '/en/real-estate-and-construction', lastmod: '2026-11-20', changefreq: 'monthly', priority: '0.6' },
 ];
+
+// Pares español - inglés para hreflang (es, en y x-default al español), en las dos versiones.
+// shortcut: copia de PAGE_PAIRS de components/i18n.ts (este script es .mjs y no importa TypeScript); si se agrega una página en inglés, actualizar las dos listas.
+const PAGE_PAIRS = [
+    { es: '/', en: '/en' },
+    { es: '/abogado-corporativo-puerto-montt', en: '/en/corporate-law' },
+    { es: '/asesoria-legal-empresas-puerto-montt', en: '/en/monthly-legal-counsel' },
+    { es: '/abogado-civil-puerto-montt', en: '/en/litigation' },
+    { es: '/abogado-insolvencia-puerto-montt', en: '/en/insolvency' },
+    { es: '/abogado-inmobiliario-puerto-montt', en: '/en/real-estate-and-construction' },
+];
+
+const absoluteUrl = (path) => `${BASE_URL}${path === '/' ? '/' : path}`;
+
+const alternatesFor = (path) => {
+    const pair = PAGE_PAIRS.find((p) => p.es === path || p.en === path);
+    if (!pair) return '';
+    return [
+        ['es', pair.es],
+        ['en', pair.en],
+        ['x-default', pair.es],
+    ]
+        .map(([lang, href]) => `\n    <xhtml:link rel="alternate" hreflang="${lang}" href="${absoluteUrl(href)}"/>`)
+        .join('');
+};
 
 const match = (source, pattern) => {
     const result = source.match(pattern);
@@ -79,7 +112,7 @@ const toXml = (routes) => {
     const urls = routes
         .map(
             (r) => `  <url>
-    <loc>${BASE_URL}${r.path === '/' ? '/' : r.path}</loc>
+    <loc>${absoluteUrl(r.path)}</loc>${alternatesFor(r.path)}
     <lastmod>${r.lastmod}</lastmod>
     <changefreq>${r.changefreq}</changefreq>
     <priority>${r.priority}</priority>
@@ -88,7 +121,7 @@ const toXml = (routes) => {
         .join('\n');
 
     return `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${urls}
 </urlset>
 `;

@@ -1,5 +1,6 @@
 
 import React, { useRef, useEffect, useState } from 'react';
+import { isAutomatedAgent } from './automation';
 
 interface FadeInUpProps {
     children: React.ReactNode;
@@ -10,7 +11,7 @@ interface FadeInUpProps {
 // Para ellos (y si el navegador no tiene IntersectionObserver) el contenido se muestra desde el inicio.
 const shouldSkipAnimation = (): boolean => {
     if (typeof window === 'undefined' || typeof IntersectionObserver === 'undefined') return true;
-    return navigator.webdriver === true || /bot|crawler|spider|prerender|headless/i.test(navigator.userAgent);
+    return isAutomatedAgent();
 };
 
 const FadeInUp: React.FC<FadeInUpProps> = ({ children }) => {

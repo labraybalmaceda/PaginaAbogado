@@ -19,7 +19,10 @@ interface CaseType {
     situation: string;
     approach: string;
     links: CaseLink[];
+    /** Nombre de seguimiento (`Caso ${tag} - Articulo`): no cambiar. */
     tag: string;
+    /** Etiqueta visible del área. */
+    label: string;
     /** Foto de public/. Encuadre con `imagePosition` (object-position). */
     image: string;
     imagePosition: string;
@@ -35,37 +38,40 @@ const navigateToArticle = (href: string) => {
 const cases: CaseType[] = [
     {
         title: 'Incumplimiento Contractual',
-        situation: 'Contrataste un servicio que no se ejecutó, o la otra parte no cumplió lo pactado.',
-        approach: 'Revisamos qué pruebas tienes, intentamos resolverlo antes de tribunales y, si no, demandamos.',
+        situation: 'Un proveedor no entregó lo pactado en un contrato comercial, o un cliente de la empresa dejó de pagar lo convenido.',
+        approach: 'Revisamos el contrato y la prueba disponible, buscamos una solución antes de tribunales y, si no la hay, demandamos.',
         links: [
-            { text: 'Revisa qué hacer ante un incumplimiento de contrato', href: '/blog/incumplimiento-de-contrato', kind: 'articulo' },
-            { text: 'Revisa cómo cobrar una factura, un pagaré o un cheque', href: '/blog/juicio-ejecutivo-cobro-de-deudas', kind: 'articulo' },
+            { text: 'Qué hacer ante un incumplimiento de contrato', href: '/blog/incumplimiento-de-contrato', kind: 'articulo' },
+            { text: 'Cómo cobrar una factura, un pagaré o un cheque', href: '/blog/juicio-ejecutivo-cobro-de-deudas', kind: 'articulo' },
         ],
         tag: 'Civil',
+        label: 'Litigios Comerciales',
         image: '/fondo-articulo-blog.jpg',
         imagePosition: '22% center',
     },
     {
         title: 'Constitución de Sociedades',
-        situation: 'Vas a formar una empresa con otra persona y no sabes qué tipo de sociedad conviene ni qué dejar por escrito entre los socios.',
-        approach: 'Te decimos qué sociedad conviene, redactamos el estatuto y dejamos resuelto qué pasa si un socio quiere salir o si no se ponen de acuerdo.',
+        situation: 'Dos o más socios van a formar una empresa y deben decidir qué tipo de sociedad conviene y qué dejar por escrito entre ellos.',
+        approach: 'Recomendamos el tipo de sociedad, redactamos el estatuto y dejamos resuelto qué pasa si un socio quiere salir o si los socios no logran acuerdo.',
         links: [
-            { text: 'Revisa cómo constituir una empresa en Chile', href: '/blog/como-constituir-una-empresa-en-chile', kind: 'articulo' },
-            { text: 'Conoce nuestra área de Derecho Corporativo', href: '/abogado-corporativo-puerto-montt', kind: 'area' },
+            { text: 'Cómo constituir una empresa en Chile', href: '/blog/como-constituir-una-empresa-en-chile', kind: 'articulo' },
+            { text: 'Área de Derecho Corporativo', href: '/abogado-corporativo-puerto-montt', kind: 'area' },
         ],
         tag: 'Corporativo',
+        label: 'Corporativo',
         image: '/foto2.jpg',
         imagePosition: '30% center',
     },
     {
         title: 'No Pago de Rentas',
-        situation: 'El arrendatario lleva meses sin pagar y no quiere devolverte la propiedad.',
-        approach: 'Revisamos el contrato, sacamos la cuenta de lo que te deben y elegimos la vía más rápida para recuperar tu inmueble.',
+        situation: 'El arrendatario de un local comercial, o de una de las varias propiedades de un mismo dueño, lleva meses sin pagar y no restituye el inmueble.',
+        approach: 'Revisamos el contrato, calculamos lo adeudado y elegimos la vía más rápida para recuperar el inmueble.',
         links: [
-            { text: 'Revisa qué hacer si tu arrendatario no paga', href: '/blog/arrendatario-no-se-quiere-ir-que-hacer', kind: 'articulo' },
-            { text: 'Conoce nuestra área de Arriendos', href: '/abogado-arriendo-puerto-montt', kind: 'area' },
+            { text: 'Qué hacer si el arrendatario no paga', href: '/blog/arrendatario-no-se-quiere-ir-que-hacer', kind: 'articulo' },
+            { text: 'Área de Arriendos', href: '/abogado-arriendo-puerto-montt', kind: 'area' },
         ],
         tag: 'Arriendo',
+        label: 'Arriendos',
         image: '/casos-puerto-varas-aereo.webp',
         imagePosition: '55% 60%',
     },
@@ -74,9 +80,10 @@ const cases: CaseType[] = [
         situation: 'Las deudas de la empresa se hicieron impagables y ya empezó la cobranza judicial.',
         approach: 'Miramos la situación completa de la empresa y le decimos qué alternativas reales tiene: defenderse, reorganizarse o liquidar de forma ordenada.',
         links: [
-            { text: 'Conoce cómo enfrentar las deudas de tu empresa', href: '/abogado-insolvencia-puerto-montt', kind: 'area' },
+            { text: 'Cómo enfrentar las deudas de la empresa', href: '/abogado-insolvencia-puerto-montt', kind: 'area' },
         ],
         tag: 'Derecho Concursal',
+        label: 'Derecho Concursal',
         image: '/casos-iglesia-puerto-varas.webp',
         imagePosition: '62% 55%',
     },
@@ -111,7 +118,7 @@ const CaseCard: React.FC<{ c: CaseType; isActive: boolean }> = ({ c, isActive })
         {/* Texto */}
         <div className="p-6 sm:p-10 flex flex-col">
             <span className="self-start px-3 py-1 rounded-full bg-brand-gold/10 text-brand-gold text-[10px] font-bold uppercase tracking-[0.2em] mb-4">
-                {c.tag}
+                {c.label}
             </span>
             <h3 className="text-2xl sm:text-3xl font-bold text-brand-black font-baskerville tracking-tight leading-tight mb-6">
                 {c.title}
@@ -179,16 +186,6 @@ const Testimonials: React.FC = () => {
     const go = (step: number) => setActive((i) => (i + step + n) % n);
     const drag = useDragSwipe((dir) => go(dir));
 
-    const handleScrollClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
-        event.preventDefault();
-        const href = event.currentTarget.getAttribute('href');
-        if (href?.startsWith('#')) {
-            const targetElement = document.querySelector(href);
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-    };
 
     return (
         <section id="testimonios" className="py-20 sm:py-28 bg-gray-50/50 overflow-hidden">
@@ -199,7 +196,7 @@ const Testimonials: React.FC = () => {
                     </h2>
                     <p className="text-base sm:text-lg text-gray-500 leading-relaxed font-medium">
                         Ejemplos de situaciones frecuentes y nuestra forma de resolverlas. <br className="hidden sm:block" />
-                        <span className="text-brand-black">Te orientamos según tus antecedentes específicos.</span>
+                        <span className="text-brand-black">La orientación concreta depende de los antecedentes de cada caso.</span>
                     </p>
                 </div>
 
@@ -274,16 +271,6 @@ const Testimonials: React.FC = () => {
                 <p className="text-center text-xs text-gray-400 tracking-widest mt-3 tabular-nums" aria-live="polite">
                     {String(active + 1).padStart(2, '0')} / {String(n).padStart(2, '0')}
                 </p>
-
-                <div className="text-center mt-12">
-                    <a
-                        href="#consulta"
-                        className="inline-block px-10 py-5 bg-brand-black text-white hover:bg-brand-gold rounded-xl font-bold transition-all duration-300 shadow-xl uppercase tracking-widest text-sm"
-                        onClick={(e) => { handleScrollClick(e); trackCTAClick('Testimonials Consultation CTA Central'); }}
-                    >
-                        Agendar consulta
-                    </a>
-                </div>
             </div>
         </section>
     );

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { langOf, pairOf } from './i18n';
 
 // Dominio primario en Netlify (www redirige 301 hacia aquí): los canonicals
 // deben usar siempre esta forma, nunca www.
@@ -10,6 +11,32 @@ const DEFAULT_IMAGE =
 const DEFAULT_ROBOTS = 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1';
 
 const JSONLD_ID = 'page-jsonld';
+
+const absoluteUrl = (path: string) => (path === '/' ? `${BASE_URL}/` : `${BASE_URL}${path}`);
+
+/**
+ * hreflang: solo en las páginas que tienen traducción (ver PAGE_PAIRS en i18n.ts).
+ * Cada par se declara completo y recíproco (es, en y x-default → español) en las
+ * dos versiones. En las páginas sin par se borran, porque las etiquetas del <head>
+ * se arrastran al navegar dentro de la SPA.
+ */
+const syncAlternates = (path: string) => {
+    document.head.querySelectorAll('link[rel="alternate"][hreflang]').forEach((el) => el.remove());
+    const pair = pairOf(path);
+    if (!pair) return;
+    const links: [string, string][] = [
+        ['es', pair.es],
+        ['en', pair.en],
+        ['x-default', pair.es],
+    ];
+    for (const [hreflang, href] of links) {
+        const link = document.createElement('link');
+        link.setAttribute('rel', 'alternate');
+        link.setAttribute('hreflang', hreflang);
+        link.setAttribute('href', absoluteUrl(href));
+        document.head.appendChild(link);
+    }
+};
 
 interface SeoProps {
     title: string;
@@ -56,7 +83,13 @@ const Seo: React.FC<SeoProps> = ({
     jsonLd,
 }) => {
     useEffect(() => {
-        const url = path === '/' ? `${BASE_URL}/` : `${BASE_URL}${path}`;
+        const url = absoluteUrl(path);
+        const lang = langOf(path);
+
+        // Idioma del documento y de las tarjetas para redes: inglés solo en las rutas /en.
+        document.documentElement.lang = lang;
+        upsertMeta('property', 'og:locale', lang === 'en' ? 'en_US' : 'es_CL');
+        syncAlternates(path);
 
         document.title = title;
         upsertMeta('name', 'description', description);

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { currentLang } from './i18n';
 
 interface ConsentSettings {
     marketing: boolean;
@@ -57,21 +58,23 @@ const CookieBanner: React.FC = () => {
 
     if (!isVisible) return null;
 
+    const en = currentLang() === 'en';
+
     return (
         <div className="fixed inset-x-0 bottom-0 z-[100] p-3 sm:p-6 bg-white border-t border-gray-200 shadow-[0_-10px_40px_rgba(0,0,0,0.1)] animate-fadeIn">
             <div className="container mx-auto max-w-5xl">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 md:gap-6">
                     <div className="flex-1 text-left">
                         <h3 className="hidden md:flex text-brand-black font-bold text-sm uppercase tracking-widest mb-2 items-center gap-2">
-                            Privacidad y Cookies
+                            {en ? 'Privacy and Cookies' : 'Privacidad y Cookies'}
                         </h3>
                         <p className="text-[11px] sm:text-sm text-gray-600 leading-snug sm:leading-relaxed">
-                            Usamos cookies para mejorar su experiencia y medir nuestras campañas.
+                            {en ? 'We use cookies to improve your experience and measure our campaigns.' : 'Usamos cookies para mejorar su experiencia y medir nuestras campañas.'}
                             <button
                                 onClick={handleNavigateToPrivacy}
                                 className="text-brand-gold font-bold ml-1 hover:underline transition-all"
                             >
-                                Ver política completa.
+                                {en ? 'Full policy (in Spanish).' : 'Ver política completa.'}
                             </button>
                         </p>
                     </div>
@@ -80,13 +83,13 @@ const CookieBanner: React.FC = () => {
                             onClick={handleRejectAll}
                             className="flex-1 md:flex-none px-3 sm:px-6 py-2 sm:py-2.5 text-[10px] font-bold text-brand-black border border-brand-black rounded-lg hover:bg-brand-black hover:text-white transition-all uppercase tracking-widest whitespace-nowrap"
                         >
-                            Solo necesarias
+                            {en ? 'Necessary only' : 'Solo necesarias'}
                         </button>
                         <button
                             onClick={handleAcceptAll}
                             className="flex-1 md:flex-none px-3 sm:px-8 py-2 sm:py-2.5 text-[10px] font-bold text-white bg-brand-gold rounded-lg hover:bg-brand-black transition-all uppercase tracking-widest shadow-lg transform hover:-translate-y-0.5 whitespace-nowrap"
                         >
-                            Aceptar todo
+                            {en ? 'Accept all' : 'Aceptar todo'}
                         </button>
                     </div>
                 </div>

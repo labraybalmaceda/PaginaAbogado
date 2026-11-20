@@ -154,22 +154,22 @@ const ArticleSidebar: React.FC<{ items: SidebarItem[]; articleId: string; varian
         <>
             {/* Escritorio: tarjeta fija a la derecha */}
             <aside className="hidden lg:block sticky top-28">
-                <div className="bg-white rounded-2xl shadow-2xl overflow-y-auto max-h-[calc(100vh-8rem)]">
-                    <div className="h-1.5 bg-gray-100" role="presentation">
+                <div className="overflow-y-auto max-h-[calc(100vh-8rem)]">
+                    <div className="h-px bg-gray-200" role="presentation">
                         <div
                             className="h-full bg-brand-gold transition-[width] duration-150"
                             style={{ width: `${progress}%` }}
                         />
                     </div>
-                    <div className="p-6">
-                        <p className="text-[11px] uppercase tracking-widest font-bold text-brand-gold mb-4">
+                    <div className="pt-6">
+                        <p className="text-[11px] uppercase tracking-[0.25em] font-bold text-brand-gold mb-4">
                             En este artículo
                         </p>
                         <nav aria-label="Índice del artículo">
                             <LineList items={items} active={active} />
                         </nav>
 
-                        <div className="mt-6 pt-5 border-t border-gray-100">
+                        <div className="mt-8 pt-6 border-t border-gray-200">
                             <p className="text-sm font-bold font-baskerville text-brand-black mb-1">
                                 Consulte su caso
                             </p>
@@ -179,9 +179,9 @@ const ArticleSidebar: React.FC<{ items: SidebarItem[]; articleId: string; varian
                             <a
                                 href="/#consulta"
                                 onClick={(e) => { e.preventDefault(); navigateTo('/#consulta'); }}
-                                className="block text-center px-4 py-3 text-[11px] font-bold uppercase tracking-widest rounded-lg bg-brand-black text-white hover:bg-brand-gold transition-colors duration-300"
+                                className="block text-center px-4 py-3 text-[11px] font-bold uppercase tracking-widest rounded-md border border-brand-black text-brand-black hover:bg-brand-black hover:text-white transition-colors duration-300"
                             >
-                                Agenda con un abogado
+                                Agendar con un abogado
                             </a>
                         </div>
                     </div>

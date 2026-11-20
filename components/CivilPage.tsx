@@ -1,7 +1,6 @@
 import React from 'react';
-import Header from './Header';
-import Footer from './Footer';
-import WhatsAppButton from './WhatsAppButton';
+import ServiceShell from './ServiceShell';
+import FaqAccordion from './FaqAccordion';
 import Seo from './Seo';
 import ContactCTA from './ContactCTA';
 import RelatedPosts from './RelatedPosts';
@@ -15,7 +14,7 @@ const CivilPage: React.FC = () => {
     const faqs = [
         {
             question: '¿Conviene asesorarse antes de firmar un contrato?',
-            answer: 'Sí. Revisamos y redactamos contratos para que digan lo que realmente necesitas. Eso incluye dejar claras las formas de término, incorporar las cláusulas esenciales y asegurarnos de que el contrato esté dentro de lo que permite la ley. Un contrato bien hecho evita la mayoría de los problemas, por eso siempre es mejor asesorarse antes de firmar.'
+            answer: 'Sí. Revisamos y redactamos contratos para que digan lo que las partes realmente necesitan. Eso incluye dejar claras las formas de término, incorporar las cláusulas esenciales y asegurarnos de que el contrato esté dentro de lo que permite la ley. Un contrato bien hecho evita la mayoría de los problemas, por eso siempre es mejor asesorarse antes de firmar.'
         },
         {
             question: '¿Puedo demandar si no tengo contrato escrito?',
@@ -23,7 +22,7 @@ const CivilPage: React.FC = () => {
         },
         {
             question: '¿Qué necesito para iniciar un cobro ejecutivo?',
-            answer: 'Necesitas un título ejecutivo: un pagaré, una factura con mérito ejecutivo o una sentencia firme. Si tienes el documento, podemos evaluar contigo si el caso es viable y cómo proceder.'
+            answer: 'Se necesita un título ejecutivo: un pagaré, una factura con mérito ejecutivo o una sentencia firme. Con el documento a la vista, evaluamos si el caso es viable y cómo proceder.'
         },
         {
             question: '¿Qué pasa si los herederos no se ponen de acuerdo para dividir una herencia?',
@@ -47,7 +46,7 @@ const CivilPage: React.FC = () => {
         {
           "@type": "Service",
           "@id": "https://labraybalmaceda.cl/abogado-civil-puerto-montt#service",
-          "name": "Derecho Civil",
+          "name": "Litigios Civiles y Comerciales",
           "serviceType": "Derecho Civil",
           "description": "Abogados civiles en Puerto Varas y Puerto Montt.",
           "url": "https://labraybalmaceda.cl/abogado-civil-puerto-montt",
@@ -83,38 +82,27 @@ const CivilPage: React.FC = () => {
     };
 
     return (
-        <div className="bg-white min-h-screen text-brand-black">
+        <>
             <Seo
                 title="Abogado Civil en Puerto Varas | Labra & Balmaceda"
                 description="Abogados civiles en Puerto Varas y Puerto Montt: herencias, posesión efectiva, juicio de partición, precarios e indemnización de perjuicios."
                 path="/abogado-civil-puerto-montt"
             />
-            <Header />
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
             
-            <main 
-                className="py-12 sm:py-24 overflow-hidden mt-6 sm:mt-0 bg-cover bg-center bg-scroll md:bg-fixed"
-                style={{ backgroundImage: `linear-gradient(to bottom, rgba(17, 17, 17, 0.6), rgba(17, 17, 17, 0.7)), url('/fotohero.webp')` }}
-            >
-                <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
-                    <div className="bg-white p-6 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-100 relative overflow-hidden border-t-0">
-                        <div className="absolute inset-x-0 top-0 h-1.5 bg-brand-gold"></div>
-                        
-                        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8 font-baskerville tracking-tight not-italic leading-tight text-center sm:text-left">
-                            Abogado <span className="font-bold text-brand-gold">Civil</span> en Puerto Varas y Puerto Montt
-                        </h1>
+            <ServiceShell title={<>Abogado de <span className="font-bold text-brand-gold">Litigios Civiles y Comerciales</span> en Puerto Varas y Puerto Montt</>}>
 
                         <ContactCTA source="Landing Civil" />
 
-                        <div className="space-y-5 sm:space-y-6 text-[15px] sm:text-base mb-10 sm:mb-12 leading-relaxed text-gray-700">
-                            <p>Los conflictos civiles rara vez llegan solos: una herencia que los hermanos no logran dividir, una deuda que alguien niega haber contraído, un familiar que ocupa una propiedad sin título. En Labra & Balmaceda representamos tanto a demandantes como a demandados.</p>
-                            <p>Antes de recomendar una demanda, evaluamos contigo si el caso justifica litigar: qué prueba tienes disponible, cuánto tiempo puede tomar el proceso, y si hay bienes del otro lado que permitan cobrar una sentencia. Un juicio que no se puede ejecutar no sirve de nada.</p>
+                        <div className="space-y-6 text-[15px] sm:text-base leading-[1.8] text-gray-700 mt-12">
+                            <p>Representamos a empresas y personas en litigios civiles y comerciales: cobro de créditos y juicios ejecutivos, responsabilidad contractual y extracontractual, indemnización de perjuicios, herencias y particiones, y recuperación de inmuebles ocupados sin título. Actuamos tanto por la parte demandante como por la demandada.</p>
+                            <p>Cada litigio parte por una evaluación de su conveniencia: la prueba disponible, el tiempo que puede tomar el proceso y la existencia de bienes que permitan hacer efectiva la sentencia. Una sentencia favorable que no se puede cobrar no resuelve el problema del cliente.</p>
                         </div>
                         
-                        <h2 className="text-xl sm:text-[22px] font-bold font-baskerville mb-5 sm:mb-6 text-center sm:text-left">Materias que cubrimos</h2>
-                        <div className="space-y-5 sm:space-y-6 text-[15px] sm:text-base mb-10 sm:mb-12 text-gray-700 leading-relaxed">
+                        <h2 className="relative text-xl sm:text-[22px] font-bold font-baskerville text-brand-black mt-16 sm:mt-20 mb-6 pt-6 before:absolute before:top-0 before:left-0 before:w-10 before:h-px before:bg-brand-gold">Materias que cubrimos</h2>
+                        <div className="border-t border-gray-200 divide-y divide-gray-200 text-[15px] sm:text-base leading-[1.8] text-gray-700 [&>p]:py-6 [&>p>strong:first-child]:block [&>p>strong:first-child]:font-baskerville [&>p>strong:first-child]:text-brand-black [&>p>strong:first-child]:text-[17px] [&>p>strong:first-child]:mb-2">
                             <p>
-                                <strong>Cobro ejecutivo.</strong> Cuando alguien te debe dinero y el crédito consta en un título ejecutivo, la ley permite cobrar sin pasar por un juicio ordinario. El procedimiento ejecutivo aplica a pagarés, facturas impagas y sentencias firmes. Tramitamos el cobro desde la demanda hasta el embargo y remate de bienes si el deudor no paga voluntariamente.
+                                <strong>Cobro ejecutivo.</strong> Cuando alguien adeuda dinero y el crédito consta en un título ejecutivo, la ley permite cobrar sin pasar por un juicio ordinario. El procedimiento ejecutivo aplica a pagarés, facturas impagas y sentencias firmes. Tramitamos el cobro desde la demanda hasta el embargo y remate de bienes si el deudor no paga voluntariamente.
                             </p>
                             <p>
                                 <strong>Herencias y posesiones efectivas.</strong> La posesión efectiva es el trámite que permite a los herederos acreditar su calidad como tales y disponer de los bienes del causante. La tramitamos ante el Registro Civil cuando no hay testamento, y ante los Tribunales cuando lo hay. También asesoramos en particiones de herencia cuando los herederos no logran acuerdo.
@@ -123,37 +111,25 @@ const CivilPage: React.FC = () => {
                                 <strong>Acciones reivindicatorias y precario.</strong> Cuando alguien ocupa un bien raíz sin contrato y sin permiso del dueño, la acción de precario permite recuperarlo.
                             </p>
                             <p>
-                                <strong>Indemnizaciones de perjuicios.</strong> Cuando un incumplimiento contractual o un hecho ilícito te causa daño, la ley permite demandar su reparación. Evaluamos contigo si el caso justifica litigar, considerando el monto del daño, la prueba disponible y el tiempo que toma el proceso, antes de recomendar una acción judicial.
+                                <strong>Indemnizaciones de perjuicios.</strong> Cuando un incumplimiento contractual o un hecho ilícito causa un daño, la ley permite demandar su reparación. Evaluamos con el cliente si el caso justifica litigar, considerando el monto del daño, la prueba disponible y el tiempo que toma el proceso, antes de recomendar una acción judicial.
                             </p>
                             <p>
                                 <strong>Otras gestiones civiles.</strong> También tramitamos cambios de nombre ante los Tribunales Civiles, declaraciones de interdicción y otras gestiones que requieren intervención judicial.
                             </p>
                         </div>
 
-                        <h2 className="text-xl sm:text-[22px] font-bold font-baskerville mb-5 sm:mb-6 text-center sm:text-left">Preguntas frecuentes</h2>
-                        <div className="space-y-6 mb-10 sm:mb-12 text-sm sm:text-[15px] text-gray-600 leading-relaxed font-medium">
-                            {faqs.map((faq, index) => (
-                                <div key={index}>
-                                    <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-[17px]">{faq.question}</h3>
-                                    <p>{faq.answer}</p>
-                                </div>
-                            ))}
-                        </div>
+                        <h2 className="relative text-xl sm:text-[22px] font-bold font-baskerville text-brand-black mt-16 sm:mt-20 mb-6 pt-6 before:absolute before:top-0 before:left-0 before:w-10 before:h-px before:bg-brand-gold">Preguntas frecuentes</h2>
+                        <FaqAccordion items={faqs} />
 
                         <RelatedPosts service="civil" />
 
-                        <div className="text-center pt-8 sm:pt-10 border-t border-gray-100">
-                            <button onClick={handleCTA} className="w-full sm:w-auto px-6 py-4 sm:px-10 sm:py-5 text-[13px] sm:text-lg font-bold uppercase tracking-widest rounded-xl bg-brand-black text-white hover:bg-brand-gold transition-all duration-300 shadow-xl hover:shadow-2xl mx-auto block">
+                        <div className="mt-16 sm:mt-20 pt-10 border-t border-gray-200 text-center">
+                            <button onClick={handleCTA} className="w-full sm:w-auto px-10 py-4 text-[13px] sm:text-sm font-bold uppercase tracking-[0.2em] rounded-md bg-brand-black text-white hover:bg-brand-gold transition-colors duration-300 mx-auto block">
                                 Solicitar consulta
                             </button>
                         </div>
-                    </div>
-                </div>
-            </main>
-            
-            <Footer />
-            <WhatsAppButton />
-        </div>
+            </ServiceShell>
+        </>
     );
 };
 

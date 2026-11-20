@@ -1,7 +1,6 @@
 import React from 'react';
-import Header from './Header';
-import Footer from './Footer';
-import WhatsAppButton from './WhatsAppButton';
+import ServiceShell from './ServiceShell';
+import FaqAccordion from './FaqAccordion';
 import Seo from './Seo';
 import ContactCTA from './ContactCTA';
 import RelatedPosts from './RelatedPosts';
@@ -15,11 +14,11 @@ const FamiliaPage: React.FC = () => {
     const faqs = [
         {
             question: '¿Qué pasa si el padre o madre no paga la pensión de alimentos?',
-            answer: 'La ley tiene herramientas concretas para cobrar. El tribunal puede ordenar que se retenga el dinero directamente desde las cuentas bancarias del deudor y, si ahí no hay fondos, incluso desde sus ahorros en la AFP. A eso se suman medidas de presión como el arresto nocturno, la suspensión de la licencia de conducir y el arraigo nacional, que le impide salir del país. Si tienes una pensión que no te están pagando, contáctanos y vemos qué medida conviene activar primero.'
+            answer: 'La ley tiene herramientas concretas para cobrar. El tribunal puede ordenar que se retenga el dinero directamente desde las cuentas bancarias del deudor y, si ahí no hay fondos, incluso desde sus ahorros en la AFP. A eso se suman medidas de presión como el arresto nocturno, la suspensión de la licencia de conducir y el arraigo nacional, que le impide salir del país. Si una pensión no se está pagando, conviene consultarnos para definir qué medida activar primero.'
         },
         {
             question: '¿Necesito la autorización del otro padre para salir del país con mi hijo?',
-            answer: 'Sí. Para que un niño salga de Chile se requiere el permiso del padre o madre que no viaja. Si esa persona no lo da de forma voluntaria, se puede pedir la autorización directamente al tribunal de familia. Este trámite toma tiempo, así que conviene iniciarlo con buena antelación a la fecha del vuelo. Si tienes un viaje programado, escríbenos con tiempo para gestionarlo.'
+            answer: 'Sí. Para que un niño salga de Chile se requiere el permiso del padre o madre que no viaja. Si esa persona no lo da de forma voluntaria, se puede pedir la autorización directamente al tribunal de familia. Este trámite toma tiempo, así que conviene iniciarlo con buena antelación a la fecha del vuelo. Si hay un viaje programado, conviene escribirnos con tiempo para gestionarlo.'
         },
         {
             question: '¿Siempre hay que ir a mediación antes del juicio de alimentos?',
@@ -27,7 +26,7 @@ const FamiliaPage: React.FC = () => {
         },
         {
             question: '¿Cada cuánto puedo pedir un aumento de la pensión de alimentos?',
-            answer: 'No hay un plazo fijo de espera. Lo que importa es que las circunstancias hayan cambiado: si tu hijo tiene nuevas necesidades, si tu situación económica se ha deteriorado, o si la del otro padre ha mejorado, vale la pena revisar el monto. Para evaluar si en tu caso corresponde pedir un aumento, agenda una consulta con nosotros.'
+            answer: 'No hay un plazo fijo de espera. Lo que importa es que las circunstancias hayan cambiado: si el hijo tiene nuevas necesidades, si la situación económica de quien pide el aumento se ha deteriorado, o si la del otro padre ha mejorado, vale la pena revisar el monto. Para evaluar si corresponde pedir un aumento, puede agendar una consulta con nosotros.'
         }
     ];
 
@@ -83,37 +82,26 @@ const FamiliaPage: React.FC = () => {
     };
 
     return (
-        <div className="bg-white min-h-screen text-brand-black">
+        <>
             <Seo
                 title="Abogado de Familia en Puerto Varas | Labra & Balmaceda"
                 description="Abogados de familia en Puerto Varas y Puerto Montt: pensión de alimentos, divorcio, cuidado personal y relación directa y regular."
                 path="/abogado-familia-puerto-montt"
             />
-            <Header />
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
             
-            <main 
-                className="py-12 sm:py-24 overflow-hidden mt-6 sm:mt-0 bg-cover bg-center bg-scroll md:bg-fixed"
-                style={{ backgroundImage: `linear-gradient(to bottom, rgba(17, 17, 17, 0.6), rgba(17, 17, 17, 0.7)), url('/fotohero.webp')` }}
-            >
-                <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
-                    <div className="bg-white p-6 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-100 relative overflow-hidden border-t-0">
-                        <div className="absolute inset-x-0 top-0 h-1.5 bg-brand-gold"></div>
-                        
-                        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8 font-baskerville tracking-tight not-italic leading-tight text-center sm:text-left">
-                            Abogado de <span className="font-bold text-brand-gold">Familia</span> en Puerto Varas y Puerto Montt
-                        </h1>
+            <ServiceShell title={<>Abogado de <span className="font-bold text-brand-gold">Familia</span> en Puerto Varas y Puerto Montt</>}>
 
                         <ContactCTA source="Landing Familia" />
 
-                        <div className="space-y-5 sm:space-y-6 text-[15px] sm:text-base mb-10 sm:mb-12 leading-relaxed text-gray-700">
+                        <div className="space-y-6 text-[15px] sm:text-base leading-[1.8] text-gray-700 mt-12">
                             <p>
                                 Los juicios de familia son distintos a cualquier otro: las decisiones del tribunal afectan directamente la vida cotidiana de personas que van a seguir relacionándose entre sí, especialmente cuando hay hijos.
                             </p>
                         </div>
                         
-                        <h2 className="text-xl sm:text-[22px] font-bold font-baskerville mb-5 sm:mb-6 text-center sm:text-left">Materias que cubrimos</h2>
-                        <div className="space-y-5 sm:space-y-6 text-[15px] sm:text-base mb-10 sm:mb-12 text-gray-700 leading-relaxed">
+                        <h2 className="relative text-xl sm:text-[22px] font-bold font-baskerville text-brand-black mt-16 sm:mt-20 mb-6 pt-6 before:absolute before:top-0 before:left-0 before:w-10 before:h-px before:bg-brand-gold">Materias que cubrimos</h2>
+                        <div className="border-t border-gray-200 divide-y divide-gray-200 text-[15px] sm:text-base leading-[1.8] text-gray-700 [&>p]:py-6 [&>p>strong:first-child]:block [&>p>strong:first-child]:font-baskerville [&>p>strong:first-child]:text-brand-black [&>p>strong:first-child]:text-[17px] [&>p>strong:first-child]:mb-2">
                             <p>
                                 <strong>Pensiones de alimentos.</strong> La pensión de alimentos puede demandarse, aumentarse o rebajarse según cambien las necesidades del alimentario o la capacidad económica del alimentante. El procedimiento parte con una mediación previa obligatoria.
                             </p>
@@ -131,30 +119,18 @@ const FamiliaPage: React.FC = () => {
                             </p>
                         </div>
 
-                        <h2 className="text-xl sm:text-[22px] font-bold font-baskerville mb-5 sm:mb-6 text-center sm:text-left">Preguntas frecuentes</h2>
-                        <div className="space-y-6 mb-10 sm:mb-12 text-sm sm:text-[15px] text-gray-600 leading-relaxed font-medium">
-                            {faqs.map((faq, index) => (
-                                <div key={index}>
-                                    <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-[17px]">{faq.question}</h3>
-                                    <p>{faq.answer}</p>
-                                </div>
-                            ))}
-                        </div>
+                        <h2 className="relative text-xl sm:text-[22px] font-bold font-baskerville text-brand-black mt-16 sm:mt-20 mb-6 pt-6 before:absolute before:top-0 before:left-0 before:w-10 before:h-px before:bg-brand-gold">Preguntas frecuentes</h2>
+                        <FaqAccordion items={faqs} />
 
                         <RelatedPosts service="familia" />
 
-                        <div className="text-center pt-8 sm:pt-10 border-t border-gray-100">
-                            <button onClick={handleCTA} className="w-full sm:w-auto px-6 py-4 sm:px-10 sm:py-5 text-[13px] sm:text-lg font-bold uppercase tracking-widest rounded-xl bg-brand-black text-white hover:bg-brand-gold transition-all duration-300 shadow-xl hover:shadow-2xl mx-auto block">
+                        <div className="mt-16 sm:mt-20 pt-10 border-t border-gray-200 text-center">
+                            <button onClick={handleCTA} className="w-full sm:w-auto px-10 py-4 text-[13px] sm:text-sm font-bold uppercase tracking-[0.2em] rounded-md bg-brand-black text-white hover:bg-brand-gold transition-colors duration-300 mx-auto block">
                                 Solicitar consulta
                             </button>
                         </div>
-                    </div>
-                </div>
-            </main>
-            
-            <Footer />
-            <WhatsAppButton />
-        </div>
+            </ServiceShell>
+        </>
     );
 };
 
