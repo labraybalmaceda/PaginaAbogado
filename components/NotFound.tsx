@@ -9,11 +9,12 @@ import { navigateTo } from './blogUtils';
 // página única, donde no se puede devolver un status 404 real.
 const LINKS = [
     { label: 'Ir al inicio', path: '/' },
-    { label: 'Ver el blog', path: '/blog' },
+    { label: 'Ver publicaciones', path: '/blog' },
+    { label: 'Corporativo', path: '/abogado-corporativo-puerto-montt' },
+    { label: 'Litigios', path: '/abogado-civil-puerto-montt' },
+    { label: 'Derecho Concursal', path: '/abogado-insolvencia-puerto-montt' },
     { label: 'Arriendos', path: '/abogado-arriendo-puerto-montt' },
     { label: 'Familia', path: '/abogado-familia-puerto-montt' },
-    { label: 'Civil', path: '/abogado-civil-puerto-montt' },
-    { label: 'Derecho Concursal', path: '/abogado-insolvencia-puerto-montt' },
 ];
 
 const NotFound: React.FC = () => {
@@ -32,9 +33,9 @@ const NotFound: React.FC = () => {
 
     return (
         <div className="bg-white min-h-screen text-brand-black flex flex-col">
-            <Header />
+            <Header variant="solid" />
 
-        <main className="flex-grow container mx-auto px-4 sm:px-6 max-w-2xl py-20 sm:py-28 text-center">
+        <main className="flex-grow container mx-auto px-4 sm:px-6 max-w-2xl pt-36 pb-20 sm:pt-44 sm:pb-28 text-center">
             <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-gold mb-4">
                 Página no encontrada
             </p>
@@ -44,7 +45,7 @@ const NotFound: React.FC = () => {
             </h1>
 
             <p className="text-[15px] sm:text-lg text-gray-600 leading-relaxed mb-10">
-                Puede que el enlace esté mal escrito o que hayamos movido el contenido. Desde aquí puedes seguir a donde ibas.
+                Puede que el enlace esté mal escrito o que hayamos movido el contenido. Desde aquí puede seguir a donde iba.
             </p>
 
             <div className="flex flex-wrap justify-center gap-3">
@@ -61,7 +62,7 @@ const NotFound: React.FC = () => {
             </div>
 
             <p className="mt-12 text-sm text-gray-500 leading-relaxed">
-                ¿Buscabas algo puntual? Escríbenos por WhatsApp al{' '}
+                ¿Buscaba algo puntual? Escríbanos por WhatsApp al{' '}
                 <a
                     href="https://wa.me/56977646224"
                     target="_blank"

@@ -4,11 +4,21 @@ import { navigateTo } from './blogUtils';
 import { trackNavClick } from '../services/tracking';
 import { useDragSwipe } from './useDragSwipe';
 
-// Franja negra bajo el hero: muestra un artículo del blog a la vez y cambia
-// cada 10 segundos. Los artículos de Familia no se promocionan aquí.
+// Franja de vidrio montada sobre el borde inferior de la foto del hero: muestra un
+// artículo del blog a la vez y cambia cada 10 segundos.
+// Orden (decisión del 19-11): primero los de empresa (corporativo e insolvencia),
+// después civil y arriendos; cada grupo del más nuevo al más antiguo. Sin tope.
+// Los artículos de Familia no se promocionan aquí.
 const INTERVALO_MS = 10000;
 
-const destacados = indexablePosts.filter((p) => p.service !== 'familia');
+const GRUPO_EMPRESA = new Set(['corporativo', 'insolvencia']);
+const GRUPO_SIGUIENTE = new Set(['civil', 'arriendos']);
+
+// indexablePosts ya viene del más nuevo al más antiguo: filtrar conserva ese orden.
+const destacados = [
+    ...indexablePosts.filter((p) => GRUPO_EMPRESA.has(p.service)),
+    ...indexablePosts.filter((p) => GRUPO_SIGUIENTE.has(p.service)),
+];
 
 const Flecha: React.FC<{ lado: 'izq' | 'der'; onClick: () => void; className?: string }> = ({ lado, onClick, className = '' }) => (
     <button
@@ -51,7 +61,7 @@ const BlogDestacados: React.FC = () => {
 
     return (
         <section
-            className="bg-brand-black text-white py-12 sm:py-16 border-b border-white/5"
+            className="relative glass-dark text-white py-8 sm:py-10 border-t border-white/10"
             aria-label="Artículos del blog"
             onMouseEnter={() => setPausado(true)}
             onMouseLeave={() => setPausado(false)}
@@ -88,10 +98,10 @@ const BlogDestacados: React.FC = () => {
                                 } : undefined}
                             >
                                 <div className="flex-1 min-w-0">
-                                    <p className="text-2xl sm:text-3xl font-bold font-baskerville tracking-tight leading-snug text-white mb-3">
+                                    <p className="text-xl sm:text-2xl md:text-3xl font-bold font-baskerville tracking-tight leading-snug text-white mb-3">
                                         {tituloCorto(post.title)}
                                     </p>
-                                    <p className="text-sm sm:text-base text-white/70 leading-relaxed line-clamp-3 md:line-clamp-2">
+                                    <p className="text-sm sm:text-base text-white/75 leading-relaxed line-clamp-2">
                                         {post.excerpt}
                                     </p>
                                 </div>
@@ -106,7 +116,7 @@ const BlogDestacados: React.FC = () => {
                 </div>
 
                 {hayVarios && (
-                    <div className="flex items-center justify-between gap-4 mt-8 md:pl-[3.75rem] lg:pl-[4.75rem]">
+                    <div className="flex items-center justify-between gap-4 mt-6 sm:mt-8 md:pl-[3.75rem] lg:pl-[4.75rem]">
                         <div className="flex gap-1 sm:gap-2">
                         {destacados.map((post, i) => (
                             <button

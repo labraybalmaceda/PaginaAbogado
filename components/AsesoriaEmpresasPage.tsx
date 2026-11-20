@@ -1,7 +1,5 @@
 import React from 'react';
-import Header from './Header';
-import Footer from './Footer';
-import WhatsAppButton from './WhatsAppButton';
+import ServiceShell from './ServiceShell';
 import Seo from './Seo';
 import ContactCTA from './ContactCTA';
 import RelatedPosts from './RelatedPosts';
@@ -12,7 +10,9 @@ import { navigateTo } from './blogUtils';
 // pactos, compraventa de empresas); esta trata la FORMA DE CONTRATAR al estudio
 // (convenio mensual que lo incluye todo). Decisiones de Renato: no se muestra precio
 // ni lleva FAQ (2026-11-12); el modelo de cobro es por horas trabajadas, con tope
-// mensual y facturación mensual contra liquidación detallada (2026-11-13).
+// mensual y facturación mensual contra liquidación detallada (2026-11-13). Desde el
+// 2026-11-20 la página ya no muestra la sección «Cobro de la asesoría» (Renato) e
+// inicia con un texto dirigido a empresas y sus socios.
 
 const PATH = '/asesoria-legal-empresas-puerto-montt';
 const URL = `https://labraybalmaceda.cl${PATH}`;
@@ -70,36 +70,25 @@ const AsesoriaEmpresasPage: React.FC = () => {
     const linkClass = 'text-brand-gold font-semibold underline underline-offset-2 hover:text-brand-black transition';
 
     return (
-        <div className="bg-white min-h-screen text-brand-black">
+        <>
             <Seo
                 title="Asesoría Legal Mensual para Empresas en Puerto Montt | Labra & Balmaceda"
                 description="Abogado externo para empresas y pymes, por horas con tope mensual: contratos, laboral, riesgos tributarios y cobranza. Puerto Montt, Puerto Varas y todo Chile."
                 path={PATH}
             />
-            <Header />
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
 
-            <main
-                className="py-12 sm:py-24 overflow-hidden mt-6 sm:mt-0 bg-cover bg-center bg-scroll md:bg-fixed"
-                style={{ backgroundImage: `linear-gradient(to bottom, rgba(17, 17, 17, 0.6), rgba(17, 17, 17, 0.7)), url('/fotohero.webp')` }}
-            >
-                <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
-                    <div className="bg-white p-6 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-100 relative overflow-hidden border-t-0">
-                        <div className="absolute inset-x-0 top-0 h-1.5 bg-brand-gold"></div>
-
-                        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8 font-baskerville tracking-tight not-italic leading-tight text-center sm:text-left">
-                            <span className="font-bold text-brand-gold">Asesoría Legal Permanente</span> para empresas en Puerto Montt y Puerto Varas
-                        </h1>
+            <ServiceShell title={<><span className="font-bold text-brand-gold">Asesoría Legal Permanente</span> para empresas en Puerto Montt y Puerto Varas</>}>
 
                         <ContactCTA source="Landing Asesoría Mensual" />
 
-                        <div className="space-y-5 sm:space-y-6 text-[15px] sm:text-base mb-10 sm:mb-12 leading-relaxed text-gray-700">
-                            <p>Una empresa toma decisiones con consecuencias legales casi todas las semanas: firma con un proveedor, contrata o despide a un trabajador, recibe una carta de cobro o una notificación del Servicio de Impuestos Internos. Con una asesoría legal mensual, la empresa cuenta con un abogado externo que conoce el negocio y revisa esas decisiones antes de que se conviertan en un juicio.</p>
-                            <p>Trabajamos con pymes, emprendedores y personas con negocios propios de Puerto Montt, Puerto Varas y la Región de Los Lagos. El convenio cubre todo el trabajo legal de la empresa: el del día a día y también los juicios y las gestiones que van apareciendo.</p>
+                        <div className="space-y-6 text-[15px] sm:text-base leading-[1.8] text-gray-700 mt-12">
+                            <p>La asesoría legal permanente pone a disposición de la empresa un abogado externo integrado a su operación: conoce el negocio, sus contratos y su estructura societaria, y acompaña las decisiones de la administración antes de que se transformen en un riesgo o en un litigio.</p>
+                            <p>Asesoramos a empresas y a sus socios en Puerto Montt, Puerto Varas y la Región de Los Lagos en la contratación con clientes y proveedores, la relación con sus trabajadores, las fiscalizaciones y los conflictos que surgen en el curso de su actividad. El convenio cubre todo el trabajo legal de la empresa: el del día a día y también los juicios y las gestiones que van apareciendo.</p>
                         </div>
 
-                        <h2 className="text-xl sm:text-[22px] font-bold font-baskerville mb-5 sm:mb-6 text-center sm:text-left">Qué incluye la asesoría mensual</h2>
-                        <div className="space-y-5 sm:space-y-6 text-[15px] sm:text-base mb-10 sm:mb-12 text-gray-700 leading-relaxed">
+                        <h2 className="relative text-xl sm:text-[22px] font-bold font-baskerville text-brand-black mt-16 sm:mt-20 mb-6 pt-6 before:absolute before:top-0 before:left-0 before:w-10 before:h-px before:bg-brand-gold">Qué incluye la asesoría mensual</h2>
+                        <div className="border-t border-gray-200 divide-y divide-gray-200 text-[15px] sm:text-base leading-[1.8] text-gray-700 [&>p]:py-6 [&>p>strong:first-child]:block [&>p>strong:first-child]:font-baskerville [&>p>strong:first-child]:text-brand-black [&>p>strong:first-child]:text-[17px] [&>p>strong:first-child]:mb-2">
                             <p>
                                 <strong>Consultas legales del día a día.</strong> Las dudas se resuelven con los mismos abogados que ya conocen la empresa, sus contratos y su historia. No hace falta agendar una consulta nueva ni explicar todo desde cero cada vez.
                             </p>
@@ -126,27 +115,15 @@ const AsesoriaEmpresasPage: React.FC = () => {
                             </p>
                         </div>
 
-                        <h2 className="text-xl sm:text-[22px] font-bold font-baskerville mb-5 sm:mb-6 text-center sm:text-left">Cobro de la asesoría</h2>
-                        <div className="space-y-5 sm:space-y-6 text-[15px] sm:text-base mb-10 sm:mb-12 text-gray-700 leading-relaxed">
-                            <p><strong>Por horas trabajadas.</strong> Solo se pagan las horas dedicadas a la empresa.</p>
-                            <p><strong>Con un tope mensual.</strong> Se fija al firmar el convenio, para mantener el control del gasto.</p>
-                            <p><strong>Con liquidación detallada.</strong> Se factura cada mes, con el detalle de las gestiones realizadas.</p>
-                        </div>
-
                         <RelatedPosts service="corporativo" />
 
-                        <div className="text-center pt-8 sm:pt-10 border-t border-gray-100">
-                            <button onClick={handleCTA} className="w-full sm:w-auto px-6 py-4 sm:px-10 sm:py-5 text-[13px] sm:text-lg font-bold uppercase tracking-widest rounded-xl bg-brand-black text-white hover:bg-brand-gold transition-all duration-300 shadow-xl hover:shadow-2xl mx-auto block">
+                        <div className="mt-16 sm:mt-20 pt-10 border-t border-gray-200 text-center">
+                            <button onClick={handleCTA} className="w-full sm:w-auto px-10 py-4 text-[13px] sm:text-sm font-bold uppercase tracking-[0.2em] rounded-md bg-brand-black text-white hover:bg-brand-gold transition-colors duration-300 mx-auto block">
                                 Solicitar consulta
                             </button>
                         </div>
-                    </div>
-                </div>
-            </main>
-
-            <Footer />
-            <WhatsAppButton />
-        </div>
+            </ServiceShell>
+        </>
     );
 };
 

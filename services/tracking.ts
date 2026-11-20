@@ -23,6 +23,27 @@ export const trackWhatsAppClick = (source?: string) => {
   trackEvent('Contact', 'WhatsApp Click', source);
 };
 
+/**
+ * Clic en un enlace de WhatsApp: actualiza el consentimiento de anuncios, registra la
+ * conversión de Google Ads de WhatsApp y el evento de seguimiento. Es lo que hacían
+ * el botón flotante y ContactCTA; úsese en cualquier enlace nuevo a WhatsApp.
+ */
+export const trackWhatsAppConversion = (source: string) => {
+  const gtag = (window as any).gtag;
+  if (typeof gtag === 'function') {
+    gtag('consent', 'update', {
+      'ad_storage': 'granted',
+      'ad_user_data': 'granted',
+    });
+    gtag('event', 'conversion', {
+      'send_to': 'AW-18229137722/JKXKCOXx5MkcELqiqvRD',
+      'value': 1.0,
+      'currency': 'CLP'
+    });
+  }
+  trackWhatsAppClick(source);
+};
+
 export const trackServiceClick = (serviceName: string) => {
   trackEvent('Service', 'Click', serviceName);
 };

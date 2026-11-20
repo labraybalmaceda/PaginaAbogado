@@ -73,6 +73,11 @@
   status = 200
 
 [[redirects]]
+  from = "/abogado-inmobiliario-puerto-montt"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
   from = "/asesoria-legal-empresas-puerto-montt"
   to = "/index.html"
   status = 200
@@ -84,6 +89,36 @@
 
 [[redirects]]
   from = "/privacidad"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/en"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/en/corporate-law"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/en/monthly-legal-counsel"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/en/litigation"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/en/insolvency"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/en/real-estate-and-construction"
   to = "/index.html"
   status = 200
 

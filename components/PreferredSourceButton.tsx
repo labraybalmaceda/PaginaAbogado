@@ -39,7 +39,7 @@ const PreferredSourceButton: React.FC<{ className?: string }> = ({ className = '
     return (
         <div className={className}>
             <p className="text-xs sm:text-sm text-gray-500 mb-3">
-                Para seguir informándote, guarda nuestra página entre tus fuentes preferidas:
+                Para seguir informándose, guarde nuestra página entre sus fuentes preferidas:
             </p>
             <div className="flex justify-center min-h-10">
                 <div google-add-preferred-source-btn="" data-theme="light" />

@@ -2,8 +2,13 @@
 
 @theme {
   --font-baskerville: "Libre Baskerville", serif;
+  /* Sans fina del hero. Con display=optional puede no cargar en la primera visita:
+     el respaldo es la sans del sistema en peso liviano. */
+  --font-fina: "Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --color-brand-black: #111111;
   --color-brand-gold: #BF8F0A;
+  /* Hueso muy claro: fondo del cuerpo de las páginas internas. */
+  --color-hueso: #FAF8F4;
   --color-neutro-gris: #6B7280;
   --color-whatsapp-verde: #25D366;
   --animate-pulse-sutil: pulse-sutil 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
@@ -30,3 +35,56 @@
     box-shadow: 0 0 0 0 rgba(191, 143, 10, 0);
   }
 }
+
+/* Vidrio oscuro: solo sobre foto o fondo oscuro (barra, menú, cabeceras, botón del hero). */
+@utility glass-dark {
+  background-color: rgb(17 17 17 / 0.6);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  backdrop-filter: blur(14px) saturate(140%);
+}
+
+/* Vidrio claro, más sutil, para botones y paneles sobre la foto. */
+@utility glass-light {
+  background-color: rgb(255 255 255 / 0.08);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  backdrop-filter: blur(14px) saturate(140%);
+}
+
+/* Pantalla de intro (IntroScreen.tsx). Toda la secuencia la mueve el CSS: si el JS
+   falla después de montarla, la capa igual se desvanece sola y no bloquea los clics. */
+.intro-capa {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111111;
+  pointer-events: none;
+  animation: intro-salida 260ms ease-in 740ms forwards;
+}
+.intro-raya {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 140px;
+  height: 1px;
+  margin-left: -70px;
+  background: #BF8F0A;
+  transform: scaleX(0);
+  animation: intro-raya 360ms cubic-bezier(0.22, 0.8, 0.2, 1) forwards, intro-raya-baja 300ms cubic-bezier(0.22, 0.8, 0.2, 1) 380ms forwards;
+}
+.intro-monograma {
+  font-family: var(--font-baskerville);
+  font-weight: 700;
+  font-size: 2.5rem;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  opacity: 0;
+  transform: translateY(6px);
+  animation: intro-monograma 320ms ease-out 400ms forwards;
+}
+@keyframes intro-raya { to { transform: scaleX(1); } }
+@keyframes intro-raya-baja { from { transform: scaleX(1); } to { transform: translateY(34px) scaleX(1); } }
+@keyframes intro-monograma { to { opacity: 1; transform: translateY(-6px); } }
+@keyframes intro-salida { to { opacity: 0; visibility: hidden; } }

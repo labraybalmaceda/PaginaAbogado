@@ -8,7 +8,7 @@ import { SERVICES } from '../content/blog/services';
 import type { ServiceKey } from '../content/blog/types';
 import { navigateTo, BASE_URL, formatDate } from './blogUtils';
 import DepthCard, { depthLayerStyle } from './DepthCard';
-import GlowFrame from './GlowFrame';
+import PageHero from './PageHero';
 
 // Nombre corto de cada área para los botones de filtro.
 const ETIQUETA_CORTA: Record<ServiceKey, string> = {
@@ -62,7 +62,7 @@ const BlogIndex: React.FC = () => {
                 '@id': `${BASE_URL}/blog#breadcrumb`,
                 itemListElement: [
                     { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${BASE_URL}/` },
-                    { '@type': 'ListItem', position: 2, name: 'Blog', item: `${BASE_URL}/blog` },
+                    { '@type': 'ListItem', position: 2, name: 'Publicaciones', item: `${BASE_URL}/blog` },
                 ],
             },
         ],
@@ -95,13 +95,12 @@ const BlogIndex: React.FC = () => {
     const pillClass = (activa: boolean) =>
         `px-4 py-2 rounded-full text-xs sm:text-sm font-bold uppercase tracking-widest border transition-colors duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold/60 ${
             activa
-                ? 'bg-brand-gold border-brand-gold text-white'
-                : 'bg-white/5 border-white/20 text-white/80 hover:border-white/50 hover:text-white'
+                ? 'bg-brand-black border-brand-black text-white'
+                : 'bg-white border-gray-300 text-gray-600 hover:border-brand-black hover:text-brand-black'
         }`;
 
     return (
-        <div className="relative isolate min-h-screen bg-brand-black text-brand-black">
-            <div aria-hidden="true" className="absolute inset-x-0 top-0 h-screen supports-[height:100lvh]:h-lvh -z-10 bg-cover bg-position-[30%_center] md:bg-center" style={{ backgroundImage: "linear-gradient(to bottom, rgba(17, 17, 17, 0.65), rgba(17, 17, 17, 0.75) 60%, rgba(17, 17, 17, 1)), url('/fondo-articulo-blog.jpg')" }} />
+        <div className="min-h-screen bg-hueso text-brand-black">
             <Seo
                 title="Blog legal | Labra & Balmaceda Abogados"
                 description="Artículos sobre arriendos, divorcio, herencias, pensión de alimentos y deudas, explicados en simple por abogados de Puerto Varas y Puerto Montt."
@@ -110,20 +109,23 @@ const BlogIndex: React.FC = () => {
             />
             <Header />
 
-            <main className="py-12 sm:py-20 overflow-hidden mt-6 sm:mt-0">
-                <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
-                    <header className="mb-8 sm:mb-10 max-w-3xl">
-                        <h1 className="text-2xl sm:text-4xl font-bold mb-4 font-baskerville uppercase tracking-tight not-italic leading-tight text-white">
-                            Blog legal: Arriendos, Sociedades, herencias, incumplimientos contractuales.
-                        </h1>
-                        <p className="text-[15px] sm:text-lg text-white leading-relaxed">
-                            Explicamos los problemas que más nos consultan y tramitamos en la Región de Los Lagos: Incumplimientos contractuales e indemnizaciones, arriendos que no se pagan, divorcios, herencias que nadie logra repartir.
-                        </p>
-                    </header>
+            <main className="overflow-hidden">
+                <PageHero
+                    eyebrow="Publicaciones"
+                    title="Blog legal: Arriendos, Sociedades, herencias, incumplimientos contractuales."
+                    image="/fondo-articulo-blog.jpg"
+                    imageClass="bg-position-[30%_center] md:bg-center"
+                >
+                    <p className="mt-5 text-[15px] sm:text-lg text-white/85 leading-relaxed">
+                        Explicamos los problemas que más nos consultan y tramitamos en la Región de Los Lagos: Incumplimientos contractuales e indemnizaciones, arriendos que no se pagan, divorcios, herencias que nadie logra repartir.
+                    </p>
+                </PageHero>
+
+                <div className="container mx-auto px-4 sm:px-6 max-w-5xl py-12 sm:py-16">
 
                     {posts.length === 0 ? (
-                        <p className="text-white/80 text-[15px] leading-relaxed">
-                            Estamos preparando los primeros artículos. Vuelve pronto.
+                        <p className="text-gray-600 text-[15px] leading-relaxed">
+                            Estamos preparando los primeros artículos. Vuelva pronto.
                         </p>
                     ) : (
                         <>
@@ -141,7 +143,7 @@ const BlogIndex: React.FC = () => {
 
                             {/* Buscador */}
                             <div className="relative mb-8">
-                                <svg aria-hidden="true" className="absolute z-10 left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/60 pointer-events-none" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                                <svg aria-hidden="true" className="absolute z-10 left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                                     <circle cx="11" cy="11" r="7" />
                                     <path strokeLinecap="round" d="m20 20-3.5-3.5" />
                                 </svg>
@@ -152,13 +154,13 @@ const BlogIndex: React.FC = () => {
                                     maxLength={80}
                                     placeholder="Buscar: arriendo, herencia, divorcio…"
                                     aria-label="Buscar artículos"
-                                    className="w-full rounded-full bg-white/10 border border-white/15 pl-12 pr-5 py-3.5 text-[15px] text-white placeholder:text-white/50 backdrop-blur-sm focus:outline-none focus:border-brand-gold transition-colors"
+                                    className="w-full rounded-full bg-white border border-gray-300 pl-12 pr-5 py-3.5 text-[15px] text-brand-black placeholder:text-gray-400 focus:outline-none focus:border-brand-gold transition-colors"
                                 />
                             </div>
 
                             {visibles.length === 0 ? (
-                                <div className="text-center py-16 px-4 rounded-2xl border border-white/10 bg-white/5">
-                                    <p className="text-white/80 mb-5">No hay artículos que coincidan con la búsqueda.</p>
+                                <div className="text-center py-16 px-4 rounded-2xl border border-gray-200 bg-white">
+                                    <p className="text-gray-600 mb-5">No hay artículos que coincidan con la búsqueda.</p>
                                     <button type="button" onClick={limpiarFiltros} className={pillClass(true)}>
                                         Ver todos los artículos
                                     </button>
@@ -167,8 +169,7 @@ const BlogIndex: React.FC = () => {
                                 <div className="grid gap-5 md:grid-cols-2">
                                     {visibles.map((post) => (
                                         <DepthCard key={post.slug} rounded="rounded-2xl">
-                                            <GlowFrame rounded="rounded-2xl" className="h-full">
-                                                <article className="relative h-full bg-white rounded-2xl border border-brand-gold/40">
+                                                <article className="relative h-full bg-white rounded-2xl border border-gray-200 hover:border-gray-300 transition-colors">
                                                     <div className="flex flex-col h-full p-6 sm:p-7" style={depthLayerStyle}>
                                                         <p className="text-[10px] uppercase tracking-widest text-brand-gold font-bold mb-3">
                                                             {SERVICES[post.service].label}
@@ -191,7 +192,6 @@ const BlogIndex: React.FC = () => {
                                                         </div>
                                                     </div>
                                                 </article>
-                                            </GlowFrame>
                                         </DepthCard>
                                     ))}
                                 </div>

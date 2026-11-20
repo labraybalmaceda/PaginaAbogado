@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import Header from './Header';
 
 const PrivacyPolicy: React.FC = () => {
     useEffect(() => {
@@ -13,28 +14,9 @@ const PrivacyPolicy: React.FC = () => {
 
     return (
         <div className="min-h-screen bg-white text-gray-800 font-sans pb-20">
-            {/* Header simple para navegación de regreso */}
-            <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 py-4">
-                <div className="container mx-auto px-4 flex justify-between items-center">
-                    <div className="flex items-center gap-3">
-                        <img 
-                            src="https://res.cloudinary.com/dt36zhzde/image/upload/f_auto,q_auto,h_96/lb_monogram_ev2svh" 
-                            alt="Logo LABRA & BALMACEDA" 
-                            className="h-8 w-auto"
-                            width={87}
-                            height={96}
-                        />
-                        <span className="font-baskerville font-bold text-brand-black tracking-tight uppercase text-sm sm:text-base">
-                            LABRA & BALMACEDA
-                        </span>
-                    </div>
-                    <a href="/" onClick={(e) => { e.preventDefault(); handleBack(e); }} className="text-xs font-bold uppercase tracking-widest text-brand-gold hover:text-brand-black transition">
-                        Volver al sitio
-                    </a>
-                </div>
-            </header>
+            <Header variant="solid" />
 
-            <main className="container mx-auto px-4 max-w-3xl mt-12 sm:mt-20">
+            <main className="container mx-auto px-4 max-w-3xl pt-32 sm:pt-40">
                 <h1 className="text-3xl sm:text-4xl font-bold text-brand-black mb-8 font-baskerville not-italic border-b-2 border-brand-gold pb-4">
                     Política de Privacidad
                 </h1>
@@ -63,7 +45,7 @@ const PrivacyPolicy: React.FC = () => {
                             <li>Descripción del caso y antecedentes que la persona decida proporcionar</li>
                         </ul>
                         <p className="mt-4 bg-gray-50 p-4 border-l-4 border-brand-gold text-xs sm:text-sm">
-                            <strong>Recomendación:</strong> Para proteger tu privacidad, evita incluir información innecesaria en el mensaje (por ejemplo, RUT completo, datos sensibles no indispensables o datos de terceros que no sean relevantes para orientar la consulta).
+                            <strong>Recomendación:</strong> Para proteger su privacidad, evite incluir información innecesaria en el mensaje (por ejemplo, RUT completo, datos sensibles no indispensables o datos de terceros que no sean relevantes para orientar la consulta).
                         </p>
                     </section>
 

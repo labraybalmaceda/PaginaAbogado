@@ -1,83 +1,25 @@
 import React from 'react';
 import FadeInUp from './FadeInUp';
-import { trackServiceClick, trackCTAClick } from '../services/tracking';
+import { trackServiceClick } from '../services/tracking';
 import { navigateTo } from './blogUtils';
 import DepthCard, { depthLayerStyle } from './DepthCard';
-import GlowFrame from './GlowFrame';
+import type { Lang } from './i18n';
 
-interface PracticeAreaCardProps {
+// Tarjetas de Áreas de Práctica: blancas, sin íconos, con inclinación leve (DepthCard)
+// y sin brillo en los bordes. El botón lleva a la página del servicio.
+// `trackingId` = nombre de seguimiento de siempre; no cambiar.
+
+interface Area {
     title: string;
+    path: string;
     promise: string;
     services: string[];
     ctaText: string;
-    microcopy: string;
     trackingId: string;
-    isHighlighted?: boolean;
-    path: string;
 }
 
-const PracticeAreaCard: React.FC<PracticeAreaCardProps> = ({ title, promise, services, ctaText, microcopy, trackingId, isHighlighted, path }) => {
-
-    return (
-        <FadeInUp>
-            <DepthCard>
-            <GlowFrame>
-            <div className="relative bg-white p-8 rounded-2xl border transition-all duration-500 flex flex-col h-full group border-brand-gold/40 ring-1 ring-brand-gold/40 shadow-xl">
-                <div className="flex flex-col h-full" style={depthLayerStyle}>
-                
-                <h3 className="text-xl font-bold mb-2 text-brand-black text-center font-baskerville not-italic">
-                    <a href={path} onClick={(e) => { e.preventDefault(); navigateTo(path); }} className="hover:text-brand-gold transition">{title}</a>
-                </h3>
-                <p className="text-sm text-gray-500 mb-6 text-center leading-relaxed italic">{promise}</p>
-                
-                <ul className="space-y-3 mb-8 flex-grow">
-                    {services.map((service, index) => (
-                        <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
-                            <svg className="w-4 h-4 text-brand-gold flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            {service}
-                        </li>
-                    ))}
-                </ul>
-
-                <div className="text-center mt-auto">
-                    <a 
-                        href={path} 
-                        className={`inline-block w-full py-3.5 px-6 rounded-xl font-bold text-sm transition-all duration-300 shadow-md ${isHighlighted ? 'bg-brand-black text-white hover:bg-brand-gold' : 'bg-gray-50 text-brand-black hover:bg-brand-black hover:text-white'}`}
-                        onClick={(e) => { e.preventDefault(); trackServiceClick(trackingId); navigateTo(path); }}
-                    >
-                        {ctaText}
-                    </a>
-                    <p className="mt-3 text-[10px] font-medium text-gray-400 italic">
-                        {microcopy}
-                    </p>
-                </div>
-                </div>
-            </div>
-            </GlowFrame>
-            </DepthCard>
-        </FadeInUp>
-    );
-};
-
-const PracticeAreas: React.FC = () => {
-    const areas = [
-        {
-            title: 'Civil',
-            path: '/abogado-civil-puerto-montt',
-            promise: 'Contratos, deudas y conflictos patrimoniales: ordenamos tu caso y lo ejecutamos.',
-            services: [
-                'Incumplimiento de Contrato / Cobros',
-                'Juicios Ejecutivos y Embargos',
-                'Posesión Efectiva / Herencias',
-                'Indemnizaciones / Accidentes',
-                'Responsabilidad Civil Patrimonial'
-            ],
-            ctaText: 'Evaluar mi situación',
-            microcopy: 'Te indicamos riesgos, plazos y alternativa más eficiente.',
-            trackingId: 'Derecho Civil'
-        },
+const AREAS: Record<Lang, Area[]> = {
+    es: [
         {
             title: 'Corporativo',
             path: '/abogado-corporativo-puerto-montt',
@@ -88,8 +30,7 @@ const PracticeAreas: React.FC = () => {
                 'Contratos Comerciales',
                 'Compraventa de Empresas y Due Diligence'
             ],
-            ctaText: 'Estructurar mi empresa',
-            microcopy: 'Te decimos qué sociedad conviene y qué debe quedar por escrito.',
+            ctaText: 'Ver Derecho Corporativo',
             trackingId: 'Derecho Corporativo'
         },
         {
@@ -102,23 +43,22 @@ const PracticeAreas: React.FC = () => {
                 'Asesoría en Riesgos Laborales y Tributarios',
                 'Cobro de Créditos de la Empresa: Facturas y Pagarés'
             ],
-            ctaText: 'Conversar un plan mensual',
-            microcopy: 'Revisemos el convenio que mejor se ajusta a su empresa.',
+            ctaText: 'Ver Asesoría Mensual',
             trackingId: 'Asesoria Mensual'
         },
         {
-            title: 'Arrendamientos',
-            path: '/abogado-arriendo-puerto-montt',
-            promise: 'Término, cobro y restitución: tramitación completa y diligencias.',
+            title: 'Litigios Civiles y Comerciales',
+            path: '/abogado-civil-puerto-montt',
+            promise: 'Contratos, cobros y conflictos patrimoniales, desde la negociación hasta la ejecución de la sentencia.',
             services: [
-                'Terminación por No Pago de Rentas',
-                'Juicios de Desahucio',
-                'Cobro de Rentas y Garantías',
-                'Restitución del Inmueble'
+                'Incumplimiento de Contrato / Cobros',
+                'Juicios Ejecutivos y Embargos',
+                'Indemnizaciones de Perjuicios',
+                'Responsabilidad Civil Patrimonial',
+                'Posesión Efectiva / Herencias'
             ],
-            ctaText: 'Resolver un arriendo',
-            microcopy: 'Checklist de documentos + estrategia procesal.',
-            trackingId: 'Juicios Arriendo'
+            ctaText: 'Ver Litigios',
+            trackingId: 'Derecho Civil'
         },
         {
             title: 'Derecho Concursal',
@@ -130,78 +70,167 @@ const PracticeAreas: React.FC = () => {
                 'Defensa en Juicios Ejecutivos y Remates',
                 'Representación de Acreedores y Verificación de Créditos'
             ],
-            ctaText: 'Revisar mi situación de deudas',
-            microcopy: 'Diagnóstico inicial y plan de acción inmediato.',
+            ctaText: 'Ver Derecho Concursal',
             trackingId: 'Derecho Concursal'
         },
         {
-            title: 'Familia',
-            path: '/abogado-familia-puerto-montt',
-            promise: 'Divorcios, alimentos y cuidado personal con enfoque estratégico.',
+            title: 'Inmobiliario y Construcción',
+            path: '/abogado-inmobiliario-puerto-montt',
+            promise: 'Compraventas, arriendos comerciales y obras: revisar antes de firmar y defender cuando hay conflicto.',
             services: [
-                'Divorcio (Acuerdo / Unilateral)',
-                'Compensación Económica',
-                'Alimentos (Fijación / Rebaja / Cese)',
-                'Cuidado Personal y Relación Directa',
-                'Medidas de Protección y VIF'
+                'Compraventa y Promesa de Compraventa',
+                'Estudio de Títulos',
+                'Arriendos Comerciales',
+                'Contratos de Construcción',
+                'Litigios por Incumplimiento y Defectos de Construcción'
             ],
-            ctaText: 'Evaluar mi caso de Familia',
-            microcopy: 'Confidencialidad y pasos concretos desde la primera reunión.',
-            trackingId: 'Derecho Familia'
-        }
-    ];
+            ctaText: 'Ver Inmobiliario y Construcción',
+            trackingId: 'Inmobiliario'
+        },
+    ],
+    en: [
+        {
+            title: 'Corporate Law',
+            path: '/en/corporate-law',
+            promise: 'Setting up, structuring and protecting the company before any conflict arises.',
+            services: [
+                'Incorporation and Amendment of Companies',
+                'Shareholder Agreements and Bylaws',
+                'Commercial Contracts',
+                'Purchase and Sale of Companies and Due Diligence'
+            ],
+            ctaText: 'Corporate Law',
+            trackingId: 'Derecho Corporativo EN'
+        },
+        {
+            title: 'Monthly Legal Counsel',
+            path: '/en/monthly-legal-counsel',
+            promise: 'An outside lawyer for the day-to-day of the company, with a monthly cost cap.',
+            services: [
+                'Ongoing Legal Advice',
+                'Contracts, Agreements and Negotiations',
+                'Advice on Labor and Tax Risks',
+                'Collection of Company Receivables: Invoices and Promissory Notes'
+            ],
+            ctaText: 'Monthly Legal Counsel',
+            trackingId: 'Asesoria Mensual EN'
+        },
+        {
+            title: 'Civil and Commercial Litigation',
+            path: '/en/litigation',
+            promise: 'Contracts, collections and property disputes, from negotiation to enforcement of the judgment.',
+            services: [
+                'Breach of Contract / Collections',
+                'Enforcement Proceedings and Attachments',
+                'Damages Claims',
+                'Civil Liability',
+                'Probate / Inheritance'
+            ],
+            ctaText: 'Litigation',
+            trackingId: 'Derecho Civil EN'
+        },
+        {
+            title: 'Insolvency Law',
+            path: '/en/insolvency',
+            promise: 'Reorganization, liquidation and representation of creditors.',
+            services: [
+                'Liquidation of the Debtor Company',
+                'Judicial Reorganization',
+                'Defense in Enforcement Proceedings and Auctions',
+                'Representation of Creditors and Filing of Claims'
+            ],
+            ctaText: 'Insolvency Law',
+            trackingId: 'Derecho Concursal EN'
+        },
+        {
+            title: 'Real Estate and Construction',
+            path: '/en/real-estate-and-construction',
+            promise: 'Sales, commercial leases and building works: review before signing and defense when there is a dispute.',
+            services: [
+                'Sale and Promissory Agreements',
+                'Title Review',
+                'Commercial Leases',
+                'Building Contracts',
+                'Litigation for Breach and Construction Defects'
+            ],
+            ctaText: 'Real Estate and Construction',
+            trackingId: 'Inmobiliario EN'
+        },
+    ],
+};
 
-    const handleScrollClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
-        event.preventDefault();
-        const href = event.currentTarget.getAttribute('href');
-        if (href?.startsWith('#')) {
-            const targetElement = document.querySelector(href);
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-    };
+const TEXTOS = {
+    es: {
+        titulo: <>Áreas de <span className="text-brand-gold">Práctica</span></>,
+        bajada: 'Asesoría legal para empresas y personas en Puerto Varas, Puerto Montt y la Región de Los Lagos.',
+    },
+    en: {
+        titulo: <>Practice <span className="text-brand-gold">Areas</span></>,
+        bajada: 'Legal counsel for companies and individuals in Puerto Varas, Puerto Montt and the Los Lagos Region of Chile.',
+    },
+};
+
+const PracticeAreaCard: React.FC<Area> = ({ title, promise, services, ctaText, trackingId, path }) => (
+    <FadeInUp>
+        <DepthCard>
+            <div className="relative bg-white p-8 rounded-2xl border border-gray-200 flex flex-col h-full">
+                <div className="flex flex-col h-full" style={depthLayerStyle}>
+                    <h3 className="text-xl font-bold mb-2 text-brand-black text-center font-baskerville not-italic">
+                        <a href={path} onClick={(e) => { e.preventDefault(); navigateTo(path); }} className="hover:text-brand-gold transition">{title}</a>
+                    </h3>
+                    <div className="w-8 h-px bg-brand-gold mx-auto mb-4" aria-hidden="true" />
+                    <p className="text-sm text-gray-500 mb-6 text-center leading-relaxed">{promise}</p>
+
+                    <ul className="space-y-3 mb-8 flex-grow">
+                        {services.map((service, index) => (
+                            <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
+                                <svg className="w-4 h-4 text-brand-gold flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                {service}
+                            </li>
+                        ))}
+                    </ul>
+
+                    <a
+                        href={path}
+                        className="mt-auto inline-flex items-center justify-center gap-2 w-full py-3.5 px-6 rounded-xl font-bold text-sm bg-brand-black text-white hover:bg-brand-gold transition-colors duration-300"
+                        onClick={(e) => { e.preventDefault(); trackServiceClick(trackingId); navigateTo(path); }}
+                    >
+                        {ctaText}
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+                    </a>
+                </div>
+            </div>
+        </DepthCard>
+    </FadeInUp>
+);
+
+const PracticeAreas: React.FC<{ lang?: Lang }> = ({ lang: langProp }) => {
+    const lang: Lang = langProp ?? 'es';
+    const t = TEXTOS[lang];
+    const areas = AREAS[lang];
+
 
     return (
         <section id="practicas" className="py-20 sm:py-28 bg-white overflow-hidden">
             <div className="container mx-auto px-4 sm:px-6">
                 <div className="text-center max-w-3xl mx-auto mb-16">
                     <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-6 text-brand-black uppercase tracking-tight font-baskerville not-italic">
-                        Áreas de <span className="text-brand-gold">Práctica</span>
+                        {t.titulo}
                     </h2>
                     <p className="text-base sm:text-lg text-gray-500 leading-relaxed">
-                        Selecciona tu situación y te indicamos el camino más eficiente: <br className="hidden sm:block" />
-                        <span className="font-semibold text-brand-black">documentación, plazos estimados y estrategia (acuerdo o juicio).</span>
+                        {t.bajada}
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {areas.map(area => <PracticeAreaCard key={area.title} {...area} />)}
-                </div>
-
-                <div className="mt-20">
-                    <FadeInUp>
-                        <div className="bg-brand-black rounded-3xl p-8 sm:p-12 text-center border-t-4 border-brand-gold shadow-2xl relative overflow-hidden group">
-                            <div className="absolute inset-0 bg-brand-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-                            <div className="relative z-10">
-                                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4 italic font-baskerville">¿No sabes dónde encaja tu caso?</h3>
-                                <p className="text-gray-400 mb-8 max-w-2xl mx-auto text-sm sm:text-base">
-                                    Descríbelo en 2 líneas y un abogado especialista te orientará al área correcta y los pasos a seguir.
-                                </p>
-                                <a 
-                                    href="#consulta" 
-                                    className="inline-flex items-center justify-center gap-2 px-10 py-4 bg-brand-gold hover:bg-yellow-700 text-white font-bold rounded-xl transition-all duration-300 transform hover:scale-105 uppercase tracking-widest text-sm"
-                                    onClick={(e) => { handleScrollClick(e); trackCTAClick('Orientación Rápida Banner'); }}
-                                >
-                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <circle cx="12" cy="12" r="10" strokeWidth="2.5"/>
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M16 8l-6 2-2 6 6-2 2-6z"/>
-                                    </svg>
-                                    Agendar Consulta
-                                </a>
-                            </div>
+                {/* 5 tarjetas (también en inglés): 3 columnas en PC; la última fila queda centrada. */}
+                <div className="flex flex-wrap justify-center gap-8">
+                    {areas.map((area) => (
+                        <div key={area.path} className="grid w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)]">
+                            <PracticeAreaCard {...area} />
                         </div>
-                    </FadeInUp>
+                    ))}
                 </div>
             </div>
         </section>

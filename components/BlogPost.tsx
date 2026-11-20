@@ -9,8 +9,9 @@ import { getRelatedPosts } from '../content/blog';
 import PreferredSourceButton from './PreferredSourceButton';
 import ArticleSidebar, { type SidebarItem } from './ArticleSidebar';
 import { navigateTo, BASE_URL, LOGO_URL, formatDate } from './blogUtils';
+import PageHero from './PageHero';
+import FaqAccordion from './FaqAccordion';
 import DepthCard, { depthLayerStyle } from './DepthCard';
-import GlowFrame from './GlowFrame';
 
 // Enlaces dentro del texto: [texto visible](/ruta-interna). Solo rutas internas (empiezan con /).
 const renderInline = (text: string): React.ReactNode => {
@@ -43,23 +44,27 @@ const renderInline = (text: string): React.ReactNode => {
     return parts;
 };
 
+// Cuerpo del artículo (ronda 3, 20-11): sobrio, con aire y líneas finas en vez de cajas.
+// Tamaños de letra del 16-11 (16 px en PC, 15 px en el teléfono, H2 de 22 px) y texto justificado.
+const CUERPO = 'text-[15px] sm:text-base text-gray-700 leading-[1.8] text-justify hyphens-auto';
+
 const renderBlock = (block: Block, i: number) => {
     switch (block.type) {
         case 'h2':
             return (
-                <h2 key={i} id={`seccion-${i}`} className="text-xl sm:text-[22px] font-bold font-baskerville text-brand-black mt-10 mb-4 scroll-mt-24">
+                <h2 key={i} id={`seccion-${i}`} className="relative text-xl sm:text-[22px] font-bold font-baskerville text-brand-black mt-14 mb-5 pt-5 scroll-mt-28 before:absolute before:top-0 before:left-0 before:w-10 before:h-px before:bg-brand-gold">
                     {block.text}
                 </h2>
             );
         case 'h3':
             return (
-                <h3 key={i} className="text-lg font-bold font-baskerville text-brand-black mt-8 mb-3">
+                <h3 key={i} className="text-lg font-bold font-baskerville text-brand-black mt-10 mb-3">
                     {block.text}
                 </h3>
             );
         case 'list':
             return (
-                <ul key={i} className="list-disc pl-5 space-y-2 mb-6 text-[15px] sm:text-base text-gray-700 leading-relaxed text-justify hyphens-auto">
+                <ul key={i} className={`list-disc pl-5 space-y-2.5 mb-7 marker:text-brand-gold ${CUERPO}`}>
                     {block.items.map((item, j) => (
                         <li key={j}>{renderInline(item)}</li>
                     ))}
@@ -67,10 +72,10 @@ const renderBlock = (block: Block, i: number) => {
             );
         case 'quote':
             return (
-                <blockquote key={i} className="border-l-4 border-brand-gold bg-gray-50 rounded-r-xl px-5 py-4 mb-6">
-                    <p className="text-[15px] sm:text-base text-gray-700 leading-relaxed text-justify hyphens-auto italic">{block.text}</p>
+                <blockquote key={i} className="border-l border-brand-gold pl-5 sm:pl-6 my-9">
+                    <p className={`font-baskerville italic ${CUERPO}`}>{block.text}</p>
                     {block.cite && (
-                        <cite className="block mt-2 text-xs uppercase tracking-widest text-brand-gold not-italic font-bold">
+                        <cite className="block mt-3 text-[11px] uppercase tracking-[0.2em] text-brand-gold not-italic font-bold">
                             {block.citeUrl ? (
                                 <a href={block.citeUrl} target="_blank" rel="noopener noreferrer" className="hover:underline">
                                     {block.cite}
@@ -84,49 +89,47 @@ const renderBlock = (block: Block, i: number) => {
             );
         case 'summary':
             return (
-                <div key={i} className="bg-gray-50 border-l-4 border-brand-gold rounded-r-xl px-5 py-4 mb-6">
-                    <p className="text-[15px] sm:text-base text-gray-700 leading-relaxed text-justify hyphens-auto">
-                        <strong className="text-brand-black">En resumen:</strong> {block.text}
-                    </p>
+                <div key={i} className="border-l-2 border-brand-gold pl-5 sm:pl-6 my-9">
+                    <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-brand-gold mb-2">En resumen</p>
+                    <p className={CUERPO}>{block.text}</p>
                 </div>
             );
         case 'p':
         default:
             return (
-                <p key={i} className="text-[15px] sm:text-base text-gray-700 leading-relaxed text-justify hyphens-auto mb-5">
+                <p key={i} className={`${CUERPO} mb-6`}>
                     {renderInline(block.text)}
                 </p>
             );
     }
 };
 
+// Banda de contacto sobria (negra, sin sombras ni bordes dorados). Van dos por artículo,
+// arriba y al final, como siempre (decisión de Renato).
 const ConsultaCta: React.FC<{ post: Post; className: string }> = ({ post, className }) => (
-    <section className={className}>
-        <h2 className="text-lg sm:text-xl font-bold font-baskerville mb-2">
-            ¿Estás pasando por esto?
+    <section className={`bg-brand-black text-white rounded-xl px-6 py-7 sm:px-8 sm:py-8 ${className}`}>
+        <h2 className="text-lg sm:text-xl font-bold font-baskerville text-white mb-2">
+            ¿Enfrenta una situación como esta?
         </h2>
-        <p className="text-sm sm:text-base text-gray-600 mb-6 max-w-xl mx-auto leading-relaxed">
-            Cada caso tiene detalles que cambian la estrategia. Revisamos el tuyo y te decimos
-            con claridad qué alternativas tienes.
+        <p className="text-sm sm:text-[15px] text-white/75 leading-relaxed mb-6">
+            Revisamos su caso y le indicamos con claridad qué alternativas tiene.
+            {SERVICES[post.service] && (
+                <> Conozca nuestra área de <a href={SERVICES[post.service].path} onClick={(e) => { e.preventDefault(); navigateTo(SERVICES[post.service].path); }} className="text-brand-gold font-semibold underline hover:text-white transition">{SERVICES[post.service].label} en Puerto Varas y Puerto Montt</a>.</>
+            )}
         </p>
-        {SERVICES[post.service] && (
-            <p className="text-sm sm:text-base text-gray-600 mb-6 max-w-xl mx-auto leading-relaxed">
-                Conoce nuestra área de <a href={SERVICES[post.service].path} onClick={(e) => { e.preventDefault(); navigateTo(SERVICES[post.service].path); }} className="text-brand-gold font-semibold underline hover:text-brand-black transition">{SERVICES[post.service].label} en Puerto Varas y Puerto Montt</a>.
-            </p>
-        )}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="flex flex-col sm:flex-row gap-3">
             <a
                 href="/#consulta"
                 onClick={(e) => { e.preventDefault(); navigateTo('/#consulta'); }}
-                className="w-full sm:w-auto px-6 py-4 sm:px-10 sm:py-5 text-[13px] sm:text-base font-bold uppercase tracking-widest rounded-xl bg-brand-black text-white hover:bg-brand-gold transition-all duration-300 shadow-xl"
+                className="flex-1 sm:flex-none text-center px-6 py-3.5 sm:px-8 text-[13px] font-bold uppercase tracking-widest rounded-md bg-brand-gold text-brand-black hover:bg-white transition-colors duration-300"
             >
-                Agenda con un abogado
+                Agendar con un abogado
             </a>
             <a
                 href="https://wa.me/56977646224"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-6 py-4 sm:px-10 sm:py-5 text-[13px] sm:text-base font-bold uppercase tracking-widest rounded-xl bg-whatsapp-verde text-white hover:bg-green-600 transition-all duration-300 shadow-xl flex items-center justify-center gap-2"
+                className="flex-1 sm:flex-none px-6 py-3.5 sm:px-8 text-[13px] font-bold uppercase tracking-widest rounded-md border border-white/30 text-white hover:bg-white/10 transition-colors duration-300 flex items-center justify-center gap-2"
                 onClick={() => {
                     if (typeof (window as any).gtag === 'function') {
                         (window as any).gtag('event', 'conversion', {
@@ -137,7 +140,7 @@ const ConsultaCta: React.FC<{ post: Post; className: string }> = ({ post, classN
                     }
                 }}
             >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-whatsapp-verde" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                 </svg>
                 WhatsApp
@@ -188,7 +191,7 @@ const BlogPost: React.FC<{ post: Post }> = ({ post }) => {
             '@id': `${url}#breadcrumb`,
             itemListElement: [
                 { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${BASE_URL}/` },
-                { '@type': 'ListItem', position: 2, name: 'Blog', item: `${BASE_URL}/blog` },
+                { '@type': 'ListItem', position: 2, name: 'Publicaciones', item: `${BASE_URL}/blog` },
                 { '@type': 'ListItem', position: 3, name: post.title, item: url },
             ],
         };
@@ -211,8 +214,7 @@ const BlogPost: React.FC<{ post: Post }> = ({ post }) => {
     }, [post, url]);
 
     return (
-        <div className="relative isolate min-h-screen bg-brand-black text-brand-black">
-            <div aria-hidden="true" className="absolute inset-x-0 top-0 h-screen supports-[height:100lvh]:h-lvh -z-10 bg-cover bg-position-[30%_center] md:bg-center" style={{ backgroundImage: "linear-gradient(to bottom, rgba(17, 17, 17, 0.65), rgba(17, 17, 17, 0.75) 60%, rgba(17, 17, 17, 1)), url('/fondo-articulo-blog.jpg')" }} />
+        <div className="min-h-screen bg-hueso text-brand-black">
             <Seo
                 title={post.metaTitle || `${post.title} | Labra & Balmaceda`}
                 description={post.description}
@@ -226,91 +228,80 @@ const BlogPost: React.FC<{ post: Post }> = ({ post }) => {
             />
             <Header />
 
-            <main className="py-12 sm:py-20 overflow-x-clip mt-6 sm:mt-0">
-                <div className="container mx-auto px-4 sm:px-6 max-w-3xl lg:max-w-6xl">
-                    <nav aria-label="Migas de pan" className="mb-6 text-xs sm:text-sm text-white font-bold">
-                        <a
-                            href="/"
-                            onClick={(e) => { e.preventDefault(); navigateTo('/'); }}
-                            className="hover:text-brand-gold transition"
-                        >
-                            Inicio
-                        </a>
-                        <span className="mx-2">/</span>
-                        <a
-                            href="/blog"
-                            onClick={(e) => { e.preventDefault(); navigateTo('/blog'); }}
-                            className="hover:text-brand-gold transition"
-                        >
-                            Blog
-                        </a>
-                    </nav>
+            {/* overflow-x-clip (no hidden): así el índice lateral sigue siendo sticky. */}
+            <main className="overflow-x-clip">
+                <PageHero
+                    eyebrow={service.label}
+                    title={post.title}
+                    image="/fondo-articulo-blog.jpg"
+                    imageClass="bg-position-[30%_center] md:bg-center"
+                    containerClass="max-w-3xl lg:max-w-6xl"
+                    above={
+                        <nav aria-label="Migas de pan" className="mb-6 text-xs sm:text-sm text-white font-bold">
+                            <a
+                                href="/"
+                                onClick={(e) => { e.preventDefault(); navigateTo('/'); }}
+                                className="hover:text-brand-gold transition"
+                            >
+                                Inicio
+                            </a>
+                            <span className="mx-2">/</span>
+                            <a
+                                href="/blog"
+                                onClick={(e) => { e.preventDefault(); navigateTo('/blog'); }}
+                                className="hover:text-brand-gold transition"
+                            >
+                                Publicaciones
+                            </a>
+                        </nav>
+                    }
+                >
+                    <p className="mt-5 text-xs sm:text-sm text-white/65">
+                        Publicado el <time dateTime={post.date}>{formatDate(post.date)}</time>
+                    </p>
+                </PageHero>
 
-                    <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_17.5rem] lg:gap-8 lg:items-start">
+                <div className="container mx-auto px-4 sm:px-6 max-w-3xl lg:max-w-6xl py-12 sm:py-16">
+                    <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_15rem] lg:gap-16 lg:items-start">
                     <div className="min-w-0">
                     <ArticleSidebar items={sidebarItems} articleId="articulo" variant="mobile" />
-                    <article id="articulo" className="bg-white p-6 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-100 relative overflow-hidden border-t-0">
-                        <div className="absolute inset-x-0 top-0 h-1.5 bg-brand-gold"></div>
-
-                        <p className="text-[10px] sm:text-xs uppercase tracking-widest text-brand-gold font-bold mb-3">
-                            {service.label}
-                        </p>
-
-                        <h1 className="text-2xl sm:text-3xl font-bold mb-4 font-baskerville tracking-tight not-italic leading-tight">
-                            {post.title}
-                        </h1>
-
-                        <p className="text-xs sm:text-sm text-gray-500 mb-8">
-                            Publicado el <time dateTime={post.date}>{formatDate(post.date)}</time>
-                        </p>
-
-                        <ConsultaCta post={post} className="mb-8 pb-8 border-b border-gray-100 text-center" />
+                    <article id="articulo" className="max-w-[40rem] mx-auto lg:mx-0">
+                        <ConsultaCta post={post} className="mb-12" />
 
                         <div>{post.blocks.map(renderBlock)}</div>
 
                         {post.faq && post.faq.length > 0 && (
-                            <section className="mt-12">
-                                <h2 id="preguntas-frecuentes" className="text-xl sm:text-[22px] font-bold font-baskerville mb-6 scroll-mt-24">Preguntas frecuentes</h2>
-                                <div className="space-y-6">
-                                    {post.faq.map((f, i) => (
-                                        <div key={i}>
-                                            <h3 className="font-bold text-brand-black mb-1 font-baskerville tracking-tight text-base sm:text-[17px]">
-                                                {f.question}
-                                            </h3>
-                                            <p className="text-sm sm:text-[15px] text-gray-600 leading-relaxed">{f.answer}</p>
-                                        </div>
-                                    ))}
-                                </div>
+                            <section className="mt-14">
+                                <h2 id="preguntas-frecuentes" className="relative text-xl sm:text-[22px] font-bold font-baskerville text-brand-black mb-6 pt-5 scroll-mt-28 before:absolute before:top-0 before:left-0 before:w-10 before:h-px before:bg-brand-gold">Preguntas frecuentes</h2>
+                                <FaqAccordion items={post.faq} />
                             </section>
                         )}
 
-                        <ConsultaCta post={post} className="mt-12 pt-8 border-t border-gray-100 text-center" />
+                        <ConsultaCta post={post} className="mt-14" />
 
-                        <PreferredSourceButton key={post.slug} className="mt-8 pt-8 border-t border-gray-100 text-center" />
+                        <PreferredSourceButton key={post.slug} className="mt-10 pt-8 border-t border-gray-200 text-center" />
 
-                        <p className="mt-8 text-[11px] text-gray-400 italic leading-relaxed text-center">
+                        <p className="mt-8 text-[11px] text-gray-500 italic leading-relaxed text-center">
                             Este artículo es informativo y no constituye asesoría legal para un caso particular.
                         </p>
                     </article>
 
                     {related.length > 0 && (
-                        <section className="mt-12">
-                            <h2 className="text-lg sm:text-xl font-bold font-baskerville mb-5 text-white">Seguir leyendo</h2>
+                        <section className="mt-16 max-w-[40rem] mx-auto lg:mx-0">
+                            <h2 className="relative text-xl sm:text-[22px] font-bold font-baskerville text-brand-black mb-6 pt-5 before:absolute before:top-0 before:left-0 before:w-10 before:h-px before:bg-brand-gold">Seguir leyendo</h2>
                             <div className="space-y-3">
                                 {related.map((r) => (
                                     <DepthCard key={r.slug} rounded="rounded-xl">
-                                        <GlowFrame rounded="rounded-xl" className="">
-                                            <a
-                                                href={`/blog/${r.slug}`}
-                                                onClick={(e) => { e.preventDefault(); navigateTo(`/blog/${r.slug}`); }}
-                                                className="block p-5 bg-white rounded-xl border border-brand-gold/40"
-                                            >
-                                                <div style={depthLayerStyle}>
-                                                    <h3 className="font-bold font-baskerville text-brand-black text-base mb-1">{r.title}</h3>
-                                                    <p className="text-sm text-gray-600 leading-relaxed">{r.excerpt}</p>
-                                                </div>
-                                            </a>
-                                        </GlowFrame>
+                                        <a
+                                            href={`/blog/${r.slug}`}
+                                            onClick={(e) => { e.preventDefault(); navigateTo(`/blog/${r.slug}`); }}
+                                            className="block p-5 bg-white rounded-xl border border-gray-200 hover:border-gray-300 transition-colors"
+                                        >
+                                            <div style={depthLayerStyle}>
+                                                <h3 className="font-bold font-baskerville text-brand-black text-base mb-1">{r.title}</h3>
+                                                <p className="text-sm text-gray-600 leading-relaxed">{r.excerpt}</p>
+                                            </div>
+                                        </a>
                                     </DepthCard>
                                 ))}
                             </div>
