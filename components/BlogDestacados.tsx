@@ -11,7 +11,7 @@ import { useDragSwipe } from './useDragSwipe';
 // Los artículos de Familia no se promocionan aquí.
 const INTERVALO_MS = 10000;
 
-const GRUPO_EMPRESA = new Set(['corporativo', 'insolvencia']);
+const GRUPO_EMPRESA = new Set(['corporativo', 'insolvencia', 'inmobiliario']);
 const GRUPO_SIGUIENTE = new Set(['civil', 'arriendos']);
 
 // indexablePosts ya viene del más nuevo al más antiguo: filtrar conserva ese orden.

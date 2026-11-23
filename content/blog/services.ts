@@ -30,4 +30,9 @@ export const SERVICES: Record<ServiceKey, { label: string; path: string; cta: st
         path: '/abogado-corporativo-puerto-montt',
         cta: 'Estructurar mi empresa con un abogado',
     },
+    inmobiliario: {
+        label: 'Derecho Inmobiliario y Construcción',
+        path: '/abogado-inmobiliario-puerto-montt',
+        cta: 'Consultar por mi proyecto inmobiliario',
+    },
 };
