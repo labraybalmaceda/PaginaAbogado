@@ -25,6 +25,7 @@ const STATIC_ROUTES = [
     { path: '/abogado-insolvencia-puerto-montt', lastmod: '2026-11-20', changefreq: 'monthly', priority: '0.8' },
     { path: '/abogado-corporativo-puerto-montt', lastmod: '2026-11-20', changefreq: 'monthly', priority: '0.8' },
     { path: '/abogado-inmobiliario-puerto-montt', lastmod: '2026-11-20', changefreq: 'monthly', priority: '0.8' },
+    { path: '/abogado-administrativo-puerto-montt', lastmod: '2026-11-23', changefreq: 'monthly', priority: '0.8' },
     { path: '/asesoria-legal-empresas-puerto-montt', lastmod: '2026-11-20', changefreq: 'monthly', priority: '0.8' },
     { path: '/privacidad', lastmod: '2026-10-01', changefreq: 'yearly', priority: '0.3' },
     // Versión en inglés (portada y 4 páginas de empresa).

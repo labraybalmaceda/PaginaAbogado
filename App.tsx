@@ -18,6 +18,7 @@ import FamiliaPage from './components/FamiliaPage';
 import ArriendosPage from './components/ArriendosPage';
 import InsolvenciaPage from './components/InsolvenciaPage';
 import InmobiliarioPage from './components/InmobiliarioPage';
+import AdministrativoPage from './components/AdministrativoPage';
 import CorporativoPage from './components/CorporativoPage';
 import AsesoriaEmpresasPage from './components/AsesoriaEmpresasPage';
 import BlogIndex from './components/BlogIndex';
@@ -37,6 +38,7 @@ type Route =
     | { name: 'arriendos' }
     | { name: 'insolvencia' }
     | { name: 'inmobiliario' }
+    | { name: 'administrativo' }
     | { name: 'corporativo' }
     | { name: 'asesoria' }
     | { name: 'blog' }
@@ -59,6 +61,7 @@ const resolveRoute = (pathname: string): Route => {
         case '/abogado-arriendo-puerto-montt': return { name: 'arriendos' };
         case '/abogado-insolvencia-puerto-montt': return { name: 'insolvencia' };
         case '/abogado-inmobiliario-puerto-montt': return { name: 'inmobiliario' };
+        case '/abogado-administrativo-puerto-montt': return { name: 'administrativo' };
         case '/abogado-corporativo-puerto-montt': return { name: 'corporativo' };
         case '/asesoria-legal-empresas-puerto-montt': return { name: 'asesoria' };
         case '/blog': return { name: 'blog' };
@@ -146,6 +149,7 @@ const App: React.FC = () => {
     if (route.name === 'arriendos') return <><ArriendosPage /><CookieBanner /></>;
     if (route.name === 'insolvencia') return <><InsolvenciaPage /><CookieBanner /></>;
     if (route.name === 'inmobiliario') return <><InmobiliarioPage /><CookieBanner /></>;
+    if (route.name === 'administrativo') return <><AdministrativoPage /><CookieBanner /></>;
     if (route.name === 'corporativo') return <><CorporativoPage /><CookieBanner /></>;
     if (route.name === 'asesoria') return <><AsesoriaEmpresasPage /><CookieBanner /></>;
     if (route.name === 'blog') return <><BlogIndex /><CookieBanner /></>;

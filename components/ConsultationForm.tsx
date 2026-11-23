@@ -49,6 +49,7 @@ const areaOptions = [
     { value: "Civil", es: "Litigios civiles", en: "Litigation" },
     { value: "Insolvencia", es: "Derecho Concursal", en: "Insolvency" },
     { value: "Inmobiliario", es: "Inmobiliario y Construcción", en: "Real estate & construction" },
+    { value: "Administrativo", es: "Administrativo y Regulatorio", en: "Administrative & regulatory" },
     { value: "Arriendo", es: "Arriendo", en: "Leases" },
     { value: "Familia", es: "Familia", en: "Family" },
     { value: "Otro", es: "Otro", en: "Other" },
@@ -69,7 +70,6 @@ const TEXTOS = {
             consentimiento: 'Política de Privacidad',
         } as { [key: string]: string },
         titulo: <>Consulta <span className="text-brand-gold">inicial</span></>,
-        bajada: 'Respuesta en 24 horas. Atención reservada.',
         paso: (n: number, total: number) => `Paso ${n} de ${total}`,
         pasosAria: 'Pasos del formulario',
         pasoAria: (n: number, label: string, done: boolean) => `Paso ${n}: ${label}${done ? ' (completado, volver)' : ''}`,
@@ -80,7 +80,6 @@ const TEXTOS = {
         ciudadEj: 'Ej: Puerto Varas, Puerto Montt, Osorno...',
         descripcion: 'Descripción breve del caso',
         descripcionEj: 'Indique en 4 puntos: (1) qué pasó, (2) cuándo, (3) con quién, (4) qué objetivo busca. Si tiene documentos (contrato, sentencia, mensajes), menciónelos.',
-        descripcionAyuda: 'No hace falta que sea largo: con lo esencial le indicamos los próximos pasos.',
         palabras: 'palabras',
         nombre: 'Nombre completo',
         nombreEj: 'Nombre y Apellido',
@@ -90,7 +89,7 @@ const TEXTOS = {
         consentimientoAntes: 'He leído la ',
         privacidad: 'Política de Privacidad',
         consentimientoDespues: ' y acepto ser contactado para responder esta consulta.',
-        datos: 'Sus datos se usan solo para responder esta solicitud. No enviamos spam.',
+        datos: 'Sus datos se utilizan únicamente para contactarlo.',
         revise: (n: number) => `Revise ${n === 1 ? 'el cuadro' : 'los cuadros'}: `,
         errorEnvio: 'No pudimos enviar su consulta. Revise su conexión e intente de nuevo, o',
         errorWhatsApp: 'escríbanos por WhatsApp',
@@ -98,8 +97,7 @@ const TEXTOS = {
         continuar: 'Continuar',
         procesando: 'Procesando...',
         enviar: 'Enviar consulta',
-        pie1: 'Respondemos en 24 horas.',
-        pie2: 'Le indicamos próximos pasos, documentos y opciones.',
+        pie1: 'Respuesta en 24 horas.',
         errores: {
             nombreRequerido: 'El nombre es requerido.',
             maximo: (n: number) => `Máximo ${n} caracteres.`,
@@ -131,7 +129,6 @@ const TEXTOS = {
             consentimiento: 'Privacy Policy',
         } as { [key: string]: string },
         titulo: <>Initial <span className="text-brand-gold">consultation</span></>,
-        bajada: 'Reply within 24 hours. Confidential.',
         paso: (n: number, total: number) => `Step ${n} of ${total}`,
         pasosAria: 'Form steps',
         pasoAria: (n: number, label: string, done: boolean) => `Step ${n}: ${label}${done ? ' (completed, go back)' : ''}`,
@@ -142,7 +139,6 @@ const TEXTOS = {
         ciudadEj: 'E.g. Puerto Varas, Puerto Montt, Santiago...',
         descripcion: 'Brief description of the matter',
         descripcionEj: 'In 4 points: (1) what happened, (2) when, (3) with whom, (4) what you want to achieve. If you have documents (contract, judgment, messages), please mention them.',
-        descripcionAyuda: 'It does not need to be long: with the essentials we can tell you the next steps.',
         palabras: 'words',
         nombre: 'Full name',
         nombreEj: 'First and last name',
@@ -152,7 +148,7 @@ const TEXTOS = {
         consentimientoAntes: 'I have read the ',
         privacidad: 'Privacy Policy (in Spanish)',
         consentimientoDespues: ' and agree to be contacted in response to this inquiry.',
-        datos: 'Your details are used only to reply to this request. We do not send spam.',
+        datos: 'Your details are used only to contact you.',
         revise: (n: number) => `Please check ${n === 1 ? 'this field' : 'these fields'}: `,
         errorEnvio: 'We could not send your inquiry. Please check your connection and try again, or',
         errorWhatsApp: 'write to us on WhatsApp',
@@ -160,8 +156,7 @@ const TEXTOS = {
         continuar: 'Continue',
         procesando: 'Sending...',
         enviar: 'Send inquiry',
-        pie1: 'We reply within 24 hours.',
-        pie2: 'We will tell you the next steps, documents and options.',
+        pie1: 'Reply within 24 hours.',
         errores: {
             nombreRequerido: 'Name is required.',
             maximo: (n: number) => `Maximum ${n} characters.`,
@@ -376,12 +371,9 @@ const ConsultationForm: React.FC<{ lang?: Lang }> = ({ lang: langProp }) => {
                 <div className="bg-white p-6 sm:p-12 rounded-3xl shadow-2xl border border-gray-100 relative">
 
                     <div className="text-center mb-8 sm:mb-10">
-                        <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-brand-black font-baskerville uppercase tracking-tight not-italic">
+                        <h2 className="text-3xl sm:text-4xl font-bold text-brand-black font-baskerville uppercase tracking-tight not-italic">
                             {t.titulo}
                         </h2>
-                        <p className="text-base sm:text-lg text-gray-500 font-medium italic">
-                            {t.bajada}
-                        </p>
                     </div>
 
                     {/* Progreso: una barra por paso. Se puede volver a un paso ya hecho, no saltar adelante. */}
@@ -506,7 +498,6 @@ const ConsultationForm: React.FC<{ lang?: Lang }> = ({ lang: langProp }) => {
                                     <div className="flex items-start justify-between gap-4">
                                         <div>
                                             <ErrorText msg={errors.descripcion} />
-                                            <p className="text-[11px] text-gray-400 font-medium">{t.descripcionAyuda}</p>
                                         </div>
                                         <p className={`shrink-0 text-[11px] font-bold tabular-nums ${palabras > MAX_PALABRAS ? 'text-red-500' : 'text-gray-400'}`} aria-live="polite">
                                             {palabras} / {MAX_PALABRAS} {t.palabras}
@@ -607,8 +598,7 @@ const ConsultationForm: React.FC<{ lang?: Lang }> = ({ lang: langProp }) => {
                         </div>
 
                         <p className="mt-6 text-center text-[11px] text-gray-400 font-bold uppercase tracking-[0.2em]">
-                            {t.pie1} <br className="sm:hidden" />
-                            <span className="text-brand-gold/60">{t.pie2}</span>
+                            {t.pie1}
                         </p>
                     </form>
                 </div>

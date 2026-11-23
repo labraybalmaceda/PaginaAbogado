@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { trackCTAClick } from '../services/tracking';
 import { useDragSwipe } from './useDragSwipe';
 
-// "Casos tipo y enfoque de trabajo": carrusel con profundidad.
+// "Materias de trabajo" (antes "Casos tipo y enfoque de trabajo"): carrusel con profundidad.
 // La tarjeta activa queda al frente; las vecinas se ven detrás, más pequeñas
 // e inclinadas. Hecho a mano, sin librerías (inspirado en el "Depth Carousel"
 // de React Bits). Todo el contenido queda en el HTML, también para Google.
@@ -39,7 +39,7 @@ const cases: CaseType[] = [
     {
         title: 'Incumplimiento Contractual',
         situation: 'Un proveedor no entregó lo pactado en un contrato comercial, o un cliente de la empresa dejó de pagar lo convenido.',
-        approach: 'Revisamos el contrato y la prueba disponible, buscamos una solución antes de tribunales y, si no la hay, demandamos.',
+        approach: 'Analizamos el contrato y la prueba disponible, procuramos una solución extrajudicial y, si no se alcanza, presentamos la demanda.',
         links: [
             { text: 'Qué hacer ante un incumplimiento de contrato', href: '/blog/incumplimiento-de-contrato', kind: 'articulo' },
             { text: 'Cómo cobrar una factura, un pagaré o un cheque', href: '/blog/juicio-ejecutivo-cobro-de-deudas', kind: 'articulo' },
@@ -52,7 +52,7 @@ const cases: CaseType[] = [
     {
         title: 'Constitución de Sociedades',
         situation: 'Dos o más socios van a formar una empresa y deben decidir qué tipo de sociedad conviene y qué dejar por escrito entre ellos.',
-        approach: 'Recomendamos el tipo de sociedad, redactamos el estatuto y dejamos resuelto qué pasa si un socio quiere salir o si los socios no logran acuerdo.',
+        approach: 'Determinamos el tipo de sociedad que corresponde, redactamos el estatuto y regulamos la salida de un socio y la solución de los desacuerdos entre ellos.',
         links: [
             { text: 'Cómo constituir una empresa en Chile', href: '/blog/como-constituir-una-empresa-en-chile', kind: 'articulo' },
             { text: 'Área de Derecho Corporativo', href: '/abogado-corporativo-puerto-montt', kind: 'area' },
@@ -63,9 +63,22 @@ const cases: CaseType[] = [
         imagePosition: '30% center',
     },
     {
+        title: 'Reestructuración Societaria',
+        situation: 'La empresa creció o cambió de socios y su estructura societaria ya no responde a su situación actual: empresas relacionadas, régimen tributario por revisar y retiro de utilidades sin criterio definido.',
+        approach: 'Analizamos la estructura vigente, el régimen tributario y el retiro de utilidades, regulamos la relación entre las empresas relacionadas y representamos a la empresa ante la Dirección del Trabajo.',
+        links: [
+            { text: 'Asesoría legal mensual para empresas', href: '/asesoria-legal-empresas-puerto-montt', kind: 'area' },
+            { text: 'Área de Derecho Corporativo', href: '/abogado-corporativo-puerto-montt', kind: 'area' },
+        ],
+        tag: 'Reestructuracion',
+        label: 'Corporativo',
+        image: '/fondo-articulo-blog.jpg',
+        imagePosition: '85% center',
+    },
+    {
         title: 'No Pago de Rentas',
-        situation: 'El arrendatario de un local comercial, o de una de las varias propiedades de un mismo dueño, lleva meses sin pagar y no restituye el inmueble.',
-        approach: 'Revisamos el contrato, calculamos lo adeudado y elegimos la vía más rápida para recuperar el inmueble.',
+        situation: 'El arrendatario de un local comercial, o de una de las propiedades de un mismo dueño, adeuda varias rentas y no restituye el inmueble.',
+        approach: 'Revisamos el contrato, determinamos lo adeudado y seleccionamos el procedimiento judicial que corresponde para recuperar el inmueble y cobrar las rentas.',
         links: [
             { text: 'Qué hacer si el arrendatario no paga', href: '/blog/arrendatario-no-se-quiere-ir-que-hacer', kind: 'articulo' },
             { text: 'Área de Arriendos', href: '/abogado-arriendo-puerto-montt', kind: 'area' },
@@ -76,13 +89,13 @@ const cases: CaseType[] = [
         imagePosition: '55% 60%',
     },
     {
-        title: 'Deudas y Acreedores',
-        situation: 'Las deudas de la empresa se hicieron impagables y ya empezó la cobranza judicial.',
-        approach: 'Miramos la situación completa de la empresa y le decimos qué alternativas reales tiene: defenderse, reorganizarse o liquidar de forma ordenada.',
+        title: 'Liquidación de la Empresa Deudora',
+        situation: 'La empresa no puede continuar su actividad ni pagar sus deudas, y sus socios necesitan poner término a la operación conforme a la ley.',
+        approach: 'Representamos a la empresa deudora en el procedimiento concursal de liquidación, desde la presentación ante el tribunal hasta la realización de sus activos.',
         links: [
-            { text: 'Cómo enfrentar las deudas de la empresa', href: '/abogado-insolvencia-puerto-montt', kind: 'area' },
+            { text: 'Liquidación de empresas: Derecho Concursal', href: '/abogado-insolvencia-puerto-montt', kind: 'area' },
         ],
-        tag: 'Derecho Concursal',
+        tag: 'Liquidacion',
         label: 'Derecho Concursal',
         image: '/casos-iglesia-puerto-varas.webp',
         imagePosition: '62% 55%',
@@ -192,11 +205,10 @@ const Testimonials: React.FC = () => {
             <div className="container mx-auto px-4 sm:px-6">
                 <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
                     <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-brand-black uppercase tracking-tight font-baskerville not-italic">
-                        Casos tipo y <span className="text-brand-gold">enfoque de trabajo</span>
+                        Materias <span className="text-brand-gold">de trabajo</span>
                     </h2>
                     <p className="text-base sm:text-lg text-gray-500 leading-relaxed font-medium">
-                        Ejemplos de situaciones frecuentes y nuestra forma de resolverlas. <br className="hidden sm:block" />
-                        <span className="text-brand-black">La orientación concreta depende de los antecedentes de cada caso.</span>
+                        Materias en que asesoramos y la forma en que se abordan.
                     </p>
                 </div>
 
@@ -204,7 +216,7 @@ const Testimonials: React.FC = () => {
                 <div
                     role="region"
                     aria-roledescription="carrusel"
-                    aria-label="Casos tipo"
+                    aria-label="Materias de trabajo"
                     tabIndex={0}
                     onKeyDown={(e) => {
                         if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }

@@ -19,6 +19,7 @@ const BASE_URL = 'https://labraybalmaceda.cl';
 const SERVICES = [
     ['Litigios Civiles y Comerciales', '/abogado-civil-puerto-montt', 'Contratos, cobros, herencias, posesión efectiva, partición, precario e indemnización de perjuicios.'],
     ['Derecho Inmobiliario y Construcción', '/abogado-inmobiliario-puerto-montt', 'Compraventas y promesas, estudio de títulos, arriendos comerciales, contratos de construcción, normativa urbanística y permisos, y litigios por incumplimiento o por defectos de construcción.'],
+    ['Derecho Administrativo y Regulatorio', '/abogado-administrativo-puerto-montt', 'Defensa ante denuncias por la Ley de Pesca y Acuicultura y de la Dirección General de Aguas, contencioso administrativo y representación de agentes de mercados regulados.'],
     ['Arrendamientos', '/abogado-arriendo-puerto-montt', 'Terminación de contrato por no pago, lanzamiento, cobro de rentas y defensa del arrendatario.'],
     ['Derecho de Familia', '/abogado-familia-puerto-montt', 'Divorcio, pensión de alimentos y su cobro, cuidado personal y compensación económica.'],
     ['Derecho Concursal', '/abogado-insolvencia-puerto-montt', 'Reorganización y liquidación de empresas (Ley N° 20.720), procedimientos simplificados para micro y pequeñas empresas, representación de acreedores y defensa en juicios ejecutivos.'],

@@ -95,7 +95,7 @@ const CivilPage: React.FC = () => {
                         <ContactCTA source="Landing Civil" />
 
                         <div className="space-y-6 text-[15px] sm:text-base leading-[1.8] text-gray-700 mt-12">
-                            <p>Representamos a empresas y personas en litigios civiles y comerciales: cobro de créditos y juicios ejecutivos, responsabilidad contractual y extracontractual, indemnización de perjuicios, herencias y particiones, y recuperación de inmuebles ocupados sin título. Actuamos tanto por la parte demandante como por la demandada.</p>
+                            <p>Representamos a empresas y personas en litigios civiles, comerciales y constitucionales, y en arbitrajes domésticos e internacionales: cobro de créditos y juicios ejecutivos, responsabilidad contractual y extracontractual, indemnización de perjuicios, herencias y particiones, y recuperación de inmuebles ocupados sin título. Actuamos tanto por la parte demandante como por la demandada.</p>
                             <p>Cada litigio parte por una evaluación de su conveniencia: la prueba disponible, el tiempo que puede tomar el proceso y la existencia de bienes que permitan hacer efectiva la sentencia. Una sentencia favorable que no se puede cobrar no resuelve el problema del cliente.</p>
                         </div>
                         
@@ -114,7 +114,10 @@ const CivilPage: React.FC = () => {
                                 <strong>Indemnizaciones de perjuicios.</strong> Cuando un incumplimiento contractual o un hecho ilícito causa un daño, la ley permite demandar su reparación. Evaluamos con el cliente si el caso justifica litigar, considerando el monto del daño, la prueba disponible y el tiempo que toma el proceso, antes de recomendar una acción judicial.
                             </p>
                             <p>
-                                <strong>Otras gestiones civiles.</strong> También tramitamos cambios de nombre ante los Tribunales Civiles, declaraciones de interdicción y otras gestiones que requieren intervención judicial.
+                                <strong>Arbitrajes.</strong> Representamos a empresas y personas en arbitrajes domésticos e internacionales, desde la designación del árbitro y el procedimiento hasta el cumplimiento del laudo.
+                            </p>
+                            <p>
+                                <strong>Acciones constitucionales.</strong> Cuando un acto arbitrario o ilegal afecta derechos que la Constitución garantiza, corresponde recurrir a las acciones constitucionales, como el recurso de protección. Preparamos y tramitamos esas acciones ante las Cortes.
                             </p>
                         </div>
 

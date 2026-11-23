@@ -11,6 +11,7 @@ const AREAS_ES = [
     { path: '/abogado-civil-puerto-montt', label: 'Litigios Civiles y Comerciales', track: 'Footer Area Civil' },
     { path: '/abogado-insolvencia-puerto-montt', label: 'Derecho Concursal', track: 'Footer Area Insolvencia' },
     { path: '/abogado-inmobiliario-puerto-montt', label: 'Inmobiliario y Construcción', track: 'Footer Area Inmobiliario' },
+    { path: '/abogado-administrativo-puerto-montt', label: 'Administrativo y Regulatorio', track: 'Footer Area Administrativo' },
     { path: '/abogado-arriendo-puerto-montt', label: 'Arriendos', track: 'Footer Area Arrendamientos' },
     { path: '/abogado-familia-puerto-montt', label: 'Derecho de Familia', track: 'Footer Area Familia' },
 ];
