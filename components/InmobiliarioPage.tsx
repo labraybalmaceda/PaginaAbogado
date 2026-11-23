@@ -21,7 +21,12 @@ const CODIGO_CIVIL = 'https://www.bcn.cl/leychile/navegar?idNorma=172986';
 const LGUC = 'https://www.bcn.cl/leychile/navegar?idNorma=13560';
 
 // Artículos de otras áreas que también sirven aquí (se omiten si no están publicados).
-const ARTICULOS_EXTRA = ['promesa-de-compraventa-incumplimiento', 'servidumbre-de-transito'];
+const ARTICULOS_EXTRA = [
+    'promesa-de-compraventa-incumplimiento',
+    'servidumbre-de-transito',
+    'arrendatario-no-se-quiere-ir-que-hacer',
+    'como-terminar-un-contrato-de-arriendo-en-chile',
+];
 
 const InmobiliarioPage: React.FC = () => {
     const handleCTA = () => {
@@ -142,7 +147,7 @@ const InmobiliarioPage: React.FC = () => {
                 <h2 className={h2}>Preguntas frecuentes</h2>
                 <FaqAccordion items={faqs} />
 
-                <RelatedPosts service="arriendos" extraSlugs={ARTICULOS_EXTRA} />
+                <RelatedPosts service="inmobiliario" extraSlugs={ARTICULOS_EXTRA} />
 
                 <div className="mt-16 sm:mt-20 pt-10 border-t border-gray-200 text-center">
                     <button onClick={handleCTA} className="w-full sm:w-auto px-10 py-4 text-[13px] sm:text-sm font-bold uppercase tracking-[0.2em] rounded-md bg-brand-black text-white hover:bg-brand-gold transition-colors duration-300 mx-auto block">

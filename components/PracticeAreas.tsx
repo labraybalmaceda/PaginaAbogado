@@ -54,8 +54,8 @@ const AREAS: Record<Lang, Area[]> = {
                 'Incumplimiento de Contrato / Cobros',
                 'Juicios Ejecutivos y Embargos',
                 'Indemnizaciones de Perjuicios',
-                'Responsabilidad Civil Patrimonial',
-                'Posesión Efectiva / Herencias'
+                'Arbitrajes Domésticos e Internacionales',
+                'Acciones Constitucionales'
             ],
             ctaText: 'Ver Litigios',
             trackingId: 'Derecho Civil'
@@ -86,6 +86,19 @@ const AREAS: Record<Lang, Area[]> = {
             ],
             ctaText: 'Ver Inmobiliario y Construcción',
             trackingId: 'Inmobiliario'
+        },
+        {
+            title: 'Administrativo y Regulatorio',
+            path: '/abogado-administrativo-puerto-montt',
+            promise: 'Defensa de la empresa ante los organismos que la fiscalizan y en la impugnación de sus decisiones.',
+            services: [
+                'Denuncias por la Ley de Pesca y Acuicultura',
+                'Denuncias de la Dirección General de Aguas',
+                'Procedimientos Contenciosos Administrativos',
+                'Agentes de Mercados Regulados'
+            ],
+            ctaText: 'Ver Administrativo y Regulatorio',
+            trackingId: 'Administrativo'
         },
     ],
     en: [
@@ -123,8 +136,8 @@ const AREAS: Record<Lang, Area[]> = {
                 'Breach of Contract / Collections',
                 'Enforcement Proceedings and Attachments',
                 'Damages Claims',
-                'Civil Liability',
-                'Probate / Inheritance'
+                'Domestic and International Arbitration',
+                'Constitutional Actions'
             ],
             ctaText: 'Litigation',
             trackingId: 'Derecho Civil EN'
@@ -162,11 +175,9 @@ const AREAS: Record<Lang, Area[]> = {
 const TEXTOS = {
     es: {
         titulo: <>Áreas de <span className="text-brand-gold">Práctica</span></>,
-        bajada: 'Asesoría legal para empresas y personas en Puerto Varas, Puerto Montt y la Región de Los Lagos.',
     },
     en: {
         titulo: <>Practice <span className="text-brand-gold">Areas</span></>,
-        bajada: 'Legal counsel for companies and individuals in Puerto Varas, Puerto Montt and the Los Lagos Region of Chile.',
     },
 };
 
@@ -216,12 +227,9 @@ const PracticeAreas: React.FC<{ lang?: Lang }> = ({ lang: langProp }) => {
         <section id="practicas" className="py-20 sm:py-28 bg-white overflow-hidden">
             <div className="container mx-auto px-4 sm:px-6">
                 <div className="text-center max-w-3xl mx-auto mb-16">
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-6 text-brand-black uppercase tracking-tight font-baskerville not-italic">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-brand-black uppercase tracking-tight font-baskerville not-italic">
                         {t.titulo}
                     </h2>
-                    <p className="text-base sm:text-lg text-gray-500 leading-relaxed">
-                        {t.bajada}
-                    </p>
                 </div>
 
                 {/* 5 tarjetas (también en inglés): 3 columnas en PC; la última fila queda centrada. */}

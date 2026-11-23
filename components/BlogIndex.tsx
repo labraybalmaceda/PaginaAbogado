@@ -17,6 +17,7 @@ const ETIQUETA_CORTA: Record<ServiceKey, string> = {
     civil: 'Civil',
     insolvencia: 'Concursal',
     corporativo: 'Corporativo',
+    inmobiliario: 'Inmobiliario',
 };
 
 /** Minúsculas y sin tildes, para que "particion" encuentre "partición". */

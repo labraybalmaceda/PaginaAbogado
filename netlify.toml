@@ -78,6 +78,11 @@
   status = 200
 
 [[redirects]]
+  from = "/abogado-administrativo-puerto-montt"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
   from = "/asesoria-legal-empresas-puerto-montt"
   to = "/index.html"
   status = 200

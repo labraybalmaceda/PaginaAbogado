@@ -25,6 +25,7 @@ const AREAS_ES = [
     { path: '/abogado-civil-puerto-montt', label: 'Litigios Civiles y Comerciales', track: 'Civil' },
     { path: '/abogado-insolvencia-puerto-montt', label: 'Derecho Concursal', track: 'Insolvencia' },
     { path: '/abogado-inmobiliario-puerto-montt', label: 'Inmobiliario y Construcción', track: 'Inmobiliario' },
+    { path: '/abogado-administrativo-puerto-montt', label: 'Administrativo y Regulatorio', track: 'Administrativo' },
     { path: '/abogado-arriendo-puerto-montt', label: 'Arriendos', track: 'Arriendos' },
     { path: '/abogado-familia-puerto-montt', label: 'Derecho de Familia', track: 'Familia' },
 ];

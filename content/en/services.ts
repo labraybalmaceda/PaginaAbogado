@@ -181,7 +181,7 @@ export const EN_SERVICES: Record<EnServiceKey, EnServicePageData> = {
         breadcrumbName: 'Civil and Commercial Litigation',
         contactSource: 'Landing Civil EN',
         intro: [
-            'We represent companies and individuals in civil and commercial litigation: debt collection and enforcement proceedings, contractual and non-contractual liability, damages claims, inheritances and partitions, and the recovery of properties occupied without title. We act for both plaintiffs and defendants.',
+            'We represent companies and individuals in civil, commercial and constitutional litigation, and in domestic and international arbitration: debt collection and enforcement proceedings, contractual and non-contractual liability, damages claims, inheritances and partitions, and the recovery of properties occupied without title. We act for both plaintiffs and defendants.',
             'Every case starts with an assessment of whether litigation makes sense: the available evidence, how long the process may take and whether there are assets that would allow the judgment to be enforced. A favourable judgment that cannot be collected does not solve the client’s problem.',
         ],
         sectionsTitle: 'Matters we cover',
@@ -203,8 +203,12 @@ export const EN_SERVICES: Record<EnServiceKey, EnServicePageData> = {
                 body: 'When a breach of contract or a wrongful act causes damage, the law allows its compensation to be claimed. We assess with the client whether the case justifies litigation, considering the amount of the damage, the available evidence and the time the process takes, before recommending legal action.',
             },
             {
-                heading: 'Other civil matters.',
-                body: 'We also handle name changes before the civil courts, declarations of legal incapacity (interdicción) and other matters that require judicial intervention.',
+                heading: 'Arbitration.',
+                body: 'We represent companies and individuals in domestic and international arbitration, from the appointment of the arbitrator and the proceedings to compliance with the award.',
+            },
+            {
+                heading: 'Constitutional actions.',
+                body: 'When an arbitrary or unlawful act affects rights guaranteed by the Constitution, constitutional actions such as the recurso de protección are available. We prepare and handle these actions before the courts of appeal.',
             },
         ],
         faqs: [
