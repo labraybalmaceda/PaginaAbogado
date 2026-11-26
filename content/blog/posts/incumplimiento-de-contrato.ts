@@ -29,7 +29,7 @@ const post: Post = {
             type: 'quote',
             text: 'Todo contrato legalmente celebrado es una ley para los contratantes, y no puede ser invalidado sino por su consentimiento mutuo o por causas legales.',
             cite: 'Artículo 1545 del Código Civil',
-            citeUrl: "https://www.bcn.cl/leychile/navegar?idNorma=172986&idParte=8717776"
+            citeUrl: "https://www.bcn.cl/leychile/navegar?idNorma=172986&idParte=8719485"
         },
         { type: 'h2', text: 'Primero: tú tienes que estar cumpliendo' },
         {
@@ -49,7 +49,7 @@ const post: Post = {
             type: 'quote',
             text: 'En los contratos bilaterales va envuelta la condición resolutoria de no cumplirse por uno de los contratantes lo pactado. Pero en tal caso podrá el otro contratante pedir a su arbitrio o la resolución o el cumplimiento del contrato, con indemnización de perjuicios.',
             cite: 'Artículo 1489 del Código Civil',
-            citeUrl: "https://www.bcn.cl/leychile/navegar?idNorma=172986&idParte=8717776"
+            citeUrl: "https://www.bcn.cl/leychile/navegar?idNorma=172986&idParte=8719422"
         },
         { type: 'h3', text: '1. Exigir el cumplimiento' },
         {

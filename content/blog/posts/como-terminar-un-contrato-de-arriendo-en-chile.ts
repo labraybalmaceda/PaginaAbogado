@@ -37,7 +37,7 @@ const post: Post = {
             type: 'quote',
             text: 'El arrendamiento de cosas expira de los mismos modos que los otros contratos, y especialmente: 1º. Por la destrucción total de la cosa arrendada; 2º. Por la expiración del tiempo estipulado para la duración del arriendo; 3º. Por la extinción del derecho del arrendador, según las reglas que más adelante se expresarán; 4º. Por sentencia del juez en los casos que la ley ha previsto.',
             cite: 'Artículo 1950 del Código Civil',
-            citeUrl: 'https://www.bcn.cl/leychile/navegar?idNorma=172986&idParte=8717776',
+            citeUrl: 'https://www.bcn.cl/leychile/navegar?idNorma=172986&idParte=8719974',
         },
         {
             type: 'p',

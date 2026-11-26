@@ -258,6 +258,9 @@ const BlogPost: React.FC<{ post: Post }> = ({ post }) => {
                 >
                     <p className="mt-5 text-xs sm:text-sm text-white/65">
                         Publicado el <time dateTime={post.date}>{formatDate(post.date)}</time>
+                        {post.updated && post.updated !== post.date && (
+                            <> · Actualizado el <time dateTime={post.updated}>{formatDate(post.updated)}</time></>
+                        )}
                     </p>
                 </PageHero>
 

@@ -53,7 +53,7 @@ const post: Post = {
             type: 'quote',
             text: 'El empresario no podrá pedir aumento de precio, a pretexto de haber encarecido los jornales o los materiales, o de haberse hecho agregaciones o modificaciones en el plan primitivo; salvo que se haya ajustado un precio particular por dichas agregaciones o modificaciones.',
             cite: 'Artículo 2003, regla 1a, del Código Civil',
-            citeUrl: 'https://www.bcn.cl/leychile/navegar?idNorma=172986&idParte=8717776',
+            citeUrl: 'https://www.bcn.cl/leychile/navegar?idNorma=172986&idParte=8720032',
         },
         {
             type: 'p',
@@ -136,7 +136,7 @@ const post: Post = {
             type: 'quote',
             text: 'Si el edificio perece o amenaza ruina, en todo o parte, en los cinco años subsiguientes a su entrega, por vicio de la construcción, o por vicio del suelo que el empresario o las personas empleadas por él hayan debido conocer en razón de su oficio, o por vicio de los materiales, será responsable el empresario; si los materiales han sido suministrados por el dueño, no habrá lugar a la responsabilidad del empresario, sino en conformidad al artículo 2000, inciso final.',
             cite: 'Artículo 2003, regla 3a, del Código Civil',
-            citeUrl: 'https://www.bcn.cl/leychile/navegar?idNorma=172986&idParte=8717776',
+            citeUrl: 'https://www.bcn.cl/leychile/navegar?idNorma=172986&idParte=8720032',
         },
         {
             type: 'p',

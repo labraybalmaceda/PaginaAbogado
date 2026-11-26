@@ -102,7 +102,7 @@ const post: Post = {
             type: 'quote',
             text: 'En el momento de deferirse la herencia, la posesión efectiva de ella se confiere por el ministerio de la ley al heredero; pero esta posesión legal no habilita al heredero para disponer en manera alguna de un inmueble, mientras no preceda: 1. La inscripción del decreto judicial o la resolución administrativa que otorgue la posesión efectiva: el primero ante el conservador de bienes raíces de la comuna o agrupación de comunas en que haya sido pronunciado, junto con el correspondiente testamento, y la segunda en el Registro Nacional de Posesiones Efectivas.',
             cite: 'Artículo 688 del Código Civil',
-            citeUrl: 'https://www.bcn.cl/leychile/navegar?idNorma=172986&idParte=8717776',
+            citeUrl: 'https://www.bcn.cl/leychile/navegar?idNorma=172986&idParte=8718558',
         },
         {
             type: 'p',
