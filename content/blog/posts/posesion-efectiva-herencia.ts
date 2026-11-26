@@ -5,7 +5,7 @@ const post: Post = {
     title: 'Posesión efectiva: qué es, cómo se tramita y por qué no conviene postergarla',
     metaTitle: 'Posesión efectiva en Chile: qué es y por qué hacerla',
     description: '¿Murió un familiar y no saben por dónde partir? La posesión efectiva es el primer paso para heredar en Chile. Cómo se pide y qué pasa si se posterga.',
-    excerpt: 'La casa sigue a nombre del padre, la cuenta del banco está congelada y nadie sabe por dónde empezar. Casi siempre el primer paso es el mismo.',
+    excerpt: 'La casa sigue a nombre del padre, la cuenta del banco está congelada y nadie sabe por dónde empezar. Por regla general, el primer paso es el mismo.',
     date: '2026-09-17',
     service: 'civil',
     blocks: [
@@ -23,7 +23,7 @@ const post: Post = {
         },
         {
             type: 'p',
-            text: 'Lo que cambia en su tramitación es si hubo testamento o no, qué bienes quedaron y si hay deudas, lo cual define dónde se hace el trámite y qué cuidados tomar. En Puerto Varas, y también en Puerto Montt, muchas herencias incluyen parcelas o terrenos, y ahí un error en el inventario se nota recién cuando el Conservador revisa los datos.',
+            text: 'Lo que cambia en su tramitación es si hubo testamento o no, qué bienes quedaron y si hay deudas, lo cual define dónde se hace el trámite y qué cuidados tomar. En Puerto Varas, y también en Puerto Montt, muchas herencias incluyen parcelas o terrenos, y ahí un error en el inventario solo se advierte cuando el Conservador revisa los datos.',
         },
         { type: 'h2', text: 'Qué es la posesión efectiva' },
         {
@@ -32,7 +32,7 @@ const post: Post = {
         },
         {
             type: 'p',
-            text: 'No es lo mismo que la posesión legal. El artículo 722 del Código Civil dispone que la posesión de la herencia se adquiere desde el momento en que es deferida, aunque el heredero lo ignore. O sea, desde la muerte los herederos ya tienen esa posesión por el solo ministerio de la ley. El problema es que no consta en ningún registro. La posesión efectiva sí queda inscrita, y con ella bancos, notarios, conservadores y el Servicio de Impuestos Internos pueden saber quiénes son los herederos.',
+            text: 'No es lo mismo que la posesión legal. El artículo 722 del Código Civil dispone que la posesión de la herencia se adquiere desde el momento en que es deferida, aunque el heredero lo ignore. Es decir, desde la muerte los herederos ya tienen esa posesión por el solo ministerio de la ley. El problema es que no consta en ningún registro. La posesión efectiva sí queda inscrita, y con ella bancos, notarios, conservadores y el Servicio de Impuestos Internos pueden saber quiénes son los herederos.',
         },
         { type: 'h2', text: 'Registro Civil o tribunal: depende de si hubo testamento' },
         {
@@ -59,12 +59,12 @@ const post: Post = {
             items: [
                 'Primero, los hijos junto con el cónyuge sobreviviente. Por regla general el cónyuge recibe el doble de lo que corresponde a cada hijo, y si hay un solo hijo, lo mismo que él. Nunca baja de la cuarta parte de la herencia o de la mitad legitimaria (artículo 988).',
                 'A falta de hijos, el cónyuge y los ascendientes de grado más próximo: dos tercios para el cónyuge y un tercio para los ascendientes (artículo 989).',
-                'Si no hay descendientes, ascendientes ni cónyuge, heredan los hermanos. (artículo 990).',
+                'Si no hay descendientes, ascendientes ni cónyuge, heredan los hermanos (artículo 990).',
             ],
         },
         {
             type: 'p',
-            text: 'Después vienen los demás familaires colaterales y, al final, el Fisco. En familias con segundas uniones o hijos de distintas relaciones, este punto es el que más dudas genera, y conviene aclararlo antes de llenar el formulario.',
+            text: 'Después vienen los demás familiares colaterales y, al final, el Fisco. En familias con segundas uniones o hijos de distintas relaciones, este punto es el que más dudas genera, y conviene aclararlo antes de llenar el formulario.',
         },
         { type: 'h2', text: 'Qué pide la ley para solicitarla en el Registro Civil' },
         {
@@ -86,7 +86,7 @@ const post: Post = {
         },
         {
             type: 'p',
-            text: 'El artículo 6 de la Ley 19.903 ordena otorgar la posesión efectiva a todos los que tengan la calidad de herederos según los registros del Registro Civil, aunque no aparezcan en la solicitud. Dejar a un hermano fuera del formulario no lo saca de la herencia. La misma norma permite concederla a quienes acrediten ser herederos aunque no estén inscritos en Chile.',
+            text: 'El artículo 6 de la Ley 19.903 ordena otorgar la posesión efectiva a todos los que tengan la calidad de herederos según los registros del Registro Civil, aunque no aparezcan en la solicitud. Dejar a un hermano fuera del formulario no lo excluye de la herencia. La misma norma permite concederla a quienes acrediten ser herederos aunque no estén inscritos en Chile.',
         },
         { type: 'h2', text: 'Publicación, inscripción y correcciones' },
         {
@@ -102,7 +102,7 @@ const post: Post = {
             type: 'quote',
             text: 'En el momento de deferirse la herencia, la posesión efectiva de ella se confiere por el ministerio de la ley al heredero; pero esta posesión legal no habilita al heredero para disponer en manera alguna de un inmueble, mientras no preceda: 1. La inscripción del decreto judicial o la resolución administrativa que otorgue la posesión efectiva: el primero ante el conservador de bienes raíces de la comuna o agrupación de comunas en que haya sido pronunciado, junto con el correspondiente testamento, y la segunda en el Registro Nacional de Posesiones Efectivas.',
             cite: 'Artículo 688 del Código Civil',
-            citeUrl: 'https://www.bcn.cl/leychile/navegar?idNorma=172986&idParte=8717776',
+            citeUrl: 'https://www.bcn.cl/leychile/navegar?idNorma=172986&idParte=8718558',
         },
         {
             type: 'p',
@@ -118,30 +118,30 @@ const post: Post = {
         },
         {
             type: 'p',
-            text: 'Saltarse un paso sale caro. Si los herederos firman la compraventa con la resolución en la mano pero sin la inscripción especial de herencia, el Conservador no inscribe el inmueble a nombre del comprador.',
+            text: 'Omitir uno de estos pasos tiene consecuencias concretas. Si los herederos firman la compraventa con la resolución en la mano pero sin la inscripción especial de herencia, el Conservador no inscribe el inmueble a nombre del comprador.',
         },
-        { type: 'h2', text: 'Beneficio de inventario: para no pagar las deudas del fallecido con tu plata' },
+        { type: 'h2', text: 'Beneficio de inventario: para no pagar las deudas del fallecido con el patrimonio propio' },
         {
             type: 'p',
-            text: 'Con la herencia también llegan las deudas. El beneficio de inventario es un tope: según el artículo 1247 del Código Civil, los herederos que aceptan su cuota con beneficio de inventario responden de las obligaciones de la herencia solo hasta el valor total de los bienes que recibieron. Si el causante debía más de lo que dejó, la diferencia no sale del bolsillo del heredero.',
+            text: 'Con la herencia también llegan las deudas. El beneficio de inventario es un tope: según el artículo 1247 del Código Civil, los herederos que aceptan su cuota con beneficio de inventario responden de las obligaciones de la herencia solo hasta el valor total de los bienes que recibieron. Si el causante debía más de lo que dejó, la diferencia no recae sobre el patrimonio propio del heredero.',
         },
         {
             type: 'p',
             text: 'En el trámite del Registro Civil, el inventario del formulario vale como inventario solemne, pero para quedar protegido el solicitante debe declarar en el mismo formulario que acepta con beneficio de inventario (artículo 4 de la Ley 19.903).',
         },
-        { type: 'h2', text: 'Si te dejaron fuera de la herencia' },
+        { type: 'h2', text: 'Si un heredero fue dejado fuera de la herencia' },
         {
             type: 'p',
-            text: 'Cuando otra persona ocupa la herencia como heredera y tú tienes mejor derecho, la herramienta es la acción de petición de herencia del artículo 1264 del Código Civil. Con ella puedes pedir que se te adjudique la herencia y se te restituyan los bienes. Si esos bienes ya pasaron a manos de terceros, el artículo 1268 permite reivindicarlos, salvo que esos terceros ya los hayan ganado por prescripción.',
+            text: 'Cuando otra persona ocupa la herencia como heredera y quien fue excluido tiene mejor derecho, la herramienta es la acción de petición de herencia del artículo 1264 del Código Civil. Con ella puede pedirse que se le adjudique la herencia y se le restituyan los bienes. Si esos bienes ya pasaron a manos de terceros, el artículo 1268 permite reivindicarlos, salvo que esos terceros ya los hayan ganado por prescripción.',
         },
         {
             type: 'p',
-            text: 'Aquí sí hay plazo. El artículo 1269 dispone que esta acción expira en diez años. Pero el heredero aparente que obtuvo la posesión efectiva a su favor puede oponer una prescripción de cinco años.',
+            text: 'En esta acción sí existe plazo. El artículo 1269 dispone que expira en diez años. Pero el heredero aparente que obtuvo la posesión efectiva a su favor puede oponer una prescripción de cinco años.',
         },
         { type: 'h2', text: 'Antes de empezar' },
         {
             type: 'p',
-            text: 'Algunas posesiones efectivas son simples. Otras se complican por un testamento que nadie conocía, un hijo no reconocido, deudas grandes o una propiedad con problemas en sus títulos. Si falleció un familiar y tienen bienes en Puerto Varas, Puerto Montt o cualquier comuna de la Región de Los Lagos, podemos revisar el caso, preparar el inventario y ordenar los pasos siguientes para que la herencia no quede detenida.',
+            text: 'Algunas posesiones efectivas son simples. Otras se complican por un testamento que nadie conocía, un hijo no reconocido, deudas grandes o una propiedad con problemas en sus títulos. En Labra & Balmaceda Abogados asesoramos a familias de Puerto Varas, Puerto Montt y la Región de Los Lagos en posesiones efectivas: revisamos el caso, preparamos el inventario y ordenamos los pasos siguientes para que la herencia no quede detenida.',
         },
     ],
     faq: [
@@ -154,12 +154,16 @@ const post: Post = {
             answer: 'No. El artículo 688 del Código Civil impide a los herederos disponer de un inmueble mientras no se inscriba la posesión efectiva y se practique la inscripción especial de herencia en el Conservador de Bienes Raíces. Con esas dos inscripciones pueden venderlo todos juntos.',
         },
         {
-            question: '¿Puedo sacar dinero del banco sin posesión efectiva?',
+            question: '¿Se puede retirar dinero del banco sin posesión efectiva?',
             answer: 'Sí, hasta cinco unidades tributarias anuales de una cuenta de ahorro. El artículo 26 de la Ley 16.271 permite ese retiro a los herederos probando solo el estado civil. Sobre ese monto se necesita la posesión efectiva.',
         },
         {
             question: '¿Qué pasa si un heredero no aparece en la solicitud?',
             answer: 'Igual queda incluido. El artículo 6 de la Ley 19.903 ordena otorgar la posesión efectiva a todos los que tengan la calidad de herederos según los registros del Registro Civil, aunque no hayan sido nombrados en la solicitud.',
+        },
+        {
+            question: '¿Quién lleva el Registro Nacional de Posesiones Efectivas?',
+            answer: 'Lo lleva el Servicio de Registro Civil e Identificación, que tramita las posesiones efectivas de las sucesiones sin testamento. Es un registro público (art. 13 de la Ley 19.903) en el que se inscribe la resolución que concede la posesión efectiva (art. 8), la cual individualiza al causante, es decir, a la persona fallecida, con su nombre y su RUN (arts. 3 y 5).',
         },
     ],
 };

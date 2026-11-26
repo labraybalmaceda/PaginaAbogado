@@ -5,6 +5,9 @@ import Seo from './Seo';
 import ContactCTA from './ContactCTA';
 import RelatedPosts from './RelatedPosts';
 
+const LEY_18101 = 'https://www.bcn.cl/leychile/navegar?idNorma=29526';
+const LEY_21461 = 'https://www.bcn.cl/leychile/navegar?idNorma=1178004';
+
 const ArriendosPage: React.FC = () => {
     const handleCTA = () => {
         window.history.pushState({}, '', '/#consulta');
@@ -77,6 +80,8 @@ const ArriendosPage: React.FC = () => {
       ]
     };
 
+    const linkClass = "underline decoration-brand-gold underline-offset-2 hover:text-brand-gold transition";
+
     return (
         <>
             <Seo
@@ -92,13 +97,13 @@ const ArriendosPage: React.FC = () => {
 
                         <div className="space-y-6 text-[15px] sm:text-base leading-[1.8] text-gray-700 mt-12">
                             <p>Asesoramos a propietarios con varias propiedades, a dueños de locales comerciales y bodegas, y a inmobiliarias. Un arrendatario que deja de pagar o que no restituye el inmueble deja un activo ocupado y sin rentas mientras el proceso judicial avanza. En Labra & Balmaceda llevamos estos casos desde la demanda hasta el lanzamiento.</p>
-                            <p>El plazo depende del tipo de conflicto. Un caso de no pago bajo la Ley Devuélveme mi Casa puede resolverse en meses. Un juicio con más complejidad como daños al inmueble, vicios del contrato, ocupación sin título, toma más tiempo. Lo primero es saber exactamente de qué tipo de caso se trata.</p>
+                            <p>El plazo depende del tipo de conflicto. Un caso de no pago bajo la <a href={LEY_21461} target="_blank" rel="noopener noreferrer" className={linkClass}>Ley Devuélveme mi Casa</a> puede resolverse en meses. Un juicio con más complejidad como daños al inmueble, vicios del contrato, ocupación sin título, toma más tiempo. Lo primero es saber exactamente de qué tipo de caso se trata.</p>
                         </div>
                         
                         <h2 className="relative text-xl sm:text-[22px] font-bold font-baskerville text-brand-black mt-16 sm:mt-20 mb-6 pt-6 before:absolute before:top-0 before:left-0 before:w-10 before:h-px before:bg-brand-gold">Materias que cubrimos</h2>
                         <div className="border-t border-gray-200 divide-y divide-gray-200 text-[15px] sm:text-base leading-[1.8] text-gray-700 [&>p]:py-6 [&>p>strong:first-child]:block [&>p>strong:first-child]:font-baskerville [&>p>strong:first-child]:text-brand-black [&>p>strong:first-child]:text-[17px] [&>p>strong:first-child]:mb-2">
                             <p>
-                                <strong>Terminación de contrato y lanzamiento.</strong> La Ley N° 18.101 regula el arrendamiento de inmuebles urbanos y establece un procedimiento especial, más rápido que el juicio ordinario. Demandamos la terminación del contrato por no pago, con cobro de rentas impagas y restitución del inmueble. El tribunal puede dictar una sentencia de lanzamiento que permite recuperar la propiedad con el auxilio de la fuerza pública.
+                                <strong>Terminación de contrato y lanzamiento.</strong> La <a href={LEY_18101} target="_blank" rel="noopener noreferrer" className={linkClass}>Ley N° 18.101</a> regula el arrendamiento de inmuebles urbanos y establece un procedimiento especial, más rápido que el juicio ordinario. Demandamos la terminación del contrato por no pago, con cobro de rentas impagas y restitución del inmueble. El tribunal puede dictar una sentencia de lanzamiento que permite recuperar la propiedad con el auxilio de la fuerza pública.
                             </p>
                             <p>
                                 <strong>Demanda de precario.</strong> Cuando alguien ocupa un inmueble sin contrato, ya sea un ex conviviente, un familiar o un tercero, la acción de precario es el mecanismo para recuperarlo.

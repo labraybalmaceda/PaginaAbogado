@@ -8,6 +8,9 @@ export type ServiceKey = 'arriendos' | 'familia' | 'civil' | 'insolvencia' | 'co
  * Bloques de contenido. El orden del arreglo es el orden en que se renderiza.
  * El <h1> NO se escribe aquí: se genera desde `title`, para garantizar que
  * exista uno solo por página.
+ *
+ * Enlaces: `p`, `list`, `summary` y la respuesta de `faq` aceptan [texto](/ruta)
+ * y [texto](https://www.bcn.cl/…). Ver renderInline en components/BlogPost.tsx.
  */
 export type Block =
     | { type: 'p'; text: string }
