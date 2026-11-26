@@ -47,7 +47,7 @@ const post: Post = {
         {
             type: 'list',
             items: [
-                'Por escrito: el acuerdo verbal, los mensajes y los correos no reemplazan el documento. La firma ante notario no es un requisito legal, pero facilita acreditar quiénes firmaron y cuándo.',
+                'Por escrito: el acuerdo verbal, los mensajes y los correos no reemplazan el documento. La firma ante notario facilita acreditar quiénes firmaron y cuándo.',
                 'Contrato prometido válido: no puede prometerse un contrato que la ley declara ineficaz. En una propiedad, conviene verificar antes que pueda venderse libremente, es decir, que no esté embargada ni afecta a prohibiciones vigentes.',
                 'Plazo o condición: la promesa debe fijar la época de la compraventa, es decir, una fecha o un hecho futuro, como la aprobación del crédito. Sin esa fijación, no hay obligación.',
                 'Contrato especificado: la propiedad y el precio deben quedar descritos de modo que, para perfeccionar la venta, solo falten la escritura pública y la inscripción en el Conservador de Bienes Raíces (arts. 1801 y 686). Si quedan puntos principales por negociar, la promesa no cumple este requisito.',
@@ -99,14 +99,6 @@ const post: Post = {
             text: 'No. Un contrato legalmente celebrado es una ley para las partes y solo se deja sin efecto por su consentimiento mutuo o por causas legales (art. 1545). Cambiar de opinión, recibir una oferta mayor o constatar que el precio de mercado subió no son causas legales.',
         },
         {
-            type: 'p',
-            text: 'La excepción son las arras, es decir, una cosa entregada en prenda de la celebración o ejecución del contrato. Cuando se pactan, la ley entiende que cada parte puede retractarse: quien las dio, perdiéndolas, y quien las recibió, restituyéndolas dobladas (art. 1803). Si el documento contempla arras, el arrepentimiento tiene un costo conocido; si no las contempla, la otra parte conserva intactas las vías de cumplimiento o resolución.',
-        },
-        {
-            type: 'p',
-            text: 'Por eso conviene revisar, antes de firmar, si hay arras y qué efecto se les asignó. La diferencia entre un documento que obliga y uno que permite retractarse puede estar en una sola cláusula.',
-        },
-        {
             type: 'h2',
             text: '4. Medidas precautorias: asegurar la propiedad mientras dura el juicio',
         },
@@ -147,20 +139,8 @@ const post: Post = {
             text: '6. ¿Qué pasa si la promesa quedó mal hecha o nunca se firmó?',
         },
         {
-            type: 'p',
-            text: 'La parte que quiere exigir la escritura no puede hacerlo: sin los requisitos del artículo 1554, la promesa no produce obligación alguna, y si nunca hubo un documento firmado, las conversaciones y los mensajes no bastan para exigirla. La otra parte, además, puede invocar el defecto para eludir el compromiso.',
-        },
-        {
-            type: 'p',
-            text: 'Aun así, el análisis no termina ahí. Corresponde revisar qué se entregó, qué antecedentes escritos existen (borradores, correos, comprobantes de transferencia) y si ambas partes siguen interesadas en el negocio. Si lo están, la solución más directa es firmar una nueva promesa que sí cumpla los requisitos; si una se opone, esos documentos permiten determinar qué vías de recuperación existen.',
-        },
-        {
-            type: 'p',
-            text: 'Por eso una promesa no es un trámite que pueda resolverse con un formulario genérico. Un error de redacción solo se advierte cuando se necesita exigir el contrato, que es el momento menos conveniente para descubrirlo.',
-        },
-        {
             type: 'h2',
-            text: '7. ¿Cuánto tiempo hay para reclamar?',
+            text: '6. ¿Cuánto tiempo hay para reclamar?',
         },
         {
             type: 'p',
@@ -177,7 +157,7 @@ const post: Post = {
         {
             type: 'list',
             items: [
-                'Verificar que la promesa conste por escrito y cumpla los cuatro requisitos del artículo 1554 antes de firmarla o de reclamar.',
+                'Verificar que la promesa cumpla los requisitos del artículo 1554.',
                 'Pactar un plazo o condición precisos, describir completamente el inmueble y el precio, y considerar una cláusula penal con monto determinado.',
                 'Comprobar que quien reclama haya cumplido, o esté dispuesto a cumplir, su propia parte (art. 1552).',
                 'Decidir pronto entre exigir la escritura o resolver la promesa, y reclamar en ambos casos la indemnización de perjuicios.',
@@ -187,21 +167,21 @@ const post: Post = {
         },
         {
             type: 'p',
-            text: 'En Labra & Balmaceda Abogados asesoramos a compradores y vendedores de propiedades en Puerto Varas, Puerto Montt y la Región de Los Lagos en promesas de compraventa, desde la revisión del documento antes de firmar hasta el juicio para exigir su cumplimiento. Quien deba firmar una promesa o enfrente un incumplimiento puede agendar una consulta con el estudio. Si el problema es más amplio que la promesa, el artículo sobre [incumplimiento de contrato](/blog/incumplimiento-de-contrato) revisa las opciones generales.',
+            text: 'En Labra & Balmaceda Abogados asesoramos a compradores y vendedores de propiedades en Puerto Varas, Puerto Montt y la Región de Los Lagos en promesas de compraventa, desde la revisión del documento antes de firmar hasta el juicio para exigirla, y evaluar que acciones se pueden ejecutar ante el [incumplimiento contractual](/blog/incumplimiento-de-contrato).',
         },
     ],
     faq: [
         {
             question: '¿Se puede obligar a alguien a firmar la escritura de compraventa?',
-            answer: 'Sí. Si la promesa cumple los requisitos del artículo 1554 del Código Civil, la parte que cumplió puede demandar el cumplimiento. El tribunal fija un plazo a la otra parte para firmar y, si no lo hace, el juez suscribe la escritura en su nombre (art. 532 del Código de Procedimiento Civil). Además, puede reclamarse indemnización de perjuicios (art. 1489 del Código Civil).',
+            answer: 'Sí. Si la promesa cumple los requisitos del artículo 1554 del Código Civil, la parte que cumplió puede demandar el cumplimiento. El tribunal fija un plazo a la otra parte para firmar. Además, puede reclamarse indemnización de perjuicios (art. 1489 del Código Civil).',
         },
         {
             question: '¿Qué requisitos debe tener una promesa de compraventa?',
-            answer: 'Debe constar por escrito, referirse a un contrato que la ley no declare ineficaz, fijar un plazo o condición para celebrar la compraventa y especificar el contrato de modo que solo falten la tradición o las solemnidades legales (art. 1554 del Código Civil). En un inmueble, esas solemnidades son la escritura pública (art. 1801) y la inscripción en el Conservador de Bienes Raíces (art. 686).',
+            answer: 'Debe constar por escrito, referirse a un contrato que la ley no declare ineficaz, fijar un plazo o condición para celebrar la compraventa y especificar el contrato de modo que solo falten la tradición o las solemnidades legales (art. 1554 del Código Civil).',
         },
         {
             question: '¿Se pierde el dinero entregado si la otra parte se arrepiente?',
-            answer: 'No automáticamente. Si la promesa es válida y la otra parte incumple, quien cumplió puede pedir la resolución, recuperar lo entregado y cobrar perjuicios, o bien exigir el cumplimiento (art. 1489 del Código Civil). La excepción son las arras: cuando se pactaron, cada parte puede retractarse, quien las dio perdiéndolas y quien las recibió restituyéndolas dobladas (art. 1803).',
+            answer: 'No automáticamente. Si la promesa es válida y la otra parte incumple, quien cumplió puede pedir la resolución, recuperar lo entregado y cobrar perjuicios, o bien exigir el cumplimiento (art. 1489 del Código Civil).',
         },
         {
             question: '¿Prescribe la acción por una promesa de compraventa incumplida?',
