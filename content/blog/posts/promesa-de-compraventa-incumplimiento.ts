@@ -12,7 +12,7 @@ const post: Post = {
     blocks: [
         {
             type: 'summary',
-            text: 'La promesa de compraventa obliga a ambas partes si cumple los cuatro requisitos del artículo 1554 del Código Civil. Quien se arrepiente no queda libre: la otra parte puede exigir que se firme la escritura, incluso mediante la firma del juez en nombre de la parte renuente, o resolver la promesa y cobrar perjuicios (art. 1489). Si falta un requisito, la promesa no produce obligación alguna.',
+            text: 'La promesa de compraventa obliga a ambas partes si cumple los cuatro requisitos del artículo 1554 del Código Civil. Quien se arrepiente no queda libre: la otra parte puede exigir que se firme la escritura o resolver la promesa y cobrar perjuicios (art. 1489). Si falta un requisito, la promesa no produce obligación alguna.',
         },
         {
             type: 'p',
@@ -74,7 +74,7 @@ const post: Post = {
         {
             type: 'list',
             items: [
-                'Cumplimiento forzado: se demanda que la otra parte firme la escritura definitiva. Si no lo hace dentro del plazo que fije el tribunal, el juez puede firmar en su nombre (art. 532 del Código de Procedimiento Civil), de modo que la escritura se otorga aunque quien prometió se resista.',
+                'Cumplimiento forzado: se demanda que la otra parte firme la escritura definitiva y cumpla así lo prometido.',
                 'Resolución: se pide dejar sin efecto la promesa y recuperar lo entregado, con indemnización. Es la vía natural cuando el negocio perdió sentido, por ejemplo si la propiedad ya se vendió a un tercero.',
             ],
         },
@@ -84,7 +84,7 @@ const post: Post = {
         },
         {
             type: 'p',
-            text: 'Corresponde precisar un punto que suele generar confusión: quien demanda tampoco puede encontrarse en incumplimiento. En un contrato bilateral, es decir, aquel en que ambas partes se obligan, ninguna está en mora mientras la otra no cumple o no se allana a cumplir en la forma y tiempo debidos (art. 1552). Si el comprador no tenía aprobado el crédito en la fecha pactada, o el vendedor no podía entregar el título saneado, la contraparte puede defenderse alegando que el demandante tampoco cumplió.',
+            text: 'Además, quien demanda tampoco puede encontrarse en incumplimiento. En un contrato bilateral, es decir, aquel en que ambas partes se obligan, ninguna está en mora mientras la otra no cumple o no se allana a cumplir en la forma y tiempo debidos (art. 1552). Si el comprador no tenía aprobado el crédito en la fecha pactada, o el vendedor no podía entregar el título saneado, la contraparte puede defenderse alegando que el demandante tampoco cumplió.',
         },
         {
             type: 'p',
@@ -136,10 +136,6 @@ const post: Post = {
         },
         {
             type: 'h2',
-            text: '6. ¿Qué pasa si la promesa quedó mal hecha o nunca se firmó?',
-        },
-        {
-            type: 'h2',
             text: '6. ¿Cuánto tiempo hay para reclamar?',
         },
         {
@@ -167,13 +163,13 @@ const post: Post = {
         },
         {
             type: 'p',
-            text: 'En Labra & Balmaceda Abogados asesoramos a compradores y vendedores de propiedades en Puerto Varas, Puerto Montt y la Región de Los Lagos en promesas de compraventa, desde la revisión del documento antes de firmar hasta el juicio para exigirla, y evaluar que acciones se pueden ejecutar ante el [incumplimiento contractual](/blog/incumplimiento-de-contrato).',
+            text: 'En Labra & Balmaceda Abogados asesoramos a compradores y vendedores de propiedades en Puerto Varas, Puerto Montt y la Región de Los Lagos en promesas de compraventa, desde la revisión del documento antes de firmar hasta el juicio para exigir su cumplimiento, y evaluamos qué acciones pueden ejercerse ante el [incumplimiento contractual](/blog/incumplimiento-de-contrato).',
         },
     ],
     faq: [
         {
             question: '¿Se puede obligar a alguien a firmar la escritura de compraventa?',
-            answer: 'Sí. Si la promesa cumple los requisitos del artículo 1554 del Código Civil, la parte que cumplió puede demandar el cumplimiento. El tribunal fija un plazo a la otra parte para firmar. Además, puede reclamarse indemnización de perjuicios (art. 1489 del Código Civil).',
+            answer: 'Sí. Si la promesa cumple los requisitos del artículo 1554 del Código Civil, la parte que cumplió puede demandar el cumplimiento, es decir, que la otra parte firme la escritura, y reclamar indemnización de perjuicios (art. 1489 del Código Civil).',
         },
         {
             question: '¿Qué requisitos debe tener una promesa de compraventa?',
