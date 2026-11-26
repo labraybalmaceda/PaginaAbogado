@@ -13,9 +13,16 @@ import PageHero from './PageHero';
 import FaqAccordion from './FaqAccordion';
 import DepthCard, { depthLayerStyle } from './DepthCard';
 
-// Enlaces dentro del texto: [texto visible](/ruta-interna). Solo rutas internas (empiezan con /).
+// Enlaces dentro del texto: [texto visible](/ruta-interna) o [texto visible](https://www.bcn.cl/…).
+// shortcut: solo se aceptan rutas internas y el host www.bcn.cl (cualquier otro enlace queda como texto); agregar otro host aquí si hiciera falta.
+const LINK = /\[([^\]]+)\]\((\/[^)\s]*|https:\/\/www\.bcn\.cl\/[^)\s]*)\)/;
+const LINK_CLASS = 'text-brand-gold font-semibold underline hover:text-brand-black transition';
+
+// Texto plano (JSON-LD): quita la marca de enlace y deja el texto visible.
+const plain = (text: string) => text.replace(new RegExp(LINK.source, 'g'), '$1');
+
 const renderInline = (text: string): React.ReactNode => {
-    const re = /\[([^\]]+)\]\((\/[^)\s]*)\)/g;
+    const re = new RegExp(LINK.source, 'g');
     const parts: React.ReactNode[] = [];
     let last = 0;
     let match: RegExpExecArray | null;
@@ -24,18 +31,24 @@ const renderInline = (text: string): React.ReactNode => {
         if (match.index > last) parts.push(text.slice(last, match.index));
         const href = match[2];
         parts.push(
-            <a
-                key={k++}
-                href={href}
-                onClick={(e) => {
-                    if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
-                    e.preventDefault();
-                    navigateTo(href);
-                }}
-                className="text-brand-gold font-semibold underline hover:text-brand-black transition"
-            >
-                {match[1]}
-            </a>
+            href.startsWith('/') ? (
+                <a
+                    key={k++}
+                    href={href}
+                    onClick={(e) => {
+                        if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+                        e.preventDefault();
+                        navigateTo(href);
+                    }}
+                    className={LINK_CLASS}
+                >
+                    {match[1]}
+                </a>
+            ) : (
+                <a key={k++} href={href} target="_blank" rel="noopener noreferrer" className={LINK_CLASS}>
+                    {match[1]}
+                </a>
+            )
         );
         last = match.index + match[0].length;
     }
@@ -91,7 +104,7 @@ const renderBlock = (block: Block, i: number) => {
             return (
                 <div key={i} className="border-l-2 border-brand-gold pl-5 sm:pl-6 my-9">
                     <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-brand-gold mb-2">En resumen</p>
-                    <p className={CUERPO}>{block.text}</p>
+                    <p className={CUERPO}>{renderInline(block.text)}</p>
                 </div>
             );
         case 'p':
@@ -205,7 +218,7 @@ const BlogPost: React.FC<{ post: Post }> = ({ post }) => {
                 mainEntity: post.faq.map((f) => ({
                     '@type': 'Question',
                     name: f.question,
-                    acceptedAnswer: { '@type': 'Answer', text: f.answer },
+                    acceptedAnswer: { '@type': 'Answer', text: plain(f.answer) },
                 })),
             });
         }
@@ -276,7 +289,7 @@ const BlogPost: React.FC<{ post: Post }> = ({ post }) => {
                         {post.faq && post.faq.length > 0 && (
                             <section className="mt-14">
                                 <h2 id="preguntas-frecuentes" className="relative text-xl sm:text-[22px] font-bold font-baskerville text-brand-black mb-6 pt-5 scroll-mt-28 before:absolute before:top-0 before:left-0 before:w-10 before:h-px before:bg-brand-gold">Preguntas frecuentes</h2>
-                                <FaqAccordion items={post.faq} />
+                                <FaqAccordion items={post.faq.map((f) => ({ question: f.question, answer: renderInline(f.answer) }))} />
                             </section>
                         )}
 

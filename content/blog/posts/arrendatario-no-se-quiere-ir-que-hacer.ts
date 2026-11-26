@@ -12,7 +12,7 @@ const post: Post = {
     blocks: [
         {
             type: 'summary',
-            text: 'Recuperar una propiedad arrendada exige una orden judicial: cambiar la chapa o cortar los servicios expone al arrendador a indemnizar perjuicios (art. 1929 del Código Civil). Si el problema es la falta de pago, el procedimiento monitorio da al arrendatario diez días corridos para pagar; si no paga ni se opone, queda condenado y se ordena su lanzamiento (art. 18-C de la Ley 18.101).',
+            text: 'Recuperar una propiedad arrendada exige una orden judicial: cambiar la chapa o cortar los servicios expone al arrendador a indemnizar perjuicios ([art. 1929 del Código Civil](https://www.bcn.cl/leychile/navegar?idNorma=172986&idParte=8719952)). Si el problema es la falta de pago, el procedimiento monitorio da al arrendatario diez días corridos para pagar; si no paga ni se opone, queda condenado y se ordena su lanzamiento (art. 18-C de la Ley 18.101).',
         },
         {
             type: 'p',
@@ -20,7 +20,7 @@ const post: Post = {
         },
         {
             type: 'p',
-            text: 'Desde 2022, la Ley 21.461, conocida como «Devuélveme mi casa», agregó a la Ley 18.101 un procedimiento monitorio pensado precisamente para el arrendatario que no paga, además de una restitución anticipada para el inmueble que el arrendatario destruyó o dejó inutilizable. Para propietarios de Puerto Varas, Puerto Montt y el resto de la Región de Los Lagos, eso significa que hoy existe una vía judicial más corta que la de hace algunos años, siempre que se elija la que corresponde al caso.',
+            text: 'Desde 2022, la [Ley 21.461](https://www.bcn.cl/leychile/navegar?idNorma=1178004), conocida como «Devuélveme mi casa», agregó a la Ley 18.101 un procedimiento monitorio pensado precisamente para el arrendatario que no paga, además de una restitución anticipada para el inmueble que el arrendatario destruyó o dejó inutilizable. Para propietarios de Puerto Varas, Puerto Montt y el resto de la Región de Los Lagos, eso significa que hoy existe una vía judicial más corta que la de hace algunos años, siempre que se elija la que corresponde al caso.',
         },
         {
             type: 'p',
@@ -132,8 +132,12 @@ const post: Post = {
     ],
     faq: [
         {
+            question: '¿Qué hacer si el arrendatario no paga la renta?',
+            answer: 'La Ley 18.101 contempla el procedimiento monitorio de cobro de rentas de arrendamiento y restitución del inmueble. Se requiere al arrendatario para que pague, en diez días corridos, las rentas, los gastos comunes y los consumos adeudados, más intereses y costas; si no paga, no comparece ni se opone, se lo tiene por condenado y se dispone su lanzamiento (arts. 18-A y 18-C).',
+        },
+        {
             question: '¿Se puede cambiar la chapa o cortar la luz si el arrendatario no paga?',
-            answer: 'No. Mientras no haya una orden judicial, el arrendatario conserva el derecho a usar el inmueble, y si el arrendador lo perturba en ese uso debe indemnizarle los perjuicios (art. 1929 del Código Civil). Si además hay violencia, puede configurarse una falta penal (art. 494 N° 16 y N° 20 del Código Penal). La restitución se obtiene con una demanda, y el lanzamiento lo ordena el tribunal.',
+            answer: 'No. Mientras no haya una orden judicial, el arrendatario conserva el derecho a usar el inmueble, y si el arrendador lo perturba en ese uso debe indemnizarle los perjuicios ([art. 1929 del Código Civil](https://www.bcn.cl/leychile/navegar?idNorma=172986&idParte=8719952)). Si además hay violencia, puede configurarse una falta penal (art. 494 N° 16 y N° 20 del Código Penal). La restitución se obtiene con una demanda, y el lanzamiento lo ordena el tribunal.',
         },
         {
             question: '¿Puede el arrendatario detener el juicio pagando lo que debe?',

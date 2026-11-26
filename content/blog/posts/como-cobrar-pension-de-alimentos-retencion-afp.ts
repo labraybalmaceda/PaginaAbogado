@@ -95,7 +95,7 @@ const post: Post = {
         {
             question: '¿Puedo cobrar pensiones atrasadas de hace muchos años?',
             answer:
-                'En general sí. Según el artículo 19 bis de la Ley 14.908, el plazo de prescripción solo comienza a correr cuando el alimentario cumple veintiún años, y desde ahí son tres años para la acción ejecutiva más dos como ordinaria. Deudas antiguas suelen seguir siendo cobrables.',
+                'En general sí. Según el [artículo 19 bis de la Ley 14.908](https://www.bcn.cl/leychile/navegar?idNorma=172986&idParte=10285897), el plazo de prescripción solo comienza a correr cuando el alimentario cumple veintiún años, y desde ahí son tres años para la acción ejecutiva más dos como ordinaria. Deudas antiguas suelen seguir siendo cobrables.',
         },
         {
             question: '¿Puedo sacar dinero de la AFP del deudor?',
